@@ -1,16 +1,13 @@
 plugins {
-    id 'com.android.application'
+    id 'com.android.library'
     id 'org.jetbrains.kotlin.android'
-    id 'kotlin-kapt'
-    id 'com.google.dagger.hilt.android'
 }
 
 android {
-    namespace 'com.season.winter.catchbottle'
+    namespace 'com.season.winter.room'
     compileSdk 33
 
     defaultConfig {
-        applicationId "com.season.winter.catchbottle"
         minSdk 24
         targetSdk 33
         versionCode 1
@@ -32,34 +29,14 @@ android {
     kotlinOptions {
         jvmTarget = JavaVersion.VERSION_17.toString()
     }
-    dataBinding {
-        enabled = true
-    }
 }
 
 dependencies {
 
-    implementation project(":core:common")
-    implementation project(":core:config")
-    implementation project(":core:data:model")
-    implementation project(":core:design:designsystem")
-    implementation project(":core:design:ui")
-    implementation project(":core:network:firestore")
-
     implementation 'androidx.core:core-ktx:1.8.0'
     implementation 'androidx.appcompat:appcompat:1.6.1'
-    implementation 'com.google.android.material:material:1.5.0'
-    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
+    implementation 'com.google.android.material:material:1.9.0'
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.5'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
-
-    implementation 'androidx.lifecycle:lifecycle-runtime-ktx:2.6.1'
-    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.1"
-    implementation "com.google.dagger:hilt-android:2.44"
-    kapt "com.google.dagger:hilt-compiler:2.44"
-}
-
-kapt {
-    correctErrorTypes true
 }
