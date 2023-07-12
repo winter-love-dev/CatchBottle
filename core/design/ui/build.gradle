@@ -38,6 +38,7 @@ android {
 dependencies {
 
     implementation project(":core:design:core_design_resource")
+    implementation project(":core:design:designsystem")
 
     implementation 'androidx.core:core-ktx:1.10.1'
     implementation 'androidx.appcompat:appcompat:1.6.1'

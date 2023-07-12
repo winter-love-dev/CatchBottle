@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- base -->
+
+    <dimen name="font_weight_700">700</dimen>
+    <dimen name="font_weight_600">600</dimen>
+    <dimen name="font_weight_500">500</dimen>
+
+    <dimen name="font_size_xs">12sp</dimen>
+    <dimen name="font_size_s">14sp</dimen>
+    <dimen name="font_size_m">16sp</dimen>
+    <dimen name="font_size_l">20sp</dimen>
+    <dimen name="font_size_xl">24sp</dimen>
+    <dimen name="font_size_xxl">28sp</dimen>
+
+    <!-- features -->
+
+    <!-- 제목은 다양한 계층 구조를 만드는 데 사용됩니다 -->
+    <dimen name="font_head_l">@dimen/font_size_xxl</dimen>  <!--font_weight_700-->
+    <dimen name="font_head_m">@dimen/font_size_xl</dimen> <!--font_weight_700-->
+    <dimen name="font_head_s">@dimen/font_size_l</dimen> <!--font_weight_700-->
+    <dimen name="font_head_xs">@dimen/font_size_m</dimen> <!--font_weight_600-->
+
+    <!-- Body 는 주로 컴포넌트 요소와 텍스트 블록에 사용됩니다. -->
+    <dimen name="font_body_l">@dimen/font_size_xl</dimen> <!--font_weight_500-->
+    <dimen name="font_body_m">@dimen/font_size_m</dimen> <!--font_weight_500-->
+    <dimen name="font_body_s">@dimen/font_size_s</dimen> <!--font_weight_500-->
+
+    <!-- Caption 은 주로 정보나 작은 항목을 표시할 때 사용됩니다. -->
+    <dimen name="font_caption_m">@dimen/font_size_s</dimen> <!--font_weight_500-->
+    <dimen name="font_caption_s">@dimen/font_size_s</dimen> <!--font_weight_500-->
+
+    <!-- input -->
+    <dimen name="font_input_place_holder">@dimen/font_body_m</dimen>
+    <dimen name="font_input_label">@dimen/font_caption_m</dimen>
+    <dimen name="font_input_caption">@dimen/font_caption_m</dimen>
+
+    <!-- border -->
+    <dimen name="border_radius_xs">4dp</dimen>
+    <dimen name="border_radius_s">6dp</dimen>
+    <dimen name="border_radius_m">8dp</dimen>
+    <dimen name="border_radius_l">12dp</dimen>
+
+    <!-- spacing -->
+    <dimen name="spacing_xxs">4dp</dimen>
+    <dimen name="spacing_xs">8dp</dimen>
+    <dimen name="spacing_s">12dp</dimen>
+    <dimen name="spacing_m">16dp</dimen>
+    <dimen name="spacing_l">20dp</dimen>
+    <dimen name="spacing_xl">32dp</dimen>
+    <dimen name="spacing_xxl">40dp</dimen>
+    <dimen name="spacing_xxxl">60dp</dimen>
+    <dimen name="spacing_xxxxl">120dp</dimen>
+
+</resources>

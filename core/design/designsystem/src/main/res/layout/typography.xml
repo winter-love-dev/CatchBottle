@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+<!--    <TextView-->
+<!--        android:text="font_head_xs"-->
+<!--        android:fontFamily="@font/pretendard_m"-->
+<!--        android:textSize="@dimen/font_head_xs"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="match_parent"/>-->
+
+<!--    android:text="font_head_xs"-->
+<!--    android:fontFamily="@font/pretendard_m"-->
+<!--    android:textSize="@dimen/font_head_xs"-->
+
+    <com.season.winter.designsystem.typography.objects.CBTextView
+        tools:cb_text="asd"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/spacing_s"/>
+
+</LinearLayout>
