@@ -2,15 +2,11 @@ package com.season.winter.designsystem.typography.base
 
 import com.season.winter.designsystem.R
 
-enum class Weight {
-    _700,
-    _600,
-    _500,
+enum class Weight(
+    val value: Int
+) {
+    W700(R.integer.font_weight_700),
+    W600(R.integer.font_weight_600),
+    W500(R.integer.font_weight_500),
     ;
-
-    val value: Int get() = when(this) {
-        _700 -> R.dimen.font_weight_700
-        _600 -> R.dimen.font_weight_600
-        _500 -> R.dimen.font_weight_500
-    }
 }

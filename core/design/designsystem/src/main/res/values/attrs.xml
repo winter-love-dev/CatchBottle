@@ -3,16 +3,18 @@
 
     <declare-styleable name="CBTextView">
         <attr name="cb_text" format="string" />
-        <attr name="cb_textColor" format="integer" />
-        <attr name="cb_textSize">
-            <enum name="xs" value="0" />
-            <enum name="s" value="1" />
-            <enum name="m" value="2" />
-            <enum name="l" value="3" />
-            <enum name="xl" value="4" />
-            <enum name="xxl" value="5" />
+        <attr name="cb_text_color" format="reference|color" />
+        <attr name="cb_text_view_type">
+            <enum name="head_xs"   value="0" />
+            <enum name="head_s"    value="1" />
+            <enum name="head_m"    value="2" />
+            <enum name="head_l"    value="3" />
+            <enum name="body_s"    value="4" />
+            <enum name="body_m"    value="5" />
+            <enum name="body_l"    value="6" />
+            <enum name="caption_s" value="7" />
+            <enum name="caption_m" value="8" />
         </attr>
-
     </declare-styleable>
 
 </resources>

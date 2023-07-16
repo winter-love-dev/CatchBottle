@@ -40,9 +40,13 @@ android {
 dependencies {
 
     implementation project(":core:common")
-    implementation project(":core:data:model")
+
+    implementation project(":core:design:core_design_resource")
     implementation project(":core:design:designsystem")
     implementation project(":core:design:ui")
+
+    implementation project(":core:data:model")
+
     implementation project(":core:network:firestore")
 
     implementation 'androidx.core:core-ktx:1.10.1'

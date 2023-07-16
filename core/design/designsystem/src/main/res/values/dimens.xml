@@ -3,9 +3,9 @@
 
     <!-- base -->
 
-    <dimen name="font_weight_700">700</dimen>
-    <dimen name="font_weight_600">600</dimen>
-    <dimen name="font_weight_500">500</dimen>
+    <integer name="font_weight_700">700</integer>
+    <integer name="font_weight_600">600</integer>
+    <integer name="font_weight_500">500</integer>
 
     <dimen name="font_size_xs">12sp</dimen>
     <dimen name="font_size_s">14sp</dimen>
@@ -29,7 +29,7 @@
 
     <!-- Caption 은 주로 정보나 작은 항목을 표시할 때 사용됩니다. -->
     <dimen name="font_caption_m">@dimen/font_size_s</dimen> <!--font_weight_500-->
-    <dimen name="font_caption_s">@dimen/font_size_s</dimen> <!--font_weight_500-->
+    <dimen name="font_caption_s">@dimen/font_size_xs</dimen> <!--font_weight_500-->
 
     <!-- input -->
     <dimen name="font_input_place_holder">@dimen/font_body_m</dimen>

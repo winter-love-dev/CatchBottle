@@ -1,76 +1,160 @@
 package com.season.winter.designsystem.typography
 
-import com.season.winter.designsystem.typography.base.Size
+import android.content.Context
+import android.content.res.TypedArray
+import android.graphics.Typeface
+import androidx.core.content.res.ResourcesCompat
+import com.season.winter.designsystem.R
+import com.season.winter.designsystem.typography.base.FontFamily
+import com.season.winter.designsystem.typography.base.FontSize
 import com.season.winter.designsystem.typography.base.Weight
 
-enum class CBTypography {
-    HeadL,
-    HeadM,
-    HeadS,
-    HeadXs,
-
-    BodyL,
-    BodyM,
-    BodyS,
-
-    CaptionM,
-    CaptionS,
-
-    ButtonFirst,
-    ButtonSecond,
-
-    InputPlaceHolder,
-    InputLabel,
-    InputCaption,
-
-    ListTitle,
-    ListDescription,
-    ListLabel,
+enum class CBTypography(
+    val fontFamily: Int,
+    val weight: Int,
+    val size: Int,
+) {
+    HeadXs(
+        FontFamily.BoldResource,
+        Weight.W600.value,
+        FontSize.Xs.headSize
+    ),
+    HeadS(
+        FontFamily.BoldResource,
+        Weight.W700.value,
+        FontSize.S.headSize
+    ),
+    HeadM(
+        FontFamily.BoldResource,
+        Weight.W700.value,
+        FontSize.M.headSize
+    ),
+    HeadL(
+        FontFamily.BoldResource,
+        Weight.W700.value,
+        FontSize.L.headSize
+    ),
+    BodyS(
+        FontFamily.MediumResource,
+        Weight.W500.value,
+        FontSize.S.bodySize
+    ),
+    BodyM(
+        FontFamily.MediumResource,
+        Weight.W500.value,
+        FontSize.M.bodySize
+    ),
+    BodyL(
+        FontFamily.MediumResource,
+        Weight.W500.value,
+        FontSize.L.bodySize
+    ),
+    CaptionS(
+        FontFamily.RegularResource,
+        Weight.W500.value,
+        FontSize.S.captionSize
+    ),
+    CaptionM(
+        FontFamily.RegularResource,
+        Weight.W500.value,
+        FontSize.M.captionSize
+    ),
+    ButtonFirst(
+        FontFamily.RegularResource,
+        BodyM.weight,
+        BodyM.size,
+    ),
+    ButtonSecond(
+        FontFamily.RegularResource,
+        BodyS.weight,
+        BodyS.size,
+    ),
+    InputPlaceHolder(
+        FontFamily.RegularResource,
+        BodyM.weight,
+        BodyM.size,
+    ),
+    InputLabel(
+        FontFamily.RegularResource,
+        CaptionM.weight,
+        CaptionM.size
+    ),
+    InputCaption(
+        FontFamily.RegularResource,
+        CaptionM.weight,
+        CaptionM.size
+    ),
+    ListTitle(
+        FontFamily.RegularResource,
+        BodyM.weight,
+        BodyM.size
+    ),
+    ListDescription(
+        FontFamily.RegularResource,
+        CaptionM.weight,
+        CaptionM.size
+    ),
+    ListLabel(
+        FontFamily.RegularResource,
+        CaptionM.weight,
+        CaptionM.size
+    ),
     ;
 
-    val weight: Int  get() = when(this) {
-        HeadL    -> Weight._700.value
-        HeadM    -> Weight._700.value
-        HeadS    -> Weight._700.value
-        HeadXs   -> Weight._600.value
-        BodyL    -> Weight._500.value
-        BodyM    -> Weight._500.value
-        BodyS    -> Weight._500.value
-        CaptionM -> Weight._500.value
-        CaptionS -> Weight._500.value
+    companion object {
 
-        ButtonFirst -> BodyM.weight
-        ButtonSecond -> BodyS.weight
+        fun getDefaultSize(context: Context): Float {
+            return context.resources.getDimension(BodyM.size)
+        }
 
-        InputPlaceHolder -> BodyM.weight
-        InputLabel -> CaptionM.weight
-        InputCaption -> CaptionM.weight
+        fun getDefaultHeadSize(context: Context): Float {
+            return context.resources.getDimension(HeadXs.size)
+        }
 
-        ListTitle -> BodyM.weight
-        ListDescription -> CaptionM.weight
-        ListLabel -> CaptionM.weight
-    }
+        fun getHeadInfo(textSize: Int = 2): CBTypography {
+            return when (textSize) {
+                0 -> HeadXs
+                1 -> HeadS
+                2 -> HeadM
+                3 -> HeadL
+                else -> HeadM
+            }
+        }
 
-    val size: Int get() = when(this) {
-        HeadL    -> Size.Xxl.value
-        HeadM    -> Size.Xl.value
-        HeadS    -> Size.L.value
-        HeadXs   -> Size.M.value
-        BodyL    -> Size.Xl.value
-        BodyM    -> Size.M.value
-        BodyS    -> Size.S.value
-        CaptionM -> Size.S.value
-        CaptionS -> Size.Xs.value
+        fun getBodyInfo(textSize: Int = 2): CBTypography {
+            return when (textSize) {
+                0 -> BodyS
+                1 -> BodyM
+                2 -> BodyL
+                else -> BodyM
+            }
+        }
 
-        ButtonFirst -> BodyM.size
-        ButtonSecond -> BodyS.size
+        fun getCaptionInfo(textSize: Int = 2): CBTypography {
+            return when (textSize) {
+                0 -> CaptionS
+                1 -> CaptionM
+                else -> CaptionM
+            }
+        }
 
-        InputPlaceHolder -> BodyM.size
-        InputLabel -> CaptionM.size
-        InputCaption -> CaptionM.size
+        fun getFontRes(context: Context, cbTypography: CBTypography): Typeface? {
+            return ResourcesCompat.getFont(context, cbTypography.fontFamily)
+        }
 
-        ListTitle -> BodyM.size
-        ListDescription -> CaptionM.size
-        ListLabel -> CaptionM.size
+        val TypedArray.textViewType get(): CBTypography {
+            return when (getInt(R.styleable.CBTextView_cb_text_view_type, 0)) {
+                0 -> HeadXs
+                1 -> HeadS
+                2 -> HeadM
+                3 -> HeadL
+                4 -> BodyS
+                5 -> BodyM
+                6 -> BodyL
+                7 -> CaptionS
+                8 -> CaptionM
+                else -> BodyM
+            }
+        }
     }
 }
