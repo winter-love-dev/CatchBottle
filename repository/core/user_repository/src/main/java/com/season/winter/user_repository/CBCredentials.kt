@@ -5,14 +5,21 @@ import com.season.winter.common.util.sharedPrefrences.SecureSharedPreferences.Co
 import com.season.winter.config.sharedPrefences.UserKeyStore
 
 
-object Credentials {
+object CBCredentials {
+
+    val isLogin: Boolean get() =
+        securePreferences.get(UserKeyStore.isLogin, false)
+
     val userName: String?
         get() = securePreferences
             .get(UserKeyStore.userName, "")
             .ifEmpty { null }
 
-    fun saveUserName(userName: String) {
-        securePreferences.put(UserKeyStore.userName, userName)
+    fun login(userName: String) {
+        securePreferences.run {
+            put(UserKeyStore.isLogin, true)
+            put(UserKeyStore.userName, userName)
+        }
     }
 
     fun logout(context: Context) {

@@ -4,47 +4,65 @@
     xmlns:android="http://schemas.android.com/apk/res/android">
 
     <LinearLayout
-        android:orientation="vertical"
-        style="@style/spacing_vertical"
+        style="@style/default_background"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-        <LinearLayout
-            android:layout_marginTop="@dimen/spacing_xl"
-            android:orientation="horizontal"
+        <ScrollView
+            android:layout_weight="1"
+            android:overScrollMode="never"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="match_parent">
 
-            <ImageView
-                android:rotation="38"
-                android:layout_marginStart="-35dp"
-                style="@style/logo_icon"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
 
-            <ImageView
-                android:layout_marginStart="-24dp"
-                android:layout_gravity="bottom"
-                style="@style/logo_text_small"/>
 
-        </LinearLayout>
+                <ImageView
+                    android:layout_marginTop="@dimen/spacing_xxxl"
+                    style="@style/logo_icon"
+                    android:layout_marginStart="-35dp"
+                    android:rotation="38" />
 
-        <com.season.winter.ui.textView.CBTextView
-            app:cb_text="Login"
-            app:cb_text_view_type="head_l"
-            android:layout_marginTop="@dimen/spacing_s"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+                <com.season.winter.ui.textView.CBTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom"
+                    app:cb_text="Good to see you"
+                    app:cb_text_view_type="head_l" />
 
-        <com.season.winter.ui.textView.CBTextView
-            app:cb_text="Welcome to Catch Bottle"
-            app:cb_text_view_type="body_m"
-            android:textColor="@color/gray_1"
-            android:layout_marginTop="@dimen/spacing_xs"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
 
-        <EditText
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+                <com.season.winter.ui.textView.CBTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/spacing_xs"
+                    android:textColor="@color/gray_1"
+                    app:cb_text="Discovering exquisite bottles with"
+                    app:cb_text_view_type="body_m" />
+
+                <ImageView
+                    android:layout_gravity="end"
+                    style="@style/logo_text_small"/>
+
+                <EditText
+                    android:id="@+id/name_edit_text"
+                    android:layout_marginBottom="@dimen/spacing_xl"
+                    android:layout_marginTop="@dimen/spacing_xl"
+                    style="@style/cb_input_first"
+                    android:hint="input your name" />
+
+            </LinearLayout>
+
+        </ScrollView>
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/login_button"
+            style="@style/cb_button_first"
+            android:layout_marginBottom="@dimen/spacing_l"
+            android:text="login" />
 
     </LinearLayout>
 

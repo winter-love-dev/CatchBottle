@@ -1,18 +1,15 @@
 package com.season.winter.catchbottle.activity.splash
 
-import android.animation.ObjectAnimator
 import android.annotation.SuppressLint
+import android.app.Activity
 import android.os.Bundle
-import android.view.View
-import android.view.ViewTreeObserver
-import android.view.animation.AnticipateInterpolator
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.animation.doOnEnd
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
+import com.season.winter.catchbottle.activity.login.LoginActivity
 import com.season.winter.catchbottle.activity.main.MainActivity
-import com.season.winter.common.extention.activity.startActivitySimpleTransition
-import com.season.winter.common.util.sharedPrefrences.SecureSharedPreferences
-import com.season.winter.config.sharedPrefences.CommonKeyStore
+import com.season.winter.common.extention.activity.cbStartActivity
+import com.season.winter.common_repository.SplashPreferences.isFirstLaunch
+import com.season.winter.user_repository.CBCredentials
 
 @SuppressLint("CustomSplashScreen")
 class SplashActivity: AppCompatActivity() {
@@ -20,14 +17,17 @@ class SplashActivity: AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         installSplashScreen()
         super.onCreate(savedInstanceState)
-
-
-
-        exit()
+        checkLaunchTargetActivity()
     }
 
-    private fun exit() {
-        startActivitySimpleTransition(MainActivity::class.java)
-        finish()
+    private fun checkLaunchTargetActivity() {
+        when {
+            isFirstLaunch || !CBCredentials.isLogin ->
+                cbStartActivity(LoginActivity::class.java)
+
+            else ->
+                cbStartActivity(MainActivity::class.java)
+        }
     }
+
 }

@@ -3,11 +3,23 @@ package com.season.winter.common.extention.activity
 import android.app.Activity
 import android.content.Intent
 
-fun <T: Activity> Activity.startActivitySimpleTransition(
+enum class CBActivityTransition {
+    LEFT,
+    RIGHT,
+    UP,
+    DOWN,
+}
+
+fun <T: Activity> Activity.cbStartActivity(
     activity: Class<T>,
-    noAnimation: Boolean = false,
+    finishThisActivity: Boolean = true,
+    transition: CBActivityTransition? = null
 ) = Intent(this, activity) .run {
-    if(noAnimation)
+
+    if(transition == null)
         addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION)
+
     startActivity(this)
+    if (finishThisActivity)
+        finish()
 }

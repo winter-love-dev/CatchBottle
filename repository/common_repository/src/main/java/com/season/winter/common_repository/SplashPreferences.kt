@@ -5,10 +5,11 @@ import com.season.winter.config.sharedPrefences.CommonKeyStore
 
 object SplashPreferences {
 
-    val isFirstLaunch: Boolean get() {
-        val isFirst = securePreferences.get(CommonKeyStore.isFirstLaunch, true)
-        if (isFirst)
-            securePreferences.put(CommonKeyStore.isFirstLaunch, false)
-        return isFirst
-    }
+    val isFirstLaunch: Boolean
+        get() = securePreferences.run {
+            val isFirst = get(CommonKeyStore.isFirstLaunch, true)
+            if (isFirst)
+                put(CommonKeyStore.isFirstLaunch, false)
+            isFirst
+        }
 }

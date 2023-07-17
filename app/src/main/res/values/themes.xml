@@ -3,6 +3,9 @@
     <style name="Base.Theme.CatchBottle" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Customize your light theme here. -->
         <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+        <item name="android:statusBarColor">@color/brand_light</item>
+        <item name="android:windowLightStatusBar">true</item>
+        <item name="android:fontFamily">@font/pretendard_r</item>
     </style>
 
     <style name="Theme.CatchBottle" parent="Base.Theme.CatchBottle" />

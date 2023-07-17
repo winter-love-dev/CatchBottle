@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <style name="spacing_vertical">
+    <style name="default_background">
+        <item name="android:backgroundTint">@color/brand_light</item>
         <item name="android:layout_marginLeft">@dimen/spacing_s</item>
         <item name="android:layout_marginRight">@dimen/spacing_s</item>
     </style>
@@ -28,6 +29,54 @@
         <item name="android:src">@drawable/logo_text</item>
         <item name="android:layout_width">180dp</item>
         <item name="android:layout_height">80dp</item>
+    </style>
+
+    <style name="cb_button_first">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:background">@drawable/cb_button_brand_first</item>
+        <item name="android:textColor">@color/brand_light</item>
+        <item name="android:textSize">@dimen/font_body_s</item>
+        <item name="android:fontFamily">@font/pretendard_r</item>
+        <item name="android:paddingBottom">@dimen/spacing_s</item>
+        <item name="android:paddingTop">@dimen/spacing_s</item>
+    </style>
+
+    <style name="cb_button_second">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:background">@drawable/cb_button_brand_first</item>
+        <item name="android:backgroundTint">@color/gray_5</item>
+        <item name="android:textColor">@color/brand_light</item>
+        <item name="android:textSize">@dimen/font_body_s</item>
+        <item name="android:fontFamily">@font/pretendard_r</item>
+        <item name="android:paddingBottom">@dimen/spacing_s</item>
+        <item name="android:paddingTop">@dimen/spacing_s</item>
+    </style>
+
+    <style name="cb_button_third">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:background">@drawable/cb_button_brand_first</item>
+        <item name="android:backgroundTint">@color/gray_2</item>
+        <item name="android:textColor">@color/gray_5</item>
+        <item name="android:textSize">@dimen/font_body_s</item>
+        <item name="android:fontFamily">@font/pretendard_m</item>
+        <item name="android:paddingBottom">@dimen/spacing_s</item>
+        <item name="android:paddingTop">@dimen/spacing_s</item>
+    </style>
+
+    <style name="cb_input_first">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:background">@drawable/cb_input</item>
+        <item name="android:fontFamily">@font/pretendard_r</item>
+        <item name="android:textSize">@dimen/font_input_place_holder</item>
+        <item name="android:textColor">@color/gray_5</item>
+        <item name="android:paddingLeft">@dimen/spacing_m</item>
+        <item name="android:paddingRight">@dimen/spacing_m</item>
+        <item name="android:paddingBottom">@dimen/spacing_m</item>
+        <item name="android:paddingTop">@dimen/spacing_m</item>
     </style>
 
 </resources>

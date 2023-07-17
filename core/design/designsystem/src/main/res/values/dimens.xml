@@ -32,7 +32,7 @@
     <dimen name="font_caption_s">@dimen/font_size_xs</dimen> <!--font_weight_500-->
 
     <!-- input -->
-    <dimen name="font_input_place_holder">@dimen/font_body_m</dimen>
+    <dimen name="font_input_place_holder">@dimen/font_body_s</dimen>
     <dimen name="font_input_label">@dimen/font_caption_m</dimen>
     <dimen name="font_input_caption">@dimen/font_caption_m</dimen>
 
