@@ -15,6 +15,7 @@ dependencyResolutionManagement {
 rootProject.name = "catchbottle"
 include ':app'
 include ':core:common'
+include ':core:config'
 include ':core:data:model'
 include ':core:design:designsystem'
 include ':core:design:ui'

@@ -71,12 +71,9 @@
                 android:layout_height="wrap_content"/>
 
             <ImageView
-                style="@style/logo_full"
-                android:src="@drawable/logo_full"/>
-
+                style="@style/logo_full"/>
             <ImageView
                 style="@style/logo_icon"/>
-
             <ImageView
                 style="@style/logo_text"/>
 
