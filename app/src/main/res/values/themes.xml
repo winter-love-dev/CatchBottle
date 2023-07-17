@@ -6,4 +6,20 @@
     </style>
 
     <style name="Theme.CatchBottle" parent="Base.Theme.CatchBottle" />
+
+    <!-- <style name="Theme.App.Splash" parent="Theme.SplashScreen">-->
+    <style name="Theme.App.Splash" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+        <item name="android:windowSplashScreenBackground" tools:targetApi="s">@color/brand_light</item>
+        <item name="android:windowSplashScreenAnimatedIcon" tools:targetApi="s">@drawable/logo_icon</item>
+        <item name="android:windowSplashScreenAnimationDuration" tools:targetApi="s">1000</item>
+        <item name="android:windowSplashScreenIconBackgroundColor" tools:targetApi="s">@color/brand_light</item>
+        <item name="android:windowSplashScreenBrandingImage" tools:targetApi="s">@drawable/logo_text</item>
+        <item name="postSplashScreenTheme">@style/Theme.CatchBottle</item>
+
+        <!-- 필요시 다크모드 같은 상황 고려. Status bar and Nav bar configs -->
+        <item name="android:statusBarColor">@color/white</item>
+        <item name="android:navigationBarColor">@color/white</item>
+        <item name="android:windowLightStatusBar">true</item>
+    </style>
+
 </resources>

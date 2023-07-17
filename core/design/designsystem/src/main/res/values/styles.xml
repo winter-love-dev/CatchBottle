@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="spacing_vertical">
+        <item name="android:layout_marginLeft">@dimen/spacing_s</item>
+        <item name="android:layout_marginRight">@dimen/spacing_s</item>
+    </style>
+
+    <style name="logo_full">
+        <item name="android:src">@drawable/logo_full</item>
+        <item name="android:layout_width">200dp</item>
+        <item name="android:layout_height">200dp</item>
+    </style>
+
+    <style name="logo_icon">
+        <item name="android:src">@drawable/logo_icon</item>
+        <item name="android:layout_width">140dp</item>
+        <item name="android:layout_height">140dp</item>
+    </style>
+
+    <style name="logo_text">
+        <item name="android:src">@drawable/logo_text</item>
+        <item name="android:layout_width">200dp</item>
+        <item name="android:layout_height">90dp</item>
+    </style>
+
+</resources>

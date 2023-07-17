@@ -10,6 +10,7 @@
         android:layout_height="match_parent">
 
         <LinearLayout
+            style="@style/spacing_vertical"
             android:paddingVertical="40dp"
             android:orientation="vertical"
             android:layout_width="match_parent"
@@ -68,6 +69,16 @@
                 app:cb_text="caption_m"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
+
+            <ImageView
+                style="@style/logo_full"
+                android:src="@drawable/logo_full"/>
+
+            <ImageView
+                style="@style/logo_icon"/>
+
+            <ImageView
+                style="@style/logo_text"/>
 
         </LinearLayout>
 

@@ -9,8 +9,8 @@
     <color name="white">#FFFFFFFF</color>
     <color name="transparent">#00ffffff</color>
 
-    <color name="brand_first">#ff7f00</color>
-    <color name="brand_light">#FFCB98</color>
+    <color name="brand_first">#71663B</color>
+    <color name="brand_light">#EBE9E3</color>
     <color name="red_light_1">#FFF5F5</color>
     <color name="red_light_2">#FFE0E0</color>
     <color name="red_light_3">#FFCCCC</color>
