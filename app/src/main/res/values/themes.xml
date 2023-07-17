@@ -10,8 +10,8 @@
     <!-- <style name="Theme.App.Splash" parent="Theme.SplashScreen">-->
     <style name="Theme.App.Splash" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
         <item name="android:windowSplashScreenBackground" tools:targetApi="s">@color/brand_light</item>
-        <item name="android:windowSplashScreenAnimatedIcon" tools:targetApi="s">@drawable/logo_icon</item>
-        <item name="android:windowSplashScreenAnimationDuration" tools:targetApi="s">1000</item>
+        <item name="android:windowSplashScreenAnimationDuration" tools:targetApi="s">3000</item>
+        <item name="android:windowSplashScreenAnimatedIcon" tools:targetApi="s">@drawable/logo_icon_small</item>
         <item name="android:windowSplashScreenIconBackgroundColor" tools:targetApi="s">@color/brand_light</item>
         <item name="android:windowSplashScreenBrandingImage" tools:targetApi="s">@drawable/logo_text</item>
         <item name="postSplashScreenTheme">@style/Theme.CatchBottle</item>
