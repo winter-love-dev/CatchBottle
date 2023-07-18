@@ -22,7 +22,8 @@ object CBCredentials {
         }
     }
 
-    fun logout(context: Context) {
+    fun logout(context: Context, onLogout: (() -> Unit)? = null) {
         context.clearPreferencesForLogout()
+        onLogout?.invoke()
     }
 }

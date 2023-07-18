@@ -10,7 +10,6 @@
         android:layout_height="match_parent">
 
         <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/logout_button"
             android:text="Logout"
             style="@style/cb_button_first"/>
 

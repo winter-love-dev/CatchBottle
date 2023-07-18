@@ -14,7 +14,7 @@ fun <T: Activity> Activity.cbStartActivity(
     activity: Class<T>,
     finishThisActivity: Boolean = true,
     transition: CBActivityTransition? = null
-) = Intent(this, activity) .run {
+) = Intent(this, activity).run {
 
     if(transition == null)
         addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION)
