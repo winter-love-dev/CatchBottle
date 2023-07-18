@@ -17,6 +17,7 @@ class SplashActivity: AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         installSplashScreen()
         super.onCreate(savedInstanceState)
+        // refresh remote config ...
         checkLaunchTargetActivity()
     }
 
