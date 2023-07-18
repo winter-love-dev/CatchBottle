@@ -1,5 +1,9 @@
 package com.season.winter.catchbottle.activity.main
 
+import android.util.Log
+import androidx.activity.viewModels
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.fragment.findNavController
@@ -10,10 +14,16 @@ import androidx.navigation.ui.setupWithNavController
 import com.season.winter.catchbottle.R
 import com.season.winter.catchbottle.databinding.ActivityMainBinding
 import com.season.winter.common.activity.BaseActivity
+import com.season.winter.common.extention.coroutine.cbWhenStarted
+import com.season.winter.main_navigation_contents.viewmodels.MainViewModel
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.flow.collect
+import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
 class MainActivity: BaseActivity<ActivityMainBinding>(R.layout.activity_main) {
+
+    private val viewModel: MainViewModel by viewModels()
 
     override fun ActivityMainBinding.initView() {
 
@@ -21,23 +31,12 @@ class MainActivity: BaseActivity<ActivityMainBinding>(R.layout.activity_main) {
         val navController = navHostFragment.findNavController()
         bottomNavigation.setupWithNavController(navController)
 
-
-
-//        val navHostFragment = supportFragmentManager.findFragmentById(R.id.fragment_container) as NavHostFragment
-//        val navController = navHostFragment.navController
-//        bottomNavigation.setupWithNavController(navController)
-
-//        NavigationUI.setupWithNavController(bottomNavigation, findNavController(R.id.fragment_host))
-
-//        val navHostFragment = supportFragmentManager.findFragmentById(R.id.fragment_container) as NavHostFragment
-//        val navController = navHostFragment.findNavController()
-//        bottomNavigation.setupWithNavController(navController)
-
-//        val navController = findNavController(R.id.fragment_container)
-//        setupActionBarWithNavController(navController)
-//        navController.addOnDestinationChangedListener { controller, destination, arguments ->
-//            destination.label as String
-//        }
-//        navController.navigateUp()
+        coroutine.launch {
+            cbWhenStarted {
+                viewModel.onCountFlow.collect { count ->
+                    Log.e("TAG", "initView: received main activity: count: $count", )
+                }
+            }
+        }
     }
 }
