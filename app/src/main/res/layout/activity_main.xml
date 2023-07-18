@@ -5,80 +5,51 @@
     xmlns:tools="http://schemas.android.com/tools"
     >
 
-    <ScrollView
+    <LinearLayout
+        android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <LinearLayout
-            style="@style/default_background"
-            android:paddingVertical="40dp"
-            android:orientation="vertical"
+<!--        <androidx.fragment.app.FragmentContainerView
+            android:id="@+id/fragment_container"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:name="androidx.navigation.fragment.NavHostFragment"
+            app:navGraph='@navigation/nav_cb_main_graph'
+            />-->
 
-            <com.season.winter.ui.textView.CBTextView
-                app:cb_text_view_type="head_xs"
-                app:cb_text="head_xs"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
+<!--        <androidx.fragment.app.FragmentContainerView-->
+        <androidx.fragment.app.FragmentContainerView
+            android:id="@+id/fragment_host"
+            android:name="androidx.navigation.fragment.NavHostFragment"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            app:defaultNavHost="true"
+            app:navGraph="@navigation/nav_cb_graph" />
 
-            <com.season.winter.ui.textView.CBTextView
-                app:cb_text_view_type="head_s"
-                app:cb_text="head_s"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
+        <View
+            android:backgroundTint="@color/brand_first"
+            android:layout_width="match_parent"
+            android:layout_height="0.1dp"/>
 
-            <com.season.winter.ui.textView.CBTextView
-                app:cb_text_view_type="head_m"
-                app:cb_text="head_m"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
+        <com.google.android.material.bottomnavigation.BottomNavigationView
+            android:id="@+id/bottom_navigation"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:itemBackground="@color/white"
+            app:itemIconSize="@dimen/spacing_xl"
+            app:itemIconTint="@drawable/cb_nav_selector"
+            app:itemTextColor="@drawable/cb_nav_selector"
+            app:itemRippleColor="@color/gray_1"
+            app:itemActiveIndicatorStyle="@style/App.Custom.Indicator"
+            app:labelVisibilityMode="labeled"
+            app:menu="@menu/cb_nav_menu"
+            />
 
-            <com.season.winter.ui.textView.CBTextView
-                app:cb_text_view_type="head_l"
-                app:cb_text="head_l"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
+    </LinearLayout>
 
-            <com.season.winter.ui.textView.CBTextView
-                app:cb_text_view_type="body_s"
-                app:cb_text="body_s"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
 
-            <com.season.winter.ui.textView.CBTextView
-                app:cb_text_view_type="body_m"
-                app:cb_text="body_m"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
-
-            <com.season.winter.ui.textView.CBTextView
-                app:cb_text_view_type="body_l"
-                app:cb_text="body_l"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
-
-            <com.season.winter.ui.textView.CBTextView
-                app:cb_text_view_type="caption_s"
-                app:cb_text="caption_s"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
-
-            <com.season.winter.ui.textView.CBTextView
-                app:cb_text_view_type="caption_m"
-                app:cb_text="caption_m"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
-
-            <ImageView
-                style="@style/logo_full"/>
-            <ImageView
-                style="@style/logo_icon"/>
-            <ImageView
-                style="@style/logo_text"/>
-
-        </LinearLayout>
-
-    </ScrollView>
 
 </layout>

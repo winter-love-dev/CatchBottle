@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_cb_graph"
+    app:startDestination="@id/home_fragment">
+
+    <fragment
+        android:id="@+id/home_fragment"
+        android:name="com.season.winter.main_navigation_contents.fragments.HomeFragment"
+        android:label="fragment_home"
+        tools:layout="@layout/fragment_home" >
+
+        <action
+            android:id="@+id/action_home_fragment_to_map_fragment"
+            app:destination="@id/map_fragment" />
+        <action
+            android:id="@+id/action_home_fragment_to_wish_list_fragment"
+            app:destination="@id/wish_list_fragment" />
+        <action
+            android:id="@+id/action_home_fragment_to_more_fragment"
+            app:destination="@id/more_fragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/map_fragment"
+        android:name="com.season.winter.main_navigation_contents.fragments.MapFragment"
+        android:label="fragment_map"
+        tools:layout="@layout/fragment_map"  >
+
+        <action
+            android:id="@+id/action_map_fragment_to_home_fragment"
+            app:destination="@id/home_fragment" />
+        <action
+            android:id="@+id/action_map_fragment_to_wish_list_fragment"
+            app:destination="@id/wish_list_fragment" />
+        <action
+            android:id="@+id/action_map_fragment_to_more_fragment"
+            app:destination="@id/more_fragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/wish_list_fragment"
+        android:name="com.season.winter.main_navigation_contents.fragments.WishListFragment"
+        android:label="fragment_wish_list"
+        tools:layout="@layout/fragment_wish_list" >
+
+        <action
+            android:id="@+id/action_wish_list_fragment_to_home_fragment"
+            app:destination="@id/home_fragment" />
+        <action
+            android:id="@+id/action_wish_list_fragment_to_map_fragment"
+            app:destination="@id/map_fragment" />
+        <action
+            android:id="@+id/action_wish_list_fragment_to_more_fragment"
+            app:destination="@id/more_fragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/more_fragment"
+        android:name="com.season.winter.main_navigation_contents.fragments.MoreFragment"
+        android:label="fragment_more"
+        tools:layout="@layout/fragment_more"  >
+
+        <action
+            android:id="@+id/action_more_fragment_to_home_fragment"
+            app:destination="@id/home_fragment" />
+        <action
+            android:id="@+id/action_more_fragment_to_map_fragment"
+            app:destination="@id/map_fragment" />
+        <action
+            android:id="@+id/action_more_fragment_to_wish_list_fragment"
+            app:destination="@id/wish_list_fragment" />
+    </fragment>
+</navigation>

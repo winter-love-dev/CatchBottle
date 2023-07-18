@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            style="@style/default_background"
+            android:paddingVertical="40dp"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <com.season.winter.ui.textView.CBTextView
+                app:cb_text_view_type="head_xs"
+                app:cb_text="head_xs"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <com.season.winter.ui.textView.CBTextView
+                app:cb_text_view_type="head_s"
+                app:cb_text="head_s"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <com.season.winter.ui.textView.CBTextView
+                app:cb_text_view_type="head_m"
+                app:cb_text="head_m"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <com.season.winter.ui.textView.CBTextView
+                app:cb_text_view_type="head_l"
+                app:cb_text="head_l"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <com.season.winter.ui.textView.CBTextView
+                app:cb_text_view_type="body_s"
+                app:cb_text="body_s"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <com.season.winter.ui.textView.CBTextView
+                app:cb_text_view_type="body_m"
+                app:cb_text="body_m"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <com.season.winter.ui.textView.CBTextView
+                app:cb_text_view_type="body_l"
+                app:cb_text="body_l"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <com.season.winter.ui.textView.CBTextView
+                app:cb_text_view_type="caption_s"
+                app:cb_text="caption_s"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <com.season.winter.ui.textView.CBTextView
+                app:cb_text_view_type="caption_m"
+                app:cb_text="caption_m"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <ImageView
+                style="@style/logo_full"/>
+            <ImageView
+                style="@style/logo_icon"/>
+            <ImageView
+                style="@style/logo_text"/>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</layout>
