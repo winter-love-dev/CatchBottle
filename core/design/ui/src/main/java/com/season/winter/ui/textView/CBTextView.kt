@@ -7,9 +7,12 @@ import android.graphics.Typeface
 import android.util.AttributeSet
 import android.util.TypedValue
 import androidx.appcompat.widget.AppCompatTextView
+import com.season.winter.common.extention.context.getDimension
+import com.season.winter.common.extention.context.getInteger
 import com.season.winter.designsystem.R
 import com.season.winter.designsystem.typography.CBTypography
 import com.season.winter.designsystem.typography.CBTypography.Companion.textViewType
+import com.season.winter.designsystem.typography.base.Weight
 import com.season.winter.ui.extensions.getAttr
 
 class CBTextView @JvmOverloads constructor(
@@ -18,10 +21,10 @@ class CBTextView @JvmOverloads constructor(
 ): AppCompatTextView(context, attrs) {
 
     private var text: String = ""
-    private var weight: Int = Typeface.NORMAL
-    private var textSize: Float = CBTypography.getDefaultSize(context)
-    private var textColor: Int = context.getColor(R.color.gray_5)
-    private var fontFamily: Typeface = Typeface.DEFAULT
+    private var weight: Int = getWeight(context)
+    private var textSize: Float = getDefaultTextSize(context)
+    private var textColor: Int = getDefaultTextColor(context)
+    private var fontFamily: Typeface = getFontFamily(context, CBTypography.BodyM)
 
     init {
         initAttributes()
@@ -71,8 +74,8 @@ class CBTextView @JvmOverloads constructor(
 
         // font
         val cbTypography = typed.textViewType
-        textSize = context.resources.getDimension(cbTypography.size)
-        weight = context.resources.getInteger(cbTypography.weight)
+        textSize = context.getDimension(cbTypography.size)
+        weight = context.getInteger(cbTypography.weight)
         fontFamily = CBTypography.getFontRes(context, cbTypography) ?: Typeface.DEFAULT
 
         // color
@@ -86,5 +89,28 @@ class CBTextView @JvmOverloads constructor(
         setTextColor(textColor)
         setTextSize(TypedValue.COMPLEX_UNIT_PX, textSize) // setTextSize(TypedValue.COMPLEX_UNIT_SP, textSize)
         setText(text)
+    }
+
+
+    companion object {
+
+        fun getWeight(context: Context): Int {
+            return context.getInteger(Weight.W500.value)
+        }
+
+        fun getDefaultTextSize(context: Context): Float {
+            return CBTypography.getDefaultSize(context)
+        }
+
+        fun getFontFamily(context: Context, cbTypography: CBTypography?): Typeface {
+            return if (cbTypography != null)
+                CBTypography.getFontRes(context, cbTypography)
+            else
+                CBTypography.getFontRes(context, CBTypography.BodyM)
+        }
+
+        fun getDefaultTextColor(context: Context): Int {
+            return context.getColor(R.color.gray_5)
+        }
     }
 }

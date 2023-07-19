@@ -17,4 +17,13 @@
         </attr>
     </declare-styleable>
 
+    <declare-styleable name="CBEditText">
+        <attr name="cb_input_use_delete_button" format="boolean" />
+        <attr name="cb_edit_text_type">
+            <enum name="first" value="0" />
+            <enum name="ghost" value="1" />
+            <enum name="search" value="2" />
+        </attr>
+    </declare-styleable>
+
 </resources>

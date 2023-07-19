@@ -41,6 +41,15 @@
     <dimen name="border_radius_s">6dp</dimen>
     <dimen name="border_radius_m">8dp</dimen>
     <dimen name="border_radius_l">12dp</dimen>
+    <dimen name="border_radius_xl">24dp</dimen>
+    <dimen name="border_radius_xxl">32dp</dimen>
+    <dimen name="border_radius_xxxl">50dp</dimen>
+
+    <dimen name="border_width_xs">0.1dp</dimen>
+    <dimen name="border_width_s">1dp</dimen>
+    <dimen name="border_width_m">1.5dp</dimen>
+    <dimen name="border_width_l">2.0dp</dimen>
+    <dimen name="border_width_xl">2.5dp</dimen>
 
     <!-- spacing -->
     <dimen name="spacing_xxs">4dp</dimen>

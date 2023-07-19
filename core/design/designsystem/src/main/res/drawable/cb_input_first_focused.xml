@@ -7,9 +7,15 @@
             <solid android:color="@color/brand_light"/>
             <corners android:radius="@dimen/border_radius_l"/>
             <stroke
-                android:width="0.1dp"
+                android:width="@dimen/border_width_l"
                 android:color="@color/brand_first"
                 android:radius="@dimen/border_radius_l"/>
+            <padding
+                android:paddingLeft="@dimen/spacing_m"
+                android:paddingRight="@dimen/spacing_m"
+                android:paddingBottom="@dimen/spacing_m"
+                android:paddingTop="@dimen/spacing_m"
+                />
         </shape>
     </item>
 

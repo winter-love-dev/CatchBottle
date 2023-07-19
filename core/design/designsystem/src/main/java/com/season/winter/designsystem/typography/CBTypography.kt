@@ -71,7 +71,7 @@ enum class CBTypography(
     ),
     InputPlaceHolder(
         FontFamily.RegularResource,
-        BodyM.weight,
+        BodyS.weight,
         BodyM.size,
     ),
     InputLabel(
@@ -138,8 +138,12 @@ enum class CBTypography(
             }
         }
 
-        fun getFontRes(context: Context, cbTypography: CBTypography): Typeface? {
-            return ResourcesCompat.getFont(context, cbTypography.fontFamily)
+        fun getFontRes(context: Context, cbTypography: CBTypography): Typeface {
+            return ResourcesCompat.getFont(context, cbTypography.fontFamily) ?: getDefaultFontRes(context)
+        }
+
+        private fun getDefaultFontRes(context: Context): Typeface {
+            return ResourcesCompat.getFont(context, BodyM.fontFamily)!!
         }
 
         val TypedArray.textViewType get(): CBTypography {

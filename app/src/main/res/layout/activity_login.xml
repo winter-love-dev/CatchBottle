@@ -55,9 +55,18 @@
                 <EditText
                     android:layout_marginHorizontal="@dimen/spacing_s"
                     android:id="@+id/name_edit_text"
-                    android:layout_marginBottom="@dimen/spacing_xl"
+                    android:layout_marginBottom="@dimen/spacing_s"
                     android:layout_marginTop="@dimen/spacing_xl"
                     style="@style/cb_input_first"
+                    android:hint="input your name" />
+
+<!--                style="@style/cb_input_first"-->
+<!--                android:layout_marginTop="@dimen/spacing_xl"-->
+                <com.season.winter.ui.input.CBEditText
+                    android:layout_marginHorizontal="@dimen/spacing_s"
+                    android:layout_marginBottom="@dimen/spacing_xl"
+                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent"
                     android:hint="input your name" />
 
             </LinearLayout>

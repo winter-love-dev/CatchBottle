@@ -57,7 +57,7 @@
     <style name="cb_input_first">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
-        <item name="android:background">@drawable/cb_input</item>
+        <item name="android:background">@drawable/cb_input_first</item>
         <item name="android:fontFamily">@font/pretendard_r</item>
         <item name="android:textSize">@dimen/font_input_place_holder</item>
         <item name="android:textColor">@color/gray_5</item>
