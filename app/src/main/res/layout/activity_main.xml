@@ -10,16 +10,6 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-<!--        <androidx.fragment.app.FragmentContainerView
-            android:id="@+id/fragment_container"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:name="androidx.navigation.fragment.NavHostFragment"
-            app:navGraph='@navigation/nav_cb_main_graph'
-            />-->
-
-<!--        <androidx.fragment.app.FragmentContainerView-->
         <androidx.fragment.app.FragmentContainerView
             android:id="@+id/fragment_host"
             android:name="androidx.navigation.fragment.NavHostFragment"
@@ -37,9 +27,9 @@
         <com.google.android.material.bottomnavigation.BottomNavigationView
             android:id="@+id/bottom_navigation"
             android:layout_width="match_parent"
-            android:layout_height="70dp"
+            android:layout_height="65dp"
             app:itemBackground="@color/white"
-            app:itemIconSize="@dimen/spacing_xl"
+            app:itemIconSize="24dp"
             app:itemIconTint="@drawable/cb_nav_selector"
             app:itemTextColor="@drawable/cb_nav_selector"
             app:itemRippleColor="@color/gray_1"

@@ -43,6 +43,9 @@ class CBEditText @JvmOverloads constructor(
 
     private var onCBTextChangedListener: ((text: String) -> Unit)? = null
 
+    val textString: String
+        get() = (text ?: "").toString()
+
     init {
 
         context.obtainStyledAttributes(
@@ -163,7 +166,7 @@ class CBEditText @JvmOverloads constructor(
         if (isVisible && needPadding) {
             if (motionEvent.action == MotionEvent.ACTION_UP) {
                 error = null
-                text = null
+                this@CBEditText.text = null
             }
             return true
         }

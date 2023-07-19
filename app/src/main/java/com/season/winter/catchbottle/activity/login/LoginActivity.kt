@@ -25,10 +25,9 @@ class LoginActivity: BaseActivity<ActivityLoginBinding>(R.layout.activity_login)
             }
         }
         loginButton.setOnClickListener {
-            nameEditText.text.run {
-                if (this.isNotEmpty())
-                    viewModel.login(this.toString())
-            }
+            val text = nameEditText.textString
+            if (text.isNotEmpty())
+                viewModel.login(text)
         }
     }
 }
