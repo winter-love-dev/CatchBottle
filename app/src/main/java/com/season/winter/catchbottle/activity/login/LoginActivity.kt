@@ -7,8 +7,7 @@ import dagger.hilt.android.AndroidEntryPoint
 import androidx.activity.viewModels
 import com.season.winter.catchbottle.activity.main.MainActivity
 import com.season.winter.common.extention.activity.cbStartActivity
-import com.season.winter.common.extention.coroutine.cbWhenStarted
-import kotlinx.coroutines.launch
+import com.season.winter.common.extention.coroutine.repeatOnLifecycle
 
 @AndroidEntryPoint
 class LoginActivity: BaseActivity<ActivityLoginBinding>(R.layout.activity_login) {
@@ -16,18 +15,15 @@ class LoginActivity: BaseActivity<ActivityLoginBinding>(R.layout.activity_login)
     private val viewModel: LoginViewModel by viewModels()
 
     override fun ActivityLoginBinding.initView() {
-        coroutine.launch {
-            cbWhenStarted {
-                viewModel.onSavedUserNameFlow.collect { isSaved ->
-                    if(isSaved)
-                        cbStartActivity(MainActivity::class.java)
-                }
-            }
+        repeatOnLifecycle(viewModel.onSavedUserNameFlow) { isSaved ->
+            if(isSaved)
+                cbStartActivity(MainActivity::class.java, true)
         }
         loginButton.setOnClickListener {
-            val text = nameEditText.textString
-            if (text.isNotEmpty())
-                viewModel.login(text)
+            nameEditText.text.toString().run {
+                if (isNotEmpty())
+                    viewModel.login(this)
+            }
         }
     }
 }

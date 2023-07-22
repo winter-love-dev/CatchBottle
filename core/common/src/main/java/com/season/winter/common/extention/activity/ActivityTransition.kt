@@ -12,7 +12,7 @@ enum class CBActivityTransition {
 
 fun <T: Activity> Activity.cbStartActivity(
     activity: Class<T>,
-    finishThisActivity: Boolean = true,
+    finishThisActivity: Boolean,
     transition: CBActivityTransition? = null
 ) = Intent(this, activity).run {
 

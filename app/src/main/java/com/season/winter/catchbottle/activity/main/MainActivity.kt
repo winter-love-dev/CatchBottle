@@ -11,6 +11,7 @@ import com.season.winter.catchbottle.databinding.ActivityMainBinding
 import com.season.winter.common.activity.BaseActivity
 import com.season.winter.common.extention.activity.cbStartActivity
 import com.season.winter.common.extention.coroutine.cbWhenStarted
+import com.season.winter.common.extention.coroutine.repeatOnLifecycle
 import com.season.winter.main_navigation_contents.viewmodels.MainViewModel
 import com.season.winter.main_navigation_contents.R as NavR
 import dagger.hilt.android.AndroidEntryPoint
@@ -22,19 +23,14 @@ class MainActivity: BaseActivity<ActivityMainBinding>(R.layout.activity_main) {
     private val viewModel: MainViewModel by viewModels()
 
     override fun ActivityMainBinding.initView() {
-
-        viewModel.onLogoutListener = {
-            cbStartActivity(LoginActivity::class.java)
-        }
-
-        coroutine.launch {
-            cbWhenStarted {
-                viewModel.onCountFlow.collect { count ->
-                    Log.e("TAG", "initView: received main activity: count: $count", )
-                }
+        repeatOnLifecycle(viewModel.onLogoutListener) {
+            if (it) {
+                cbStartActivity(LoginActivity::class.java, true)
             }
         }
-
+        repeatOnLifecycle(viewModel.onCountFlow) {
+            Log.e("TAG", "initView: received main activity: count: $it", )
+        }
 
         val navHostFragment = supportFragmentManager.findFragmentById(R.id.fragment_host) as NavHostFragment
         val navController = navHostFragment.findNavController()

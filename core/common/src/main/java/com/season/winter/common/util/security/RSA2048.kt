@@ -4,14 +4,13 @@ import android.security.keystore.KeyGenParameterSpec
 import android.security.keystore.KeyProperties
 import android.util.Base64
 import android.util.Log
-import com.season.winter.common.util.sharedPrefrences.AndroidRsaCipherHelper
 import java.security.GeneralSecurityException
 import java.security.KeyPairGenerator
 import java.security.KeyStore
 import java.security.spec.RSAKeyGenParameterSpec
 import javax.crypto.Cipher
 
-object RSA256 {
+object RSA2048 {
 
     private const val rsaKeyAlgorithm = KeyProperties.KEY_ALGORITHM_RSA
     private const val ecbBlock = KeyProperties.BLOCK_MODE_ECB

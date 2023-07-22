@@ -10,9 +10,7 @@ class MoreFragment: BaseNavigationFragment<FragmentMoreBinding>(R.layout.fragmen
     override fun FragmentMoreBinding.initAfterView() {
         activityViewModel.printCount()
         logoutButton.setOnClickListener {
-            CBCredentials.logout(requireContext()) {
-                activityViewModel.onLogout()
-            }
+            activityViewModel.onLogout()
         }
     }
 }

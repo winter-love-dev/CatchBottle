@@ -9,6 +9,13 @@ class SecureSharedPreferences(private val sharedPref: SharedPreferences) {
     // 사용중인 키 값인지 확인하기
     fun contains(key: String) = sharedPref.contains(key)
 
+    fun clear() {
+        sharedPref.edit().run {
+            clear()
+            apply()
+        }
+    }
+
     fun get(key: String, defaultValue: Boolean): Boolean = getInternal(key, defaultValue)
     fun get(key: String, defaultValue: Int): Int = getInternal(key, defaultValue)
     fun get(key: String, defaultValue: Long): Long = getInternal(key, defaultValue)
@@ -20,6 +27,8 @@ class SecureSharedPreferences(private val sharedPref: SharedPreferences) {
         if (str.isNullOrEmpty()) {
             return defaultValue
         }
+
+
         val value = AndroidRsaCipherHelper.decrypt(str)
 
         @Suppress("PlatformExtensionReceiverOfInline", "UNCHECKED_CAST", "IMPLICIT_CAST_TO_ANY")
@@ -56,29 +65,14 @@ class SecureSharedPreferences(private val sharedPref: SharedPreferences) {
 
     companion object {
 
-        private lateinit var prefHelper: SharedPreferences
-
-        private var _instance: SecureSharedPreferences? = null
-        private val instance: SecureSharedPreferences
-            get() = _instance!!
+        lateinit var securePreferences: SecureSharedPreferences
+            private set
 
         fun init(context: Context) {
-            prefHelper = context.getSharedPreferences(PrefCommon, 0)
-            if (_instance == null)
-                _instance = SecureSharedPreferences(prefHelper)
-        }
-
-        val securePreferences: SecureSharedPreferences
-            get() = instance
-
-        fun Context.clearAllPreferences() {
-            getSharedPreferences(PrefCommon, 0)
-                .edit()
-                .run {
-                    clear()
-                    commit()
-                }
-            init(this)
+            if (::securePreferences.isInitialized.not()) {
+                val prefHelper = context.getSharedPreferences(PrefCommon, 0)
+                securePreferences = SecureSharedPreferences(prefHelper)
+            }
         }
     }
 }

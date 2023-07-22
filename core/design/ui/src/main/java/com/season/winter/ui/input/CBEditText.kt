@@ -43,9 +43,6 @@ class CBEditText @JvmOverloads constructor(
 
     private var onCBTextChangedListener: ((text: String) -> Unit)? = null
 
-    val textString: String
-        get() = (text ?: "").toString()
-
     init {
 
         context.obtainStyledAttributes(
