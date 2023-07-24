@@ -13,17 +13,27 @@ dependencyResolutionManagement {
     }
 }
 rootProject.name = "catchbottle"
+
 include ':app'
 include ':core:common'
 include ':core:config'
-include ':core:data:model'
+
+include ':core:design:core_design_resource'
 include ':core:design:designsystem'
 include ':core:design:ui'
-include ':core:network:firestore'
+
+include ':core:data:model'
+include ':core:data:model:user'
+include ':core:data:model:liquor'
+
 include ':core:data:room'
-include ':core:design:core_design_resource'
+
+include ':core:network:firestore'
+
 include ':repository:common_repository'
 include ':repository:core:user_repository'
+
 include ':features:screen:'
 include ':features:credentials'
 include ':features:screen:main_navigation_contents'
+

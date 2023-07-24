@@ -12,7 +12,7 @@ import kotlinx.coroutines.flow.asSharedFlow
 
 class MainViewModel: ViewModel() {
 
-    val credentials = CBCredentials()
+    private val credentials = CBCredentials()
     var count = 0
     val onCountFlow = MutableStateFlow(0)
 
