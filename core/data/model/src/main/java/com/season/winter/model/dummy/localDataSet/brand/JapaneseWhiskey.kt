@@ -1,4 +1,4 @@
-package com.season.winter.model.localDataSet.brand
+package com.season.winter.model.dummy.localDataSet.brand
 
 import com.season.winter.model.alcoholInfo.AlcoholType
 import com.season.winter.model.brand.Brand
@@ -7,8 +7,8 @@ import com.season.winter.model.brand.CountryCode
 import com.season.winter.model.content.FeatureData
 import com.season.winter.model.content.FeatureType
 
-val kimChangSooDistillery = Brand(
-    brandCode = BrandCode.KimChangSooDistillery,
+val suntory = Brand(
+    brandCode = BrandCode.Suntory,
     productType = listOf(
         AlcoholType.Whisky
     ),
@@ -19,7 +19,7 @@ val kimChangSooDistillery = Brand(
         ),
         FeatureData(
             type = FeatureType.Text,
-            source = "국산 위스키 증류소입니다",
+            source = "일본 위스키 증류소입니다",
         ),
         FeatureData(
             type = FeatureType.YouTubeVideoUrl,
@@ -28,6 +28,6 @@ val kimChangSooDistillery = Brand(
     ),
 )
 
-val koreaWhiskeyWhiskeyList = listOf(
-    kimChangSooDistillery
+val japaneseWhiskeyWhiskeyList = listOf(
+    suntory
 )

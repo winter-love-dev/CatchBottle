@@ -1,4 +1,4 @@
-package com.season.winter.model.localDataSet.brand
+package com.season.winter.model.dummy.localDataSet.brand
 
 import com.season.winter.model.alcoholInfo.AlcoholType
 import com.season.winter.model.brand.Brand

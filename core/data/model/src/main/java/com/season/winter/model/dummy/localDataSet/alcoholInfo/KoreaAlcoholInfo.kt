@@ -1,4 +1,4 @@
-package com.season.winter.model.localDataSet.alcoholInfo
+package com.season.winter.model.dummy.localDataSet.alcoholInfo
 
 import com.season.winter.model.alcoholInfo.AlcoholExpressionCode
 import com.season.winter.model.alcoholInfo.AlcoholInfo
@@ -7,7 +7,6 @@ import com.season.winter.model.alcoholInfo.WhiskyType
 import com.season.winter.model.brand.BrandCode
 import com.season.winter.model.content.FeatureData
 import com.season.winter.model.content.FeatureType
-import com.season.winter.model.localDataSet.brand.kimChangSooDistillery
 
 val kiOneBatch1 = AlcoholInfo(
     nameKo = "기원 배치 1",

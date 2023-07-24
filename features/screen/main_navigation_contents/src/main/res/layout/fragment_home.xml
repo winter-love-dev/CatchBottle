@@ -45,9 +45,9 @@
             <com.season.winter.ui.textView.CBTextView
                 android:id="@+id/name_text_view"
                 app:cb_text_view_type="head_l"
-                app:cb_text="head_l"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
+<!--            app:cb_text="head_l"-->
 
         </LinearLayout>
 

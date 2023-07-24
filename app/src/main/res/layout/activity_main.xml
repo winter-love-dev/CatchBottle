@@ -33,10 +33,11 @@
             app:itemIconTint="@drawable/cb_nav_selector"
             app:itemTextColor="@drawable/cb_nav_selector"
             app:itemRippleColor="@color/gray_1"
-            app:itemActiveIndicatorStyle="@style/App.Custom.Indicator"
+            app:itemActiveIndicatorStyle="@null"
             app:labelVisibilityMode="labeled"
             app:menu="@menu/cb_nav_menu"
             />
+<!--        app:itemActiveIndicatorStyle="@style/App.Custom.Indicator"-->
 
     </LinearLayout>
 
