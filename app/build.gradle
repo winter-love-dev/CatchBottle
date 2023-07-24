@@ -49,6 +49,7 @@ dependencies {
 
     implementation project(":core:data:model:user")
     implementation project(":core:data:model:liquor")
+    implementation project(":core:data:model:ui")
 
     implementation project(":core:network:firestore")
 
