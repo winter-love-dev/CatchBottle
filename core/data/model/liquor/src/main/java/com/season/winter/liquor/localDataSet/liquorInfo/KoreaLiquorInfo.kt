@@ -4,29 +4,28 @@ import com.season.winter.liquor.liquorInfo.LiquorExpressionCode
 import com.season.winter.liquor.liquorInfo.LiquorInfo
 import com.season.winter.liquor.liquorInfo.LiquorType
 import com.season.winter.liquor.liquorInfo.WhiskyType
-import com.season.winter.liquor.brand.BrandCode
+import com.season.winter.liquor.brand.BrandInfo
 import com.season.winter.liquor.content.FeatureData
 import com.season.winter.liquor.content.FeatureType
-import com.season.winter.liquor.liquorInfo.LiquorSellingStatus
+import com.season.winter.liquor.dummy.getKoreanLiquorIdentify
 import com.season.winter.liquor.liquorInfo.LiquorStatus
 
 val kiOneBatch1 = LiquorInfo(
+    identify = getKoreanLiquorIdentify(0),
     nameKo = "기원 배치 1",
     nameEn = "KI ONE Batch 1",
-    like = 0,
-    brandCode = BrandCode.KimChangSooDistillery,
-    type = LiquorType.Whisky,
+    wishCount = 0,
+    brandCode = BrandInfo.KimChangSooDistillery,
+    liquorType = LiquorType.Whisky,
     whiskyType = listOf(
         WhiskyType.SingleMalt
     ),
     priceKrw = 0,
     thumbnailUrl = "",
-    stockCount = 0,
     rating = 0f, // 별점 (5점 만 점)
     reviewCount = 0, // 리뷰 수
     discountRate = 0.0f,
-    sellingStatus = LiquorSellingStatus.Show,
-    status = listOf(
+    liquorStatus = listOf(
         LiquorStatus.LimitedEdition,
     ),
     operatorComment = listOf(
@@ -70,19 +69,18 @@ val kiOneBatch1 = LiquorInfo(
 )
 
 val kiOneBatch2 = LiquorInfo(
+    identify = getKoreanLiquorIdentify(1),
     nameKo = "기원 배치 2",
     nameEn = "KI ONE Batch 2",
-    like = 0,
-    brandCode = BrandCode.KimChangSooDistillery,
-    type = LiquorType.Whisky,
+    wishCount = 0,
+    brandCode = BrandInfo.KimChangSooDistillery,
+    liquorType = LiquorType.Whisky,
     thumbnailUrl = "",
-    stockCount = 0,
     rating = 0f, // 별점 (5점 만 점)
     reviewCount = 0, // 리뷰 수
     priceKrw = 0,
     discountRate = 0.0f,
-    sellingStatus = LiquorSellingStatus.Show,
-    status = listOf(
+    liquorStatus = listOf(
         LiquorStatus.WeeklyBest,
         LiquorStatus.Discount,
     ),

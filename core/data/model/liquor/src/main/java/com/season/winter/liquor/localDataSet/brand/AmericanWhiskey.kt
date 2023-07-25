@@ -2,12 +2,12 @@ package com.season.winter.liquor.localDataSet.brand
 
 import com.season.winter.liquor.liquorInfo.LiquorType
 import com.season.winter.liquor.brand.Brand
-import com.season.winter.liquor.brand.BrandCode
+import com.season.winter.liquor.brand.BrandInfo
 import com.season.winter.liquor.content.FeatureData
 import com.season.winter.liquor.content.FeatureType
 
 val wildTurkey = Brand(
-    brandCode = BrandCode.WildTurkey,
+    brandCode = BrandInfo.WildTurkey,
     productType = listOf(
         LiquorType.Whisky
     ),
@@ -28,7 +28,7 @@ val wildTurkey = Brand(
 )
 
 val kirklandWhisky = Brand(
-    brandCode = BrandCode.KirklandWhisky,
+    brandCode = BrandInfo.KirklandWhisky,
     productType = listOf(
         LiquorType.Whisky
     ),
@@ -49,7 +49,7 @@ val kirklandWhisky = Brand(
 )
 
 val jackDaniels = Brand(
-    brandCode = BrandCode.JackDaniels,
+    brandCode = BrandInfo.JackDaniels,
     productType = listOf(
         LiquorType.Whisky
     ),

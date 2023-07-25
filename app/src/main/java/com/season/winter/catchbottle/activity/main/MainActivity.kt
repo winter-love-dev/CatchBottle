@@ -28,9 +28,6 @@ class MainActivity: BaseActivity<ActivityMainBinding>(R.layout.activity_main) {
                 cbStartActivity(LoginActivity::class.java, true)
             }
         }
-        repeatOnLifecycle(viewModel.onCountFlow) {
-            Log.e("TAG", "initView: received main activity: count: $it", )
-        }
 
         val navHostFragment = supportFragmentManager.findFragmentById(R.id.fragment_host) as NavHostFragment
         val navController = navHostFragment.findNavController()

@@ -9,7 +9,7 @@ import com.season.winter.user_repository.CBCredentials
 class MoreFragment: BaseNavigationFragment<FragmentMoreBinding>(R.layout.fragment_more) {
 
     override fun FragmentMoreBinding.initAfterView() {
-        activityViewModel.printCount()
+//        activityViewModel.printCount()
         logoutButton.setOnClickListener {
             activityViewModel.onLogout()
         }

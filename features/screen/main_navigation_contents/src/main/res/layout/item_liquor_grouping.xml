@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+<!--        <import type="com.season.winter.liquor.liquorInfo.LiquorInfo" />-->
+        <import type="com.season.winter.ui.fragment.home.HomeItem" />
+        <import type="com.season.winter.main_navigation_contents.fragments.navigation.home.recyclerView.adapter.HomeRecyclerViewAdapter" />
+        <import type="com.season.winter.main_navigation_contents.fragments.navigation.home.recyclerView.viewHolder.HomeViewHolder" />
+        <import type="com.season.winter.main_navigation_contents.ui.recyclerView.adapter.MiniLiquorAdapter" />
+        <import type="androidx.recyclerview.widget.RecyclerView.LayoutManager" />
+<!--        <variable-->
+<!--            name="liquor_info"-->
+<!--            type="LiquorInfo"/>-->
+
+        <variable
+            name="home_item"
+            type="HomeItem"/>
+
+        <variable
+            name="adapter"
+            type="HomeRecyclerViewAdapter"/>
+
+        <variable
+            name="mini_adapter"
+            type="MiniLiquorAdapter"/>
+
+
+        <variable
+            name="view_holder"
+            type="HomeViewHolder"/>
+
+        <variable
+            name="layoutManager"
+            type="LayoutManager" />
+
+    </data>
+
+
+    <LinearLayout
+        android:background="@color/white"
+        android:layout_marginTop="@dimen/spacing_m"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="300dp">
+
+        <LinearLayout
+            android:paddingHorizontal="@dimen/spacing_m"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+<!--            app:cb_text="@{home_item.title.toString()}"-->
+            <com.season.winter.ui.textView.CBTextView
+                android:id="@+id/title_text_view"
+                android:layout_weight="1"
+                android:layout_marginBottom="@dimen/spacing_xxs"
+                android:layout_gravity="bottom"
+                app:cb_text_view_type="head_xs"
+                android:text="@{home_item.title.toString()}"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"/>
+
+            <com.season.winter.ui.textView.CBTextView
+                app:cb_text="더보기"
+                android:id="@+id/more_button"
+                app:cb_text_view_type="caption_m"
+                android:onClick="@{() -> view_holder.onClickMore()}"
+                android:paddingVertical="@dimen/spacing_m"
+                android:paddingHorizontal="@dimen/spacing_xs"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+        </LinearLayout>
+
+<!--        app:cb_text="@{home_item.title.toString()}"-->
+        <com.season.winter.ui.textView.CBTextView
+            android:id="@+id/sub_title_text_view"
+            android:paddingHorizontal="@dimen/spacing_m"
+            app:cb_text_view_type="body_s"
+            app:cb_text_color="@color/gray_4"
+            android:text="@{home_item.subTitle.toString()}"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <com.season.winter.ui.textView.CBTextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycler_view"
+            android:layout_weight="1"
+            app:layoutManager="@{layoutManager}"
+            app:adapter="@{mini_adapter}"
+            tools:listitem="@layout/item_liquor_mini"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+    </LinearLayout>
+</layout>

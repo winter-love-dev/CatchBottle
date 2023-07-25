@@ -4,53 +4,36 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <ScrollView
+    <data>
+
+        <import type="androidx.recyclerview.widget.LinearLayoutManager" />
+        <import type="androidx.recyclerview.widget.RecyclerView.LayoutManager" />
+        <import type="com.season.winter.main_navigation_contents.fragments.navigation.home.recyclerView.adapter.HomeRecyclerViewAdapter" />
+
+        <variable
+            name="adapter"
+            type="HomeRecyclerViewAdapter"/>
+
+        <variable
+            name="layoutManager"
+            type="LayoutManager" />
+
+    </data>
+
+    <LinearLayout
+        android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content">
 
-        <LinearLayout
-            style="@style/default_background"
-            android:paddingVertical="40dp"
-            android:orientation="vertical"
+<!--            tools:listitem="@layout/item_liquor_grouping"-->
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycler_view"
+            android:layout_weight="1"
+            app:layoutManager="@{layoutManager}"
+            app:adapter="@{adapter}"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="0dp"/>
 
-            <com.season.winter.ui.input.CBEditText
-                app:cb_edit_text_type="first"
-                android:hint="first"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
-
-            <com.season.winter.ui.input.CBEditText
-                app:cb_edit_text_type="ghost"
-                app:cb_input_use_delete_button="false"
-                android:hint="ghost"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
-
-            <com.season.winter.ui.input.CBEditText
-                app:cb_edit_text_type="search"
-                android:hint="search"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
-
-            <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/count_btn"
-                android:text="count Up"
-                style="@style/cb_button_first"/>
-
-            <ImageView
-                style="@style/logo_full"/>
-
-            <com.season.winter.ui.textView.CBTextView
-                android:id="@+id/name_text_view"
-                app:cb_text_view_type="head_l"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
-<!--            app:cb_text="head_l"-->
-
-        </LinearLayout>
-
-    </ScrollView>
+    </LinearLayout>
 
 </layout>

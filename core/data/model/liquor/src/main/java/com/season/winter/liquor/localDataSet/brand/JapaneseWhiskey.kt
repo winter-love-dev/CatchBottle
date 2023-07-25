@@ -2,12 +2,12 @@ package com.season.winter.liquor.localDataSet.brand
 
 import com.season.winter.liquor.liquorInfo.LiquorType
 import com.season.winter.liquor.brand.Brand
-import com.season.winter.liquor.brand.BrandCode
+import com.season.winter.liquor.brand.BrandInfo
 import com.season.winter.liquor.content.FeatureData
 import com.season.winter.liquor.content.FeatureType
 
 val suntory = Brand(
-    brandCode = BrandCode.Suntory,
+    brandCode = BrandInfo.Suntory,
     productType = listOf(
         LiquorType.Whisky
     ),

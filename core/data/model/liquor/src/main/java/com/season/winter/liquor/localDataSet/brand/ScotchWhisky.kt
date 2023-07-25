@@ -2,12 +2,12 @@ package com.season.winter.liquor.localDataSet.brand
 
 import com.season.winter.liquor.liquorInfo.LiquorType
 import com.season.winter.liquor.brand.Brand
-import com.season.winter.liquor.brand.BrandCode
+import com.season.winter.liquor.brand.BrandInfo
 import com.season.winter.liquor.content.FeatureData
 import com.season.winter.liquor.content.FeatureType
 
 val highlandPark = Brand(
-    brandCode = BrandCode.HighlandPark,
+    brandCode = BrandInfo.HighlandPark,
     productType = listOf(
         LiquorType.Whisky
     ),
@@ -28,7 +28,7 @@ val highlandPark = Brand(
 )
 
 val royalSalute = Brand(
-    brandCode = BrandCode.RoyalSalute,
+    brandCode = BrandInfo.RoyalSalute,
     productType = listOf(
         LiquorType.Whisky
     ),
@@ -49,7 +49,7 @@ val royalSalute = Brand(
 )
 
 val theGlenlivet = Brand(
-    brandCode = BrandCode.TheGlenlivet,
+    brandCode = BrandInfo.TheGlenlivet,
     productType = listOf(
         LiquorType.Whisky
     ),
@@ -70,7 +70,7 @@ val theGlenlivet = Brand(
 )
 
 val balvenie = Brand(
-    brandCode = BrandCode.Balvenie,
+    brandCode = BrandInfo.Balvenie,
     productType = listOf(
         LiquorType.Whisky
     ),
@@ -91,7 +91,7 @@ val balvenie = Brand(
 )
 
 val jimBeam = Brand(
-    brandCode = BrandCode.JimBeam,
+    brandCode = BrandInfo.JimBeam,
     productType = listOf(
         LiquorType.Whisky
     ),
@@ -112,7 +112,7 @@ val jimBeam = Brand(
 )
 
 val chivasRegal = Brand(
-    brandCode = BrandCode.ChivasRegal,
+    brandCode = BrandInfo.ChivasRegal,
     productType = listOf(
         LiquorType.Whisky
     ),
@@ -133,7 +133,7 @@ val chivasRegal = Brand(
 )
 
 val theMacallan = Brand(
-    brandCode = BrandCode.TheMacallan,
+    brandCode = BrandInfo.TheMacallan,
     productType = listOf(
         LiquorType.Whisky
     ),
@@ -154,7 +154,7 @@ val theMacallan = Brand(
 )
 
 val glenfiddich = Brand(
-    brandCode = BrandCode.Glenfiddich,
+    brandCode = BrandInfo.Glenfiddich,
     productType = listOf(
         LiquorType.Whisky
     ),
@@ -175,7 +175,7 @@ val glenfiddich = Brand(
 )
 
 val bells = Brand(
-    brandCode = BrandCode.Bells,
+    brandCode = BrandInfo.Bells,
     productType = listOf(
         LiquorType.Whisky
     ),
@@ -196,7 +196,7 @@ val bells = Brand(
 )
 
 val johnnieWalker = Brand(
-    brandCode = BrandCode.JohnnieWalker,
+    brandCode = BrandInfo.JohnnieWalker,
     productType = listOf(
         LiquorType.Whisky
     ),
@@ -217,7 +217,7 @@ val johnnieWalker = Brand(
 )
 
 val ballantines = Brand(
-    brandCode = BrandCode.Ballantines,
+    brandCode = BrandInfo.Ballantines,
     productType = listOf(
         LiquorType.Whisky
     ),
@@ -238,7 +238,7 @@ val ballantines = Brand(
 )
 
 val laphroaig = Brand(
-    brandCode = BrandCode.Laphroaig,
+    brandCode = BrandInfo.Laphroaig,
     productType = listOf(
         LiquorType.Whisky
     ),
@@ -259,7 +259,7 @@ val laphroaig = Brand(
 )
 
 val glenmorangie = Brand(
-    brandCode = BrandCode.Glenmorangie,
+    brandCode = BrandInfo.Glenmorangie,
     productType = listOf(
         LiquorType.Whisky
     ),

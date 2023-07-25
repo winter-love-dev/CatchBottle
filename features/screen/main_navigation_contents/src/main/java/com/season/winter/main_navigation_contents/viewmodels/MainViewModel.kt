@@ -1,20 +1,23 @@
 package com.season.winter.main_navigation_contents.viewmodels
 
-import android.util.Log
 import androidx.lifecycle.ViewModel
 import com.season.winter.common.util.sharedPrefrences.SecureSharedPreferences
+import com.season.winter.ui.dummy.HomeUIDummyGenerator
+import com.season.winter.ui.fragment.home.HomeItem
 import com.season.winter.user_repository.CBCredentials
 import kotlinx.coroutines.channels.BufferOverflow
 import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharedFlow
+import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asSharedFlow
+import kotlinx.coroutines.flow.asStateFlow
 
-class MainViewModel: ViewModel() {
+class MainViewModel(
+    private val homeUIDataDummyGenerator: HomeUIDummyGenerator = HomeUIDummyGenerator()
+): ViewModel() {
 
     private val credentials = CBCredentials()
-    var count = 0
-    val onCountFlow = MutableStateFlow(0)
 
     val userName = MutableStateFlow(credentials.userName)
 
@@ -22,20 +25,18 @@ class MainViewModel: ViewModel() {
         extraBufferCapacity = 1,
         onBufferOverflow = BufferOverflow.DROP_OLDEST,
     )
-    val onLogoutListener: SharedFlow<Boolean> get() = _onLogoutListener.asSharedFlow()
+    val onLogoutListener: SharedFlow<Boolean>
+        get() = _onLogoutListener.asSharedFlow()
 
-    fun countUp() {
-        count+=1
-        onCountFlow.value = count
-    }
+    private val _onHomeUiDataListener = MutableStateFlow(
+        homeUIDataDummyGenerator.mainList
+    )
 
-    fun printCount() {
-        Log.e("TAG", "printCount: count: $count", )
-    }
+    val onHomeUiDataListener: StateFlow<List<HomeItem>>
+        get() = _onHomeUiDataListener.asStateFlow()
 
     fun onLogout() {
         SecureSharedPreferences.securePreferences.clear()
         _onLogoutListener.tryEmit(true)
     }
-
 }

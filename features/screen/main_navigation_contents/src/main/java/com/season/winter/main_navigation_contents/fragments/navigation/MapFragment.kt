@@ -7,6 +7,6 @@ import com.season.winter.main_navigation_contents.fragments.base.BaseNavigationF
 class MapFragment: BaseNavigationFragment<FragmentMapBinding>(R.layout.fragment_map) {
 
     override fun FragmentMapBinding.initAfterView() {
-        activityViewModel.printCount()
+//        activityViewModel.printCount()
     }
 }

@@ -4,27 +4,27 @@ import com.season.winter.liquor.liquorInfo.LiquorExpressionCode
 import com.season.winter.liquor.liquorInfo.LiquorInfo
 import com.season.winter.liquor.liquorInfo.LiquorType
 import com.season.winter.liquor.liquorInfo.WhiskyType
-import com.season.winter.liquor.brand.BrandCode
+import com.season.winter.liquor.brand.BrandInfo
 import com.season.winter.liquor.content.FeatureData
 import com.season.winter.liquor.content.FeatureType
-import com.season.winter.liquor.liquorInfo.LiquorSellingStatus
+import com.season.winter.liquor.dummy.getScotchLiquorIdentify
 
 val theMacllan12ySherryOak = LiquorInfo(
+    identify = getScotchLiquorIdentify(0),
     nameKo = "맥켈란 12년 셰리 오크",
     nameEn = "The Macllan 12y Sherry Oak",
-    like = 0,
-    brandCode = BrandCode.TheMacallan,
-    type = LiquorType.Whisky,
+    wishCount = 0,
+    brandCode = BrandInfo.TheMacallan,
+    liquorType = LiquorType.Whisky,
     whiskyType = listOf(
-        WhiskyType.SingleMalt
+        WhiskyType.SingleMalt,
+        WhiskyType.Sherry
     ),
     priceKrw = 0,
     discountRate = 0.0f,
     thumbnailUrl = "",
-    stockCount = 0,
     rating = 0f, // 별점 (5점 만 점)
     reviewCount = 0, // 리뷰 수
-    sellingStatus = LiquorSellingStatus.Show,
     operatorComment = listOf(
         FeatureData(
             type = FeatureType.Text,
@@ -65,21 +65,21 @@ val theMacllan12ySherryOak = LiquorInfo(
 )
 
 val balvenieDoublewood12Yo = LiquorInfo(
+    identify = getScotchLiquorIdentify(1),
     nameKo = "발베니 더블우드 12년",
     nameEn = "Balvenie Doublewood 12yo",
-    like = 0,
-    brandCode = BrandCode.TheMacallan,
-    type = LiquorType.Whisky,
+    wishCount = 0,
+    brandCode = BrandInfo.TheMacallan,
+    liquorType = LiquorType.Whisky,
     whiskyType = listOf(
         WhiskyType.SingleMalt,
+        WhiskyType.Sherry
     ),
     priceKrw = 0,
     discountRate = 0.0f,
     thumbnailUrl = "",
-    stockCount = 0,
     rating = 0f, // 별점 (5점 만 점)
     reviewCount = 0, // 리뷰 수
-    sellingStatus = LiquorSellingStatus.Show,
     operatorComment = listOf(
         FeatureData(
             type = FeatureType.Text,
@@ -116,21 +116,21 @@ val balvenieDoublewood12Yo = LiquorInfo(
 )
 
 val glenmorangieLasanta12yo = LiquorInfo(
+    identify = getScotchLiquorIdentify(2),
     nameKo = "글렌모렌지 라산타 12년",
     nameEn = "Glenmorangie Lasanta 12yo",
-    like = 0,
-    brandCode = BrandCode.Glenmorangie,
-    type = LiquorType.Whisky,
+    wishCount = 0,
+    brandCode = BrandInfo.Glenmorangie,
+    liquorType = LiquorType.Whisky,
     whiskyType = listOf(
         WhiskyType.SingleMalt,
+        WhiskyType.Sherry
     ),
     priceKrw = 0,
     discountRate = 0.0f,
     thumbnailUrl = "",
-    stockCount = 0,
     rating = 0f, // 별점 (5점 만 점)
     reviewCount = 0, // 리뷰 수
-    sellingStatus = LiquorSellingStatus.Show,
     operatorComment = listOf(
         FeatureData(
             type = FeatureType.Text,

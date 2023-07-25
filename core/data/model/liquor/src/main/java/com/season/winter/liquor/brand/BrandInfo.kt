@@ -1,6 +1,6 @@
 package com.season.winter.liquor.brand
 
-enum class BrandCode(
+enum class BrandInfo(
     val number: Int,
     val nameKo: String,
     val nameEn: String,

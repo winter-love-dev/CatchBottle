@@ -7,6 +7,6 @@ import com.season.winter.main_navigation_contents.fragments.base.BaseNavigationF
 class WishListFragment: BaseNavigationFragment<FragmentWishListBinding>(R.layout.fragment_wish_list) {
 
     override fun FragmentWishListBinding.initAfterView() {
-        activityViewModel.printCount()
+//        activityViewModel.printCount()
     }
 }

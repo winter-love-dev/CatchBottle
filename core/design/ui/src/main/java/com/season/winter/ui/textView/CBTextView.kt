@@ -20,6 +20,9 @@ class CBTextView @JvmOverloads constructor(
     private val attrs: AttributeSet?,
 ): AppCompatTextView(context, attrs) {
 
+    private var isInitStyle = false
+    private var isInitAttribute = false
+
     private var text: String = ""
     private var weight: Int = getWeight(context)
     private var textSize: Float = getDefaultTextSize(context)
@@ -41,12 +44,9 @@ class CBTextView @JvmOverloads constructor(
     @SuppressLint("DrawAllocation")
     override fun onDraw(canvas: Canvas?) {
         super.onDraw(canvas)
-//        val paint = Paint().apply {
-//            textSize = this@CBTextView.textSize ?: CBTypography.getDefaultSize(context)
-//            color = textColor ?: context.getColor(R.color.gray_5)
-//            typeface = Typeface.create(fontFamily, weight)
-//        }
-//        canvas?.drawText(text, 0f, 0f, paint)
+
+        initAttributes()
+        setStyle()
     }
 
     override fun onSizeChanged(w: Int, h: Int, oldw: Int, oldh: Int) {
@@ -64,6 +64,9 @@ class CBTextView @JvmOverloads constructor(
     @SuppressLint("Recycle", "ResourceType")
     private fun initAttributes() {
         if (attrs == null) return
+        if (isInitAttribute.not())
+            isInitAttribute = true
+        else return
         val typed = context.obtainStyledAttributes(
             attrs,
             R.styleable.CBTextView
@@ -84,7 +87,15 @@ class CBTextView @JvmOverloads constructor(
             context.getColor(R.color.gray_5)
         )
 
-        // setStyle
+        setStyle()
+    }
+
+    private fun setStyle() {
+        if (isInitStyle.not())
+            isInitStyle = true
+        else
+            return
+
         setTypeface(fontFamily, weight)
         setTextColor(textColor)
         setTextSize(TypedValue.COMPLEX_UNIT_PX, textSize) // setTextSize(TypedValue.COMPLEX_UNIT_SP, textSize)

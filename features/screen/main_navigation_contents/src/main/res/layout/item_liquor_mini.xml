@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="com.season.winter.liquor.liquorInfo.LiquorInfo" />
+
+        <variable
+            name="liquor_info"
+            type="LiquorInfo"/>
+
+    </data>
+
+    <LinearLayout
+        android:layout_marginTop="@dimen/spacing_xs"
+        android:layout_marginStart="@dimen/spacing_m"
+        android:layout_marginEnd="@dimen/spacing_s"
+        android:orientation="vertical"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:src="@drawable/arrow_up"
+            android:layout_width="100dp"
+            android:layout_height="100dp"/>
+
+        <com.season.winter.ui.textView.CBTextView
+            android:layout_marginTop="@dimen/spacing_xxs"
+            app:cb_text_view_type="caption_m"
+            android:text="@{liquor_info.nameKo}"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <com.season.winter.ui.textView.CBTextView
+            android:layout_marginTop="@dimen/spacing_xxs"
+            app:cb_text_view_type="caption_s"
+            app:cb_text="⭐ 0.0 (0)"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <com.season.winter.ui.textView.CBTextView
+            android:layout_marginTop="@dimen/spacing_xxs"
+            app:cb_text_view_type="caption_s"
+            app:cb_text="할인"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+    </LinearLayout>
+
+</layout>

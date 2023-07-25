@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/home_fragment"
-        android:name="com.season.winter.main_navigation_contents.fragments.navigation.HomeFragment"
+        android:name="com.season.winter.main_navigation_contents.fragments.navigation.home.HomeFragment"
         android:label="fragment_home"
         tools:layout="@layout/fragment_home" >
 

@@ -4,25 +4,24 @@ import com.season.winter.liquor.liquorInfo.LiquorExpressionCode
 import com.season.winter.liquor.liquorInfo.LiquorInfo
 import com.season.winter.liquor.liquorInfo.LiquorType
 import com.season.winter.liquor.liquorInfo.WhiskyType
-import com.season.winter.liquor.brand.BrandCode
+import com.season.winter.liquor.brand.BrandInfo
 import com.season.winter.liquor.content.FeatureData
 import com.season.winter.liquor.content.FeatureType
-import com.season.winter.liquor.liquorInfo.LiquorSellingStatus
+import com.season.winter.liquor.dummy.getAmericanLiquorIdentify
 
 val russellsReserveSingleBarrel = LiquorInfo(
+    identify = getAmericanLiquorIdentify(0),
     nameKo = "러셀 리저브 싱글 베럴",
     nameEn = "Russell’s Reserve Single Barrel",
-    like = 0,
-    brandCode = BrandCode.Glenmorangie,
-    type = LiquorType.Whisky,
+    wishCount = 0,
+    brandCode = BrandInfo.WildTurkey,
+    liquorType = LiquorType.Whisky,
     whiskyType = listOf(
         WhiskyType.Bourbon
     ),
     priceKrw = 0,
     discountRate = 0.0f,
     thumbnailUrl = "",
-    stockCount = 0,
-    sellingStatus = LiquorSellingStatus.Show,
     rating = 0f, // 별점 (5점 만 점)
     reviewCount = 0, // 리뷰 수
     operatorComment = listOf(
