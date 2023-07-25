@@ -8,6 +8,7 @@ import com.season.winter.liquor.brand.BrandInfo
 import com.season.winter.liquor.content.FeatureData
 import com.season.winter.liquor.content.FeatureType
 import com.season.winter.liquor.dummy.getScotchLiquorIdentify
+import com.season.winter.liquor.liquorInfo.LiquorStatus
 
 val theMacllan12ySherryOak = LiquorInfo(
     identify = getScotchLiquorIdentify(0),
@@ -25,6 +26,9 @@ val theMacllan12ySherryOak = LiquorInfo(
     thumbnailUrl = "",
     rating = 0f, // 별점 (5점 만 점)
     reviewCount = 0, // 리뷰 수
+    liquorStatus = listOf(
+        LiquorStatus.WeeklyBest,
+    ),
     operatorComment = listOf(
         FeatureData(
             type = FeatureType.Text,

@@ -3,6 +3,7 @@ package com.season.winter.ui.dummy
 import com.season.winter.liquor.brand.BrandInfo
 import com.season.winter.liquor.brand.CountryCode
 import com.season.winter.liquor.dummy.LiquorInfoDummyGenerator
+import com.season.winter.liquor.liquorInfo.LiquorStatus
 import com.season.winter.liquor.liquorInfo.WhiskyType
 import com.season.winter.liquor.liquorInfo.filter.LiquorFilterOption
 import com.season.winter.ui.fragment.home.BannerData
@@ -77,8 +78,10 @@ class HomeUIDummyGenerator {
             type = HomeItemType.LiquorGrouping,
             title = "스토어 주간 BEST",
             subTitle = "지금 CatchBottle에서 가장 인기있는 상품",
-            liquorGroupingOption = LiquorFilterOption.ByBrand.generateFilterOption(
-                brand = BrandInfo.Ballantines
+            liquorGroupingOption = LiquorFilterOption.ByLiquorStatus.generateFilterOption(
+                liquorStatus = listOf(
+                    LiquorStatus.WeeklyBest
+                )
             ),
         ),
         HomeItem(
