@@ -36,3 +36,4 @@ include ':features:screen:'
 include ':features:credentials'
 include ':features:screen:main_navigation_contents'
 
+include ':repository:liquor'

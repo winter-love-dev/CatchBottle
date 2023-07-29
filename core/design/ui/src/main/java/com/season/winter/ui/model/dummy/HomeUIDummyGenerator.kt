@@ -5,15 +5,15 @@ import com.season.winter.liquor.brand.CountryCode
 import com.season.winter.liquor.dummy.LiquorInfoDummyGenerator
 import com.season.winter.liquor.liquorInfo.LiquorStatus
 import com.season.winter.liquor.liquorInfo.WhiskyType
-import com.season.winter.liquor.liquorInfo.filter.LiquorFilterOption
+import com.season.winter.liquor.filter.LiquorFilterOption
 
 class HomeUIDummyGenerator {
 
-    private val liquorInfoDummy = LiquorInfoDummyGenerator()
+    private val liquorInfoDummy = com.season.winter.liquor.dummy.LiquorInfoDummyGenerator()
 
     init {
 
-        LiquorFilterOption.initFilter(
+        com.season.winter.liquor.filter.LiquorFilterOption.initFilter(
             liquorInfoDummy.getLiquorListAll()
         )
     }
@@ -73,7 +73,7 @@ class HomeUIDummyGenerator {
             type = com.season.winter.ui.model.fragment.home.HomeItemType.LiquorGrouping,
             title = "스토어 주간 BEST",
             subTitle = "지금 CatchBottle에서 가장 인기있는 상품",
-            liquorGroupingOption = LiquorFilterOption.ByLiquorStatus.generateFilterOption(
+            liquorGroupingOption = com.season.winter.liquor.filter.LiquorFilterOption.ByLiquorStatus.generateFilterOption(
                 liquorStatus = listOf(
                     LiquorStatus.WeeklyBest
                 )
@@ -83,7 +83,7 @@ class HomeUIDummyGenerator {
             type = com.season.winter.ui.model.fragment.home.HomeItemType.LiquorGrouping,
             title = "김창수 위스키 기획전",
             subTitle = "CatchBottle에 입점한 첫 K-위스키 브랜드",
-            liquorGroupingOption = LiquorFilterOption.ByBrand.generateFilterOption(
+            liquorGroupingOption = com.season.winter.liquor.filter.LiquorFilterOption.ByBrand.generateFilterOption(
                 brand = BrandInfo.KimChangSooDistillery
             ),
         ),
@@ -91,7 +91,7 @@ class HomeUIDummyGenerator {
             type = com.season.winter.ui.model.fragment.home.HomeItemType.LiquorGrouping,
             title = "아메리칸 위스키 모아보기",
             subTitle = "뜨거운 녀석들 \uD83D\uDD25",
-            liquorGroupingOption = LiquorFilterOption.ByCountry.generateFilterOption(
+            liquorGroupingOption = com.season.winter.liquor.filter.LiquorFilterOption.ByCountry.generateFilterOption(
                 countryCode = CountryCode.US
             ),
         ),
@@ -99,7 +99,7 @@ class HomeUIDummyGenerator {
             type = com.season.winter.ui.model.fragment.home.HomeItemType.LiquorGrouping,
             title = "셰리 위스키 모아보기",
             subTitle = "셰리 캐스크가 만드는 달콤 꾸덕한 맛",
-            liquorGroupingOption = LiquorFilterOption.ByWhiskyType.generateFilterOption(
+            liquorGroupingOption = com.season.winter.liquor.filter.LiquorFilterOption.ByWhiskyType.generateFilterOption(
                 whiskyType = listOf(
                     WhiskyType.Sherry
                 )
