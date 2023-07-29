@@ -9,7 +9,6 @@ import com.season.winter.common.activity.BaseActivity
 import com.season.winter.common.util.sharedPrefrences.SecureSharedPreferences
 import com.season.winter.config.sharedPrefences.CommonKeyStore
 import com.season.winter.user.di.CredentialsRepositoryImpl
-import com.season.winter.user.local.CBCredentialsDao
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.channels.BufferOverflow
 import kotlinx.coroutines.delay

@@ -1,14 +1,14 @@
 package com.season.winter.user.local
 
-import com.season.winter.common.util.sharedPrefrences.SecureSharedPreferences
 import com.season.winter.common.util.sharedPrefrences.SecureSharedPreferences.Companion.securePreferences
 import com.season.winter.config.sharedPrefences.UserKeyStore
+import javax.inject.Inject
 
+class CBCredentialsDao @Inject constructor() {
 
-class CBCredentialsDao {
-
-    val isLogin: Boolean get() =
-        securePreferences.get(UserKeyStore.isLogin, false)
+    val isLogin: Boolean
+        get() = securePreferences
+            .get(UserKeyStore.isLogin, false)
 
     val userName: String?
         get() = securePreferences
