@@ -1,6 +1,5 @@
 package com.season.winter.catchbottle.activity.main
 
-import android.util.Log
 import androidx.activity.viewModels
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.fragment.findNavController
@@ -10,12 +9,9 @@ import com.season.winter.catchbottle.activity.login.LoginActivity
 import com.season.winter.catchbottle.databinding.ActivityMainBinding
 import com.season.winter.common.activity.BaseActivity
 import com.season.winter.common.extention.activity.cbStartActivity
-import com.season.winter.common.extention.coroutine.cbWhenStarted
 import com.season.winter.common.extention.coroutine.repeatOnLifecycle
 import com.season.winter.main_navigation_contents.viewmodels.MainViewModel
-import com.season.winter.main_navigation_contents.R as NavR
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
 class MainActivity: BaseActivity<ActivityMainBinding>(R.layout.activity_main) {

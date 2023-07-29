@@ -8,6 +8,7 @@ import com.season.winter.liquor.liquorInfo.LiquorType
 import com.season.winter.liquor.liquorInfo.WhiskyType
 
 enum class LiquorFilterOption{
+    All,
     ByMultiExpression,
     ByLiquorType,
     ByLiquorStatus,
@@ -37,17 +38,18 @@ enum class LiquorFilterOption{
         if (isInitFilter.not()) return emptyList()
 
         return when(this) {
+            All -> filter.searchAll()
             ByMultiExpression -> filter.search(
                 liquorType = liquorType,
                 liquorStatus = liquorStatus,
                 whiskyType = whiskyType,
                 brand = brand,
             )
-            ByLiquorType -> liquorType?.run {
-                filter.searchLiquorType(liquorType = this)
+            ByLiquorType -> liquorType?.let {
+                filter.searchLiquorType(it)
             }
-            ByLiquorStatus -> liquorStatus?.run {
-                filter.searchLiquorStatus(liquorStatus = this)
+            ByLiquorStatus -> liquorStatus?.let {
+                filter.searchLiquorStatus(it)
             }
             ByWhiskyType -> whiskyType?.run {
                 filter.searchWhiskyType(whiskyType = this)
@@ -69,6 +71,7 @@ enum class LiquorFilterOption{
         countryCode: CountryCode? = null,
     ): LiquorFilterOption {
         return when(this) {
+            All -> All
             ByMultiExpression -> ByMultiExpression.apply {
                 this.liquorType = liquorType
                 this.liquorStatus = liquorStatus
@@ -96,16 +99,17 @@ enum class LiquorFilterOption{
     companion object {
 
         val isInitFilter: Boolean
-            get() = ::filter.isInitialized
+            get() = Companion::filter.isInitialized
 
         private lateinit var liquorList: List<LiquorInfo>
 
+        @Volatile
         private lateinit var filter: LiquorFilter
 
         fun initFilter(liquorList: List<LiquorInfo>) {
-            this.liquorList = liquorList
+            Companion.liquorList = liquorList
 
-            if (::filter.isInitialized.not())
+            if (Companion::filter.isInitialized.not())
                 filter = LiquorFilter(liquorList)
             else
                 filter.resetLiquorList(liquorList)
