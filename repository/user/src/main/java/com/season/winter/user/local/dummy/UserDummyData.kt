@@ -1,4 +1,4 @@
-package com.season.winter.user.dummy
+package com.season.winter.user.local.dummy
 
 import com.season.winter.user.User
 import com.season.winter.user.UserType
