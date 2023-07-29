@@ -1,9 +1,10 @@
 package com.season.winter.main_navigation_contents.viewmodels
 
 import androidx.lifecycle.ViewModel
-import com.season.winter.common.util.sharedPrefrences.SecureSharedPreferences
+import com.season.winter.common.util.sharedPrefrences.securePreferences.Rsa2048Preferences
 import com.season.winter.screen.fragment.navigationMain.home.di.HomeNavigationRepositoryImpl
 import com.season.winter.ui.model.fragment.home.HomeItem
+import com.season.winter.user.di.CredentialsRepositoryImpl
 import com.season.winter.user.local.CBCredentialsDao
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.channels.BufferOverflow
@@ -17,10 +18,11 @@ import javax.inject.Inject
 
 @HiltViewModel
 class MainNavigationViewModel @Inject constructor(
-    private val dummyRepository: HomeNavigationRepositoryImpl
+    private val credentials: CredentialsRepositoryImpl,
+    private val dummyRepository: HomeNavigationRepositoryImpl,
 ): ViewModel() {
 
-    private val credentials = CBCredentialsDao()
+//    private val credentials = CBCredentialsDao()
 
     val userName = MutableStateFlow(credentials.userName)
 
@@ -39,7 +41,7 @@ class MainNavigationViewModel @Inject constructor(
         _onHomeUiDataListener.asStateFlow()
 
     fun onLogout() {
-        SecureSharedPreferences.securePreferences.clear()
+        credentials.logout()
         _onLogoutListener.tryEmit(true)
     }
 }

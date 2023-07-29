@@ -6,8 +6,7 @@ import androidx.lifecycle.viewModelScope
 import com.season.winter.catchbottle.activity.login.LoginActivity
 import com.season.winter.catchbottle.activity.main.MainActivity
 import com.season.winter.common.activity.BaseActivity
-import com.season.winter.common.util.sharedPrefrences.SecureSharedPreferences
-import com.season.winter.config.sharedPrefences.CommonKeyStore
+import com.season.winter.common.di.AppConfigRepositoryImpl
 import com.season.winter.user.di.CredentialsRepositoryImpl
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.channels.BufferOverflow
@@ -18,16 +17,9 @@ import javax.inject.Inject
 
 @HiltViewModel
 class SplashViewModel @Inject constructor(
-    private val credentials: CredentialsRepositoryImpl
+    private val credentials: CredentialsRepositoryImpl,
+    private val appConfigRepository: AppConfigRepositoryImpl
 ): ViewModel() {
-
-    private val isFirstLaunch: Boolean
-        get() = SecureSharedPreferences.securePreferences.run {
-            val isFirst = get(CommonKeyStore.isFirstLaunch, true)
-            if (isFirst)
-                put(CommonKeyStore.isFirstLaunch, false)
-            isFirst
-        }
 
     val onLaunchActivityFlow = MutableSharedFlow<Class<out BaseActivity<out ViewDataBinding>>>(
         extraBufferCapacity = 1,
@@ -35,6 +27,7 @@ class SplashViewModel @Inject constructor(
     )
 
     fun checkLaunchTargetActivity() {
+        val isFirstLaunch = appConfigRepository.checkFirstLaunch(true)
         val activity = when {
             isFirstLaunch || !credentials.isLogin ->
                 LoginActivity::class.java

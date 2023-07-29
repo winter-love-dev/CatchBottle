@@ -1,4 +1,4 @@
-package com.season.winter.config.sharedPrefences
+package com.season.winter.common.constants
 
 object CommonKeyStore {
     const val isFirstLaunch = "isFirstLaunch" // boolean

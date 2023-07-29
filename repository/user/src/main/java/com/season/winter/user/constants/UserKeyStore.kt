@@ -1,4 +1,4 @@
-package com.season.winter.config.sharedPrefences
+package com.season.winter.user.constants
 
 object UserKeyStore {
     const val userName = "userName" // string

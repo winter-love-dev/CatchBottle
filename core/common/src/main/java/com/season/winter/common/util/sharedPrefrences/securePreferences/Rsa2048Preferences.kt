@@ -1,25 +1,26 @@
-package com.season.winter.common.util.sharedPrefrences
+package com.season.winter.common.util.sharedPrefrences.securePreferences
 
 import android.content.Context
 import android.content.SharedPreferences
-import com.season.winter.config.sharedPrefences.base.PrefCommon
+import com.season.winter.common.util.sharedPrefrences.factory.SharedPreferencesService
 
-class SecureSharedPreferences(private val sharedPref: SharedPreferences) {
+class Rsa2048Preferences(private val sharedPref: SharedPreferences): SharedPreferencesService {
 
-    // 사용중인 키 값인지 확인하기
-    fun contains(key: String) = sharedPref.contains(key)
+    override fun contains(key: String): Boolean {
+        return sharedPref.contains(key)
+    }
 
-    fun clear() {
+    override fun clear() {
         sharedPref.edit().run {
             clear()
             apply()
         }
     }
 
-    fun get(key: String, defaultValue: Boolean): Boolean = getInternal(key, defaultValue)
-    fun get(key: String, defaultValue: Int): Int = getInternal(key, defaultValue)
-    fun get(key: String, defaultValue: Long): Long = getInternal(key, defaultValue)
-    fun get(key: String, defaultValue: String): String = getInternal(key, defaultValue)
+    override fun get(key: String, defaultValue: Boolean): Boolean = getInternal(key, defaultValue)
+    override fun get(key: String, defaultValue: Int): Int = getInternal(key, defaultValue)
+    override fun get(key: String, defaultValue: Long): Long = getInternal(key, defaultValue)
+    override fun get(key: String, defaultValue: String): String = getInternal(key, defaultValue)
 
     private fun <T : Any> getInternal(key: String, defaultValue: T): T {
 
@@ -43,10 +44,10 @@ class SecureSharedPreferences(private val sharedPref: SharedPreferences) {
     }
 
 
-    fun put(key: String, value: Boolean) = putInternal(key, value)
-    fun put(key: String, value: Int) = putInternal(key, value)
-    fun put(key: String, value: Long) = putInternal(key, value)
-    fun put(key: String, value: String) = putInternal(key, value)
+    override fun put(key: String, value: Boolean) = putInternal(key, value)
+    override fun put(key: String, value: Int) = putInternal(key, value)
+    override fun put(key: String, value: Long) = putInternal(key, value)
+    override fun put(key: String, value: String) = putInternal(key, value)
 
     private fun putInternal(key: String, value: Any?) {
         try {
@@ -65,14 +66,9 @@ class SecureSharedPreferences(private val sharedPref: SharedPreferences) {
 
     companion object {
 
-        lateinit var securePreferences: SecureSharedPreferences
-            private set
-
-        fun init(context: Context) {
-            if (::securePreferences.isInitialized.not()) {
-                val prefHelper = context.getSharedPreferences(PrefCommon, 0)
-                securePreferences = SecureSharedPreferences(prefHelper)
-            }
+        fun create(context: Context, name: String): Rsa2048Preferences {
+            val prefHelper = context.getSharedPreferences(name, 0)
+            return Rsa2048Preferences(prefHelper)
         }
     }
 }
