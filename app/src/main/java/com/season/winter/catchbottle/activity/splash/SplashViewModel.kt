@@ -5,8 +5,9 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.season.winter.catchbottle.activity.login.LoginActivity
 import com.season.winter.catchbottle.activity.main.MainActivity
-import com.season.winter.common.SplashPreferences
 import com.season.winter.common.activity.BaseActivity
+import com.season.winter.common.util.sharedPrefrences.SecureSharedPreferences
+import com.season.winter.config.sharedPrefences.CommonKeyStore
 import com.season.winter.user.CBCredentials
 import kotlinx.coroutines.channels.BufferOverflow
 import kotlinx.coroutines.delay
@@ -16,7 +17,14 @@ import kotlinx.coroutines.launch
 class SplashViewModel: ViewModel() {
 
     private val credentials = CBCredentials()
-    private val splashPreferences = SplashPreferences()
+
+    private val isFirstLaunch: Boolean
+        get() = SecureSharedPreferences.securePreferences.run {
+            val isFirst = get(CommonKeyStore.isFirstLaunch, true)
+            if (isFirst)
+                put(CommonKeyStore.isFirstLaunch, false)
+            isFirst
+        }
 
     val onLaunchActivityFlow = MutableSharedFlow<Class<out BaseActivity<out ViewDataBinding>>>(
         extraBufferCapacity = 1,
@@ -25,7 +33,7 @@ class SplashViewModel: ViewModel() {
 
     fun checkLaunchTargetActivity() {
         val activity = when {
-            splashPreferences.isFirstLaunch || !credentials.isLogin ->
+            isFirstLaunch || !credentials.isLogin ->
                 LoginActivity::class.java
 
             else ->
