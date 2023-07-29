@@ -2,7 +2,7 @@ package com.season.winter.main_navigation_contents.viewmodels
 
 import androidx.lifecycle.ViewModel
 import com.season.winter.common.util.sharedPrefrences.SecureSharedPreferences
-import com.season.winter.ui.model.dummy.HomeUIDummyGenerator
+import com.season.winter.screen.fragment.navigationMain.home.dummy.HomeUIDummyGenerator
 import com.season.winter.ui.model.fragment.home.HomeItem
 import com.season.winter.user_repository.CBCredentials
 import kotlinx.coroutines.channels.BufferOverflow
@@ -14,7 +14,7 @@ import kotlinx.coroutines.flow.asSharedFlow
 import kotlinx.coroutines.flow.asStateFlow
 
 class MainViewModel(
-    private val homeUIDataDummyGenerator: HomeUIDummyGenerator = HomeUIDummyGenerator()
+    homeUIDataDummyGenerator: HomeUIDummyGenerator = HomeUIDummyGenerator()
 ): ViewModel() {
 
     private val credentials = CBCredentials()

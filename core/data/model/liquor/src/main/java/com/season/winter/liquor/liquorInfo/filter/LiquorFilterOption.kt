@@ -1,4 +1,4 @@
-package com.season.winter.liquor.filter
+package com.season.winter.liquor.liquorInfo.filter
 
 import com.season.winter.liquor.brand.BrandInfo
 import com.season.winter.liquor.brand.CountryCode
@@ -43,11 +43,11 @@ enum class LiquorFilterOption{
                 whiskyType = whiskyType,
                 brand = brand,
             )
-            ByLiquorType -> liquorType?.run {
-                filter.searchLiquorType(liquorType = this)
+            ByLiquorType -> liquorType?.let {
+                filter.searchLiquorType(it)
             }
-            ByLiquorStatus -> liquorStatus?.run {
-                filter.searchLiquorStatus(liquorStatus = this)
+            ByLiquorStatus -> liquorStatus?.let {
+                filter.searchLiquorStatus(it)
             }
             ByWhiskyType -> whiskyType?.run {
                 filter.searchWhiskyType(whiskyType = this)
@@ -100,6 +100,7 @@ enum class LiquorFilterOption{
 
         private lateinit var liquorList: List<LiquorInfo>
 
+        @Volatile
         private lateinit var filter: LiquorFilter
 
         fun initFilter(liquorList: List<LiquorInfo>) {

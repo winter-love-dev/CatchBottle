@@ -1,11 +1,10 @@
 plugins {
     id 'com.android.library'
-    id 'kotlin-android'
-    id 'kotlin-kapt'
+    id 'org.jetbrains.kotlin.android'
 }
 
 android {
-    namespace 'com.season.winter.ui'
+    namespace 'com.season.winter.screen'
     compileSdk 33
 
     defaultConfig {
@@ -30,19 +29,14 @@ android {
     kotlinOptions {
         jvmTarget = JavaVersion.VERSION_17.toString()
     }
-    dataBinding {
-        enabled = true
-    }
 }
 
 dependencies {
 
-    implementation project(":core:design:core_design_resource")
-    implementation project(":core:design:designsystem")
-    implementation project(":core:common")
-
     implementation project(":core:data:model:liquor")
-//    implementation project(":repository:liquor")
+    implementation project(":core:design:ui")
+
+    implementation project(":repository:liquor")
 
     implementation 'androidx.core:core-ktx:1.10.1'
     implementation 'androidx.appcompat:appcompat:1.6.1'
@@ -50,7 +44,4 @@ dependencies {
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.5'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
-
-    annotationProcessor 'com.github.bumptech.glide:compiler:4.12.0'
-    implementation "com.github.bumptech.glide:glide:4.15.1"
 }

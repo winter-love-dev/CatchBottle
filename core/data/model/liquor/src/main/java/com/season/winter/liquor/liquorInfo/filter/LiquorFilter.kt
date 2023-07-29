@@ -1,4 +1,4 @@
-package com.season.winter.liquor.filter
+package com.season.winter.liquor.liquorInfo.filter
 
 import com.season.winter.liquor.brand.BrandInfo
 import com.season.winter.liquor.brand.CountryCode

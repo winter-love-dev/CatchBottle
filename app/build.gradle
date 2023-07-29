@@ -52,11 +52,13 @@ dependencies {
 
     implementation project(":core:network:firestore")
 
-    implementation project(":repository:common_repository")
-    implementation project(":repository:core:user_repository")
-
     implementation project(":features:credentials")
     implementation project(":features:screen:main_navigation_contents")
+
+    implementation project(":repository:core:user_repository")
+    implementation project(":repository:common_repository")
+    implementation project(":repository:liquor")
+    implementation project(":repository:screen")
 
     implementation 'androidx.core:core-ktx:1.10.1'
     implementation 'androidx.core:core-splashscreen:1.0.1'
