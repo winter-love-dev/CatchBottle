@@ -2,9 +2,10 @@ package com.season.winter.main_navigation_contents.viewmodels
 
 import androidx.lifecycle.ViewModel
 import com.season.winter.common.util.sharedPrefrences.SecureSharedPreferences
-import com.season.winter.screen.fragment.navigationMain.home.dummy.HomeUIDummyGenerator
+import com.season.winter.screen.fragment.navigationMain.home.di.HomeNavigationRepositoryImpl
 import com.season.winter.ui.model.fragment.home.HomeItem
 import com.season.winter.user.CBCredentials
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.channels.BufferOverflow
 import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -12,9 +13,11 @@ import kotlinx.coroutines.flow.SharedFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asSharedFlow
 import kotlinx.coroutines.flow.asStateFlow
+import javax.inject.Inject
 
-class MainViewModel(
-    homeUIDataDummyGenerator: HomeUIDummyGenerator = HomeUIDummyGenerator()
+@HiltViewModel
+class MainNavigationViewModel @Inject constructor(
+    private val dummyRepository: HomeNavigationRepositoryImpl
 ): ViewModel() {
 
     private val credentials = CBCredentials()
@@ -29,11 +32,11 @@ class MainViewModel(
         get() = _onLogoutListener.asSharedFlow()
 
     private val _onHomeUiDataListener = MutableStateFlow(
-        homeUIDataDummyGenerator.mainList
+        dummyRepository.getHomeUIDummyData()
     )
 
-    val onHomeUiDataListener: StateFlow<List<HomeItem>>
-        get() = _onHomeUiDataListener.asStateFlow()
+    val onHomeUiDataListener: StateFlow<List<HomeItem>> =
+        _onHomeUiDataListener.asStateFlow()
 
     fun onLogout() {
         SecureSharedPreferences.securePreferences.clear()

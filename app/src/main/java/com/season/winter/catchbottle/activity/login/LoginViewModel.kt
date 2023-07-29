@@ -7,7 +7,7 @@ import kotlinx.coroutines.flow.MutableStateFlow
 //@HiltViewModel
 class LoginViewModel /*@Inject constructor()*/: ViewModel() {
 
-    private val credentials = com.season.winter.user.CBCredentials()
+    private val credentials = CBCredentials()
 
     var onSavedUserNameFlow = MutableStateFlow(false)
 

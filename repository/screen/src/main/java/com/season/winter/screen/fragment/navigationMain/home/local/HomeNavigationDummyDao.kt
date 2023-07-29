@@ -1,4 +1,4 @@
-package com.season.winter.screen.fragment.navigationMain.home.dummy
+package com.season.winter.screen.fragment.navigationMain.home.local
 
 import com.season.winter.liquor.brand.BrandInfo
 import com.season.winter.liquor.brand.CountryCode
@@ -11,8 +11,9 @@ import com.season.winter.ui.model.fragment.home.HomeItem
 import com.season.winter.ui.model.fragment.home.HomeItemType
 import com.season.winter.ui.model.fragment.home.ShortcutMenuData
 import com.season.winter.ui.model.fragment.home.ShortcutMenuEvent
+import javax.inject.Inject
 
-class HomeUIDummyGenerator {
+class HomeNavigationDummyDao @Inject constructor() {
 
     private val liquorInfoDummy = LiquorInfoDummyGenerator()
 
