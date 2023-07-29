@@ -47,6 +47,10 @@ class LiquorFilter(list: List<LiquorInfo>) {
         }.toList()
     }
 
+    fun searchAll(): List<LiquorInfo> {
+        return liquorList
+    }
+
     fun searchLiquorType(liquorType: LiquorType): List<LiquorInfo> {
         return liquorList.filter {
             it.liquorType == liquorType

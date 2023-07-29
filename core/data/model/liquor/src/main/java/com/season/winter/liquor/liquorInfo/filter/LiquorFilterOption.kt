@@ -8,6 +8,7 @@ import com.season.winter.liquor.liquorInfo.LiquorType
 import com.season.winter.liquor.liquorInfo.WhiskyType
 
 enum class LiquorFilterOption{
+    All,
     ByMultiExpression,
     ByLiquorType,
     ByLiquorStatus,
@@ -37,6 +38,7 @@ enum class LiquorFilterOption{
         if (isInitFilter.not()) return emptyList()
 
         return when(this) {
+            All -> filter.searchAll()
             ByMultiExpression -> filter.search(
                 liquorType = liquorType,
                 liquorStatus = liquorStatus,
@@ -69,6 +71,7 @@ enum class LiquorFilterOption{
         countryCode: CountryCode? = null,
     ): LiquorFilterOption {
         return when(this) {
+            All -> All
             ByMultiExpression -> ByMultiExpression.apply {
                 this.liquorType = liquorType
                 this.liquorStatus = liquorStatus

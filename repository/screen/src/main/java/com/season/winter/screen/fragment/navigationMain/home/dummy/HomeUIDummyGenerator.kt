@@ -27,6 +27,9 @@ class HomeUIDummyGenerator {
         imageUrls = listOf("", "", "")
     )
 
+    private val liquorInfoDummyGenerator = LiquorInfoDummyGenerator()
+    val liquorListAll = liquorInfoDummyGenerator.getLiquorListAll()
+
     val shortcutMenuData = listOf(
         ShortcutMenuData(
             event = ShortcutMenuEvent.Best,
@@ -52,11 +55,6 @@ class HomeUIDummyGenerator {
             event = ShortcutMenuEvent.FirstComeFirstServed,
             thumbImageUrl = "",
             title = "선착순",
-        ),
-        ShortcutMenuData(
-            event = ShortcutMenuEvent.MDPick,
-            thumbImageUrl = "",
-            title = "MD픽",
         ),
         ShortcutMenuData(
             event = ShortcutMenuEvent.MDPick,
@@ -116,7 +114,7 @@ class HomeUIDummyGenerator {
             type = HomeItemType.LiquorGrouping,
             title = "모든 위스키 모아보기",
             subTitle = "CatchBottle 에서 구매 가능한 위스키 모음",
-            liquorGroupingOption = null,
+            liquorGroupingOption = LiquorFilterOption.All,
         ),
         HomeItem(
             type = HomeItemType.Footer
