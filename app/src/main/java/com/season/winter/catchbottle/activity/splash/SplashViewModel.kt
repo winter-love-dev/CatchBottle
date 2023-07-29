@@ -5,9 +5,9 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.season.winter.catchbottle.activity.login.LoginActivity
 import com.season.winter.catchbottle.activity.main.MainActivity
+import com.season.winter.common.SplashPreferences
 import com.season.winter.common.activity.BaseActivity
-import com.season.winter.common_repository.activity.splash.SplashPreferences
-import com.season.winter.user_repository.CBCredentials
+import com.season.winter.user.CBCredentials
 import kotlinx.coroutines.channels.BufferOverflow
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableSharedFlow

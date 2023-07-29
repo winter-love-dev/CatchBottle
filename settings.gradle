@@ -24,17 +24,14 @@ include ':core:design:ui'
 
 include ':core:data:model:user'
 include ':core:data:model:liquor'
-
 include ':core:data:room'
 
 include ':core:network:firestore'
 
-include ':repository:common_repository'
-include ':repository:core:user_repository'
-
 include ':features:screen:'
-include ':features:credentials'
 include ':features:screen:main_navigation_contents'
 
 include ':repository:liquor'
 include ':repository:screen'
+include ':repository:user'
+include ':repository:common'
