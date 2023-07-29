@@ -8,15 +8,19 @@ import com.season.winter.catchbottle.activity.main.MainActivity
 import com.season.winter.common.activity.BaseActivity
 import com.season.winter.common.util.sharedPrefrences.SecureSharedPreferences
 import com.season.winter.config.sharedPrefences.CommonKeyStore
-import com.season.winter.user.CBCredentials
+import com.season.winter.user.di.CredentialsRepositoryImpl
+import com.season.winter.user.local.CBCredentialsDao
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.channels.BufferOverflow
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
-class SplashViewModel: ViewModel() {
-
-    private val credentials = CBCredentials()
+@HiltViewModel
+class SplashViewModel @Inject constructor(
+    private val credentials: CredentialsRepositoryImpl
+): ViewModel() {
 
     private val isFirstLaunch: Boolean
         get() = SecureSharedPreferences.securePreferences.run {

@@ -4,7 +4,7 @@ import androidx.lifecycle.ViewModel
 import com.season.winter.common.util.sharedPrefrences.SecureSharedPreferences
 import com.season.winter.screen.fragment.navigationMain.home.di.HomeNavigationRepositoryImpl
 import com.season.winter.ui.model.fragment.home.HomeItem
-import com.season.winter.user.CBCredentials
+import com.season.winter.user.local.CBCredentialsDao
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.channels.BufferOverflow
 import kotlinx.coroutines.flow.MutableSharedFlow
@@ -20,7 +20,7 @@ class MainNavigationViewModel @Inject constructor(
     private val dummyRepository: HomeNavigationRepositoryImpl
 ): ViewModel() {
 
-    private val credentials = CBCredentials()
+    private val credentials = CBCredentialsDao()
 
     val userName = MutableStateFlow(credentials.userName)
 

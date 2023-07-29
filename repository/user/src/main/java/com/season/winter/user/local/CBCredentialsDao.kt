@@ -1,10 +1,11 @@
-package com.season.winter.user
+package com.season.winter.user.local
 
+import com.season.winter.common.util.sharedPrefrences.SecureSharedPreferences
 import com.season.winter.common.util.sharedPrefrences.SecureSharedPreferences.Companion.securePreferences
 import com.season.winter.config.sharedPrefences.UserKeyStore
 
 
-class CBCredentials {
+class CBCredentialsDao {
 
     val isLogin: Boolean get() =
         securePreferences.get(UserKeyStore.isLogin, false)
@@ -19,5 +20,9 @@ class CBCredentials {
             put(UserKeyStore.isLogin, true)
             put(UserKeyStore.userName, userName)
         }
+    }
+
+    fun logout() {
+        securePreferences.clear()
     }
 }
