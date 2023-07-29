@@ -1,4 +1,4 @@
-package com.season.winter.ui.liqure
+package com.season.winter.ui.model.liqure
 
 import com.season.winter.liquor.liquorInfo.LiquorInfo
 

@@ -1,4 +1,4 @@
-package com.season.winter.ui.fragment.home
+package com.season.winter.ui.model.fragment.home
 
 import com.season.winter.liquor.dummy.LiquorInfoDummyGenerator
 import com.season.winter.liquor.liquorInfo.LiquorInfo

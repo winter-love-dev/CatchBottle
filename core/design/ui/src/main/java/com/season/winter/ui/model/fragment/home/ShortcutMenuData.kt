@@ -1,4 +1,4 @@
-package com.season.winter.ui.fragment.home
+package com.season.winter.ui.model.fragment.home
 
 //object ShortcutMenuEvent {
 //    const val Best = 0

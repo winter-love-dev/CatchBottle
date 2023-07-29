@@ -2,8 +2,8 @@ package com.season.winter.main_navigation_contents.viewmodels
 
 import androidx.lifecycle.ViewModel
 import com.season.winter.common.util.sharedPrefrences.SecureSharedPreferences
-import com.season.winter.ui.dummy.HomeUIDummyGenerator
-import com.season.winter.ui.fragment.home.HomeItem
+import com.season.winter.ui.model.dummy.HomeUIDummyGenerator
+import com.season.winter.ui.model.fragment.home.HomeItem
 import com.season.winter.user_repository.CBCredentials
 import kotlinx.coroutines.channels.BufferOverflow
 import kotlinx.coroutines.flow.MutableSharedFlow
