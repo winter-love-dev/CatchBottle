@@ -19,6 +19,9 @@ class SplashActivity: AppCompatActivity() {
         installSplashScreen()
         super.onCreate(savedInstanceState)
 
+//        viewModel.fireStoreTest()
+        viewModel.getImagePath()
+
         // refresh remote config ...
         viewModel.checkLaunchTargetActivity()
         repeatOnLifecycle(viewModel.onLaunchActivityFlow) { activity ->

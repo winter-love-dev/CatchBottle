@@ -11,9 +11,9 @@ class FireStoreConnectTest {
         val db = Firebase.firestore
 
         val user = hashMapOf(
-            "first" to "Ada",
-            "last" to "Lovelace",
-            "born" to 1815,
+            "first_first" to "Ada_Ada",
+            "last_last" to "Lovelace_Lovelace",
+            "born_born" to 1815,
         )
 
         db.collection("users")

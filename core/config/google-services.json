@@ -9,7 +9,7 @@
       "client_info": {
         "mobilesdk_app_id": "1:625440903449:android:c67180eb045549b3f6b588",
         "android_client_info": {
-          "package_name": "com.season.winter.common"
+          "package_name": "com.season.winter.config"
         }
       },
       "oauth_client": [

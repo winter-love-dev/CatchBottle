@@ -13,8 +13,7 @@ class Application: Application() {
     override fun onCreate() {
         super.onCreate()
 
-//        FireStoreConnectTest().test()
-        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
 
         AndroidRsaCipherHelper.init(this)
         AppConfigSharedPreferences.create(this)
