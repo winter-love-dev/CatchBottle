@@ -90,7 +90,7 @@ class HomeNavigationDummyDao @Inject constructor() {
             title = "김창수 위스키 기획전",
             subTitle = "CatchBottle에 입점한 첫 K-위스키 브랜드",
             liquorGroupingOption = LiquorFilterOption.ByBrand.generateFilterOption(
-                brand = BrandInfo.KimChangSooDistillery
+                brand = BrandInfo.ThreeSocietiesDistillery
             ),
         ),
         HomeItem(

@@ -14,7 +14,7 @@ val kiOneBatch1 = LiquorInfo(
     nameKo = "기원 배치 1",
     nameEn = "KI ONE Batch 1",
     wishCount = 0,
-    brandCode = BrandInfo.KimChangSooDistillery,
+    brandCode = BrandInfo.ThreeSocietiesDistillery,
     liquorType = LiquorType.Whisky,
     whiskyType = listOf(
         WhiskyType.SingleMalt
@@ -72,7 +72,7 @@ val kiOneBatch2 = LiquorInfo(
     nameKo = "기원 배치 2",
     nameEn = "KI ONE Batch 2",
     wishCount = 0,
-    brandCode = BrandInfo.KimChangSooDistillery,
+    brandCode = BrandInfo.ThreeSocietiesDistillery,
     liquorType = LiquorType.Whisky,
     thumbnailUrl = "",
     rating = 0f, // 별점 (5점 만 점)

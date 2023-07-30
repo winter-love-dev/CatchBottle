@@ -7,7 +7,7 @@ import com.season.winter.liquor.content.FeatureData
 import com.season.winter.liquor.content.FeatureType
 
 val kimChangSooDistillery = Brand(
-    brandCode = BrandInfo.KimChangSooDistillery,
+    brandCode = BrandInfo.ThreeSocietiesDistillery,
     productType = listOf(
         LiquorType.Whisky
     ),
