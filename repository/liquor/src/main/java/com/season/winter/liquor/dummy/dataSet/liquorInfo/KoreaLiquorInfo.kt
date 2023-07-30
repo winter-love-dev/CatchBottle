@@ -21,7 +21,7 @@ val kiOneBatch1 = LiquorInfo(
     ),
     priceKrw = 0,
     thumbnailUrl = "",
-    thumbnailFileName = "thumb_ki_one_batch_1",
+    thumbnailFileName = "thumb_wiskey_korea_ki_one_batch_1",
     rating = 0f, // 별점 (5점 만 점)
     reviewCount = 0, // 리뷰 수
     discountRate = 0.0f,
@@ -76,7 +76,7 @@ val kiOneBatch2 = LiquorInfo(
     brandCode = BrandInfo.ThreeSocietiesDistillery,
     liquorType = LiquorType.Whisky,
     thumbnailUrl = "",
-    thumbnailFileName = "thumb_ki_one_batch_2",
+    thumbnailFileName = "thumb_wiskey_korea_ki_one_batch_2",
     rating = 0f, // 별점 (5점 만 점)
     reviewCount = 0, // 리뷰 수
     priceKrw = 0,
