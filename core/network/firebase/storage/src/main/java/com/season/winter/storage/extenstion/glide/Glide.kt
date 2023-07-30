@@ -14,8 +14,8 @@ fun bindImageFromFireStoreFileName(view: ImageView, imageFileName: String?) {
     if (imageFileName.isNullOrEmpty())
         return
 
-    view.findViewTreeLifecycleOwner()?.let {
-        it.lifecycleScope.launch {
+    view.findViewTreeLifecycleOwner()?.let { lifecycleOwner ->
+        lifecycleOwner.lifecycleScope.launch {
             val url =
                 ImageFireStorageInstance
                     .getImageUrlFromFileName(imageFileName)

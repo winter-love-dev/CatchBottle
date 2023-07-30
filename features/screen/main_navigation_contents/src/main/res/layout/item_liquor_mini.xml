@@ -21,7 +21,7 @@
         android:layout_height="wrap_content">
 
         <ImageView
-            android:src="@drawable/arrow_up"
+            android:src="@drawable/logo_icon_small"
             android:layout_width="100dp"
             android:layout_height="100dp"
             app:imageFromFireStoreFileName="@{liquor_info.thumbnailFileName}"
