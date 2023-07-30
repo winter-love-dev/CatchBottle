@@ -23,6 +23,8 @@ class MiniLiquorViewHolder(
 
     fun bind(liquorInfo: LiquorInfo) {
         binding.liquorInfo = liquorInfo
+
+//        findViewTreeLifecycleOwner()
     }
 
 }

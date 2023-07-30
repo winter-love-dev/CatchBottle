@@ -23,7 +23,9 @@
         <ImageView
             android:src="@drawable/arrow_up"
             android:layout_width="100dp"
-            android:layout_height="100dp"/>
+            android:layout_height="100dp"
+            app:imageFromFireStoreFileName="@{liquor_info.thumbnailFileName}"
+            app:layout_collapseMode="parallax" />
 
         <com.season.winter.ui.textView.CBTextView
             android:layout_marginTop="@dimen/spacing_xxs"

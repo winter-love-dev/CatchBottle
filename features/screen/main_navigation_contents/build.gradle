@@ -47,6 +47,8 @@ dependencies {
 
     implementation project(":core:data:model:liquor")
 
+    implementation project(":core:network:firebase:storage")
+
     implementation project(":repository:common")
     implementation project(":repository:liquor")
     implementation project(":repository:screen")
