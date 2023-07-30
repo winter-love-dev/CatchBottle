@@ -7,7 +7,9 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import com.season.winter.common.extention.activity.cbStartActivity
 import com.season.winter.common.extention.coroutine.repeatOnLifecycle
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 @SuppressLint("CustomSplashScreen")
 class SplashActivity: AppCompatActivity() {
 
@@ -16,6 +18,9 @@ class SplashActivity: AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         installSplashScreen()
         super.onCreate(savedInstanceState)
+
+//        viewModel.fireStoreTest()
+        viewModel.getImagePath()
 
         // refresh remote config ...
         viewModel.checkLaunchTargetActivity()

@@ -6,10 +6,10 @@ enum class BrandInfo(
     val nameEn: String,
     val countryCode: CountryCode
 ) {
-    KimChangSooDistillery(
+    ThreeSocietiesDistillery(
         0,
-        "김창수 위스키 증류소",
-        "Kim Chang Soo Distillery",
+        "쓰리소사이어티스 증류소",
+        "Three Societies Distillery",
         CountryCode.KR
     ),
     WildTurkey(

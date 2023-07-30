@@ -14,6 +14,7 @@ val russellsReserveSingleBarrel = LiquorInfo(
     nameEn = "Russell’s Reserve Single Barrel",
     wishCount = 0,
     brandCode = BrandInfo.WildTurkey,
+    thumbnailFileName = "thumb_wiskey_bourbon_russellsReserveSingleBarrel",
     liquorType = LiquorType.Whisky,
     whiskyType = listOf(
         WhiskyType.Bourbon
