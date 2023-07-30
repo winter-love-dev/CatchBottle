@@ -35,7 +35,7 @@ class SplashViewModel @Inject constructor(
 
     fun getImagePath() {
         viewModelScope.launch {
-            val url = ImageFireStorageInstance.getImageUrl("thumb_three")
+            val url = ImageFireStorageInstance.getImageUrlFromFileName("thumb_three")
             Log.e("TAG", "getImagePath: url: $url", )
         }
     }

@@ -11,6 +11,7 @@ data class LiquorInfo(
     val capacityToMl: Float, // ml 단위 용량
     val alcoholByVolume: Float, // 도수 %
     val thumbnailUrl: String,
+    val thumbnailFileName: String? = null,
 
     var wishCount: Int, // 누적 위시 리스트 등록 수
     val reviewCount: Int, // 리뷰 수

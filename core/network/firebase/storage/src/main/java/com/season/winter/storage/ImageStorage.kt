@@ -14,7 +14,7 @@ object ImageFireStorageInstance {
 
     private val storageRef = Firebase.storage.reference
 
-    suspend fun getImageUrl(fileName: String): String? {
+    suspend fun getImageUrlFromFileName(fileName: String): String? {
         return try {
             val path = "$imagesPath${fileName}.png"
             val imageUrl = storageRef.child(path).downloadUrl.await()
