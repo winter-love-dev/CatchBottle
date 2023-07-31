@@ -15,6 +15,7 @@ class MiniLiquorAdapter: ListAdapter<LiquorInfo, MiniLiquorViewHolder>(LiquorDif
 
     override fun onBindViewHolder(holder: MiniLiquorViewHolder, position: Int) {
         holder.bind(currentList[position])
+//        holder.bind(currentList)
     }
 
     fun initData(list: List<LiquorInfo>) {
