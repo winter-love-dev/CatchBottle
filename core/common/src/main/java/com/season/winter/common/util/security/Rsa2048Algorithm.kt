@@ -9,26 +9,38 @@ import java.security.KeyPairGenerator
 import java.security.KeyStore
 import java.security.spec.RSAKeyGenParameterSpec
 import javax.crypto.Cipher
+import javax.inject.Inject
+import javax.inject.Singleton
 
-object RSA2048 {
 
-    private const val rsaKeyAlgorithm = KeyProperties.KEY_ALGORITHM_RSA
-    private const val ecbBlock = KeyProperties.BLOCK_MODE_ECB
-    private const val pkcs1Padding = KeyProperties.ENCRYPTION_PADDING_RSA_PKCS1
+interface RSA2048AlgorithmService {
+    fun create(alias: String): Boolean
 
-    const val cipherAlgorithm = "$rsaKeyAlgorithm/$ecbBlock/$pkcs1Padding"
+    fun encrypt(plainText: String): String
+
+    fun decrypt(base64EncryptedCipherText: String): String
+}
+
+
+class Rsa2048Algorithm @Inject constructor(): RSA2048AlgorithmService {
+
+    private val rsaKeyAlgorithm = KeyProperties.KEY_ALGORITHM_RSA
+    private val ecbBlock = KeyProperties.BLOCK_MODE_ECB
+    private val pkcs1Padding = KeyProperties.ENCRYPTION_PADDING_RSA_PKCS1
+
+    val cipherAlgorithm = "$rsaKeyAlgorithm/$ecbBlock/$pkcs1Padding"
 
     // 보안 안정성을 위해 권장되는 key 길이 = 2048 bit 를 사용한다.
-    private const val keyLengthBit = 2048
+    private val keyLengthBit = 2048
 
     // 암호 유효 기간: 9년
-    const val validityYears = 9
+    val validityYears = 9
 
-    private const val keyProviderName = "AndroidKeyStore"
+    private val keyProviderName = "AndroidKeyStore"
 
     private lateinit var keyEntry: KeyStore.Entry
 
-    fun create(alias: String): Boolean {
+    override fun create(alias: String): Boolean {
 
         val keyStore = KeyStore.getInstance("AndroidKeyStore").apply { load(null) }
         if (!keyStore.containsAlias(alias))
@@ -69,7 +81,7 @@ object RSA2048 {
     }
 
     //  암호화 길이 제한: 256바이트 이하 평문만 가능
-    fun encrypt(plainText: String): String {
+    override fun encrypt(plainText: String): String {
         val cipher = Cipher.getInstance(cipherAlgorithm).apply {
             init(Cipher.ENCRYPT_MODE, (keyEntry as KeyStore.PrivateKeyEntry).certificate.publicKey)
         }
@@ -81,7 +93,7 @@ object RSA2048 {
     }
 
     // 해독
-    fun decrypt(base64EncryptedCipherText: String): String {
+    override fun decrypt(base64EncryptedCipherText: String): String {
 
         val cipher = Cipher.getInstance(cipherAlgorithm).apply {
             init(Cipher.DECRYPT_MODE, (keyEntry as KeyStore.PrivateKeyEntry).privateKey)
