@@ -20,8 +20,6 @@ class MainNavigationViewModel @Inject constructor(
     private val dummyRepository: HomeNavigationRepositoryImpl,
 ): ViewModel() {
 
-//    private val credentials = CBCredentialsDao()
-
     val userName = MutableStateFlow(credentials.userName)
 
     private val _onLogoutListener = MutableSharedFlow<Boolean>(
