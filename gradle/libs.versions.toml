@@ -1,7 +1,12 @@
 [versions]
 
 ktx = "1.10.1"
+kotlin = "1.8.0"
 androidGradlePlugin = "8.0.0"
+ksp = "1.8.10-1.0.9"
+
+hilt = "2.44"
+gmsGoogleServices = "4.3.15"
 
 #kotlin = "1.5.31"
 #coreSplashscreen = "1.0.1"
@@ -17,5 +22,11 @@ androidx-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "ktx"
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "androidGradlePlugin" }
+android-library = { id = "com.android.library", version.ref = "androidGradlePlugin" }
+kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
+kotlin-kapt = { id = "org.jetbrains.kotlin.kapt", version.ref = "kotlin" }
+dagger-hilt = { id = "com.google.dagger.hilt.android", version.ref = "hilt" }
+devtools-ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
+gms-google-services = { id = "com.google.gms.google-services", version.ref = "gmsGoogleServices" }
 
 [bundles]
