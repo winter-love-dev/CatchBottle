@@ -1,33 +1,118 @@
 [versions]
+minSdk = "24"
+targetSdk = "33"
+compileSdk = "33"
+versionCode = "1"
+versionName = "1.0.0"
 
 android-gradle-plugin = "8.0.0"
+android-material = "1.9.0"
+androidx-appcompat = "1.6.1"
+androidx-activity-ktx = "1.7.2"
+androidx-fragment-ktx = "1.6.1"
+androidx-constraintlayout = "2.1.4"
 androidx-core-ktx = "1.10.1"
-androidx-core-core-splashscreen = "1.0.1"
-org-jetbrains-kotlin-android = "1.8.0"
+androidx-core-splashscreen = "1.0.1"
+androidx-test-ext = "1.1.5" # testImplementation
+androidx-test-espresso-core = "3.5.1" # testImplementation
+androidx-lifecycle-runtime-ktx = "2.6.1"
+androidx-lifecycle-viewmodel-ktx = "2.6.1"
+
+androidx-room-compiler = "2.5.2" # kapt, ksp
+androidx-room-testing = "2.5.2" # testImplementation
+androidx-room-paging = "2.5.2"
+
+androidx-navigation-fragment-ktx = "2.6.0"
+androidx-navigation-ui-ktx = "2.6.0"
+
 com-google-devtools-ksp = "1.8.10-1.0.9"
-com-google-dagger-hilt-android = "2.44"
+com-google-dagger-hilt-android-plugins = "2.44"
 com-google-gms-google-services = "4.3.15"
 
-#kotlin = "1.5.31"
-#coreSplashscreen = "1.0.1"
-#appcompat = "1.6.1"
-#material = "1.9.0"
-#constraintlayout = "2.1.4"
-#testJunit = "4.13.2"
-#androidTestjunit = "1.1.5"
-#androidTestEspressoCore = "3.5.1"
+com-google-dagger-hilt-android = "2.46.1"
+com-google-dagger-hilt-compiler = "2.44" # kapt
 
-[libraries]
-androidx-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "androidx-core-ktx" }
-androidx-splashscreen = { group = "androidx.core:core-splashscreen", name = "core-ktx", version.ref = "androidx-core-core-splashscreen" }
+
+com-google-github-bumptech-glide-compiler = "4.12.0" # annotationProcessor
+com-google-github-bumptech-glide = "4.15.1"
+
+com-google-firebase-bom = "32.1.1"
+
+junit = "4.13.2" # testImplementation
+
+org-jetbrains-kotlin-android = "1.8.0"
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "android-gradle-plugin" }
 android-library = { id = "com.android.library", version.ref = "android-gradle-plugin" }
 kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "org-jetbrains-kotlin-android" }
 kotlin-kapt = { id = "org.jetbrains.kotlin.kapt", version.ref = "org-jetbrains-kotlin-android" }
-dagger-hilt = { id = "com.google.dagger.hilt.android", version.ref = "com-google-dagger-hilt-android" }
+dagger-hilt = { id = "com.google.dagger.hilt.android", version.ref = "com-google-dagger-hilt-android-plugins" }
 devtools-ksp = { id = "com.google.devtools.ksp", version.ref = "com-google-devtools-ksp" }
 gms-google-services = { id = "com.google.gms.google-services", version.ref = "com-google-gms-google-services" }
 
+[libraries]
+android-material = { module = "com.google.android.material:material", version.ref = "android-material" }
+androidx-appcompat = { module = "androidx.appcompat:appcompat", version.ref = "androidx-appcompat" }
+androidx-activity-ktx = { module = "androidx.activity:activity-ktx", version.ref = "androidx-activity-ktx" }
+androidx-constraintlayout = { module = "androidx.constraintlayout:constraintlayout", version.ref = "androidx-constraintlayout" }
+androidx-fragment-ktx = { module = "androidx.fragment:fragment-ktx", version.ref = "androidx-fragment-ktx" }
+androidx-test-ext = { module = "androidx.test.ext:junit", version.ref = "androidx-test-ext" } # testImplementation
+androidx-test-espresso-core = { module = "androidx.test.espresso:espresso-core", version.ref = "androidx-test-espresso-core" } # testImplementation
+androidx-ktx = { module = "androidx.core:core-ktx", version.ref = "androidx-core-ktx" }
+androidx-lifecycle-runtime-ktx = { module = "androidx.lifecycle:lifecycle-runtime-ktx", version.ref = "androidx-lifecycle-runtime-ktx" }
+androidx-lifecycle-viewmodel-ktx = { module = "androidx.lifecycle:lifecycle-viewmodel-ktx", version.ref = "androidx-lifecycle-viewmodel-ktx" }
+androidx-navigation-fragment-ktx = { module = "androidx.navigation:navigation-fragment-ktx", version.ref = "androidx-navigation-fragment-ktx" }
+androidx-navigation-ui-ktx = { module = "androidx.navigation:navigation-ui-ktx", version.ref = "androidx-navigation-ui-ktx" }
+androidx-splashscreen = { module = "androidx.core:core-splashscreen", version.ref = "androidx-core-splashscreen" }
+androidx-room-compiler = { module = "androidx.room:room-compiler", version.ref = "androidx-room-compiler" }
+androidx-room-testing = { module = "androidx.room:room-testing", version.ref = "androidx-room-testing" }
+androidx-room-paging = { module = "androidx.room:room-paging", version.ref = "androidx-room-paging" }
+com-google-dagger-hilt-android = { module = "com.google.dagger:hilt-android", version.ref = "com-google-dagger-hilt-android" }
+com-google-dagger-hilt-compiler = { module = "com.google.dagger:hilt-compiler", version.ref = "com-google-dagger-hilt-compiler" } # kapt
+com-google-firebase-bom = { module = "com.google.firebase:firebase-bom", version.ref = "com-google-firebase-bom" }
+com-google-firebase-analytics-ktx = { module = "com.google.firebase:firebase-analytics-ktx" }
+com-google-firebase-firestore-ktx = { module = "com.google.firebase:firebase-firestore-ktx" }
+com-google-firebase-storage-ktx = { module = "com.google.firebase:firebase-storage-ktx" }
+com-google-github-bumptech-glide-compiler = { module = "com.github.bumptech.glide:compiler", version.ref = "com-google-github-bumptech-glide-compiler" }
+com-google-github-bumptech-glide = { module = "com.github.bumptech.glide:glide", version.ref = "com-google-github-bumptech-glide" }
+junit = { module = "junit:junit", version.ref = "junit" } # testImplementation
+
 [bundles]
+default = [
+    "androidx-ktx",
+    "androidx-splashscreen",
+    "android-material",
+    "androidx-appcompat",
+    "androidx-lifecycle-runtime-ktx",
+    "androidx-lifecycle-viewmodel-ktx",
+]
+default-screen = [
+    "androidx-constraintlayout",
+    "androidx-activity-ktx",
+    "androidx-fragment-ktx",
+]
+default-test-implementation = [ "junit" ]
+default-test-androidTestImplementation = [
+    "androidx-test-ext",
+    "androidx-test-espresso-core",
+]
+
+navigation = [
+    "androidx-navigation-fragment-ktx",
+    "androidx-navigation-ui-ktx",
+]
+hilt = [ "com-google-dagger-hilt-android" ]
+hilt-compiler-kapt = [ "com-google-dagger-hilt-compiler" ]
+firebase-bom = [ "com-google-firebase-bom" ]
+firebase = [
+    "com-google-firebase-analytics-ktx",
+    "com-google-firebase-firestore-ktx",
+]
+room-compiler-kapt = [ "androidx-room-compiler" ]
+room-compiler-ksp = [ "androidx-room-compiler" ]
+room-testing-testImplementation = [ "androidx-room-testing" ]
+room = [ "androidx-room-paging" ]
+
+glide-compiler-annotationProcessor = [ "com-google-github-bumptech-glide-compiler" ]
+glide = [ "com-google-github-bumptech-glide" ]
