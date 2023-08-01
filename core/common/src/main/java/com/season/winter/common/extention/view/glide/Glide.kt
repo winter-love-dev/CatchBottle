@@ -1,5 +1,6 @@
 package com.season.winter.common.extention.view.glide
 
+import android.content.Context
 import android.widget.ImageView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions
@@ -16,4 +17,5 @@ fun ImageView.setImageFromUrl(imageUrl: String?) {
         .placeholder(ResourceModuleR.drawable.logo_icon_small)
         .transition(DrawableTransitionOptions.withCrossFade())
         .into(this)
+
 }

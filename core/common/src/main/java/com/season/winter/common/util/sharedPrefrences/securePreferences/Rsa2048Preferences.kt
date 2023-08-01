@@ -1,20 +1,34 @@
 package com.season.winter.common.util.sharedPrefrences.securePreferences
 
 import android.content.Context
-import android.content.SharedPreferences
-import com.season.winter.common.util.sharedPrefrences.factory.SharedPreferencesService
+import android.util.Log
+import com.season.winter.common.util.sharedPrefrences.di.CatchBottlePreferenceService
+import javax.inject.Inject
 
-class Rsa2048Preferences(private val sharedPref: SharedPreferences): SharedPreferencesService {
+
+class Rsa2048Preferences @Inject constructor(
+    private val context: Context,
+    private val name: String,
+    private val cipherHelper: Rsa2048CipherHelper,
+): CatchBottlePreferenceService {
+
+    private val sharedPref =
+        context.getSharedPreferences(name, 0)
 
     override fun contains(key: String): Boolean {
         return sharedPref.contains(key)
     }
 
     override fun clear() {
+        printName("clear()")
         sharedPref.edit().run {
             clear()
             apply()
         }
+    }
+
+    override fun printName(key: String) {
+        Log.e(TAG, "$key is $name", )
     }
 
     override fun get(key: String, defaultValue: Boolean): Boolean = getInternal(key, defaultValue)
@@ -22,7 +36,9 @@ class Rsa2048Preferences(private val sharedPref: SharedPreferences): SharedPrefe
     override fun get(key: String, defaultValue: Long): Long = getInternal(key, defaultValue)
     override fun get(key: String, defaultValue: String): String = getInternal(key, defaultValue)
 
-    private fun <T : Any> getInternal(key: String, defaultValue: T): T {
+    override fun <T : Any> getInternal(key: String, defaultValue: T): T {
+
+        printName("get key: $key")
 
         val str = sharedPref.getString(key, "")
         if (str.isNullOrEmpty()) {
@@ -30,7 +46,7 @@ class Rsa2048Preferences(private val sharedPref: SharedPreferences): SharedPrefe
         }
 
 
-        val value = AndroidRsaCipherHelper.decrypt(str)
+        val value = cipherHelper.decrypt(str)
 
         @Suppress("PlatformExtensionReceiverOfInline", "UNCHECKED_CAST", "IMPLICIT_CAST_TO_ANY")
         return when(defaultValue) {
@@ -49,13 +65,16 @@ class Rsa2048Preferences(private val sharedPref: SharedPreferences): SharedPrefe
     override fun put(key: String, value: Long) = putInternal(key, value)
     override fun put(key: String, value: String) = putInternal(key, value)
 
-    private fun putInternal(key: String, value: Any?) {
+    override fun putInternal(key: String, value: Any?) {
+
+        printName("put key: $key")
+
         try {
             sharedPref.edit().run {
                 if (value == null) {
                     remove(key)
                 } else {
-                    putString(key, AndroidRsaCipherHelper.encrypt(value.toString()))
+                    putString(key, cipherHelper.encrypt(value.toString()))
                 }
                 apply()
             }
@@ -66,9 +85,6 @@ class Rsa2048Preferences(private val sharedPref: SharedPreferences): SharedPrefe
 
     companion object {
 
-        fun create(context: Context, name: String): Rsa2048Preferences {
-            val prefHelper = context.getSharedPreferences(name, 0)
-            return Rsa2048Preferences(prefHelper)
-        }
+        const val TAG = "Rsa2048Preferences"
     }
 }
