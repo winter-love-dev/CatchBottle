@@ -109,7 +109,7 @@ firebase = [
     "com-google-firebase-analytics-ktx",
     "com-google-firebase-firestore-ktx",
 ]
-room-compiler-kapt = [ "androidx-room-compiler" ]
+#room-compiler-kapt = [ "androidx-room-compiler" ]
 room-compiler-ksp = [ "androidx-room-compiler" ]
 room-testing-testImplementation = [ "androidx-room-testing" ]
 room = [ "androidx-room-paging" ]
