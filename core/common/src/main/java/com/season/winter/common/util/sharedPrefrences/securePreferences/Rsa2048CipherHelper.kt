@@ -14,10 +14,8 @@ class Rsa2048CipherHelper @Inject constructor(
     private var isSupported = false
 
     init {
-        if (isSupported.not()) {
-            val alias = "${context.packageName}.rsakeypairs"
-            isSupported = rsa2048.create(alias)
-        }
+        val alias = "${context.packageName}.rsakeypairs"
+        isSupported = rsa2048.create(alias)
     }
 
     override fun encrypt(plainText: String): String {
