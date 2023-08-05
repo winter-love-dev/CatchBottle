@@ -1,6 +1,6 @@
 package com.season.winter.common.util.security
 
-interface RSA2048AlgorithmManager {
+interface RSA2048AlgorithmService {
     fun create(alias: String): Boolean
 
     fun encrypt(plainText: String): String

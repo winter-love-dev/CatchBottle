@@ -11,7 +11,7 @@ import java.security.spec.RSAKeyGenParameterSpec
 import javax.crypto.Cipher
 import javax.inject.Inject
 
-class Rsa2048Algorithm @Inject constructor(): RSA2048AlgorithmManager {
+class Rsa2048AlgorithmManager @Inject constructor(): RSA2048AlgorithmService {
 
     private val rsaKeyAlgorithm = KeyProperties.KEY_ALGORITHM_RSA
     private val ecbBlock = KeyProperties.BLOCK_MODE_ECB

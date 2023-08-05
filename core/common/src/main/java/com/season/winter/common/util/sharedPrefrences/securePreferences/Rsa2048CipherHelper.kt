@@ -2,13 +2,13 @@ package com.season.winter.common.util.sharedPrefrences.securePreferences
 
 import android.content.Context
 import com.season.winter.common.util.security.CatchBottleCipherHelperService
-import com.season.winter.common.util.security.Rsa2048Algorithm
+import com.season.winter.common.util.security.Rsa2048AlgorithmManager
 import dagger.hilt.android.qualifiers.ApplicationContext
 import javax.inject.Inject
 
 class Rsa2048CipherHelper @Inject constructor(
     @ApplicationContext context: Context,
-    private val rsa2048: Rsa2048Algorithm
+    private val rsa2048: Rsa2048AlgorithmManager
 ): CatchBottleCipherHelperService {
 
     private var isSupported = false
