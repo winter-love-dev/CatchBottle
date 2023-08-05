@@ -10,19 +10,8 @@ import java.security.KeyStore
 import java.security.spec.RSAKeyGenParameterSpec
 import javax.crypto.Cipher
 import javax.inject.Inject
-import javax.inject.Singleton
 
-
-interface RSA2048AlgorithmService {
-    fun create(alias: String): Boolean
-
-    fun encrypt(plainText: String): String
-
-    fun decrypt(base64EncryptedCipherText: String): String
-}
-
-
-class Rsa2048Algorithm @Inject constructor(): RSA2048AlgorithmService {
+class Rsa2048Algorithm @Inject constructor(): RSA2048AlgorithmManager {
 
     private val rsaKeyAlgorithm = KeyProperties.KEY_ALGORITHM_RSA
     private val ecbBlock = KeyProperties.BLOCK_MODE_ECB
