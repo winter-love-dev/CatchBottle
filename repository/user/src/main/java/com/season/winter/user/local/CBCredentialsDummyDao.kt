@@ -5,7 +5,7 @@ import com.season.winter.user.constants.UserKeyStore
 import com.season.winter.user.di.UserPreferencesModule
 import javax.inject.Inject
 
-class CBCredentialsDao @Inject constructor(
+class CBCredentialsDummyDao @Inject constructor(
     @UserPreferencesModule.UserPreferences
     private val preferences: Rsa2048Preferences
 ) {

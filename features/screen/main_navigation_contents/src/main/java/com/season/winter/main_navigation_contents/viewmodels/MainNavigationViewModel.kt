@@ -3,7 +3,7 @@ package com.season.winter.main_navigation_contents.viewmodels
 import androidx.lifecycle.ViewModel
 import com.season.winter.screen.fragment.navigationMain.home.di.HomeNavigationRepositoryImpl
 import com.season.winter.ui.model.fragment.home.HomeItem
-import com.season.winter.user.di.CredentialsRepositoryImpl
+import com.season.winter.user.di.Credentials
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.channels.BufferOverflow
 import kotlinx.coroutines.flow.MutableSharedFlow
@@ -16,7 +16,7 @@ import javax.inject.Inject
 
 @HiltViewModel
 class MainNavigationViewModel @Inject constructor(
-    private val credentials: CredentialsRepositoryImpl,
+    private val credentials: Credentials,
     private val dummyRepository: HomeNavigationRepositoryImpl,
 ): ViewModel() {
 

@@ -10,7 +10,7 @@ import com.season.winter.common.activity.BaseActivity
 import com.season.winter.common.di.AppConfigRepositoryImpl
 import com.season.winter.firestore.FireStoreConnectTest
 import com.season.winter.storage.ImageFireStorageInstance
-import com.season.winter.user.di.CredentialsRepositoryImpl
+import com.season.winter.user.di.Credentials
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.channels.BufferOverflow
 import kotlinx.coroutines.delay
@@ -20,7 +20,7 @@ import javax.inject.Inject
 
 @HiltViewModel
 class SplashViewModel @Inject constructor(
-    private val credentials: CredentialsRepositoryImpl,
+    private val credentials: Credentials,
     private val appConfigRepository: AppConfigRepositoryImpl
 ): ViewModel() {
 

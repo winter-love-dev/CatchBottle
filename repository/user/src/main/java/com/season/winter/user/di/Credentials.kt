@@ -1,10 +1,10 @@
 package com.season.winter.user.di
 
-import com.season.winter.user.local.CBCredentialsDao
+import com.season.winter.user.local.CBCredentialsDummyDao
 import javax.inject.Inject
 
-class CredentialsRepositoryImpl @Inject constructor(
-    private val credentials: CBCredentialsDao
+class Credentials @Inject constructor(
+    private val credentials: CBCredentialsDummyDao
 ): CredentialsService {
 
     override val isLogin: Boolean
