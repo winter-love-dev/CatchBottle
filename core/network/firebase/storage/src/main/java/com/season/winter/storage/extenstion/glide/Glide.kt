@@ -9,21 +9,13 @@ import com.season.winter.common.extention.view.glide.setImageFromUrl
 import com.season.winter.storage.ImageFireStorageInstance
 import kotlinx.coroutines.launch
 
-@BindingAdapter("imageFromFireStoreFileName")
-fun bindImageFromFireStoreFileName(view: ImageView, imageFileName: String?) {
+@BindingAdapter("imageFromFireStoreUrl")
+fun bindImageFromFireStoreFileUrl(view: ImageView, imageUrl: String?) {
 
-    if (imageFileName.isNullOrEmpty())
+    if (imageUrl.isNullOrEmpty())
         return
 
-    view.findViewTreeLifecycleOwner()?.let { lifecycleOwner ->
-        lifecycleOwner.lifecycleScope.launch {
-            val url =
-                ImageFireStorageInstance
-                    .getImageUrlFromFileName(imageFileName)
-
-            view.setImageFromUrl(url)
-        }
-    }
+    view.setImageFromUrl(imageUrl)
 }
 
 

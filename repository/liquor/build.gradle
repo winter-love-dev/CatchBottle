@@ -36,6 +36,8 @@ dependencies {
     implementation project(":core:data:model:liquor")
     implementation project(":core:design:ui")
 
+    implementation project(":core:network:firebase:storage")
+
     implementation libs.bundles.default
     testImplementation libs.bundles.default.test.implementation
     androidTestImplementation libs.bundles.default.test.androidTestImplementation

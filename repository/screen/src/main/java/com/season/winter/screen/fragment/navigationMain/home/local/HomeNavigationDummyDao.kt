@@ -20,7 +20,7 @@ class HomeNavigationDummyDao @Inject constructor() {
     init {
 
         LiquorFilterOption.initFilter(
-            liquorInfoDummy.getLiquorListAll()
+            liquorInfoDummy.dummyLiquorListAll
         )
     }
 
@@ -29,7 +29,7 @@ class HomeNavigationDummyDao @Inject constructor() {
     )
 
     private val liquorInfoDummyGenerator = LiquorInfoDummyGenerator()
-    val liquorListAll = liquorInfoDummyGenerator.getLiquorListAll()
+//    val liquorListAll = liquorInfoDummyGenerator.dummyLiquorListAll
 
     val shortcutMenuData = listOf(
         ShortcutMenuData(

@@ -9,7 +9,6 @@ import com.season.winter.catchbottle.activity.main.MainActivity
 import com.season.winter.common.activity.BaseActivity
 import com.season.winter.common.di.AppConfigRepositoryImpl
 import com.season.winter.firestore.FireStoreConnectTest
-import com.season.winter.storage.ImageFireStorageInstance
 import com.season.winter.user.di.Credentials
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.channels.BufferOverflow
@@ -31,13 +30,6 @@ class SplashViewModel @Inject constructor(
 
     fun fireStoreTest() {
         FireStoreConnectTest().test()
-    }
-
-    fun getImagePath() {
-        viewModelScope.launch {
-            val url = ImageFireStorageInstance.getImageUrlFromFileName("thumb_three")
-            Log.e("TAG", "getImagePath: url: $url", )
-        }
     }
 
     fun checkLaunchTargetActivity() {
