@@ -56,6 +56,7 @@ dependencies {
 
     implementation libs.bundles.default
     implementation libs.bundles.default.screen
+    implementation libs.bundles.navigation
     testImplementation libs.bundles.default.test.implementation
     androidTestImplementation libs.bundles.default.test.androidTestImplementation
 

@@ -63,14 +63,14 @@ abstract class CBBaseTextView @JvmOverloads constructor(
     }
 
     @SuppressLint("DrawAllocation")
-    override fun onDraw(canvas: Canvas?) {
+    override fun onDraw(canvas: Canvas) {
         super.onDraw(canvas)
         initAttributes()
         Paint().run {
             textSize = this@CBBaseTextView.textSize ?: CBTypography.getDefaultHeadSize(context)
             color = textColor ?: context.getColor(R.color.gray_5)
             typeface = Typeface.create(fontFamily, weight)
-            canvas?.drawText(text, 0f, 0f, this)
+            canvas.drawText(text, 0f, 0f, this)
         }
     }
 

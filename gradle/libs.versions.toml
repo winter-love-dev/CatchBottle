@@ -1,7 +1,7 @@
 [versions]
 minSdk = "24"
 targetSdk = "34"
-compileSdk = "33"
+compileSdk = "34"
 versionCode = "1"
 versionName = "1.0.0"
 
@@ -22,8 +22,8 @@ androidx-room-compiler = "2.5.2" # kapt, ksp
 androidx-room-testing = "2.5.2" # testImplementation
 androidx-room-paging = "2.5.2"
 
-androidx-navigation-fragment-ktx = "2.6.0"
-androidx-navigation-ui-ktx = "2.6.0"
+androidx-navigation-fragment-ktx = "2.7.0"
+androidx-navigation-ui-ktx = "2.7.0"
 
 com-google-devtools-ksp = "1.8.10-1.0.9"
 com-google-dagger-hilt-android-plugins = "2.44"
@@ -36,7 +36,7 @@ com-google-dagger-hilt-compiler = "2.44" # kapt
 com-google-github-bumptech-glide-compiler = "4.12.0" # annotationProcessor
 com-google-github-bumptech-glide = "4.15.1"
 
-com-google-firebase-bom = "32.1.1"
+com-google-firebase-bom = "32.2.2"
 
 junit = "4.13.2" # testImplementation
 
@@ -76,7 +76,9 @@ com-google-firebase-firestore-ktx = { module = "com.google.firebase:firebase-fir
 com-google-firebase-storage-ktx = { module = "com.google.firebase:firebase-storage-ktx" }
 com-google-github-bumptech-glide-compiler = { module = "com.github.bumptech.glide:compiler", version.ref = "com-google-github-bumptech-glide-compiler" }
 com-google-github-bumptech-glide = { module = "com.github.bumptech.glide:glide", version.ref = "com-google-github-bumptech-glide" }
-junit = { module = "junit:junit", version.ref = "junit" } # testImplementation
+junit = { module = "junit:junit", version.ref = "junit" }
+navigation-fragment-ktx = { group = "androidx.navigation", name = "navigation-fragment-ktx", version = "androidx-navigation-fragment-ktx" }
+navigation-ui-ktx = { group = "androidx.navigation", name = "navigation-ui-ktx", version = "androidx-navigation-ui-ktx" } # testImplementation
 
 [bundles]
 default = [
