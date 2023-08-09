@@ -1,6 +1,5 @@
 package com.season.winter.catchbottle.activity.splash
 
-import android.util.Log
 import androidx.databinding.ViewDataBinding
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
