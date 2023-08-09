@@ -21,7 +21,7 @@ class SplashActivity: AppCompatActivity() {
 
         // refresh remote config ...
         viewModel.checkLaunchTargetActivity()
-        repeatOnLifecycle(viewModel.ㄹonLaunchActivityFlow) { activity ->
+        repeatOnLifecycle(viewModel.onLaunchActivityFlow) { activity ->
             cbStartActivity(activity, true)
         }
     }
