@@ -8,6 +8,7 @@ import com.season.winter.catchbottle.activity.main.MainActivity
 import com.season.winter.common.activity.BaseActivity
 import com.season.winter.common.di.AppConfigRepositoryImpl
 import com.season.winter.firestore.FireStoreConnectTest
+import com.season.winter.remoteconfig.di.RemoteConfigRepositoryImpl
 import com.season.winter.user.di.Credentials
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.channels.BufferOverflow
@@ -19,7 +20,8 @@ import javax.inject.Inject
 @HiltViewModel
 class SplashViewModel @Inject constructor(
     private val credentials: Credentials,
-    private val appConfigRepository: AppConfigRepositoryImpl
+    private val appConfigRepository: AppConfigRepositoryImpl,
+    private val remoteConfigImpl: RemoteConfigRepositoryImpl,
 ): ViewModel() {
 
     val onLaunchActivityFlow = MutableSharedFlow<Class<out BaseActivity<out ViewDataBinding>>>(
@@ -27,8 +29,8 @@ class SplashViewModel @Inject constructor(
         onBufferOverflow = BufferOverflow.DROP_OLDEST,
     )
 
-    fun fireStoreTest() {
-        FireStoreConnectTest().test()
+    fun refreshConfig() {
+        remoteConfigImpl.refreshConfig()
     }
 
     fun checkLaunchTargetActivity() {

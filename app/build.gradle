@@ -53,6 +53,7 @@ dependencies {
 
     implementation project(":core:network:firebase:firestore")
     implementation project(":core:network:firebase:storage")
+    implementation project(":core:network:firebase:remoteconfig")
 
     implementation project(":features:screen:main_navigation_contents")
 
@@ -60,6 +61,7 @@ dependencies {
     implementation project(":repository:liquor")
     implementation project(":repository:screen")
     implementation project(":repository:user")
+    implementation project(":repository:remoteconfig")
 
     implementation libs.bundles.default
     implementation libs.bundles.default.screen
