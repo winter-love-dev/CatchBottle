@@ -74,6 +74,7 @@ com-google-firebase-bom = { module = "com.google.firebase:firebase-bom", version
 com-google-firebase-analytics-ktx = { module = "com.google.firebase:firebase-analytics-ktx" }
 com-google-firebase-firestore-ktx = { module = "com.google.firebase:firebase-firestore-ktx" }
 com-google-firebase-storage-ktx = { module = "com.google.firebase:firebase-storage-ktx" }
+com-google-firebase-remote-config-ktx = { module = "com.google.firebase:firebase-config-ktx" }
 com-google-github-bumptech-glide-compiler = { module = "com.github.bumptech.glide:compiler", version.ref = "com-google-github-bumptech-glide-compiler" }
 com-google-github-bumptech-glide = { module = "com.github.bumptech.glide:glide", version.ref = "com-google-github-bumptech-glide" }
 junit = { module = "junit:junit", version.ref = "junit" }
@@ -110,6 +111,7 @@ firebase-bom = [ "com-google-firebase-bom" ]
 firebase = [
     "com-google-firebase-analytics-ktx",
     "com-google-firebase-firestore-ktx",
+    "com-google-firebase-remote-config-ktx"
 ]
 #room-compiler-kapt = [ "androidx-room-compiler" ]
 room-compiler-ksp = [ "androidx-room-compiler" ]

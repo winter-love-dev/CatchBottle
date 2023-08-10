@@ -6,11 +6,16 @@ import com.season.winter.liquor.dummy.LiquorInfoDummyGenerator
 import com.season.winter.liquor.liquorInfo.filter.LiquorFilterOption
 import com.season.winter.liquor.liquorInfo.LiquorStatus
 import com.season.winter.liquor.liquorInfo.WhiskyType
+import com.season.winter.storage.ImageFireStorageInstance
 import com.season.winter.ui.model.fragment.home.BannerData
 import com.season.winter.ui.model.fragment.home.HomeItem
 import com.season.winter.ui.model.fragment.home.HomeItemType
 import com.season.winter.ui.model.fragment.home.ShortcutMenuData
 import com.season.winter.ui.model.fragment.home.ShortcutMenuEvent
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.SupervisorJob
+import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 class HomeNavigationDummyDao @Inject constructor() {
@@ -24,12 +29,32 @@ class HomeNavigationDummyDao @Inject constructor() {
         )
     }
 
-    val bannerData = BannerData(
-        imageUrls = listOf("", "", "")
-    )
+    private val bannerData = listOf(
+        BannerData(imageFileName = "banner/banner_1"),
+        BannerData(imageFileName = "banner/banner_2"),
+        BannerData(imageFileName = "banner/banner_3"),
+        BannerData(imageFileName = "banner/banner_4"),
+        BannerData(imageFileName = "banner/banner_5"),
+        BannerData(imageFileName = "banner/banner_6"),
+        BannerData(imageFileName = "banner/banner_7"),
+        BannerData(imageFileName = "banner/banner_8"),
+    ).apply {
+        loadBannerUrlFromFileName()
+    }
 
-    private val liquorInfoDummyGenerator = LiquorInfoDummyGenerator()
-//    val liquorListAll = liquorInfoDummyGenerator.dummyLiquorListAll
+    private fun loadBannerUrlFromFileName() {
+        val context = Dispatchers.IO + SupervisorJob()
+        CoroutineScope(context).launch {
+            bannerData.run {
+                forEach { liquorInfo ->
+                    liquorInfo.imageUrls?.let { thumbnailFileName ->
+                        val url = ImageFireStorageInstance.getImageUrlFromFileName(thumbnailFileName)
+                        liquorInfo.imageUrls = url ?: ""
+                    }
+                }
+            }
+        }
+    }
 
     val shortcutMenuData = listOf(
         ShortcutMenuData(

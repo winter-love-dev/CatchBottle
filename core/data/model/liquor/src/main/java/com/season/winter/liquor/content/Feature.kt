@@ -1,12 +1,10 @@
 package com.season.winter.liquor.content
 
-import android.graphics.Typeface
+import com.season.winter.designsystem.color.CBColor
 import com.season.winter.designsystem.typography.CBTypography
 
 enum class FeatureType(
-    number: Int,
-    colorRes: Int? = null,
-    fontFamily: CBTypography = CBTypography.BodyM
+    val identify: Int,
 ){
     Text(0),
     ImageUrl(1),
@@ -15,5 +13,8 @@ enum class FeatureType(
 
 data class FeatureData(
     val type: FeatureType,
-    val source: String
+    val colorRes: Int = CBColor.Black.value, // textColor
+    val fontFamily: CBTypography = CBTypography.BodyM,
+    val source: String, // text or url
+    val clickActionUrl: String? = null, // 텍스트 or 이미지 클릭했을 때의 액션 지정
 )

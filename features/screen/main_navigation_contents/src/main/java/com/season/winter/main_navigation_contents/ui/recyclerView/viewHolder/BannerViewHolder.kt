@@ -4,14 +4,13 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.season.winter.liquor.liquorInfo.LiquorInfo
-import com.season.winter.main_navigation_contents.databinding.ItemLiquorMiniBinding
-import com.season.winter.storage.extenstion.glide.preloadImageFromFireStoreFileName
+import com.season.winter.main_navigation_contents.databinding.ItemBannerBinding
 
-class MiniLiquorViewHolder(
+class BannerViewHolder(
     parent: ViewGroup,
     layoutInflater: LayoutInflater = LayoutInflater.from(parent.context),
-    val binding: ItemLiquorMiniBinding =
-        ItemLiquorMiniBinding.inflate(layoutInflater, parent, false),
+    val binding: ItemBannerBinding =
+        ItemBannerBinding.inflate(layoutInflater, parent, false),
 ): RecyclerView.ViewHolder(binding.root) {
 
     private var onClickMore: ((position: Int) -> Unit)? = null
