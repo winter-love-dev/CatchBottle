@@ -1,6 +1,7 @@
 plugins {
     alias libs.plugins.android.library
     alias libs.plugins.kotlin.android
+    alias libs.plugins.kotlin.plugin.serialization
 }
 
 android {
@@ -38,4 +39,6 @@ dependencies {
     implementation libs.bundles.default
     testImplementation libs.bundles.default.test.implementation
     androidTestImplementation libs.bundles.default.test.androidTestImplementation
+
+    implementation libs.bundles.kotlinx.serialization
 }

@@ -2,15 +2,19 @@ package com.season.winter.liquor.content
 
 import com.season.winter.designsystem.color.CBColor
 import com.season.winter.designsystem.typography.CBTypography
+import kotlinx.serialization.SerialName
+import kotlinx.serialization.Serializable
 
+@Serializable
 enum class FeatureType(
-    val identify: Int,
+    @SerialName("type") val identify: Int,
 ){
-    Text(0),
-    ImageUrl(1),
-    YouTubeVideoUrl(2),
+    @SerialName("0") Text(0),
+    @SerialName("1") ImageUrl(1),
+    @SerialName("2") YouTubeVideoUrl(2),
 }
 
+@Serializable
 data class FeatureData(
     val type: FeatureType,
     val colorRes: Int = CBColor.Black.value, // textColor

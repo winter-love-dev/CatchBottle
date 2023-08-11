@@ -4,6 +4,7 @@ plugins {
     alias libs.plugins.kotlin.kapt
     alias libs.plugins.devtools.ksp
     alias libs.plugins.dagger.hilt
+    alias libs.plugins.kotlin.plugin.serialization
 }
 
 android {
@@ -67,6 +68,8 @@ dependencies {
     implementation libs.bundles.default.screen
     testImplementation libs.bundles.default.test.implementation
     androidTestImplementation libs.bundles.default.test.androidTestImplementation
+
+    implementation libs.bundles.kotlinx.serialization
 
     implementation libs.bundles.navigation
 

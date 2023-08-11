@@ -3,6 +3,7 @@ plugins {
     alias libs.plugins.kotlin.android
     alias libs.plugins.kotlin.kapt
     alias libs.plugins.dagger.hilt
+    alias libs.plugins.kotlin.plugin.serialization
 }
 
 android {
@@ -38,6 +39,8 @@ dependencies {
     implementation project(":core:common")
     implementation project(":core:config")
 
+    implementation project(":core:design:ui")
+
     implementation project(":core:network:firebase:remoteconfig")
 
     implementation libs.bundles.default
@@ -46,4 +49,6 @@ dependencies {
 
     implementation libs.bundles.hilt
     kapt libs.bundles.hilt.compiler.kapt
+
+    implementation libs.bundles.kotlinx.serialization
 }

@@ -53,6 +53,7 @@ dependencies {
     implementation project(":repository:liquor")
     implementation project(":repository:screen")
     implementation project(":repository:user")
+    implementation project(":repository:remoteconfig")
 
     implementation libs.bundles.default
     implementation libs.bundles.default.screen

@@ -4,6 +4,7 @@ plugins {
     alias libs.plugins.kotlin.kapt
     alias libs.plugins.devtools.ksp
     alias libs.plugins.dagger.hilt
+    alias libs.plugins.kotlin.plugin.serialization
 }
 
 android {
@@ -52,4 +53,6 @@ dependencies {
 
     implementation libs.bundles.hilt
     kapt libs.bundles.hilt.compiler.kapt
+
+    implementation libs.bundles.kotlinx.serialization
 }

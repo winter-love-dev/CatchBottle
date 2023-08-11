@@ -1,5 +1,6 @@
 package com.season.winter.remoteconfig.di
 
+import com.season.winter.remoteconfig.RemoteConfigManager
 import com.season.winter.remoteconfig.remote.RemoteConfigDao
 import dagger.Module
 import dagger.Provides
@@ -14,8 +15,10 @@ object RemoteConfigRepositoryModule {
 
     @Provides
     @Singleton
-    fun provideRemoteConfig(): RemoteConfigDao {
-        return RemoteConfigDao()
+    fun provideRemoteConfig(
+        remoteConfigManager: RemoteConfigManager
+    ): RemoteConfigDao {
+        return RemoteConfigDao(remoteConfigManager)
     }
 
 }

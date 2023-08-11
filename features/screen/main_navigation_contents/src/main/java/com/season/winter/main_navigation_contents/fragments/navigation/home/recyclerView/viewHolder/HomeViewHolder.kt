@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.season.winter.liquor.liquorInfo.LiquorInfo
 import com.season.winter.main_navigation_contents.databinding.ItemLiquorGroupingBinding
 import com.season.winter.main_navigation_contents.ui.recyclerView.adapter.MiniLiquorAdapter
+import com.season.winter.ui.model.fragment.home.BannerData
 import com.season.winter.ui.model.fragment.home.HomeItem
 import com.season.winter.ui.model.fragment.home.HomeItemType
 
@@ -38,8 +39,13 @@ class HomeViewHolder(
 
     fun bind(homeItem: HomeItem) {
         binding.homeItem = homeItem
-        if (homeItem.type == HomeItemType.LiquorGrouping)
-            miniLiquorAdapter.initData(homeItem.liquorItems)
+        when(homeItem.type) {
+            HomeItemType.SearchBar -> {}
+            HomeItemType.Banner -> {}
+            HomeItemType.ShortcutMenu -> {}
+            HomeItemType.LiquorGrouping -> miniLiquorAdapter.initData(homeItem.liquorItems)
+            HomeItemType.Footer -> {}
+        }
     }
 
     fun onClickMore() {

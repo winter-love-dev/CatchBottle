@@ -2,6 +2,7 @@ plugins {
     alias libs.plugins.android.library
     alias libs.plugins.kotlin.android
     alias libs.plugins.kotlin.kapt
+    alias libs.plugins.kotlin.plugin.serialization
 }
 
 android {
@@ -50,4 +51,6 @@ dependencies {
 
     annotationProcessor libs.bundles.glide.compiler.annotationProcessor
     implementation libs.bundles.glide
+
+    implementation libs.bundles.kotlinx.serialization
 }
