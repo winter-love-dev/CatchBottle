@@ -17,6 +17,7 @@ androidx-test-ext = "1.1.5" # testImplementation
 androidx-test-espresso-core = "3.5.1" # testImplementation
 androidx-lifecycle-runtime-ktx = "2.6.1"
 androidx-lifecycle-viewmodel-ktx = "2.6.1"
+androidx-work-runtime-ktx = "2.8.1" # Kotlin + coroutines
 
 androidx-room-compiler = "2.5.2" # kapt, ksp
 androidx-room-testing = "2.5.2" # testImplementation
@@ -70,6 +71,9 @@ androidx-splashscreen = { module = "androidx.core:core-splashscreen", version.re
 androidx-room-compiler = { module = "androidx.room:room-compiler", version.ref = "androidx-room-compiler" }
 androidx-room-testing = { module = "androidx.room:room-testing", version.ref = "androidx-room-testing" }
 androidx-room-paging = { module = "androidx.room:room-paging", version.ref = "androidx-room-paging" }
+androidx-work-runtime-ktx = { module = "androidx.work:work-runtime-ktx", version.ref = "androidx-work-runtime-ktx" }
+androidx-work-gcm = { module = "androidx.work:work-gcm", version.ref = "androidx-work-runtime-ktx" } # optional - GCMNetworkManager support
+androidx-work-multiprocess = { module = "androidx.work:work-multiprocess", version.ref = "androidx-work-runtime-ktx" } # optional - Multiprocess support
 com-google-dagger-hilt-android = { module = "com.google.dagger:hilt-android", version.ref = "com-google-dagger-hilt-android" }
 com-google-dagger-hilt-compiler = { module = "com.google.dagger:hilt-compiler", version.ref = "com-google-dagger-hilt-compiler" } # kapt
 com-google-firebase-bom = { module = "com.google.firebase:firebase-bom", version.ref = "com-google-firebase-bom" }
@@ -80,8 +84,6 @@ com-google-firebase-remote-config-ktx = { module = "com.google.firebase:firebase
 com-google-github-bumptech-glide-compiler = { module = "com.github.bumptech.glide:compiler", version.ref = "com-google-github-bumptech-glide-compiler" }
 com-google-github-bumptech-glide = { module = "com.github.bumptech.glide:glide", version.ref = "com-google-github-bumptech-glide" }
 junit = { module = "junit:junit", version.ref = "junit" }
-navigation-fragment-ktx = { module = "androidx.navigation:navigation-fragment-ktx", version = "androidx-navigation-fragment-ktx" }
-navigation-ui-ktx = { module = "androidx.navigation:navigation-ui-ktx", version.ref = "androidx-navigation-ui-ktx" } # testImplementation
 org-jetbrains-kotlinx-serialization-json = { module = "org.jetbrains.kotlinx:kotlinx-serialization-json", version.ref = "org-jetbrains-kotlinx-serialization-json" }
 
 [bundles]
@@ -121,3 +123,11 @@ room-testing-testImplementation = [ "androidx-room-testing" ]
 room = [ "androidx-room-paging" ]
 glide-compiler-annotationProcessor = [ "com-google-github-bumptech-glide-compiler" ]
 glide = [ "com-google-github-bumptech-glide" ]
+workmanager-default = [
+    "androidx-work-runtime-ktx",
+]
+workmanager-all = [
+    "androidx-work-runtime-ktx",
+    "androidx-work-gcm", # optional - GCMNetworkManager support
+    "androidx-work-multiprocess",# optional - Multiprocess support
+]

@@ -20,7 +20,7 @@ object ImageFireStorageInstance {
             val imageUrl = storageRef.child(path).downloadUrl.await()
             imageUrl.toString()
         } catch (e: Exception) {
-            Log.e(TAG, "suspendTest: e: $e", )
+            Log.e(TAG, "error getImageUrlFromFileName: e: $e", )
             null
         }
     }

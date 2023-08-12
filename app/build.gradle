@@ -85,6 +85,8 @@ dependencies {
 
     annotationProcessor libs.bundles.glide.compiler.annotationProcessor
     implementation libs.bundles.glide
+
+    implementation libs.bundles.workmanager.all
 }
 
 kapt {
