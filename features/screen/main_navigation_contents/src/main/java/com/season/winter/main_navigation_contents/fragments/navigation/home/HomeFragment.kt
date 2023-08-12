@@ -18,9 +18,6 @@ class HomeFragment: BaseNavigationFragment<FragmentHomeBinding>(R.layout.fragmen
             Log.e("TAG", "initAfterView: $homeData", )
             adapter?.initData(homeData)
         }
-        repeatOnLifecycle(activityViewModel.onBannerConfigDataFlow) { bannerData ->
-            Log.e(TAG, "initAfterView: bannerData: $bannerData", )
-        }
     }
 
     companion object {

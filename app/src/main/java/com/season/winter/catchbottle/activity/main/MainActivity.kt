@@ -1,5 +1,6 @@
 package com.season.winter.catchbottle.activity.main
 
+import android.util.Log
 import androidx.activity.viewModels
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.fragment.findNavController
@@ -24,6 +25,9 @@ class MainActivity: BaseActivity<ActivityMainBinding>(R.layout.activity_main) {
                 cbStartActivity(LoginActivity::class.java, true)
             }
         }
+        repeatOnLifecycle(viewModel.onBannerConfigDataFlow) { bannerData ->
+            Log.e(TAG, "initAfterView: bannerData: $bannerData", )
+        }
 
         val navHostFragment = supportFragmentManager.findFragmentById(R.id.fragment_host) as NavHostFragment
         val navController = navHostFragment.findNavController()
@@ -45,6 +49,11 @@ class MainActivity: BaseActivity<ActivityMainBinding>(R.layout.activity_main) {
 //            }
 //            true
 //        }
+    }
+
+    companion object {
+
+        private const val TAG = "MainActivity"
     }
 
 }

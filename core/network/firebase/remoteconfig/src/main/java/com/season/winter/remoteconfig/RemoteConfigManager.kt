@@ -49,6 +49,8 @@ class RemoteConfigManager @Inject constructor() {
         remoteConfig.let { config ->
             config.setConfigSettingsAsync(configSettings)
             config.setDefaultsAsync(R.xml.remote_config_defaults)
+
+            // listen live update
             config.addOnConfigUpdateListener(object : ConfigUpdateListener {
                 override fun onUpdate(configUpdate: ConfigUpdate) {
                     config.activate().addOnCompleteListener { newConfig ->

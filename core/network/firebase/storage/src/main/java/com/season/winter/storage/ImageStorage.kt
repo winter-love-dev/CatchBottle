@@ -16,7 +16,7 @@ object ImageFireStorageInstance {
 
     suspend fun getImageUrlFromFileName(fileName: String): String? {
         return try {
-            val path = "$imagesPath${fileName}.png"
+            val path = "$imagesPath$fileName"
             val imageUrl = storageRef.child(path).downloadUrl.await()
             imageUrl.toString()
         } catch (e: Exception) {
