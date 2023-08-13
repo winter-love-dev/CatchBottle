@@ -1,4 +1,4 @@
-package com.season.winter.remoteconfig.remote
+package com.season.winter.remoteconfig.remote.dao
 
 import android.util.Log
 import com.season.winter.common.extention.primitive.decodeFromJsonStringSafety
@@ -12,8 +12,6 @@ import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.SharedFlow
 import kotlinx.coroutines.flow.asSharedFlow
 import kotlinx.coroutines.launch
-import kotlinx.serialization.json.Json
-import java.lang.Exception
 import javax.inject.Inject
 
 class RemoteConfigDao @Inject constructor(
@@ -26,13 +24,13 @@ class RemoteConfigDao @Inject constructor(
         extraBufferCapacity = 1,
         onBufferOverflow = BufferOverflow.DROP_OLDEST,
     )
-    val onSomeOtherConfig: SharedFlow<List<BannerData>>
+    val onBannerConfigDataFlow: SharedFlow<List<BannerData>>
         get() = _onBannerConfigData.asSharedFlow()
 
     init {
         coroutineScope.launch {
-            remoteConfigManager.onBannerConfigFlow.collect { banner ->
-                val result = banner
+            remoteConfigManager.onBannerConfigFlow.collect { bannerJsonString ->
+                val result = bannerJsonString
                     .decodeFromJsonStringSafety<List<BannerData>>() ?: return@collect
                 _onBannerConfigData.tryEmit(result)
             }

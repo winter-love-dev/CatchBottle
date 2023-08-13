@@ -1,6 +1,7 @@
 plugins {
     alias libs.plugins.android.library
     alias libs.plugins.kotlin.android
+//    alias libs.plugins.devtools.ksp
     alias libs.plugins.kotlin.kapt
     alias libs.plugins.dagger.hilt
     alias libs.plugins.kotlin.plugin.serialization
@@ -42,6 +43,9 @@ dependencies {
     implementation project(":core:design:ui")
 
     implementation project(":core:network:firebase:remoteconfig")
+    implementation project(":core:network:firebase:storage")
+
+    implementation project(":repository:liquor")
 
     implementation libs.bundles.default
     testImplementation libs.bundles.default.test.implementation
@@ -51,4 +55,12 @@ dependencies {
     kapt libs.bundles.hilt.compiler.kapt
 
     implementation libs.bundles.kotlinx.serialization
+
+//    ksp libs.bundles.room.compiler.ksp
+    kapt libs.bundles.room.compiler.kapt
+    annotationProcessor libs.bundles.room.compiler.annotationProcessor
+    testImplementation libs.bundles.room.testing.testImplementation
+    implementation libs.bundles.room
+
+    implementation libs.bundles.workmanager.default
 }

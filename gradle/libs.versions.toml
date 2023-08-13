@@ -19,9 +19,7 @@ androidx-lifecycle-runtime-ktx = "2.6.1"
 androidx-lifecycle-viewmodel-ktx = "2.6.1"
 androidx-work-runtime-ktx = "2.8.1" # Kotlin + coroutines
 
-androidx-room-compiler = "2.5.2" # kapt, ksp
-androidx-room-testing = "2.5.2" # testImplementation
-androidx-room-paging = "2.5.2"
+androidx-room = "2.5.2"
 
 androidx-navigation-fragment-ktx = "2.7.0"
 androidx-navigation-ui-ktx = "2.7.0"
@@ -68,9 +66,11 @@ androidx-lifecycle-viewmodel-ktx = { module = "androidx.lifecycle:lifecycle-view
 androidx-navigation-fragment-ktx = { module = "androidx.navigation:navigation-fragment-ktx", version.ref = "androidx-navigation-fragment-ktx" }
 androidx-navigation-ui-ktx = { module = "androidx.navigation:navigation-ui-ktx", version.ref = "androidx-navigation-ui-ktx" }
 androidx-splashscreen = { module = "androidx.core:core-splashscreen", version.ref = "androidx-core-splashscreen" }
-androidx-room-compiler = { module = "androidx.room:room-compiler", version.ref = "androidx-room-compiler" }
-androidx-room-testing = { module = "androidx.room:room-testing", version.ref = "androidx-room-testing" }
-androidx-room-paging = { module = "androidx.room:room-paging", version.ref = "androidx-room-paging" }
+androidx-room-compiler = { module = "androidx.room:room-compiler", version.ref = "androidx-room" } # ksp
+androidx-room-compiler-annotationProcessor = { module = "androidx.room:room-compiler", version.ref = "androidx-room" } # annotationProcessor
+androidx-room-testing = { module = "androidx.room:room-testing", version.ref = "androidx-room" }
+androidx-room-runtime = { module = "androidx.room:room-runtime", version.ref = "androidx-room" } # ksp
+androidx-room-paging = { module = "androidx.room:room-paging", version.ref = "androidx-room" }
 androidx-work-runtime-ktx = { module = "androidx.work:work-runtime-ktx", version.ref = "androidx-work-runtime-ktx" }
 androidx-work-gcm = { module = "androidx.work:work-gcm", version.ref = "androidx-work-runtime-ktx" } # optional - GCMNetworkManager support
 androidx-work-multiprocess = { module = "androidx.work:work-multiprocess", version.ref = "androidx-work-runtime-ktx" } # optional - Multiprocess support
@@ -118,9 +118,14 @@ firebase = [
     "com-google-firebase-firestore-ktx",
     "com-google-firebase-remote-config-ktx"
 ]
+room-compiler-annotationProcessor = [ "androidx-room-compiler-annotationProcessor" ]
+room-compiler-kapt = [ "androidx-room-compiler" ]
 room-compiler-ksp = [ "androidx-room-compiler" ]
 room-testing-testImplementation = [ "androidx-room-testing" ]
-room = [ "androidx-room-paging" ]
+room = [
+    "androidx-room-runtime",
+    "androidx-room-paging"
+]
 glide-compiler-annotationProcessor = [ "com-google-github-bumptech-glide-compiler" ]
 glide = [ "com-google-github-bumptech-glide" ]
 workmanager-default = [

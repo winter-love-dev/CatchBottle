@@ -7,14 +7,12 @@ import com.season.winter.catchbottle.activity.login.LoginActivity
 import com.season.winter.catchbottle.activity.main.MainActivity
 import com.season.winter.common.activity.BaseActivity
 import com.season.winter.common.di.AppConfigRepositoryImpl
-import com.season.winter.remoteconfig.di.RemoteConfigRepositoryImpl
-import com.season.winter.ui.model.fragment.home.BannerData
+import com.season.winter.remoteconfig.RemoteConfigRepositoryImpl
 import com.season.winter.user.di.Credentials
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.channels.BufferOverflow
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableSharedFlow
-import kotlinx.coroutines.flow.SharedFlow
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 

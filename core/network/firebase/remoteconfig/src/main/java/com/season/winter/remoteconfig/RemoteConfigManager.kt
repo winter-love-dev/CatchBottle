@@ -4,6 +4,7 @@ import android.util.Log
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.remoteconfig.ConfigUpdate
 import com.google.firebase.remoteconfig.ConfigUpdateListener
+import com.google.firebase.remoteconfig.FirebaseRemoteConfig
 import com.google.firebase.remoteconfig.FirebaseRemoteConfigException
 import com.google.firebase.remoteconfig.ktx.remoteConfig
 import com.google.firebase.remoteconfig.ktx.remoteConfigSettings
@@ -82,6 +83,13 @@ class RemoteConfigManager @Inject constructor() {
         coroutineScope.launch {
             remoteConfig.fetchAndActivate().await()
             emitAllConfig()
+        }
+    }
+
+    suspend fun fetchBannerConfig(): String? {
+        return remoteConfig.run {
+            fetchAndActivate().await()
+            getString(KeyBanner).ifEmpty { null }
         }
     }
 

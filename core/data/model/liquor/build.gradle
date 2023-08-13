@@ -2,6 +2,7 @@ plugins {
     alias libs.plugins.android.library
     alias libs.plugins.kotlin.android
     alias libs.plugins.kotlin.plugin.serialization
+    alias libs.plugins.devtools.ksp
 }
 
 android {
@@ -41,4 +42,9 @@ dependencies {
     androidTestImplementation libs.bundles.default.test.androidTestImplementation
 
     implementation libs.bundles.kotlinx.serialization
+
+    ksp libs.bundles.room.compiler.ksp
+    annotationProcessor libs.bundles.room.compiler.annotationProcessor
+    testImplementation libs.bundles.room.testing.testImplementation
+    implementation libs.bundles.room
 }

@@ -1,7 +1,7 @@
-package com.season.winter.remoteconfig.di
+package com.season.winter.remoteconfig.remote.di
 
 import com.season.winter.remoteconfig.RemoteConfigManager
-import com.season.winter.remoteconfig.remote.RemoteConfigDao
+import com.season.winter.remoteconfig.remote.dao.RemoteConfigDao
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

@@ -1,7 +1,7 @@
 package com.season.winter.main_navigation_contents.viewmodels
 
 import androidx.lifecycle.ViewModel
-import com.season.winter.remoteconfig.di.RemoteConfigRepositoryImpl
+import com.season.winter.remoteconfig.RemoteConfigRepositoryImpl
 import com.season.winter.screen.fragment.navigationMain.home.di.HomeNavigationRepositoryImpl
 import com.season.winter.ui.model.fragment.home.BannerData
 import com.season.winter.ui.model.fragment.home.HomeItem
