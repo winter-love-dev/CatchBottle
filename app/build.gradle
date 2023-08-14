@@ -88,6 +88,8 @@ dependencies {
     implementation libs.bundles.glide
 
     implementation libs.bundles.workmanager.all
+
+//    implementation 'androidx.hilt:hilt-work:1.1.0-alpha01'
 }
 
 kapt {

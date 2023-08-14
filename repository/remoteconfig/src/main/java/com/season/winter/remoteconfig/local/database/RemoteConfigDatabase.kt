@@ -6,10 +6,8 @@ import androidx.room.Room
 import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
 import androidx.sqlite.db.SupportSQLiteDatabase
-import androidx.work.OneTimeWorkRequestBuilder
-import androidx.work.WorkManager
 import com.season.winter.remoteconfig.constants.DatabaseName_RemoteConfig
-import com.season.winter.remoteconfig.local.dao.RemoteConfigLocalDao
+import com.season.winter.remoteconfig.local.dao.RemoteConfigRoomDao
 import com.season.winter.ui.model.fragment.home.BannerData
 
 @Database(
@@ -23,15 +21,13 @@ import com.season.winter.ui.model.fragment.home.BannerData
 @TypeConverters(RemoteConfigConverters::class)
 abstract class RemoteConfigDatabase: RoomDatabase() {
 
-    abstract fun remoteConfigDao(): RemoteConfigLocalDao
+    abstract fun remoteConfigDao(): RemoteConfigRoomDao
 
     companion object {
 
         @Volatile private var instance: RemoteConfigDatabase? = null
 
-        fun getInstance(
-            context: Context,
-        ): RemoteConfigDatabase {
+        fun getInstance(context: Context): RemoteConfigDatabase {
             return instance ?: synchronized(this) {
                 instance ?: buildDatabase(context).also { instance = it }
             }
@@ -42,19 +38,37 @@ abstract class RemoteConfigDatabase: RoomDatabase() {
                 context,
                 RemoteConfigDatabase::class.java,
                 DatabaseName_RemoteConfig
-            ).addCallback(
+            )
+//                .addTypeConverter(RemoteConfigConverters)
+                .addCallback(
                 object : RoomDatabase.Callback() {
                     override fun onCreate(db: SupportSQLiteDatabase) {
                         super.onCreate(db)
 
-                        val request =
-                            OneTimeWorkRequestBuilder<RemoteConfigFetcherWorker>()
-                                //.setInputData(workDataOf(RemoteConfigFetcherWorker.TAG to remoteConfigManager))
-                                .build()
+                        /** 향후 worker 적용을 위해 주석 지우지 않고 남겨두기 */
+                        // 인터넷 연결중일 때만 실행하기
+//                        val constraints = Constraints.Builder()
+//                            .setRequiredNetworkType(NetworkType.CONNECTED)
+//                            .build()
 
-                        WorkManager
-                            .getInstance(context)
-                            .enqueue(request)
+//                        val request =
+//                            PeriodicWorkRequestBuilder<RemoteConfigFetcherWorker>(
+//                                repeatInterval = 1,
+////                                TimeUnit.HOURS, // 1시간 마다 1회 실행
+//                                TimeUnit.MINUTES, // 1시간 마다 1회 실행
+//                                flexTimeInterval = 15,
+//                                TimeUnit.MINUTES // 1시간 마다 실행되며 15분간 지속되게 설정
+//                            )
+//                            .setConstraints(constraints)
+//                            .build()
+
+//                        val request = OneTimeWorkRequestBuilder<RemoteConfigFetcherWorker>()
+//                            .setConstraints(constraints)
+//                            .build()
+//
+//                        WorkManager
+//                            .getInstance(context)
+//                            .enqueue(request)
                     }
                 }
             )

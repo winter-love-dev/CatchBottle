@@ -1,6 +1,7 @@
 plugins {
     alias libs.plugins.android.library
     alias libs.plugins.kotlin.android
+    alias libs.plugins.kotlin.kapt
 }
 
 android {
@@ -41,4 +42,7 @@ dependencies {
     androidTestImplementation libs.bundles.default.test.androidTestImplementation
 
     implementation libs.com.google.firebase.remote.config.ktx
+
+    implementation libs.bundles.hilt
+    kapt libs.bundles.hilt.compiler.kapt
 }

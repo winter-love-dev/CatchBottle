@@ -1,11 +1,11 @@
 package com.season.winter.remoteconfig.local.database
 
+import androidx.room.ProvidedTypeConverter
 import androidx.room.TypeConverter
-import com.season.winter.common.extention.primitive.decodeFromJsonStringSafety
-import com.season.winter.ui.model.fragment.home.BannerData
 import com.season.winter.ui.model.fragment.home.BannerPageLinkType
 
 
+@ProvidedTypeConverter
 object RemoteConfigConverters {
 
     @TypeConverter
@@ -18,25 +18,22 @@ object RemoteConfigConverters {
         return BannerPageLinkType.toType(pageType) ?: BannerPageLinkType.InApp
     }
 
-    @TypeConverter
-    fun jsonStringToBannerList(bannerJsonString: String): List<BannerData>? {
-        return bannerJsonString
-            .decodeFromJsonStringSafety<List<BannerData>>()
-    }
-
-
 //    @TypeConverter
-//    @JvmStatic
-//    fun fromUserPlaceType(value: UserPlaceType?) = value?.name
+//    suspend fun jsonStringToBannerList(bannerJsonString: String = ""): List<BannerData>? {
 //
-//    @TypeConverter
-//    @JvmStatic
-//    fun toUserPlaceType(value: String?) = UserPlaceType.values.firstOrNull { it.name == value }
-
-
-//    @TypeConverter
-//    fun intToFeatureType(pageType: Int): BannerPageLinkType {
-//        return BannerPageLinkType.toType(pageType) ?: BannerPageLinkType.InApp
+//        return bannerJsonString
+//            ?.decodeFromJsonStringSafety<List<BannerData>>()
+//            ?.apply { loadBannerUrlFromFileName(this) }
+//            ?: return null
+//    }
+//
+//    private suspend fun loadBannerUrlFromFileName(list: List<BannerData>) {
+//        list.forEach { banner ->
+//            banner.imageFileName.let { imageFileName ->
+//                val url = ImageFireStorageInstance.getImageUrlFromFileName(imageFileName)
+//                banner.imageUrl = url
+//            }
+//        }
 //    }
 
 }

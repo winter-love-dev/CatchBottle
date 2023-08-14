@@ -20,7 +20,7 @@ import javax.inject.Inject
 class SplashViewModel @Inject constructor(
     private val credentials: Credentials,
     private val appConfigRepository: AppConfigRepositoryImpl,
-    private val remoteConfigImpl: RemoteConfigRepositoryImpl,
+    private val remoteConfigRepository: RemoteConfigRepositoryImpl,
 ): ViewModel() {
 
     val onLaunchActivityFlow = MutableSharedFlow<Class<out BaseActivity<out ViewDataBinding>>>(
@@ -29,7 +29,7 @@ class SplashViewModel @Inject constructor(
     )
 
     fun refreshConfig() {
-        remoteConfigImpl.refreshConfig()
+        // remoteConfigRepository.fetch()
     }
 
     fun checkLaunchTargetActivity() {

@@ -8,6 +8,7 @@ import com.season.winter.ui.model.fragment.home.HomeItem
 import com.season.winter.user.di.Credentials
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.channels.BufferOverflow
+import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharedFlow
@@ -20,7 +21,7 @@ import javax.inject.Inject
 class MainNavigationViewModel @Inject constructor(
     private val credentials: Credentials,
     private val dummyRepository: HomeNavigationRepositoryImpl,
-    private val remoteConfigImpl: RemoteConfigRepositoryImpl,
+    private val remoteConfig: RemoteConfigRepositoryImpl,
 ): ViewModel() {
 
     val userName = MutableStateFlow(credentials.userName)
@@ -39,8 +40,8 @@ class MainNavigationViewModel @Inject constructor(
     val onHomeUiDataListener: StateFlow<List<HomeItem>> =
         _onHomeUiDataListener.asStateFlow()
 
-    val onBannerConfigDataFlow: SharedFlow<List<BannerData>>
-        get() = remoteConfigImpl.onBannerConfigDataFlow
+    val onBannerDataFlow: Flow<List<BannerData>>
+        get() = remoteConfig.getBanner()
 
     fun onLogout() {
         credentials.logout()

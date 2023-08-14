@@ -6,7 +6,10 @@ import kotlinx.serialization.json.Json
 
 inline fun <reified T> String.decodeFromJsonStringSafety(): T? {
     return try {
-        Json.decodeFromString<T>(this)
+        val jsonOption = Json {
+            ignoreUnknownKeys = true
+        }
+        jsonOption.decodeFromString<T>(this)
     } catch (e: SerializationException) {
         Log.e(
             "Json.decodeFromStringSafety",

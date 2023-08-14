@@ -6,16 +6,10 @@ import com.season.winter.liquor.dummy.LiquorInfoDummyGenerator
 import com.season.winter.liquor.liquorInfo.filter.LiquorFilterOption
 import com.season.winter.liquor.liquorInfo.LiquorStatus
 import com.season.winter.liquor.liquorInfo.WhiskyType
-import com.season.winter.storage.ImageFireStorageInstance
-import com.season.winter.ui.model.fragment.home.BannerData
 import com.season.winter.ui.model.fragment.home.HomeItem
 import com.season.winter.ui.model.fragment.home.HomeItemType
 import com.season.winter.ui.model.fragment.home.ShortcutMenuData
 import com.season.winter.ui.model.fragment.home.ShortcutMenuEvent
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.SupervisorJob
-import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 class HomeNavigationDummyDao @Inject constructor() {

@@ -2,13 +2,10 @@ package com.season.winter.main_navigation_contents.fragments.navigation.home.rec
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.season.winter.liquor.liquorInfo.LiquorInfo
 import com.season.winter.main_navigation_contents.databinding.ItemLiquorGroupingBinding
 import com.season.winter.main_navigation_contents.ui.recyclerView.adapter.MiniLiquorAdapter
-import com.season.winter.ui.model.fragment.home.BannerData
 import com.season.winter.ui.model.fragment.home.HomeItem
 import com.season.winter.ui.model.fragment.home.HomeItemType
 

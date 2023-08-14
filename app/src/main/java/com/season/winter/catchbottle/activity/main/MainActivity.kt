@@ -20,13 +20,14 @@ class MainActivity: BaseActivity<ActivityMainBinding>(R.layout.activity_main) {
     private val viewModel: MainNavigationViewModel by viewModels()
 
     override fun ActivityMainBinding.initView() {
+
+        repeatOnLifecycle(viewModel.onBannerDataFlow) { bannerData ->
+            Log.e(TAG, "initAfterView: bannerData: $bannerData", )
+        }
         repeatOnLifecycle(viewModel.onLogoutListener) {
             if (it) {
                 cbStartActivity(LoginActivity::class.java, true)
             }
-        }
-        repeatOnLifecycle(viewModel.onBannerConfigDataFlow) { bannerData ->
-            Log.e(TAG, "initAfterView: bannerData: $bannerData", )
         }
 
         val navHostFragment = supportFragmentManager.findFragmentById(R.id.fragment_host) as NavHostFragment
