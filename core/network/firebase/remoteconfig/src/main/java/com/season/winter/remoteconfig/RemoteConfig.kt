@@ -67,6 +67,7 @@ class RemoteConfig @Inject constructor() {
 
 }
 
+/** generic 'inline, reified, in, out' 키워드 다시 공부하기  */
 @Suppress("UNCHECKED_CAST", "IMPLICIT_CAST_TO_ANY")
 inline fun <reified T> RemoteConfig.getConfig(key: String): T? {
     Firebase.remoteConfig.apply {
