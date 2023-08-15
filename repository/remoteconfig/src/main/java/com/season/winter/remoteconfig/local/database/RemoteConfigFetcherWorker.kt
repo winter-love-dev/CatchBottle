@@ -36,7 +36,7 @@ class RemoteConfigFetcherWorker @AssistedInject constructor(
                 val bannerJsonString = remoteConfig.getString(KeyBanner)
 
                 val bannerDataList = bannerJsonString
-                    .decodeFromJsonStringSafety<List<BannerData>>()
+                    ?.decodeFromJsonStringSafety<List<BannerData>>()
                     ?.apply { this.loadBannerUrlFromFileName() }
                     ?: return@withContext Result.failure()
 

@@ -48,7 +48,7 @@ class RemoteConfigRepositoryImpl @Inject constructor(
         val bannerJsonString = remoteConfig.getString(key)
 
         val bannerDataList = bannerJsonString
-            .decodeFromJsonStringSafety<List<BannerData>>()
+            ?.decodeFromJsonStringSafety<List<BannerData>>()
             ?.apply { loadBannerUrlFromFileName() } ?: return
 
         Log.e(TAG, "saveBannerData: bannerDataList: $bannerDataList", )
@@ -64,7 +64,6 @@ class RemoteConfigRepositoryImpl @Inject constructor(
                 }
         }
     }
-
 
     override suspend fun fetch() {
         remoteConfig.fetch()

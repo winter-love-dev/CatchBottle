@@ -9,11 +9,13 @@ import com.google.firebase.remoteconfig.ktx.remoteConfig
 import com.google.firebase.remoteconfig.ktx.remoteConfigSettings
 import com.season.winter.common.constants.TimeVariable
 import com.season.winter.remoteconfig.di.RemoteConfigImpl.Companion.KeyAll
+import kotlinx.coroutines.tasks.await
 import javax.inject.Inject
+import kotlin.reflect.typeOf
 
 class RemoteConfig @Inject constructor() {
 
-    val instance = Firebase.remoteConfig
+    private val instance = Firebase.remoteConfig
 
     private val configSettings = remoteConfigSettings {
         minimumFetchIntervalInSeconds = TimeVariable.Zero.value
@@ -51,9 +53,29 @@ class RemoteConfig @Inject constructor() {
         }
     }
 
+    suspend fun fetch(): Boolean {
+        instance.fetchAndActivate().await().let { isSuccessFetch ->
+            return isSuccessFetch
+        }
+    }
+
+
     companion object {
 
         private const val TAG = "RemoteConfig"
     }
 
+}
+
+@Suppress("UNCHECKED_CAST", "IMPLICIT_CAST_TO_ANY")
+inline fun <reified T> RemoteConfig.getConfig(key: String): T? {
+    Firebase.remoteConfig.apply {
+        return when(typeOf<T>().classifier) {
+            Boolean::class -> getBoolean(key)
+            Double::class  -> getDouble(key)
+            Long::class    -> getLong(key)
+            String::class  -> getString(key)
+            else -> null
+        } as T
+    }
 }

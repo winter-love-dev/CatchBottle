@@ -29,7 +29,9 @@ class SplashViewModel @Inject constructor(
     )
 
     fun refreshConfig() {
-        // remoteConfigRepository.fetch()
+        viewModelScope.launch {
+            remoteConfigRepository.fetch()
+        }
     }
 
     fun checkLaunchTargetActivity() {
