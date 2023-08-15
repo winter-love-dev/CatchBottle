@@ -14,6 +14,8 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.channels.BufferOverflow
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableSharedFlow
+import kotlinx.coroutines.flow.SharedFlow
+import kotlinx.coroutines.flow.asSharedFlow
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
@@ -26,10 +28,12 @@ class SplashViewModel @Inject constructor(
     private val remoteConfigFetcherRepository: RemoteConfigFetcherRepository
 ): ViewModel() {
 
-    val onLaunchActivityFlow = MutableSharedFlow<Class<out BaseActivity<out ViewDataBinding>>>(
+    private val _onLaunchActivityFlow = MutableSharedFlow<Class<out BaseActivity<out ViewDataBinding>>>(
         extraBufferCapacity = 1,
         onBufferOverflow = BufferOverflow.DROP_OLDEST,
     )
+    val onLaunchActivityFlow: SharedFlow<Class<out BaseActivity<out ViewDataBinding>>>
+        get() = _onLaunchActivityFlow.asSharedFlow()
 
     fun checkLaunchTargetActivity() {
         val isFirstLaunch = appConfigRepository.checkFirstLaunch(true)
@@ -42,7 +46,7 @@ class SplashViewModel @Inject constructor(
         }
         viewModelScope.launch {
             delay(500)
-            onLaunchActivityFlow.emit(activity)
+            _onLaunchActivityFlow.emit(activity)
         }
     }
 }
