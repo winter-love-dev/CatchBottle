@@ -8,13 +8,14 @@ import com.season.winter.main_navigation_contents.R
 import com.season.winter.main_navigation_contents.databinding.FragmentHomeBinding
 import com.season.winter.main_navigation_contents.fragments.base.BaseNavigationFragment
 import com.season.winter.main_navigation_contents.fragments.navigation.home.recyclerView.adapter.HomeRecyclerViewAdapter
+import com.season.winter.ui.model.fragment.home.HomeItemType
 
 class HomeFragment: BaseNavigationFragment<FragmentHomeBinding>(R.layout.fragment_home) {
 
     override fun FragmentHomeBinding.initAfterView() {
         adapter = HomeRecyclerViewAdapter()
         layoutManager = LinearLayoutManager(requireContext())
-        repeatOnLifecycle(activityViewModel.onHomeUiDataListener) { homeData ->
+        repeatOnLifecycle(activityViewModel.mainListFlow) { homeData ->
             Log.e("TAG", "initAfterView: $homeData", )
             adapter?.initData(homeData)
         }

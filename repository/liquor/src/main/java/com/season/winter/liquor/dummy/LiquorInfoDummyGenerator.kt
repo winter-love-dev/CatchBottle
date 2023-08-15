@@ -8,12 +8,39 @@ import com.season.winter.storage.ImageFireStorageInstance
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.SupervisorJob
+import kotlinx.coroutines.channels.BufferOverflow
+import kotlinx.coroutines.flow.MutableSharedFlow
+import kotlinx.coroutines.flow.SharedFlow
+import kotlinx.coroutines.flow.asSharedFlow
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
-class LiquorInfoDummyGenerator {
+class LiquorInfoDummyGenerator @Inject constructor() {
 
-    val dummyLiquorListAll = getLiquorListAll().apply {
-        loadThumbnailUrlFromFileName()
+    private var isInitThumb = false
+
+    private val coroutineScope = CoroutineScope(Dispatchers.IO)
+
+    private val _liquorInfoListFlow = MutableSharedFlow<List<LiquorInfo>>(
+        extraBufferCapacity = 1,
+        onBufferOverflow = BufferOverflow.DROP_OLDEST,
+    )
+    val liquorInfoListFlow: SharedFlow<List<LiquorInfo>>
+        get() = _liquorInfoListFlow.asSharedFlow()
+
+    private val dummyLiquorListAll = getLiquorListAll().apply {
+        emitLiquorListAll()
+    }
+
+    fun emitLiquorListAll() {
+        coroutineScope.launch {
+            if (isInitThumb.not()) {
+                loadThumbnailUrlFromFileName()
+                isInitThumb = true
+            }
+
+            _liquorInfoListFlow.tryEmit(dummyLiquorListAll)
+        }
     }
 
     fun getKoreaLiquorInfoList(): List<LiquorInfo> {
@@ -28,15 +55,12 @@ class LiquorInfoDummyGenerator {
         return scotchLiquorInfoList
     }
 
-    private fun loadThumbnailUrlFromFileName() {
-        val context = Dispatchers.IO + SupervisorJob()
-        CoroutineScope(context).launch {
-            dummyLiquorListAll.run {
-                forEach { liquorInfo ->
-                    liquorInfo.thumbnailFileName?.let { thumbnailFileName ->
-                        val url = ImageFireStorageInstance.getImageUrlFromFileName(thumbnailFileName)
-                        liquorInfo.thumbnailUrl = url ?: ""
-                    }
+    suspend fun loadThumbnailUrlFromFileName() {
+        dummyLiquorListAll.run {
+            forEach { liquorInfo ->
+                liquorInfo.thumbnailFileName?.let { thumbnailFileName ->
+                    val url = ImageFireStorageInstance.getImageUrlFromFileName(thumbnailFileName)
+                    liquorInfo.thumbnailUrl = url ?: ""
                 }
             }
         }

@@ -21,9 +21,6 @@ class MainActivity: BaseActivity<ActivityMainBinding>(R.layout.activity_main) {
 
     override fun ActivityMainBinding.initView() {
 
-        repeatOnLifecycle(viewModel.onBannerDataFlow) { bannerData ->
-            Log.e(TAG, "initAfterView: bannerData: $bannerData", )
-        }
         repeatOnLifecycle(viewModel.onLogoutListener) {
             if (it) {
                 cbStartActivity(LoginActivity::class.java, true)

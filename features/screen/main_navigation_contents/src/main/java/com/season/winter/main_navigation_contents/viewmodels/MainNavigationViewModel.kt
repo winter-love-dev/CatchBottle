@@ -21,7 +21,6 @@ import javax.inject.Inject
 class MainNavigationViewModel @Inject constructor(
     private val credentials: Credentials,
     private val dummyRepository: HomeNavigationRepositoryImpl,
-    private val remoteConfig: RemoteConfigLocalRepositoryImpl,
 ): ViewModel() {
 
     val userName = MutableStateFlow(credentials.userName)
@@ -33,15 +32,7 @@ class MainNavigationViewModel @Inject constructor(
     val onLogoutListener: SharedFlow<Boolean>
         get() = _onLogoutListener.asSharedFlow()
 
-    private val _onHomeUiDataListener = MutableStateFlow(
-        dummyRepository.getHomeUIDummyData()
-    )
-
-    val onHomeUiDataListener: StateFlow<List<HomeItem>> =
-        _onHomeUiDataListener.asStateFlow()
-
-    val onBannerDataFlow: Flow<List<BannerData>>
-        get() = remoteConfig.getBanner()
+    val mainListFlow = dummyRepository.mainListFlow
 
     fun onLogout() {
         credentials.logout()

@@ -2,6 +2,7 @@ package com.season.winter.ui.model.fragment.home
 
 import com.season.winter.liquor.liquorInfo.LiquorInfo
 import com.season.winter.liquor.liquorInfo.filter.LiquorFilterOption
+import kotlinx.coroutines.flow.Flow
 
 enum class HomeItemType {
     SearchBar,
@@ -31,5 +32,6 @@ data class HomeItem(
     val title: String? = null,
     val subTitle: String? = null,
     val liquorGroupingOption: LiquorFilterOption? = null,
-    val liquorItems: List<LiquorInfo> = setLiquorItems(type, liquorGroupingOption)
+    var bannerItems: List<BannerData>? = null,
+    val liquorItems: List<LiquorInfo> = setLiquorItems(type, liquorGroupingOption),
 )

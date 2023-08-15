@@ -13,9 +13,7 @@ class RemoteConfigLocalRepositoryImpl @Inject constructor(
     private val localDao: RemoteConfigDao,
 ): RemoteConfigLocalRepositoryService {
 
-    override fun getBanner(): Flow<List<BannerData>> {
-        return localDao.getBannerAll()
-    }
+    override val bannerFlow: Flow<List<BannerData>> = localDao.getBannerAll()
 
     companion object {
 
