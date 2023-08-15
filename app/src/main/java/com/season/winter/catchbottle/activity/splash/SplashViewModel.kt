@@ -8,6 +8,7 @@ import com.season.winter.catchbottle.activity.main.MainActivity
 import com.season.winter.common.activity.BaseActivity
 import com.season.winter.common.di.AppConfigRepositoryImpl
 import com.season.winter.remoteconfig.local.RemoteConfigLocalRepositoryImpl
+import com.season.winter.remoteconfig.remote.RemoteConfigFetcherRepository
 import com.season.winter.user.di.Credentials
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.channels.BufferOverflow
@@ -22,7 +23,7 @@ class SplashViewModel @Inject constructor(
     private val appConfigRepository: AppConfigRepositoryImpl,
 
     // for initialize
-    private val remoteConfigLocalRepositoryImpl: RemoteConfigLocalRepositoryImpl
+    private val remoteConfigFetcherRepository: RemoteConfigFetcherRepository
 ): ViewModel() {
 
     val onLaunchActivityFlow = MutableSharedFlow<Class<out BaseActivity<out ViewDataBinding>>>(

@@ -21,9 +21,6 @@ object RemoteConfigRepositoryModule {
     @Singleton
     fun provideRemoteConfigLocalRepositoryImpl(
         remoteConfigLocalDao: RemoteConfigDao,
-
-        // for initialize
-        remoteConfigFetcherRepository: RemoteConfigFetcherRepository,
     ): RemoteConfigLocalRepositoryImpl {
 
         return RemoteConfigLocalRepositoryImpl(
@@ -53,8 +50,13 @@ object RemoteConfigRepositoryModule {
     }
 
     @Provides
-    fun providePlantDao(appDatabase: RemoteConfigDatabase): RemoteConfigDao {
+    fun provideRemoteConfigDao(appDatabase: RemoteConfigDatabase): RemoteConfigDao {
         return appDatabase.remoteConfigDao()
+    }
+
+    @Provides
+    fun provideRemoteConfigFetcherDao(appDatabase: RemoteConfigDatabase): RemoteConfigFetcherDao {
+        return appDatabase.remoteConfigFetcherDao()
     }
 
 }
