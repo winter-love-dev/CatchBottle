@@ -7,7 +7,8 @@ import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
 import androidx.sqlite.db.SupportSQLiteDatabase
 import com.season.winter.remoteconfig.constants.DatabaseName_RemoteConfig
-import com.season.winter.remoteconfig.local.dao.RemoteConfigRoomDao
+import com.season.winter.remoteconfig.local.dao.RemoteConfigFetcherDao
+import com.season.winter.remoteconfig.local.dao.RemoteConfigDao
 import com.season.winter.ui.model.fragment.home.BannerData
 
 @Database(
@@ -21,7 +22,8 @@ import com.season.winter.ui.model.fragment.home.BannerData
 @TypeConverters(RemoteConfigConverters::class)
 abstract class RemoteConfigDatabase: RoomDatabase() {
 
-    abstract fun remoteConfigDao(): RemoteConfigRoomDao
+    abstract fun remoteConfigDao(): RemoteConfigDao
+    abstract fun remoteConfigFetcherDao(): RemoteConfigFetcherDao
 
     companion object {
 

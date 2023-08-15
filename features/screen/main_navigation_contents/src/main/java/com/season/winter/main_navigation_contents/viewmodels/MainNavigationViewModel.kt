@@ -1,7 +1,7 @@
 package com.season.winter.main_navigation_contents.viewmodels
 
 import androidx.lifecycle.ViewModel
-import com.season.winter.remoteconfig.RemoteConfigRepositoryImpl
+import com.season.winter.remoteconfig.local.RemoteConfigLocalRepositoryImpl
 import com.season.winter.screen.fragment.navigationMain.home.di.HomeNavigationRepositoryImpl
 import com.season.winter.ui.model.fragment.home.BannerData
 import com.season.winter.ui.model.fragment.home.HomeItem
@@ -21,7 +21,7 @@ import javax.inject.Inject
 class MainNavigationViewModel @Inject constructor(
     private val credentials: Credentials,
     private val dummyRepository: HomeNavigationRepositoryImpl,
-    private val remoteConfig: RemoteConfigRepositoryImpl,
+    private val remoteConfig: RemoteConfigLocalRepositoryImpl,
 ): ViewModel() {
 
     val userName = MutableStateFlow(credentials.userName)

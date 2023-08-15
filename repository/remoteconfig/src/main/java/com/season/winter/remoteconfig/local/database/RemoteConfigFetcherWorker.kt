@@ -43,7 +43,7 @@ class RemoteConfigFetcherWorker @AssistedInject constructor(
                 Log.e(TAG, "doWork: bannerDataList: $bannerDataList", )
 
                 val database = RemoteConfigDatabase.getInstance(applicationContext)
-                database.remoteConfigDao().updateBannerAll(bannerDataList)
+                database.remoteConfigFetcherDao().updateBannerAll(bannerDataList)
 
                 remoteConfig.announceFetched(KeyAll)
 

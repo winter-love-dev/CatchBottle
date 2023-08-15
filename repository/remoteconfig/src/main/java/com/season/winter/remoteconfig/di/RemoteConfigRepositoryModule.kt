@@ -1,10 +1,11 @@
 package com.season.winter.remoteconfig.di
 
 import android.content.Context
-import androidx.work.WorkManager
-import com.season.winter.remoteconfig.RemoteConfigRepositoryImpl
-import com.season.winter.remoteconfig.local.dao.RemoteConfigRoomDao
+import com.season.winter.remoteconfig.local.RemoteConfigLocalRepositoryImpl
+import com.season.winter.remoteconfig.local.dao.RemoteConfigDao
+import com.season.winter.remoteconfig.local.dao.RemoteConfigFetcherDao
 import com.season.winter.remoteconfig.local.database.RemoteConfigDatabase
+import com.season.winter.remoteconfig.remote.RemoteConfigFetcherRepository
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -18,14 +19,28 @@ object RemoteConfigRepositoryModule {
 
     @Provides
     @Singleton
-    fun provideRemoteConfigRepository(
-        remoteConfigImpl: RemoteConfigImpl,
-        remoteConfigLocalDao: RemoteConfigRoomDao,
-    ): RemoteConfigRepositoryImpl {
+    fun provideRemoteConfigLocalRepositoryImpl(
+        remoteConfigLocalDao: RemoteConfigDao,
 
-        return RemoteConfigRepositoryImpl(
-            remoteConfigImpl,
+        // for initialize
+        remoteConfigFetcherRepository: RemoteConfigFetcherRepository,
+    ): RemoteConfigLocalRepositoryImpl {
+
+        return RemoteConfigLocalRepositoryImpl(
             remoteConfigLocalDao
+        )
+    }
+
+    @Provides
+    @Singleton
+    fun provideRemoteConfigFetcherRepository(
+        remoteConfigImpl: RemoteConfigImpl,
+        remoteConfigFetcherDao: RemoteConfigFetcherDao,
+    ): RemoteConfigFetcherRepository {
+
+        return RemoteConfigFetcherRepository(
+            remoteConfigImpl,
+            remoteConfigFetcherDao
         )
     }
 
@@ -38,9 +53,8 @@ object RemoteConfigRepositoryModule {
     }
 
     @Provides
-    fun providePlantDao(appDatabase: RemoteConfigDatabase): RemoteConfigRoomDao {
+    fun providePlantDao(appDatabase: RemoteConfigDatabase): RemoteConfigDao {
         return appDatabase.remoteConfigDao()
     }
-
 
 }

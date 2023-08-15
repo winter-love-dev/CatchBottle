@@ -7,7 +7,7 @@ import com.season.winter.catchbottle.activity.login.LoginActivity
 import com.season.winter.catchbottle.activity.main.MainActivity
 import com.season.winter.common.activity.BaseActivity
 import com.season.winter.common.di.AppConfigRepositoryImpl
-import com.season.winter.remoteconfig.RemoteConfigRepositoryImpl
+import com.season.winter.remoteconfig.local.RemoteConfigLocalRepositoryImpl
 import com.season.winter.user.di.Credentials
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.channels.BufferOverflow
@@ -20,19 +20,15 @@ import javax.inject.Inject
 class SplashViewModel @Inject constructor(
     private val credentials: Credentials,
     private val appConfigRepository: AppConfigRepositoryImpl,
-    private val remoteConfigRepository: RemoteConfigRepositoryImpl,
+
+    // for initialize
+    private val remoteConfigLocalRepositoryImpl: RemoteConfigLocalRepositoryImpl
 ): ViewModel() {
 
     val onLaunchActivityFlow = MutableSharedFlow<Class<out BaseActivity<out ViewDataBinding>>>(
         extraBufferCapacity = 1,
         onBufferOverflow = BufferOverflow.DROP_OLDEST,
     )
-
-    fun refreshConfig() {
-        viewModelScope.launch {
-            remoteConfigRepository.fetch()
-        }
-    }
 
     fun checkLaunchTargetActivity() {
         val isFirstLaunch = appConfigRepository.checkFirstLaunch(true)

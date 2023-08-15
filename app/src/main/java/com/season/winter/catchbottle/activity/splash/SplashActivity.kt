@@ -19,9 +19,6 @@ class SplashActivity: AppCompatActivity() {
         installSplashScreen()
         super.onCreate(savedInstanceState)
 
-        // refresh remote config ...
-        viewModel.refreshConfig()
-
         viewModel.checkLaunchTargetActivity()
         repeatOnLifecycle(viewModel.onLaunchActivityFlow) { activity ->
             cbStartActivity(activity, true)
