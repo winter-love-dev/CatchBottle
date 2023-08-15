@@ -6,8 +6,8 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.season.winter.main_navigation_contents.databinding.ItemLiquorGroupingBinding
 import com.season.winter.main_navigation_contents.ui.recyclerView.adapter.MiniLiquorAdapter
-import com.season.winter.ui.model.fragment.home.HomeItem
-import com.season.winter.ui.model.fragment.home.HomeItemType
+import com.season.winter.liquor.dummy.model.HomeItem
+import com.season.winter.liquor.dummy.model.HomeItemType
 
 class HomeViewHolder(
     layoutRes: Int,

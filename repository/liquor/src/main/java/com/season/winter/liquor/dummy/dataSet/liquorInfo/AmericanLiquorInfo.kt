@@ -7,9 +7,10 @@ import com.season.winter.liquor.liquorInfo.WhiskyType
 import com.season.winter.liquor.brand.BrandInfo
 import com.season.winter.liquor.content.FeatureData
 import com.season.winter.liquor.content.FeatureType
+import com.season.winter.liquor.dummy.dummy.getAmericanLiquorIdentify
 
 val russellsReserveSingleBarrel = LiquorInfo(
-    identify = com.season.winter.liquor.dummy.getAmericanLiquorIdentify(0),
+    identify = getAmericanLiquorIdentify(0),
     nameKo = "러셀 리저브 싱글 베럴",
     nameEn = "Russell’s Reserve Single Barrel",
     wishCount = 0,

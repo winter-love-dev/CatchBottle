@@ -1,8 +1,8 @@
-package com.season.winter.ui.model.fragment.home
+package com.season.winter.liquor.dummy.model
 
+import com.season.winter.liquor.dummy.filter.LiquorFilterOption
 import com.season.winter.liquor.liquorInfo.LiquorInfo
-import com.season.winter.liquor.liquorInfo.filter.LiquorFilterOption
-import kotlinx.coroutines.flow.Flow
+import com.season.winter.ui.model.fragment.home.BannerData
 
 enum class HomeItemType {
     SearchBar,

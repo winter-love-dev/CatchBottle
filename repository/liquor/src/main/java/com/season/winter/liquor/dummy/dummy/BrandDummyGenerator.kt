@@ -1,4 +1,4 @@
-package com.season.winter.liquor.dummy
+package com.season.winter.liquor.dummy.dummy
 
 import com.season.winter.liquor.brand.Brand
 import com.season.winter.liquor.dummy.dataSet.brand.americanWhiskeyList

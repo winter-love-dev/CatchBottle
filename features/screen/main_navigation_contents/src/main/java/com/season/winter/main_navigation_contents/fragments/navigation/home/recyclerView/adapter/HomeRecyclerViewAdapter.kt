@@ -2,11 +2,9 @@ package com.season.winter.main_navigation_contents.fragments.navigation.home.rec
 
 import android.util.Log
 import android.view.ViewGroup
-import androidx.databinding.BindingAdapter
 import androidx.recyclerview.widget.ListAdapter
 import com.season.winter.main_navigation_contents.fragments.navigation.home.recyclerView.viewHolder.HomeViewHolder
-import com.season.winter.ui.model.fragment.home.HomeItem
-import com.season.winter.ui.textView.CBTextView
+import com.season.winter.liquor.dummy.model.HomeItem
 
 class HomeRecyclerViewAdapter: ListAdapter<HomeItem, HomeViewHolder>(HomeDiffCallback()) {
 

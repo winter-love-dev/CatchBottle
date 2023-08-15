@@ -2,16 +2,14 @@ package com.season.winter.screen.fragment.navigationMain.home.local
 
 import com.season.winter.liquor.brand.BrandInfo
 import com.season.winter.liquor.brand.CountryCode
-import com.season.winter.liquor.dummy.LiquorInfoDummyGenerator
-import com.season.winter.liquor.liquorInfo.filter.LiquorFilterOption
+import com.season.winter.liquor.dummy.dummy.LiquorInfoDummyGenerator
+import com.season.winter.liquor.dummy.filter.LiquorFilterOption
 import com.season.winter.liquor.liquorInfo.LiquorStatus
 import com.season.winter.liquor.liquorInfo.WhiskyType
 import com.season.winter.remoteconfig.local.RemoteConfigLocalRepositoryImpl
 import com.season.winter.ui.model.fragment.home.BannerData
-import com.season.winter.ui.model.fragment.home.HomeItem
-import com.season.winter.ui.model.fragment.home.HomeItemType
-import com.season.winter.ui.model.fragment.home.ShortcutMenuData
-import com.season.winter.ui.model.fragment.home.ShortcutMenuEvent
+import com.season.winter.liquor.dummy.model.HomeItem
+import com.season.winter.liquor.dummy.model.HomeItemType
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.channels.BufferOverflow
@@ -49,7 +47,11 @@ class HomeNavigationDummyDao @Inject constructor(
             // getBanner
             coroutineScope.launch {
                 remoteConfigLocalRepositoryImpl.bannerFlow.collect { bannerDataFlow ->
+
                     bannerData = bannerDataFlow
+
+                    if (setLiquor)
+                        setBanner()
                 }
             }
 
@@ -60,7 +62,7 @@ class HomeNavigationDummyDao @Inject constructor(
                     // 1. setFilter
                     LiquorFilterOption.initFilter(dummyLiquorListAll)
 
-                    // 2. setDataFromFilter
+                    // 2. setDataFromLiquorFilter
                     mainList = getMainListDataSet()
 
                     setLiquor = true
@@ -73,7 +75,8 @@ class HomeNavigationDummyDao @Inject constructor(
     }
 
     private fun setBanner() {
-        mainList.find { it.type == HomeItemType.Banner }?.bannerItems = bannerData
+        mainList.find { it.type == HomeItemType.Banner }
+            ?.bannerItems = bannerData
 
         setBanner = true
         emmitMainList()
@@ -84,44 +87,6 @@ class HomeNavigationDummyDao @Inject constructor(
         if (setBanner.not() && setLiquor.not()) return
         _mainListFlow.tryEmit(mainList)
     }
-
-    val shortcutMenuData = listOf(
-        ShortcutMenuData(
-            event = ShortcutMenuEvent.Best,
-            thumbImageUrl = "",
-            title = "베스트",
-        ),
-        ShortcutMenuData(
-            event = ShortcutMenuEvent.Discount,
-            thumbImageUrl = "",
-            title = "할인",
-        ),
-        ShortcutMenuData(
-            event = ShortcutMenuEvent.New,
-            thumbImageUrl = "",
-            title = "신상품",
-        ),
-        ShortcutMenuData(
-            event = ShortcutMenuEvent.Draw,
-            thumbImageUrl = "",
-            title = "응모",
-        ),
-        ShortcutMenuData(
-            event = ShortcutMenuEvent.FirstComeFirstServed,
-            thumbImageUrl = "",
-            title = "선착순",
-        ),
-        ShortcutMenuData(
-            event = ShortcutMenuEvent.MDPick,
-            thumbImageUrl = "",
-            title = "MD픽",
-        ),
-        ShortcutMenuData(
-            event = ShortcutMenuEvent.DirectShipping,
-            thumbImageUrl = "",
-            title = "집앞배송",
-        ),
-    )
 
     private fun getMainListDataSet(): List<HomeItem> {
         return listOf(
@@ -181,3 +146,43 @@ class HomeNavigationDummyDao @Inject constructor(
         )
     }
 }
+
+/*
+    val shortcutMenuData = listOf(
+        ShortcutMenuData(
+            event = ShortcutMenuEvent.Best,
+            thumbImageUrl = "",
+            title = "베스트",
+        ),
+        ShortcutMenuData(
+            event = ShortcutMenuEvent.Discount,
+            thumbImageUrl = "",
+            title = "할인",
+        ),
+        ShortcutMenuData(
+            event = ShortcutMenuEvent.New,
+            thumbImageUrl = "",
+            title = "신상품",
+        ),
+        ShortcutMenuData(
+            event = ShortcutMenuEvent.Draw,
+            thumbImageUrl = "",
+            title = "응모",
+        ),
+        ShortcutMenuData(
+            event = ShortcutMenuEvent.FirstComeFirstServed,
+            thumbImageUrl = "",
+            title = "선착순",
+        ),
+        ShortcutMenuData(
+            event = ShortcutMenuEvent.MDPick,
+            thumbImageUrl = "",
+            title = "MD픽",
+        ),
+        ShortcutMenuData(
+            event = ShortcutMenuEvent.DirectShipping,
+            thumbImageUrl = "",
+            title = "집앞배송",
+        ),
+    )
+* */
