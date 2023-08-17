@@ -1,7 +1,7 @@
 package com.season.winter.catchbottle.activity.login
 
 import androidx.lifecycle.ViewModel
-import com.season.winter.user.di.CredentialsRepositoryImpl
+import com.season.winter.user.di.Credentials
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.channels.BufferOverflow
 import kotlinx.coroutines.flow.MutableSharedFlow
@@ -10,7 +10,7 @@ import javax.inject.Inject
 
 @HiltViewModel
 class LoginViewModel @Inject constructor(
-    private val credentials: CredentialsRepositoryImpl
+    private val credentials: Credentials
 ): ViewModel() {
 
     /*

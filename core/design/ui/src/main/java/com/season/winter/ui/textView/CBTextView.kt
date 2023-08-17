@@ -41,8 +41,7 @@ class CBTextView @JvmOverloads constructor(
         super.onLayout(changed, left, top, right, bottom)
     }
 
-    @SuppressLint("DrawAllocation")
-    override fun onDraw(canvas: Canvas?) {
+    override fun onDraw(canvas: Canvas) {
         super.onDraw(canvas)
 
         initAttributes()

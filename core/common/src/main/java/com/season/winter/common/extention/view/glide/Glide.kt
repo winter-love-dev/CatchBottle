@@ -15,7 +15,7 @@ fun ImageView.setImageFromUrl(imageUrl: String?) {
 //        .error(ResourceModuleR.drawable.logo_icon_small)
 //        .fallback(ResourceModuleR.drawable.logo_icon_small)
         .placeholder(ResourceModuleR.drawable.logo_icon_small)
-        .transition(DrawableTransitionOptions.withCrossFade())
+//        .transition(DrawableTransitionOptions.withCrossFade())
         .into(this)
 
 }

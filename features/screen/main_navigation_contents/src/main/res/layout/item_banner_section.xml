@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="com.season.winter.ui.model.fragment.home.BannerData" />
+        <import type="com.season.winter.main_navigation_contents.fragments.navigation.home.recyclerView.adapter.HomeBannerViewPagerAdapter" />
+        <import type="androidx.recyclerview.widget.RecyclerView.LayoutManager" />
+
+        <variable
+            name="banner_data"
+            type="BannerData"/>
+
+        <variable
+            name="adapter"
+            type="HomeBannerViewPagerAdapter"/>
+
+        <variable
+            name="layout_manager"
+            type="LayoutManager"/>
+
+        <variable
+            name="page"
+            type="String" />
+
+    </data>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.viewpager2.widget.ViewPager2
+            app:adapter="@{adapter}"
+            tools:listitem="@layout/item_banner_detail"
+            android:overScrollMode="never"
+            android:id="@+id/view_pager"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+<!--        android:text="@{currentPage}"-->
+<!--        app:cb_text="@{page}"-->
+        <FrameLayout
+            android:layout_margin="@dimen/spacing_l"
+            android:layout_gravity="bottom|end"
+            android:layout_width="65dp"
+            android:layout_height="30dp">
+
+            <View
+                android:background="@drawable/background_radius"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"/>
+
+            <com.season.winter.ui.textView.CBTextView
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:paddingHorizontal="15dp"
+                app:cb_text_view_type="caption_s"
+                app:cb_text_color="@color/white"
+                android:text="@{page}"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+        </FrameLayout>
+
+    </FrameLayout>
+
+</layout>

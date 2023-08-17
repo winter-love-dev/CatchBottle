@@ -13,7 +13,7 @@ android {
         minSdk libs.versions.minSdk.get().toInteger()
         targetSdk libs.versions.targetSdk.get().toInteger()
         versionCode libs.versions.versionCode.get().toInteger()
-        versionName libs.versions.versionName.get().toString()
+        versionName libs.versions.versionName.get()
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -53,9 +53,11 @@ dependencies {
     implementation project(":repository:liquor")
     implementation project(":repository:screen")
     implementation project(":repository:user")
+    implementation project(":repository:remoteconfig")
 
     implementation libs.bundles.default
     implementation libs.bundles.default.screen
+    implementation libs.bundles.navigation
     testImplementation libs.bundles.default.test.implementation
     androidTestImplementation libs.bundles.default.test.androidTestImplementation
 

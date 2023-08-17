@@ -1,7 +1,8 @@
 package com.season.winter.screen.fragment.navigationMain.home.di
 
-import com.season.winter.ui.model.fragment.home.HomeItem
+import com.season.winter.liquor.dummy.model.HomeItem
+import kotlinx.coroutines.flow.Flow
 
 interface HomeNavigationService {
-    fun getHomeUIDummyData(): List<HomeItem>
+    val mainListFlow: Flow<List<HomeItem>>
 }

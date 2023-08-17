@@ -4,6 +4,7 @@ plugins {
     alias libs.plugins.kotlin.kapt
     alias libs.plugins.devtools.ksp
     alias libs.plugins.dagger.hilt
+    alias libs.plugins.kotlin.plugin.serialization
 }
 
 android {
@@ -15,7 +16,7 @@ android {
         minSdk libs.versions.minSdk.get().toInteger()
         targetSdk libs.versions.targetSdk.get().toInteger()
         versionCode libs.versions.versionCode.get().toInteger()
-        versionName libs.versions.versionName.get().toString()
+        versionName libs.versions.versionName.get()
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -53,6 +54,7 @@ dependencies {
 
     implementation project(":core:network:firebase:firestore")
     implementation project(":core:network:firebase:storage")
+    implementation project(":core:network:firebase:remoteconfig")
 
     implementation project(":features:screen:main_navigation_contents")
 
@@ -60,11 +62,14 @@ dependencies {
     implementation project(":repository:liquor")
     implementation project(":repository:screen")
     implementation project(":repository:user")
+    implementation project(":repository:remoteconfig")
 
     implementation libs.bundles.default
     implementation libs.bundles.default.screen
     testImplementation libs.bundles.default.test.implementation
     androidTestImplementation libs.bundles.default.test.androidTestImplementation
+
+    implementation libs.bundles.kotlinx.serialization
 
     implementation libs.bundles.navigation
 
@@ -74,13 +79,17 @@ dependencies {
     implementation libs.bundles.hilt
     kapt libs.bundles.hilt.compiler.kapt
 
-    kapt libs.bundles.room.compiler.kapt
     ksp libs.bundles.room.compiler.ksp
+    annotationProcessor libs.bundles.room.compiler.annotationProcessor
     testImplementation libs.bundles.room.testing.testImplementation
     implementation libs.bundles.room
 
     annotationProcessor libs.bundles.glide.compiler.annotationProcessor
     implementation libs.bundles.glide
+
+    implementation libs.bundles.workmanager.all
+
+//    implementation 'androidx.hilt:hilt-work:1.1.0-alpha01'
 }
 
 kapt {

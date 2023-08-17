@@ -14,7 +14,7 @@ class MiniLiquorViewHolder(
         ItemLiquorMiniBinding.inflate(layoutInflater, parent, false),
 ): RecyclerView.ViewHolder(binding.root) {
 
-    var onClickMore: ((position: Int) -> Unit)? = null
+    private var onClickMore: ((position: Int) -> Unit)? = null
 
     init {
         binding.root.setOnClickListener {
@@ -27,19 +27,19 @@ class MiniLiquorViewHolder(
     }
 
     // image preload
-    fun bind(liquorInfoList: List<LiquorInfo>) {
-
-        binding.liquorInfo = liquorInfoList[adapterPosition]
-
-        if (adapterPosition <= liquorInfoList.size) {
-            val endPosition = if (adapterPosition + 6 > liquorInfoList.size) {
-                liquorInfoList.size
-            } else {
-                adapterPosition + 6
-            }
-            liquorInfoList.subList(adapterPosition, endPosition).map { it.thumbnailFileName }.forEach {
-                binding.ivThumb.preloadImageFromFireStoreFileName(it)
-            }
-        }
-    }
+//    fun bind(liquorInfoList: List<LiquorInfo>) {
+//
+//        binding.liquorInfo = liquorInfoList[adapterPosition]
+//
+//        if (adapterPosition <= liquorInfoList.size) {
+//            val endPosition = if (adapterPosition + 6 > liquorInfoList.size) {
+//                liquorInfoList.size
+//            } else {
+//                adapterPosition + 6
+//            }
+//            liquorInfoList.subList(adapterPosition, endPosition).map { it.thumbnailFileName }.forEach {
+//                binding.ivThumb.preloadImageFromFireStoreFileName(it)
+//            }
+//        }
+//    }
 }

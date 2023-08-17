@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="com.season.winter.catchbottle.activity.search.SearchActivity" />
+
+        <variable
+            name="activity"
+            type="SearchActivity"/>
+
+    </data>
+
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:background="@color/white"
+            android:gravity="center_vertical"
+            android:paddingHorizontal="@dimen/spacing_s"
+            android:layout_width="match_parent"
+            android:layout_height="55dp">
+
+            <ImageView
+                android:onClick="@{() -> activity.onClickCloseButton()}"
+                android:src="@drawable/arrow_left"
+                android:paddingHorizontal="@dimen/spacing_xxs"
+                android:layout_width="40dp"
+                android:layout_height="match_parent"/>
+
+            <com.season.winter.ui.input.CBEditText
+                android:focusable="true"
+                android:layout_weight="1"
+                android:singleLine="true"
+                app:cb_edit_text_type="search"
+                android:hint="@string/상품명을_검색해주세요"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content">
+                <requestFocus />
+            </com.season.winter.ui.input.CBEditText>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</layout>

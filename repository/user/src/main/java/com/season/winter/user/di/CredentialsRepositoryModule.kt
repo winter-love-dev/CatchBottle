@@ -1,6 +1,6 @@
 package com.season.winter.user.di
 
-import com.season.winter.user.local.CBCredentialsDao
+import com.season.winter.user.local.CBCredentialsDummyDao
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -13,7 +13,7 @@ object CredentialsRepositoryModule {
 
     @Provides
     @Singleton
-    fun provideRepository(dao: CBCredentialsDao): CredentialsRepositoryImpl {
-        return CredentialsRepositoryImpl(dao)
+    fun provideCredentialsRepository(dao: CBCredentialsDummyDao): Credentials {
+        return Credentials(dao)
     }
 }

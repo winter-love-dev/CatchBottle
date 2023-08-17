@@ -7,10 +7,11 @@ import com.season.winter.liquor.liquorInfo.WhiskyType
 import com.season.winter.liquor.brand.BrandInfo
 import com.season.winter.liquor.content.FeatureData
 import com.season.winter.liquor.content.FeatureType
+import com.season.winter.liquor.dummy.dummy.getScotchLiquorIdentify
 import com.season.winter.liquor.liquorInfo.LiquorStatus
 
 val theMacllan12ySherryOak = LiquorInfo(
-    identify = com.season.winter.liquor.dummy.getScotchLiquorIdentify(0),
+    identify = getScotchLiquorIdentify(0),
     nameKo = "맥켈란 12년 셰리 오크",
     nameEn = "The Macllan 12y Sherry Oak",
     wishCount = 0,
@@ -23,7 +24,7 @@ val theMacllan12ySherryOak = LiquorInfo(
     priceKrw = 0,
     discountRate = 0.0f,
     thumbnailUrl = "",
-    thumbnailFileName = "thumb_wiskey_scotch_theMacllan12ySherryOak",
+    thumbnailFileName = "thumb_wiskey_scotch_theMacllan12ySherryOak.png",
     rating = 0f, // 별점 (5점 만 점)
     reviewCount = 0, // 리뷰 수
     liquorStatus = listOf(
@@ -69,7 +70,7 @@ val theMacllan12ySherryOak = LiquorInfo(
 )
 
 val balvenieDoublewood12Yo = LiquorInfo(
-    identify = com.season.winter.liquor.dummy.getScotchLiquorIdentify(1),
+    identify = getScotchLiquorIdentify(1),
     nameKo = "발베니 더블우드 12년",
     nameEn = "Balvenie Doublewood 12yo",
     wishCount = 0,
@@ -82,7 +83,7 @@ val balvenieDoublewood12Yo = LiquorInfo(
     priceKrw = 0,
     discountRate = 0.0f,
     thumbnailUrl = "",
-    thumbnailFileName = "thumb_wiskey_scotch_balvenieDoublewood12Yo",
+    thumbnailFileName = "thumb_wiskey_scotch_balvenieDoublewood12Yo.png",
     rating = 0f, // 별점 (5점 만 점)
     reviewCount = 0, // 리뷰 수
     operatorComment = listOf(
@@ -121,7 +122,7 @@ val balvenieDoublewood12Yo = LiquorInfo(
 )
 
 val glenmorangieLasanta12yo = LiquorInfo(
-    identify = com.season.winter.liquor.dummy.getScotchLiquorIdentify(2),
+    identify = getScotchLiquorIdentify(2),
     nameKo = "글렌모렌지 라산타 12년",
     nameEn = "Glenmorangie Lasanta 12yo",
     wishCount = 0,
@@ -134,7 +135,7 @@ val glenmorangieLasanta12yo = LiquorInfo(
     priceKrw = 0,
     discountRate = 0.0f,
     thumbnailUrl = "",
-    thumbnailFileName = "thumb_wiskey_scotch_glenmorangieLasanta12yo",
+    thumbnailFileName = "thumb_wiskey_scotch_glenmorangieLasanta12yo.png",
     rating = 0f, // 별점 (5점 만 점)
     reviewCount = 0, // 리뷰 수
     operatorComment = listOf(

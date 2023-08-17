@@ -7,10 +7,11 @@ import com.season.winter.liquor.liquorInfo.WhiskyType
 import com.season.winter.liquor.brand.BrandInfo
 import com.season.winter.liquor.content.FeatureData
 import com.season.winter.liquor.content.FeatureType
+import com.season.winter.liquor.dummy.dummy.getKoreanLiquorIdentify
 import com.season.winter.liquor.liquorInfo.LiquorStatus
 
 val kiOneBatch1 = LiquorInfo(
-    identify = com.season.winter.liquor.dummy.getKoreanLiquorIdentify(0),
+    identify = getKoreanLiquorIdentify(0),
     nameKo = "기원 배치 1",
     nameEn = "KI ONE Batch 1",
     wishCount = 0,
@@ -21,7 +22,7 @@ val kiOneBatch1 = LiquorInfo(
     ),
     priceKrw = 0,
     thumbnailUrl = "",
-    thumbnailFileName = "thumb_wiskey_korea_ki_one_batch_1",
+    thumbnailFileName = "thumb_wiskey_korea_ki_one_batch_1.png",
     rating = 0f, // 별점 (5점 만 점)
     reviewCount = 0, // 리뷰 수
     discountRate = 0.0f,
@@ -69,14 +70,14 @@ val kiOneBatch1 = LiquorInfo(
 )
 
 val kiOneBatch2 = LiquorInfo(
-    identify = com.season.winter.liquor.dummy.getKoreanLiquorIdentify(1),
+    identify = getKoreanLiquorIdentify(1),
     nameKo = "기원 배치 2",
     nameEn = "KI ONE Batch 2",
     wishCount = 0,
     brandCode = BrandInfo.ThreeSocietiesDistillery,
     liquorType = LiquorType.Whisky,
     thumbnailUrl = "",
-    thumbnailFileName = "thumb_wiskey_korea_ki_one_batch_2",
+    thumbnailFileName = "thumb_wiskey_korea_ki_one_batch_2.png",
     rating = 0f, // 별점 (5점 만 점)
     reviewCount = 0, // 리뷰 수
     priceKrw = 0,

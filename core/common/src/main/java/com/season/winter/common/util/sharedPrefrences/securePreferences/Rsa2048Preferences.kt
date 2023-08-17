@@ -7,7 +7,7 @@ import javax.inject.Inject
 
 
 class Rsa2048Preferences @Inject constructor(
-    private val context: Context,
+    context: Context,
     private val name: String,
     private val cipherHelper: Rsa2048CipherHelper,
 ): CatchBottlePreferenceService {

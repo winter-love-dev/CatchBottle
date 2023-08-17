@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout  xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="com.season.winter.liquor.liquorInfo.LiquorInfo" />
+        <import type="com.season.winter.ui.model.fragment.home.BannerData" />
+
+        <variable
+            name="liquor_info"
+            type="LiquorInfo"/>
+
+        <variable
+            name="banner_data"
+            type="BannerData"/>
+
+    </data>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="10dp">
+        
+<!--        <View
+            android:layout_width="wrap_content"
+            android:layout_height="10dp"/>-->
+
+    </LinearLayout>
+
+</layout>

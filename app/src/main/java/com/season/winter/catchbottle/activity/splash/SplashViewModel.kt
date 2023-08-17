@@ -1,6 +1,5 @@
 package com.season.winter.catchbottle.activity.splash
 
-import android.util.Log
 import androidx.databinding.ViewDataBinding
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -8,37 +7,33 @@ import com.season.winter.catchbottle.activity.login.LoginActivity
 import com.season.winter.catchbottle.activity.main.MainActivity
 import com.season.winter.common.activity.BaseActivity
 import com.season.winter.common.di.AppConfigRepositoryImpl
-import com.season.winter.firestore.FireStoreConnectTest
-import com.season.winter.storage.ImageFireStorageInstance
-import com.season.winter.user.di.CredentialsRepositoryImpl
+import com.season.winter.remoteconfig.local.RemoteConfigLocalRepositoryImpl
+import com.season.winter.remoteconfig.remote.RemoteConfigFetcherRepository
+import com.season.winter.user.di.Credentials
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.channels.BufferOverflow
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableSharedFlow
+import kotlinx.coroutines.flow.SharedFlow
+import kotlinx.coroutines.flow.asSharedFlow
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
 class SplashViewModel @Inject constructor(
-    private val credentials: CredentialsRepositoryImpl,
-    private val appConfigRepository: AppConfigRepositoryImpl
+    private val credentials: Credentials,
+    private val appConfigRepository: AppConfigRepositoryImpl,
+
+    // for initialize
+    private val remoteConfigFetcherRepository: RemoteConfigFetcherRepository
 ): ViewModel() {
 
-    val onLaunchActivityFlow = MutableSharedFlow<Class<out BaseActivity<out ViewDataBinding>>>(
+    private val _onLaunchActivityFlow = MutableSharedFlow<Class<out BaseActivity<out ViewDataBinding>>>(
         extraBufferCapacity = 1,
         onBufferOverflow = BufferOverflow.DROP_OLDEST,
     )
-
-    fun fireStoreTest() {
-        FireStoreConnectTest().test()
-    }
-
-    fun getImagePath() {
-        viewModelScope.launch {
-            val url = ImageFireStorageInstance.getImageUrlFromFileName("thumb_three")
-            Log.e("TAG", "getImagePath: url: $url", )
-        }
-    }
+    val onLaunchActivityFlow: SharedFlow<Class<out BaseActivity<out ViewDataBinding>>>
+        get() = _onLaunchActivityFlow.asSharedFlow()
 
     fun checkLaunchTargetActivity() {
         val isFirstLaunch = appConfigRepository.checkFirstLaunch(true)
@@ -51,7 +46,7 @@ class SplashViewModel @Inject constructor(
         }
         viewModelScope.launch {
             delay(500)
-            onLaunchActivityFlow.emit(activity)
+            _onLaunchActivityFlow.emit(activity)
         }
     }
 }
