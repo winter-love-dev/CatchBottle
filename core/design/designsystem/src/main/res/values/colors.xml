@@ -9,6 +9,16 @@
     <color name="white">#FFFFFFFF</color>
     <color name="transparent">#00ffffff</color>
 
+    <color name="black_opacity_90">#E6000000</color>
+    <color name="black_opacity_80">#CC000000</color>
+    <color name="black_opacity_70">#B3000000</color>
+    <color name="black_opacity_60">#99000000</color>
+    <color name="black_opacity_50">#80000000</color>
+    <color name="black_opacity_40">#66000000</color>
+    <color name="black_opacity_30">#4D000000</color>
+    <color name="black_opacity_20">#33000000</color>
+    <color name="black_opacity_10">#1A000000</color>
+
     <color name="brand_first">#71663B</color>
     <color name="brand_light">#EBE9E3</color>
     <color name="red_light_1">#FFF5F5</color>

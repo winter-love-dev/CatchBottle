@@ -11,7 +11,9 @@ import com.season.winter.main_navigation_contents.fragments.navigation.home.recy
 class HomeFragment: BaseNavigationFragment<FragmentHomeBinding>(R.layout.fragment_home) {
 
     override fun FragmentHomeBinding.initAfterView() {
-        adapter = HomeRecyclerViewAdapter()
+        adapter = HomeRecyclerViewAdapter().apply {
+            setLifecycleOwner(this@HomeFragment)
+        }
         layoutManager = LinearLayoutManager(requireContext())
         repeatOnLifecycle(activityViewModel.mainListFlow) { homeData ->
             Log.e("TAG", "initAfterView: $homeData", )

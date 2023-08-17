@@ -8,7 +8,7 @@
 <!--        <import type="com.season.winter.liquor.liquorInfo.LiquorInfo" />-->
         <import type="com.season.winter.liquor.dummy.model.HomeItem" />
         <import type="com.season.winter.main_navigation_contents.fragments.navigation.home.recyclerView.adapter.HomeRecyclerViewAdapter" />
-        <import type="com.season.winter.main_navigation_contents.fragments.navigation.home.recyclerView.viewHolder.HomeViewHolder" />
+        <import type="com.season.winter.main_navigation_contents.fragments.navigation.home.recyclerView.viewHolder.LiquorViewHolder" />
         <import type="com.season.winter.main_navigation_contents.ui.recyclerView.adapter.MiniLiquorAdapter" />
         <import type="androidx.recyclerview.widget.RecyclerView.LayoutManager" />
 <!--        <variable-->
@@ -30,7 +30,7 @@
 
         <variable
             name="view_holder"
-            type="HomeViewHolder"/>
+            type="LiquorViewHolder"/>
 
         <variable
             name="layoutManager"

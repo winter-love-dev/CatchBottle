@@ -5,18 +5,26 @@
     <data>
 
         <import type="com.season.winter.liquor.liquorInfo.LiquorInfo" />
+        <import type="com.season.winter.ui.model.fragment.home.BannerData" />
 
         <variable
             name="liquor_info"
             type="LiquorInfo"/>
 
-    </data>
+        <variable
+            name="banner_data"
+            type="BannerData"/>
 
+    </data>
 
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="10dp">
+        
+<!--        <View
+            android:layout_width="wrap_content"
+            android:layout_height="10dp"/>-->
 
     </LinearLayout>
 

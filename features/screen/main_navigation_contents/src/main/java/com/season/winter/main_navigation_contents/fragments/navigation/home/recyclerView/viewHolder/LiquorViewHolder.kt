@@ -9,14 +9,12 @@ import com.season.winter.main_navigation_contents.ui.recyclerView.adapter.MiniLi
 import com.season.winter.liquor.dummy.model.HomeItem
 import com.season.winter.liquor.dummy.model.HomeItemType
 
-class HomeViewHolder(
+class LiquorViewHolder(
     layoutRes: Int,
     val parent: ViewGroup,
     layoutInflater: LayoutInflater = LayoutInflater.from(parent.context),
     val binding: ItemLiquorGroupingBinding =
         ItemLiquorGroupingBinding.inflate(layoutInflater, parent, false),
-//    val binding: ItemLiquorGroupingBinding =
-//        DataBindingUtil.inflate(layoutInflater, layoutRes, parent, false)
 ): RecyclerView.ViewHolder(binding.root) {
 
     var onClickMore: ((position: Int) -> Unit)? = null
@@ -24,7 +22,7 @@ class HomeViewHolder(
 
     init {
         binding.run {
-            viewHolder = this@HomeViewHolder
+            viewHolder = this@LiquorViewHolder
             miniAdapter = miniLiquorAdapter
             layoutManager = LinearLayoutManager(
                 parent.context,
@@ -36,13 +34,7 @@ class HomeViewHolder(
 
     fun bind(homeItem: HomeItem) {
         binding.homeItem = homeItem
-        when(homeItem.type) {
-            HomeItemType.SearchBar -> {}
-            HomeItemType.Banner -> {}
-            HomeItemType.ShortcutMenu -> {}
-            HomeItemType.LiquorGrouping -> miniLiquorAdapter.initData(homeItem.liquorItems)
-            HomeItemType.Footer -> {}
-        }
+        miniLiquorAdapter.initData(homeItem.liquorItems)
     }
 
     fun onClickMore() {
