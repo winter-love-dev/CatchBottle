@@ -26,10 +26,21 @@ class MainNavigationViewModel @Inject constructor(
     val onLogoutListener: SharedFlow<Boolean>
         get() = _onLogoutListener.asSharedFlow()
 
+    private val _onClickSearchListener = MutableSharedFlow<Boolean>(
+        extraBufferCapacity = 1,
+        onBufferOverflow = BufferOverflow.DROP_OLDEST,
+    )
+    val onClickSearchListener: SharedFlow<Boolean>
+        get() = _onClickSearchListener.asSharedFlow()
+
     val mainListFlow = dummyRepository.mainListFlow
 
     fun onLogout() {
         credentials.logout()
         _onLogoutListener.tryEmit(true)
+    }
+
+    fun onClickSearch() {
+        _onClickSearchListener.tryEmit(true)
     }
 }

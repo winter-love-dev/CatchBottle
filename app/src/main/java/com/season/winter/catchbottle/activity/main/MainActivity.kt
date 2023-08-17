@@ -7,6 +7,7 @@ import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.setupWithNavController
 import com.season.winter.catchbottle.R
 import com.season.winter.catchbottle.activity.login.LoginActivity
+import com.season.winter.catchbottle.activity.search.SearchActivity
 import com.season.winter.catchbottle.databinding.ActivityMainBinding
 import com.season.winter.common.activity.BaseActivity
 import com.season.winter.common.extention.activity.cbStartActivity
@@ -20,33 +21,19 @@ class MainActivity: BaseActivity<ActivityMainBinding>(R.layout.activity_main) {
     private val viewModel: MainNavigationViewModel by viewModels()
 
     override fun ActivityMainBinding.initView() {
-
         repeatOnLifecycle(viewModel.onLogoutListener) {
             if (it) {
                 cbStartActivity(LoginActivity::class.java, true)
             }
         }
-
+        repeatOnLifecycle(viewModel.onClickSearchListener) {
+            if (it) {
+                cbStartActivity(SearchActivity::class.java, false)
+            }
+        }
         val navHostFragment = supportFragmentManager.findFragmentById(R.id.fragment_host) as NavHostFragment
         val navController = navHostFragment.findNavController()
         bottomNavigation.setupWithNavController(navController)
-//        bottomNavigation.setOnItemSelectedListener { item ->
-//            Log.e("TAG", "initView: item.title: ${item.title.toString()}", )
-//            when (item.itemId) {
-//                NavR.id.home_fragment ->
-//                    Log.e("TAG", "initView: home_fragment", )
-//
-//                NavR.id.map_fragment->
-//                    Log.e("TAG", "initView: map_fragment", )
-//
-//                NavR.id.wish_list_fragment->
-//                    Log.e("TAG", "initView: wish_list_fragment", )
-//
-//                NavR.id.more_fragment->
-//                    Log.e("TAG", "initView: more_fragment", )
-//            }
-//            true
-//        }
     }
 
     companion object {

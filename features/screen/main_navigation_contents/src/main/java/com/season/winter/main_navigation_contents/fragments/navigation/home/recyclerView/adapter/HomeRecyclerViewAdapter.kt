@@ -12,8 +12,19 @@ import com.season.winter.liquor.dummy.model.HomeItemType
 import com.season.winter.main_navigation_contents.fragments.navigation.home.recyclerView.viewHolder.BannerSectionViewHolder
 import com.season.winter.main_navigation_contents.fragments.navigation.home.recyclerView.viewHolder.EmptyViewHolder
 import com.season.winter.main_navigation_contents.fragments.navigation.home.recyclerView.viewHolder.SearchBarViewHolder
+import kotlinx.coroutines.channels.BufferOverflow
+import kotlinx.coroutines.flow.MutableSharedFlow
+import kotlinx.coroutines.flow.SharedFlow
+import kotlinx.coroutines.flow.asSharedFlow
 
 class HomeRecyclerViewAdapter: ListAdapter<HomeItem, ViewHolder>(HomeDiffCallback()) {
+
+    private val _onClickSearchListener = MutableSharedFlow<Boolean>(
+        extraBufferCapacity = 1,
+        onBufferOverflow = BufferOverflow.DROP_OLDEST,
+    )
+    val onClickSearchListener: SharedFlow<Boolean>
+        get() = _onClickSearchListener.asSharedFlow()
 
     private var lifecycleOwner: LifecycleOwner? = null
 
@@ -32,9 +43,7 @@ class HomeRecyclerViewAdapter: ListAdapter<HomeItem, ViewHolder>(HomeDiffCallbac
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         when(holder) {
-            is SearchBarViewHolder -> holder.onClick = {
-                Log.e(TAG, "onBindViewHolder: onClick: SearchBarViewHolder", )
-            }
+            is SearchBarViewHolder -> holder.onClick = { _onClickSearchListener.tryEmit(true) }
             is BannerSectionViewHolder -> holder.bind(currentList[position].bannerItems, lifecycleOwner)
             is LiquorViewHolder -> holder.bind(currentList[position])
             is EmptyViewHolder -> holder.bind()

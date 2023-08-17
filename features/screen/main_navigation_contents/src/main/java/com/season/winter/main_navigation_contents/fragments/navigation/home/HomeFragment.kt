@@ -13,6 +13,9 @@ class HomeFragment: BaseNavigationFragment<FragmentHomeBinding>(R.layout.fragmen
     override fun FragmentHomeBinding.initAfterView() {
         adapter = HomeRecyclerViewAdapter().apply {
             setLifecycleOwner(this@HomeFragment)
+            repeatOnLifecycle(onClickSearchListener) {
+                activityViewModel.onClickSearch()
+            }
         }
         layoutManager = LinearLayoutManager(requireContext())
         repeatOnLifecycle(activityViewModel.mainListFlow) { homeData ->
