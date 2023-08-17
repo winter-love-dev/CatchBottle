@@ -11,6 +11,7 @@ import com.season.winter.liquor.dummy.model.HomeItem
 import com.season.winter.liquor.dummy.model.HomeItemType
 import com.season.winter.main_navigation_contents.fragments.navigation.home.recyclerView.viewHolder.BannerSectionViewHolder
 import com.season.winter.main_navigation_contents.fragments.navigation.home.recyclerView.viewHolder.EmptyViewHolder
+import com.season.winter.main_navigation_contents.fragments.navigation.home.recyclerView.viewHolder.SearchBarViewHolder
 
 class HomeRecyclerViewAdapter: ListAdapter<HomeItem, ViewHolder>(HomeDiffCallback()) {
 
@@ -22,6 +23,7 @@ class HomeRecyclerViewAdapter: ListAdapter<HomeItem, ViewHolder>(HomeDiffCallbac
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         return when(viewType) {
+            HomeItemType.SearchBar.res -> SearchBarViewHolder(parent)
             HomeItemType.Banner.res -> BannerSectionViewHolder(parent)
             HomeItemType.LiquorGrouping.res -> LiquorViewHolder(viewType, parent)
             else -> EmptyViewHolder(parent)
@@ -30,6 +32,9 @@ class HomeRecyclerViewAdapter: ListAdapter<HomeItem, ViewHolder>(HomeDiffCallbac
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         when(holder) {
+            is SearchBarViewHolder -> holder.onClick = {
+                Log.e(TAG, "onBindViewHolder: onClick: SearchBarViewHolder", )
+            }
             is BannerSectionViewHolder -> holder.bind(currentList[position].bannerItems, lifecycleOwner)
             is LiquorViewHolder -> holder.bind(currentList[position])
             is EmptyViewHolder -> holder.bind()
