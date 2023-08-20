@@ -9,7 +9,7 @@ import com.season.winter.common.extention.primitive.decodeFromJsonStringSafety
 import com.season.winter.remoteconfig.di.RemoteConfigImpl
 import com.season.winter.remoteconfig.di.RemoteConfigImpl.Companion.KeyAll
 import com.season.winter.remoteconfig.di.RemoteConfigImpl.Companion.KeyBanner
-import com.season.winter.storage.ImageFireStorageInstance
+import com.season.winter.storage.ImageFireStorage
 import com.season.winter.ui.model.fragment.home.BannerData
 import dagger.assisted.Assisted
 import dagger.assisted.AssistedInject
@@ -35,17 +35,17 @@ class RemoteConfigFetcherWorker @AssistedInject constructor(
 
                 val bannerJsonString = remoteConfig.getString(KeyBanner)
 
-                val bannerDataList = bannerJsonString
-                    ?.decodeFromJsonStringSafety<List<BannerData>>()
-                    ?.apply { this.loadBannerUrlFromFileName() }
-                    ?: return@withContext Result.failure()
-
-                Log.e(TAG, "doWork: bannerDataList: $bannerDataList", )
-
-                val database = RemoteConfigDatabase.getInstance(applicationContext)
-                database.remoteConfigFetcherDao().updateBannerAll(bannerDataList)
-
-                remoteConfig.announceFetched(KeyAll)
+//                val bannerDataList = bannerJsonString
+//                    ?.decodeFromJsonStringSafety<List<BannerData>>()
+//                    ?.apply { this.loadBannerUrlFromFileName() }
+//                    ?: return@withContext Result.failure()
+//
+//                Log.e(TAG, "doWork: bannerDataList: $bannerDataList", )
+//
+//                val database = RemoteConfigDatabase.getInstance(applicationContext)
+//                database.remoteConfigFetcherDao().updateBannerAll(bannerDataList)
+//
+//                remoteConfig.announceFetched(KeyAll)
 
                 Result.success()
             } catch (ex: Exception) {
@@ -55,14 +55,14 @@ class RemoteConfigFetcherWorker @AssistedInject constructor(
         }
     }
 
-    private suspend fun List<BannerData>.loadBannerUrlFromFileName() {
-        forEach { liquorInfo ->
-            liquorInfo.imageUrl?.let { thumbnailFileName ->
-                val url = ImageFireStorageInstance.getImageUrlFromFileName(thumbnailFileName)
-                liquorInfo.imageUrl = url
-            }
-        }
-    }
+//    private suspend fun List<BannerData>.loadBannerUrlFromFileName() {
+//        forEach { liquorInfo ->
+//            liquorInfo.imageUrl?.let { thumbnailFileName ->
+//                val url = ImageFireStorage.getImageUrlFromFileName(thumbnailFileName)
+//                liquorInfo.imageUrl = url
+//            }
+//        }
+//    }
 
     companion object {
 

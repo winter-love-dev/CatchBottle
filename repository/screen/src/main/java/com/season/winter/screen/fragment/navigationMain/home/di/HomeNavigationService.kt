@@ -5,4 +5,6 @@ import kotlinx.coroutines.flow.Flow
 
 interface HomeNavigationService {
     val mainListFlow: Flow<List<HomeItem>>
+
+    fun getMainListFlow()
 }

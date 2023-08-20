@@ -3,8 +3,8 @@ package com.season.winter.common.dummy
 import com.season.winter.common.dataSet.liquorInfo.americanLiquorInfoList
 import com.season.winter.common.dataSet.liquorInfo.koreaLiquorInfoList
 import com.season.winter.common.dataSet.liquorInfo.scotchLiquorInfoList
+import com.season.winter.common.repository.ImageDatabaseRepositoryImpl
 import com.season.winter.liquor.liquorInfo.LiquorInfo
-import com.season.winter.storage.ImageFireStorageInstance
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.channels.BufferOverflow
@@ -14,7 +14,9 @@ import kotlinx.coroutines.flow.asSharedFlow
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
-class LiquorInfoDummyGenerator @Inject constructor() {
+class LiquorInfoDummyGenerator @Inject constructor(
+    private val imageDatabaseRepository: ImageDatabaseRepositoryImpl
+) {
 
     private var isInitThumb = false
 
@@ -28,11 +30,7 @@ class LiquorInfoDummyGenerator @Inject constructor() {
         get() = _liquorInfoListFlow.asSharedFlow()
 
     private val dummyLiquorListAll = getLiquorListAll().apply {
-        emitLiquorListAll()
-    }
 
-    fun getAllLiquorDummy(): List<LiquorInfo> {
-        return dummyLiquorListAll
     }
 
     fun emitLiquorListAll() {
@@ -62,7 +60,7 @@ class LiquorInfoDummyGenerator @Inject constructor() {
         dummyLiquorListAll.run {
             forEach { liquorInfo ->
                 liquorInfo.thumbnailFileName?.let { thumbnailFileName ->
-                    val url = ImageFireStorageInstance.getImageUrlFromFileName(thumbnailFileName)
+                    val url = imageDatabaseRepository.getImageUrlCached(thumbnailFileName)
                     liquorInfo.thumbnailUrl = url ?: ""
                 }
             }

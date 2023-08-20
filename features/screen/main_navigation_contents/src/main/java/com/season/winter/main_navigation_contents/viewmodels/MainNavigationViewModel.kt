@@ -1,6 +1,7 @@
 package com.season.winter.main_navigation_contents.viewmodels
 
 import androidx.lifecycle.ViewModel
+import com.season.winter.liquor.dummy.model.HomeItem
 import com.season.winter.screen.fragment.navigationMain.home.di.HomeNavigationRepositoryImpl
 import com.season.winter.user.di.Credentials
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -34,6 +35,10 @@ class MainNavigationViewModel @Inject constructor(
         get() = _onClickSearchListener.asSharedFlow()
 
     val mainListFlow = dummyRepository.mainListFlow
+
+    fun getMainList() {
+        dummyRepository.getMainListFlow()
+    }
 
     fun onLogout() {
         credentials.logout()

@@ -5,7 +5,6 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.season.winter.liquor.liquorInfo.LiquorInfo
 import com.season.winter.main_navigation_contents.databinding.ItemLiquorMiniBinding
-import com.season.winter.storage.extenstion.glide.preloadImageFromFireStoreFileName
 
 class MiniLiquorViewHolder(
     parent: ViewGroup,

@@ -1,7 +1,7 @@
 package com.season.winter.common.repository
 
 import com.season.winter.common.di.database.ImageDatabaseFetcherService
-import com.season.winter.common.local.database.ImageDatabaseFetcherDao
+import com.season.winter.common.local.database.image.ImageDatabaseFetcherDao
 import javax.inject.Inject
 
 class ImageDatabaseRepositoryFetcherImpl @Inject constructor(

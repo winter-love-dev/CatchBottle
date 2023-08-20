@@ -1,4 +1,4 @@
-package com.season.winter.common.local.database
+package com.season.winter.common.local.database.image
 
 import androidx.room.Dao
 import androidx.room.Insert

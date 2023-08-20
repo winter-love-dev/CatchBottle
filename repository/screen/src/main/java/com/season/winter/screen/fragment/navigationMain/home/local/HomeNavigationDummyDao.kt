@@ -74,6 +74,10 @@ class HomeNavigationDummyDao @Inject constructor(
         }
     }
 
+    fun getMainList() {
+        liquorInfoDummyGenerator.emitLiquorListAll()
+    }
+
     private fun setBanner() {
         mainList.find { it.type == HomeItemType.Banner }
             ?.bannerItems = bannerData

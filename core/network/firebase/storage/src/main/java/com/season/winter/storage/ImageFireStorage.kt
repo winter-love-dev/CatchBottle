@@ -5,12 +5,9 @@ import com.google.firebase.ktx.Firebase
 import com.google.firebase.storage.ktx.storage
 import kotlinx.coroutines.tasks.await
 import java.lang.Exception
+import javax.inject.Inject
 
-object ImageFireStorageInstance {
-
-    private const val TAG = "ImageFireStorageInstance"
-
-    private const val imagesPath = "images/"
+class ImageFireStorage @Inject constructor() {
 
     private val storageRef = Firebase.storage.reference
 
@@ -23,5 +20,12 @@ object ImageFireStorageInstance {
             Log.e(TAG, "error getImageUrlFromFileName: e: $e", )
             null
         }
+    }
+
+    companion object {
+
+        private const val TAG = "ImageFireStorageInstance"
+
+        private const val imagesPath = "images/"
     }
 }

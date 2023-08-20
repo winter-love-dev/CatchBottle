@@ -6,6 +6,7 @@ import com.season.winter.remoteconfig.local.dao.RemoteConfigDao
 import com.season.winter.remoteconfig.local.dao.RemoteConfigFetcherDao
 import com.season.winter.remoteconfig.local.database.RemoteConfigDatabase
 import com.season.winter.remoteconfig.remote.RemoteConfigFetcherRepository
+import com.season.winter.storage.ImageFireStorage
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -33,11 +34,13 @@ object RemoteConfigRepositoryModule {
     fun provideRemoteConfigFetcherRepository(
         remoteConfigImpl: RemoteConfigImpl,
         remoteConfigFetcherDao: RemoteConfigFetcherDao,
+        imageFireStorage: ImageFireStorage
     ): RemoteConfigFetcherRepository {
 
         return RemoteConfigFetcherRepository(
             remoteConfigImpl,
-            remoteConfigFetcherDao
+            remoteConfigFetcherDao,
+            imageFireStorage
         )
     }
 

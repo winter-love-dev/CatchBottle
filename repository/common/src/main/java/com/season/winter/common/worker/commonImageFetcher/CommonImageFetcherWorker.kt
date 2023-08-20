@@ -5,10 +5,14 @@ import android.util.Log
 import androidx.work.CoroutineWorker
 import androidx.work.WorkerParameters
 import com.season.winter.common.ImageNameUrlPairEntity
-import com.season.winter.common.local.database.ImageDatabase
+import com.season.winter.common.dataSet.liquorInfo.americanLiquorInfoList
+import com.season.winter.common.dataSet.liquorInfo.koreaLiquorInfoList
+import com.season.winter.common.dataSet.liquorInfo.scotchLiquorInfoList
+import com.season.winter.common.local.database.image.ImageDatabase
 import com.season.winter.common.dummy.LiquorInfoDummyGenerator
 import com.season.winter.liquor.liquorInfo.LiquorInfo
-import com.season.winter.storage.ImageFireStorageInstance
+import com.season.winter.storage.ImageFireStorage
+import com.season.winter.storage.impl.FirebaseStorageImpl
 import java.lang.Exception
 
 
@@ -30,11 +34,21 @@ class CommonImageFetcherWorker(
         }
     }
 
+    private fun getLiquorListAll(): List<LiquorInfo> {
+        return mutableListOf<LiquorInfo>().apply {
+            addAll(koreaLiquorInfoList)
+            addAll(americanLiquorInfoList)
+            addAll(scotchLiquorInfoList)
+        }.toList()
+    }
+
     private suspend fun fetchLiquorThumb(imageDatabase: ImageDatabase) {
+
+        val imageFireStorage = ImageFireStorage()
 
         val fetcherDao = imageDatabase.imageDataFetcherDao()
 
-        val liquorDummyList = LiquorInfoDummyGenerator().getAllLiquorDummy()
+        val liquorDummyList = getLiquorListAll()
 
         val imageDataList = mutableListOf<ImageNameUrlPairEntity>()
 
@@ -43,7 +57,7 @@ class CommonImageFetcherWorker(
                 val imageData = fetcherDao.checkForSearchImageData(thumbnailFileName)
                 val existImage = imageData?.url != null
                 if (existImage.not()) {
-                    val url = ImageFireStorageInstance.getImageUrlFromFileName(thumbnailFileName)
+                    val url = imageFireStorage.getImageUrlFromFileName(thumbnailFileName)
                     imageDataList.add(
                         ImageNameUrlPairEntity(
                             fileName = thumbnailFileName,
