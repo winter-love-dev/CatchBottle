@@ -6,16 +6,27 @@ import androidx.lifecycle.findViewTreeLifecycleOwner
 import androidx.lifecycle.lifecycleScope
 import com.bumptech.glide.Glide
 import com.season.winter.common.extention.view.glide.setImageFromUrl
+import com.season.winter.common.extention.view.glide.setImageFromUrlWrapHeight
 import com.season.winter.storage.ImageFireStorageInstance
 import kotlinx.coroutines.launch
 
-@BindingAdapter("imageFromFireStoreUrl")
-fun bindImageFromFireStoreFileUrl(view: ImageView, imageUrl: String?) {
+@BindingAdapter("imageFromUrl")
+fun bindImageFromUrl(view: ImageView, imageUrl: String?) {
 
     if (imageUrl.isNullOrEmpty())
         return
 
     view.setImageFromUrl(imageUrl)
+}
+
+
+@BindingAdapter("imageFromUrlWrapHeight")
+fun bindImageFromUrlWrapHeight(view: ImageView, imageUrl: String?) {
+
+    if (imageUrl.isNullOrEmpty())
+        return
+
+    view.setImageFromUrlWrapHeight(imageUrl)
 }
 
 

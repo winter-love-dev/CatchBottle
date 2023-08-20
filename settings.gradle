@@ -24,7 +24,6 @@ include ':core:design:ui'
 
 include ':core:data:model:user'
 include ':core:data:model:liquor'
-include ':core:data:room'
 
 include ':core:network:firebase:storage'
 include ':core:network:firebase:remoteconfig'
@@ -39,5 +38,5 @@ include ':repository:user'
 include ':repository:common'
 include ':repository:remoteconfig'
 
-include ':repository:storage'
 include ':repository:storage:image'
+

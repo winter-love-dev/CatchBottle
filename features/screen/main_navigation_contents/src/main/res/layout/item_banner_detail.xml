@@ -24,12 +24,9 @@
 
         <ImageView
             android:id="@+id/iv_thumb"
-            android:src="@drawable/logo_icon_small"
             android:layout_width="match_parent"
-            android:scaleType="centerCrop"
-            android:layout_height="300dp"
-            app:imageFromFireStoreUrl="@{banner_data.imageUrl}" />
-<!--        app:layout_collapseMode="parallax"-->
+            android:layout_height="280dp"
+            app:imageFromUrlWrapHeight="@{banner_data.imageUrl}" />
 
     </LinearLayout>
 
