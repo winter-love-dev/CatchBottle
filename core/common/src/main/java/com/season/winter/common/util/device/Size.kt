@@ -4,7 +4,7 @@ import android.content.Context
 import kotlin.math.roundToInt
 
 @Volatile
-private var customDisplaySize: CustomDisplaySize? = null
+private var _customDisplaySize: CustomDisplaySize? = null
 
 fun Context.getNewDisplaySize(): CustomDisplaySize {
     val displayMetrics = resources.displayMetrics
@@ -19,9 +19,9 @@ fun Context.getNewDisplaySize(): CustomDisplaySize {
 }
 
 fun Context.getDisplaySizeCached(): CustomDisplaySize {
-    return customDisplaySize ?: synchronized(this) {
-        customDisplaySize ?: getNewDisplaySize().also {
-            customDisplaySize = it
+    return _customDisplaySize ?: synchronized(this) {
+        _customDisplaySize ?: getNewDisplaySize().also {
+            _customDisplaySize = it
         }
     }
 }

@@ -53,22 +53,6 @@ class BannerSectionViewHolder(
             bannerPosition = position
             val currentPosition = (bannerPosition % list.size) + 1
             binding.page = "$currentPosition / ${list.size}"
-
-//            val view = binding.root
-//            view.post {
-//                val wMeasureSpec = View.MeasureSpec.makeMeasureSpec(view.width, View.MeasureSpec.EXACTLY)
-//                val hMeasureSpec = View.MeasureSpec.makeMeasureSpec(0, View.MeasureSpec.UNSPECIFIED)
-//                view.measure(wMeasureSpec, hMeasureSpec)
-//
-//                if (binding.viewPager.layoutParams.height != view.measuredHeight) {
-//                    // ParentViewGroup is, for example, LinearLayout
-//                    // ... or whatever the parent of the ViewPager2 is
-//                    binding.viewPager.layoutParams =
-//                        (binding.viewPager.layoutParams as ViewGroup.LayoutParams).also { lp ->
-//                            lp.height = view.measuredHeight
-//                        }
-//                }
-//            }
         }
         binding.viewPager.onPageScrollStateChanged { state ->
             when (state) {
