@@ -90,10 +90,10 @@ class BannerSectionViewHolder(
     private fun scrollJobCreate(lifecycleOwner: LifecycleOwner?) {
         cancelScrollJob()
         job ?: synchronized(this) {
-            job = lifecycleOwner?.launchRepeatOnLifecycleStarted {
+            job ?: lifecycleOwner?.launchRepeatOnLifecycleStarted {
                 delay(6000L)
                 binding.viewPager.setCurrentItem(++bannerPosition, true)
-            }
+            }.also { job = it }
         }
     }
 
