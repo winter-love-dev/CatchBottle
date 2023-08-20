@@ -39,6 +39,7 @@ dependencies {
     implementation project(":core:design:ui")
     implementation project(":core:network:firebase:storage")
 
+    implementation project(":repository:common")
     implementation project(":repository:liquor")
     implementation project(":repository:remoteconfig")
 

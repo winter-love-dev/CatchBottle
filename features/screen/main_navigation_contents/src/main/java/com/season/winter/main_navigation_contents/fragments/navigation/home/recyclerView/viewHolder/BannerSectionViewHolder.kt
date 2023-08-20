@@ -2,11 +2,15 @@ package com.season.winter.main_navigation_contents.fragments.navigation.home.rec
 
 import android.util.Log
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.LifecycleOwner
 import androidx.recyclerview.widget.RecyclerView
-import androidx.viewpager2.widget.ViewPager2
+import androidx.viewpager.widget.ViewPager.SCROLL_STATE_DRAGGING
+import androidx.viewpager2.widget.ViewPager2.SCROLL_STATE_IDLE
 import com.season.winter.common.extention.coroutine.launchRepeatOnLifecycleStarted
+import com.season.winter.common.extention.view.viewPager.onPageScrollStateChanged
+import com.season.winter.common.extention.view.viewPager.onPageSelected
 import com.season.winter.main_navigation_contents.databinding.ItemBannerSectionBinding
 import com.season.winter.main_navigation_contents.fragments.navigation.home.recyclerView.adapter.HomeBannerViewPagerAdapter
 import com.season.winter.ui.model.fragment.home.BannerData
@@ -24,12 +28,12 @@ class BannerSectionViewHolder(
     private var bannerPosition = 0
     private var isAlreadyBind = false
 
-    @Volatile
-    private var job: Job? = null
+    @Volatile private var job: Job? = null
 
     fun bind(bannerItems: List<BannerData>?, lifecycleOwner: LifecycleOwner?) {
 
         if (isAlreadyBind) return
+        isAlreadyBind = true
 
         val list: List<BannerData> = bannerItems ?: return
 
@@ -45,30 +49,20 @@ class BannerSectionViewHolder(
                 binding.viewPager.setCurrentItem(bannerPosition, false)
             }
         }
-
-        val lifecycleOwner = lifecycleOwner ?: return
-        binding.viewPager.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {
-            override fun onPageSelected(position: Int) {
-                super.onPageSelected(position)
-                bannerPosition = position
-                val currentPosition = (bannerPosition % list.size) + 1
-                binding.page = "$currentPosition / ${list.size}"
+        binding.viewPager.onPageSelected { position ->
+            bannerPosition = position
+            val currentPosition = (bannerPosition % list.size) + 1
+            binding.page = "$currentPosition / ${list.size}"
+        }
+        binding.viewPager.onPageScrollStateChanged { state ->
+            when (state) {
+                SCROLL_STATE_IDLE ->
+                    scrollJobCreate(lifecycleOwner)
+                SCROLL_STATE_DRAGGING ->
+                    cancelScrollJob()
             }
-            override fun onPageScrollStateChanged(state: Int) {
-                super.onPageScrollStateChanged(state)
-                when (state) {
-                    ViewPager2.SCROLL_STATE_IDLE ->
-                        scrollJobCreate(lifecycleOwner)
-
-                    ViewPager2.SCROLL_STATE_DRAGGING ->
-                        cancelScrollJob()
-
-                    ViewPager2.SCROLL_STATE_SETTLING -> {}
-                }
-            }
-        })
+        }
         scrollJobCreate(lifecycleOwner)
-        isAlreadyBind = true
     }
 
     private fun cancelScrollJob() {
@@ -77,15 +71,13 @@ class BannerSectionViewHolder(
         job = null
     }
 
-    private fun scrollJobCreate(lifecycleOwner: LifecycleOwner) {
+    private fun scrollJobCreate(lifecycleOwner: LifecycleOwner?) {
         cancelScrollJob()
         job ?: synchronized(this) {
-            job ?: lifecycleOwner.run {
-                job = launchRepeatOnLifecycleStarted {
-                    delay(6000L)
-                    binding.viewPager.setCurrentItem(++bannerPosition, true)
-                }
-            }
+            job ?: lifecycleOwner?.launchRepeatOnLifecycleStarted {
+                delay(6000L)
+                binding.viewPager.setCurrentItem(++bannerPosition, true)
+            }.also { job = it }
         }
     }
 

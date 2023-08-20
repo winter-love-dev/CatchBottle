@@ -5,7 +5,7 @@ import com.season.winter.common.extention.primitive.decodeFromJsonStringSafety
 import com.season.winter.remoteconfig.di.RemoteConfigFetcherService
 import com.season.winter.remoteconfig.di.RemoteConfigImpl
 import com.season.winter.remoteconfig.local.dao.RemoteConfigFetcherDao
-import com.season.winter.storage.ImageFireStorageInstance
+import com.season.winter.storage.ImageFireStorage
 import com.season.winter.ui.model.fragment.home.BannerData
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -18,6 +18,7 @@ import javax.inject.Inject
 class RemoteConfigFetcherRepository @Inject constructor(
     private val remoteConfig: RemoteConfigImpl,
     private val fetcherDao: RemoteConfigFetcherDao,
+    private val imageFireStorage: ImageFireStorage,
 ): RemoteConfigFetcherService {
 
     private val coroutineScope = CoroutineScope(Dispatchers.IO)
@@ -59,7 +60,7 @@ class RemoteConfigFetcherRepository @Inject constructor(
         forEach { banner ->
             if (banner.imageUrl == null)
                 banner.imageFileName.let { imageFileName ->
-                    val url = ImageFireStorageInstance.getImageUrlFromFileName(imageFileName)
+                    val url = imageFireStorage.getImageUrlFromFileName(imageFileName)
                     banner.imageUrl = url
                 }
         }

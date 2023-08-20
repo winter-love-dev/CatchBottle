@@ -24,10 +24,10 @@ include ':core:design:ui'
 
 include ':core:data:model:user'
 include ':core:data:model:liquor'
-include ':core:data:room'
 
+include ':core:network:firebase:storage'
+include ':core:network:firebase:remoteconfig'
 include ':core:network:firebase:firestore'
-//include ':core:network:firestore'
 
 include ':features:screen:'
 include ':features:screen:main_navigation_contents'
@@ -36,6 +36,7 @@ include ':repository:liquor'
 include ':repository:screen'
 include ':repository:user'
 include ':repository:common'
-include ':core:network:firebase:storage'
-include ':core:network:firebase:remoteconfig'
 include ':repository:remoteconfig'
+
+
+include ':core:data:model:common'

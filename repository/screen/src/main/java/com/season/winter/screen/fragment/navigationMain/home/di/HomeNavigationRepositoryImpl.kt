@@ -8,5 +8,7 @@ class HomeNavigationRepositoryImpl @Inject constructor(
 ): HomeNavigationService {
 
     override val mainListFlow = dummyDao.mainListFlow
-
+    override fun getMainListFlow() {
+        dummyDao.getMainList()
+    }
 }

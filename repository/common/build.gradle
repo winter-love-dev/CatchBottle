@@ -1,8 +1,10 @@
 plugins {
     alias libs.plugins.android.library
     alias libs.plugins.kotlin.android
+//    alias libs.plugins.devtools.ksp
     alias libs.plugins.kotlin.kapt
     alias libs.plugins.dagger.hilt
+    alias libs.plugins.kotlin.plugin.serialization
 }
 
 android {
@@ -38,11 +40,32 @@ dependencies {
     implementation project(":core:common")
     implementation project(":core:config")
 
+    implementation project(":core:data:model:common")
+    implementation project(":core:data:model:liquor")
+
+    implementation project(":core:design:designsystem")
+    implementation project(":core:design:ui")
+
+    implementation project(":core:network:firebase:remoteconfig")
+    implementation project(":core:network:firebase:storage")
+
+    implementation project(":core:design:ui")
+
     implementation libs.bundles.default
     testImplementation libs.bundles.default.test.implementation
     androidTestImplementation libs.bundles.default.test.androidTestImplementation
 
     implementation libs.bundles.hilt
     kapt libs.bundles.hilt.compiler.kapt
+
+    implementation libs.bundles.kotlinx.serialization
+
+//    ksp libs.bundles.room.compiler.ksp
+    kapt libs.bundles.room.compiler.kapt
+    annotationProcessor libs.bundles.room.compiler.annotationProcessor
+    testImplementation libs.bundles.room.testing.testImplementation
+    implementation libs.bundles.room
+
+    implementation libs.bundles.workmanager.default
 
 }

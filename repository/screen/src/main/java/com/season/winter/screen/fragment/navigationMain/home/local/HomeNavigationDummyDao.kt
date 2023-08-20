@@ -1,8 +1,8 @@
 package com.season.winter.screen.fragment.navigationMain.home.local
 
+import com.season.winter.common.dummy.LiquorInfoDummyGenerator
 import com.season.winter.liquor.brand.BrandInfo
 import com.season.winter.liquor.brand.CountryCode
-import com.season.winter.liquor.dummy.dummy.LiquorInfoDummyGenerator
 import com.season.winter.liquor.dummy.filter.LiquorFilterOption
 import com.season.winter.liquor.liquorInfo.LiquorStatus
 import com.season.winter.liquor.liquorInfo.WhiskyType
@@ -72,6 +72,10 @@ class HomeNavigationDummyDao @Inject constructor(
                 }
             }
         }
+    }
+
+    fun getMainList() {
+        liquorInfoDummyGenerator.emitLiquorListAll()
     }
 
     private fun setBanner() {
