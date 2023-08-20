@@ -1,4 +1,4 @@
-package com.season.winter.liquor.dummy.dataSet.brand
+package com.season.winter.common.dataSet.brand
 
 import com.season.winter.liquor.liquorInfo.LiquorType
 import com.season.winter.liquor.brand.Brand

@@ -6,7 +6,7 @@ import androidx.work.CoroutineWorker
 import androidx.work.WorkerParameters
 import com.season.winter.common.ImageNameUrlPairEntity
 import com.season.winter.common.local.database.ImageDatabase
-import com.season.winter.liquor.dummy.dummy.LiquorInfoDummyGenerator
+import com.season.winter.common.dummy.LiquorInfoDummyGenerator
 import com.season.winter.liquor.liquorInfo.LiquorInfo
 import com.season.winter.storage.ImageFireStorageInstance
 import java.lang.Exception

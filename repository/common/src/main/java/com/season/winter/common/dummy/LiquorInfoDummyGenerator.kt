@@ -1,9 +1,9 @@
-package com.season.winter.liquor.dummy.dummy
+package com.season.winter.common.dummy
 
+import com.season.winter.common.dataSet.liquorInfo.americanLiquorInfoList
+import com.season.winter.common.dataSet.liquorInfo.koreaLiquorInfoList
+import com.season.winter.common.dataSet.liquorInfo.scotchLiquorInfoList
 import com.season.winter.liquor.liquorInfo.LiquorInfo
-import com.season.winter.liquor.dummy.dataSet.liquorInfo.americanLiquorInfoList
-import com.season.winter.liquor.dummy.dataSet.liquorInfo.koreaLiquorInfoList
-import com.season.winter.liquor.dummy.dataSet.liquorInfo.scotchLiquorInfoList
 import com.season.winter.storage.ImageFireStorageInstance
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers

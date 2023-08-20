@@ -1,11 +1,11 @@
-package com.season.winter.liquor.dummy.dummy
+package com.season.winter.common.dummy
 
+import com.season.winter.common.dataSet.brand.americanWhiskeyList
+import com.season.winter.common.dataSet.brand.irishWhiskeyWhiskeyList
+import com.season.winter.common.dataSet.brand.japaneseWhiskeyWhiskeyList
+import com.season.winter.common.dataSet.brand.koreaWhiskeyWhiskeyList
+import com.season.winter.common.dataSet.brand.scotchWhiskeyWhiskeyList
 import com.season.winter.liquor.brand.Brand
-import com.season.winter.liquor.dummy.dataSet.brand.americanWhiskeyList
-import com.season.winter.liquor.dummy.dataSet.brand.irishWhiskeyWhiskeyList
-import com.season.winter.liquor.dummy.dataSet.brand.japaneseWhiskeyWhiskeyList
-import com.season.winter.liquor.dummy.dataSet.brand.koreaWhiskeyWhiskeyList
-import com.season.winter.liquor.dummy.dataSet.brand.scotchWhiskeyWhiskeyList
 
 class BrandDummyGenerator {
     fun getKoreaBrandList(): List<Brand> {

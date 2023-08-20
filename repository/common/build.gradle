@@ -43,12 +43,13 @@ dependencies {
     implementation project(":core:data:model:common")
     implementation project(":core:data:model:liquor")
 
+    implementation project(":core:design:designsystem")
+    implementation project(":core:design:ui")
+
     implementation project(":core:network:firebase:remoteconfig")
     implementation project(":core:network:firebase:storage")
 
     implementation project(":core:design:ui")
-
-    implementation project(":repository:liquor")
 
     implementation libs.bundles.default
     testImplementation libs.bundles.default.test.implementation

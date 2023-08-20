@@ -1,4 +1,4 @@
-package com.season.winter.liquor.dummy.dataSet.liquorInfo
+package com.season.winter.common.dataSet.liquorInfo
 
 import com.season.winter.liquor.liquorInfo.LiquorExpressionCode
 import com.season.winter.liquor.liquorInfo.LiquorInfo
@@ -7,11 +7,11 @@ import com.season.winter.liquor.liquorInfo.WhiskyType
 import com.season.winter.liquor.brand.BrandInfo
 import com.season.winter.liquor.content.FeatureData
 import com.season.winter.liquor.content.FeatureType
-import com.season.winter.liquor.dummy.dummy.getKoreanLiquorIdentify
+import com.season.winter.common.dummy.getKoreanLiquorIdentify
 import com.season.winter.liquor.liquorInfo.LiquorStatus
 
 val kiOneBatch1 = LiquorInfo(
-    identify = getKoreanLiquorIdentify(0),
+    identify = com.season.winter.common.dummy.getKoreanLiquorIdentify(0),
     nameKo = "기원 배치 1",
     nameEn = "KI ONE Batch 1",
     wishCount = 0,
@@ -70,7 +70,7 @@ val kiOneBatch1 = LiquorInfo(
 )
 
 val kiOneBatch2 = LiquorInfo(
-    identify = getKoreanLiquorIdentify(1),
+    identify = com.season.winter.common.dummy.getKoreanLiquorIdentify(1),
     nameKo = "기원 배치 2",
     nameEn = "KI ONE Batch 2",
     wishCount = 0,

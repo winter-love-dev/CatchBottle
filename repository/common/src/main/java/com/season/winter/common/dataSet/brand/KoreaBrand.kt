@@ -1,4 +1,4 @@
-package com.season.winter.liquor.dummy.dataSet.brand
+package com.season.winter.common.dataSet.brand
 
 import com.season.winter.liquor.liquorInfo.LiquorType
 import com.season.winter.liquor.brand.Brand
@@ -6,8 +6,8 @@ import com.season.winter.liquor.brand.BrandInfo
 import com.season.winter.liquor.content.FeatureData
 import com.season.winter.liquor.content.FeatureType
 
-val jameson = Brand(
-    brandCode = BrandInfo.Jameson,
+val kimChangSooDistillery = Brand(
+    brandCode = BrandInfo.ThreeSocietiesDistillery,
     productType = listOf(
         LiquorType.Whisky
     ),
@@ -18,7 +18,7 @@ val jameson = Brand(
         ),
         FeatureData(
             type = FeatureType.Text,
-            source = "미국 위스키 증류소입니다",
+            source = "국산 위스키 증류소입니다",
         ),
         FeatureData(
             type = FeatureType.YouTubeVideoUrl,
@@ -27,6 +27,6 @@ val jameson = Brand(
     ),
 )
 
-val irishWhiskeyWhiskeyList = listOf(
-    jameson
+val koreaWhiskeyWhiskeyList = listOf(
+    kimChangSooDistillery
 )

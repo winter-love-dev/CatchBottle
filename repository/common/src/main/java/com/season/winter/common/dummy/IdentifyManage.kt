@@ -1,4 +1,4 @@
-package com.season.winter.liquor.dummy.dummy
+package com.season.winter.common.dummy
 
 const val AmericanLiquorIdentify = 10
 const val KoreanLiquorIdentify = 20

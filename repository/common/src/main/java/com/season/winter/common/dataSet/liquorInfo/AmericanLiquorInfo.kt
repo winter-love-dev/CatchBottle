@@ -1,5 +1,6 @@
-package com.season.winter.liquor.dummy.dataSet.liquorInfo
+package com.season.winter.common.dataSet.liquorInfo
 
+import com.season.winter.common.dummy.getAmericanLiquorIdentify
 import com.season.winter.liquor.liquorInfo.LiquorExpressionCode
 import com.season.winter.liquor.liquorInfo.LiquorInfo
 import com.season.winter.liquor.liquorInfo.LiquorType
@@ -7,7 +8,6 @@ import com.season.winter.liquor.liquorInfo.WhiskyType
 import com.season.winter.liquor.brand.BrandInfo
 import com.season.winter.liquor.content.FeatureData
 import com.season.winter.liquor.content.FeatureType
-import com.season.winter.liquor.dummy.dummy.getAmericanLiquorIdentify
 
 val russellsReserveSingleBarrel = LiquorInfo(
     identify = getAmericanLiquorIdentify(0),
