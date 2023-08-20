@@ -6,8 +6,8 @@ import androidx.lifecycle.viewModelScope
 import com.season.winter.catchbottle.activity.login.LoginActivity
 import com.season.winter.catchbottle.activity.main.MainActivity
 import com.season.winter.common.activity.BaseActivity
-import com.season.winter.common.di.AppConfigRepositoryImpl
-import com.season.winter.remoteconfig.local.RemoteConfigLocalRepositoryImpl
+import com.season.winter.common.di.sharedPreferences.appConfig.AppConfigRepositoryImpl
+import com.season.winter.common.repository.ImageDatabaseRepositoryFetcherImpl
 import com.season.winter.remoteconfig.remote.RemoteConfigFetcherRepository
 import com.season.winter.user.di.Credentials
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -25,7 +25,9 @@ class SplashViewModel @Inject constructor(
     private val appConfigRepository: AppConfigRepositoryImpl,
 
     // for initialize
-    private val remoteConfigFetcherRepository: RemoteConfigFetcherRepository
+    private val remoteConfigFetcherRepository: RemoteConfigFetcherRepository,
+
+    private val imageFetcherRepository: ImageDatabaseRepositoryFetcherImpl,
 ): ViewModel() {
 
     private val _onLaunchActivityFlow = MutableSharedFlow<Class<out BaseActivity<out ViewDataBinding>>>(
@@ -34,6 +36,16 @@ class SplashViewModel @Inject constructor(
     )
     val onLaunchActivityFlow: SharedFlow<Class<out BaseActivity<out ViewDataBinding>>>
         get() = _onLaunchActivityFlow.asSharedFlow()
+
+    init {
+        fetchAppData()
+    }
+
+    fun fetchAppData() {
+        viewModelScope.launch {
+            imageFetcherRepository.wakeDB()
+        }
+    }
 
     fun checkLaunchTargetActivity() {
         val isFirstLaunch = appConfigRepository.checkFirstLaunch(true)

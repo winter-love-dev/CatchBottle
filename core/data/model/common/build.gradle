@@ -1,13 +1,12 @@
 plugins {
     alias libs.plugins.android.library
     alias libs.plugins.kotlin.android
+    alias libs.plugins.kotlin.plugin.serialization
     alias libs.plugins.devtools.ksp
-    alias libs.plugins.kotlin.kapt
-    alias libs.plugins.dagger.hilt
 }
 
 android {
-    namespace 'com.season.winter.liquor'
+    namespace 'com.season.winter.common'
     compileSdk libs.versions.compileSdk.get().toInteger()
 
     defaultConfig {
@@ -36,20 +35,11 @@ android {
 
 dependencies {
 
-    implementation project(":core:data:model:common")
-    implementation project(":core:data:model:liquor")
-
-    implementation project(":core:design:designsystem")
-    implementation project(":core:design:ui")
-
-    implementation project(":core:network:firebase:storage")
-
     implementation libs.bundles.default
     testImplementation libs.bundles.default.test.implementation
     androidTestImplementation libs.bundles.default.test.androidTestImplementation
 
-    implementation libs.bundles.hilt
-    kapt libs.bundles.hilt.compiler.kapt
+    implementation libs.bundles.kotlinx.serialization
 
     ksp libs.bundles.room.compiler.ksp
     annotationProcessor libs.bundles.room.compiler.annotationProcessor

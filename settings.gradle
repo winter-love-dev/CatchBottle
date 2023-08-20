@@ -38,5 +38,5 @@ include ':repository:user'
 include ':repository:common'
 include ':repository:remoteconfig'
 
-include ':repository:storage:image'
 
+include ':core:data:model:common'

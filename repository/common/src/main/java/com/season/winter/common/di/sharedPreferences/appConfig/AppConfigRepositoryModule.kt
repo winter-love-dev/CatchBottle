@@ -1,6 +1,6 @@
-package com.season.winter.common.di
+package com.season.winter.common.di.sharedPreferences.appConfig
 
-import com.season.winter.common.local.AppConfigDao
+import com.season.winter.common.local.sharedPreferences.AppConfigDao
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

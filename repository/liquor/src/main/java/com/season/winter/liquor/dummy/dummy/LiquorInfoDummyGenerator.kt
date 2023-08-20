@@ -31,6 +31,10 @@ class LiquorInfoDummyGenerator @Inject constructor() {
         emitLiquorListAll()
     }
 
+    fun getAllLiquorDummy(): List<LiquorInfo> {
+        return dummyLiquorListAll
+    }
+
     fun emitLiquorListAll() {
         coroutineScope.launch {
             if (isInitThumb.not()) {

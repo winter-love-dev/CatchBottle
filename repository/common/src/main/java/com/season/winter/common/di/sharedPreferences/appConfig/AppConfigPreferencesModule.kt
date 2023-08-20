@@ -1,4 +1,4 @@
-package com.season.winter.common.di
+package com.season.winter.common.di.sharedPreferences.appConfig
 
 import android.content.Context
 import com.season.winter.common.util.sharedPrefrences.securePreferences.Rsa2048CipherHelper
