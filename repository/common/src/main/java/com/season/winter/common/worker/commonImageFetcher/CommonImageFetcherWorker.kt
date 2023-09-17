@@ -9,10 +9,8 @@ import com.season.winter.common.dataSet.liquorInfo.americanLiquorInfoList
 import com.season.winter.common.dataSet.liquorInfo.koreaLiquorInfoList
 import com.season.winter.common.dataSet.liquorInfo.scotchLiquorInfoList
 import com.season.winter.common.local.database.image.ImageDatabase
-import com.season.winter.common.dummy.LiquorInfoDummyGenerator
 import com.season.winter.liquor.liquorInfo.LiquorInfo
 import com.season.winter.storage.ImageFireStorage
-import com.season.winter.storage.impl.FirebaseStorageImpl
 import java.lang.Exception
 
 
@@ -46,7 +44,7 @@ class CommonImageFetcherWorker(
 
         val imageFireStorage = ImageFireStorage()
 
-        val fetcherDao = imageDatabase.imageDataFetcherDao()
+        val fetcherDao = imageDatabase.imageDataDao()
 
         val liquorDummyList = getLiquorListAll()
 

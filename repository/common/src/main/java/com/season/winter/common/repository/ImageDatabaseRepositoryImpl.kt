@@ -1,5 +1,6 @@
 package com.season.winter.common.repository
 
+import com.season.winter.common.ImageNameUrlPairEntity
 import com.season.winter.common.di.database.ImageDatabaseService
 import com.season.winter.common.local.database.image.ImageDatabaseDao
 import com.season.winter.storage.impl.FirebaseStorageImpl
@@ -16,6 +17,13 @@ class ImageDatabaseRepositoryImpl @Inject constructor(
         return if (existImage)
             imageData?.url
         else
-            imageFireStorage.getImageUrlFromFileName(fileName)
+            imageFireStorage.getImageUrlFromFileName(fileName).also {
+                imageDao.insertImageData(
+                    ImageNameUrlPairEntity(
+                        fileName = fileName,
+                        url = it
+                    )
+                )
+            }
     }
 }

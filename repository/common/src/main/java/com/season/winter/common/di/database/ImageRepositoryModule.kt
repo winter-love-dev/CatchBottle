@@ -3,8 +3,6 @@ package com.season.winter.common.di.database
 import android.content.Context
 import com.season.winter.common.local.database.image.ImageDatabase
 import com.season.winter.common.local.database.image.ImageDatabaseDao
-import com.season.winter.common.local.database.image.ImageDatabaseFetcherDao
-import com.season.winter.common.repository.ImageDatabaseRepositoryFetcherImpl
 import com.season.winter.common.repository.ImageDatabaseRepositoryImpl
 import com.season.winter.storage.impl.FirebaseStorageImpl
 import dagger.Module
@@ -29,14 +27,6 @@ object ImageRepositoryModule {
 
     @Singleton
     @Provides
-    fun provideImageDatabaseFetcherRepository(
-        fetcherDao: ImageDatabaseFetcherDao
-    ): ImageDatabaseRepositoryFetcherImpl {
-        return ImageDatabaseRepositoryFetcherImpl(fetcherDao)
-    }
-
-    @Singleton
-    @Provides
     fun provideImageDatabase(
         @ApplicationContext context: Context
     ): ImageDatabase {
@@ -46,10 +36,5 @@ object ImageRepositoryModule {
     @Provides
     fun provideImageDatabaseDao(database: ImageDatabase): ImageDatabaseDao {
         return database.imageDataDao()
-    }
-
-    @Provides
-    fun provideImageDatabaseFetcherDao(database: ImageDatabase): ImageDatabaseFetcherDao {
-        return database.imageDataFetcherDao()
     }
 }

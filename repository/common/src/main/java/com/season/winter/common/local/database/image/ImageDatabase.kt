@@ -22,7 +22,6 @@ import com.season.winter.common.worker.commonImageFetcher.launchCommonImagerFetc
 abstract class ImageDatabase: RoomDatabase() {
 
     abstract fun imageDataDao(): ImageDatabaseDao
-    abstract fun imageDataFetcherDao(): ImageDatabaseFetcherDao
 
     companion object {
 
