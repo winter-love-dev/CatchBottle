@@ -4,7 +4,7 @@ import android.util.Log
 import com.season.winter.common.extention.primitive.decodeFromJsonStringSafety
 import com.season.winter.remoteconfig.di.RemoteConfigFetcherService
 import com.season.winter.remoteconfig.di.RemoteConfigImpl
-import com.season.winter.remoteconfig.local.dao.RemoteConfigFetcherDao
+import com.season.winter.remoteconfig.local.dao.RemoteConfigDao
 import com.season.winter.storage.ImageFireStorage
 import com.season.winter.ui.model.fragment.home.BannerData
 import kotlinx.coroutines.CoroutineScope
@@ -17,7 +17,7 @@ import javax.inject.Inject
  */
 class RemoteConfigFetcherRepository @Inject constructor(
     private val remoteConfig: RemoteConfigImpl,
-    private val fetcherDao: RemoteConfigFetcherDao,
+    private val fetcherDao: RemoteConfigDao,
     private val imageFireStorage: ImageFireStorage,
 ): RemoteConfigFetcherService {
 

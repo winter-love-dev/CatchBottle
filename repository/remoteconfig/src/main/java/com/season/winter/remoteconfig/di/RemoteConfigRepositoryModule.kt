@@ -3,7 +3,6 @@ package com.season.winter.remoteconfig.di
 import android.content.Context
 import com.season.winter.remoteconfig.local.RemoteConfigLocalRepositoryImpl
 import com.season.winter.remoteconfig.local.dao.RemoteConfigDao
-import com.season.winter.remoteconfig.local.dao.RemoteConfigFetcherDao
 import com.season.winter.remoteconfig.local.database.RemoteConfigDatabase
 import com.season.winter.remoteconfig.remote.RemoteConfigFetcherRepository
 import com.season.winter.storage.ImageFireStorage
@@ -33,7 +32,7 @@ object RemoteConfigRepositoryModule {
     @Singleton
     fun provideRemoteConfigFetcherRepository(
         remoteConfigImpl: RemoteConfigImpl,
-        remoteConfigFetcherDao: RemoteConfigFetcherDao,
+        remoteConfigFetcherDao: RemoteConfigDao,
         imageFireStorage: ImageFireStorage
     ): RemoteConfigFetcherRepository {
 
@@ -55,11 +54,6 @@ object RemoteConfigRepositoryModule {
     @Provides
     fun provideRemoteConfigDao(appDatabase: RemoteConfigDatabase): RemoteConfigDao {
         return appDatabase.remoteConfigDao()
-    }
-
-    @Provides
-    fun provideRemoteConfigFetcherDao(appDatabase: RemoteConfigDatabase): RemoteConfigFetcherDao {
-        return appDatabase.remoteConfigFetcherDao()
     }
 
 }
