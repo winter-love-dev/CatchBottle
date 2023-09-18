@@ -19,25 +19,25 @@ import com.season.winter.common.worker.commonImageFetcher.launchCommonImagerFetc
     exportSchema = false
 )
 @TypeConverters(ImageDatabaseConverter::class)
-abstract class ImageDatabase: RoomDatabase() {
+abstract class ImageRoomDatabase: RoomDatabase() {
 
-    abstract fun imageDataDao(): ImageDatabaseDao
+    abstract fun imageDataDao(): ImageDatabaseRoomDao
 
     companion object {
 
         @Volatile
-        private var instance: ImageDatabase? = null
+        private var instance: ImageRoomDatabase? = null
 
-        fun getInstance(context: Context): ImageDatabase {
+        fun getInstance(context: Context): ImageRoomDatabase {
             return instance ?: synchronized(this) {
                 instance ?: buildDatabase(context).also { instance = it }
             }
         }
 
-        private fun buildDatabase(context: Context): ImageDatabase {
+        private fun buildDatabase(context: Context): ImageRoomDatabase {
             return Room.databaseBuilder(
                 context,
-                ImageDatabase::class.java,
+                ImageRoomDatabase::class.java,
                 DatabaseName_ImageDatabase
             )
                 .addCallback(

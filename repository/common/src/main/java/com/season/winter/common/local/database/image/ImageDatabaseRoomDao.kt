@@ -8,7 +8,7 @@ import com.season.winter.common.ImageNameUrlPairEntity
 import kotlinx.coroutines.flow.Flow
 
 @Dao
-interface ImageDatabaseDao {
+interface ImageDatabaseRoomDao {
 
 
     // Fetchers 쿼리

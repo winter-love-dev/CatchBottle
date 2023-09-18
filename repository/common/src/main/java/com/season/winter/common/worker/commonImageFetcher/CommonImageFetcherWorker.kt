@@ -8,7 +8,7 @@ import com.season.winter.common.ImageNameUrlPairEntity
 import com.season.winter.common.dataSet.liquorInfo.americanLiquorInfoList
 import com.season.winter.common.dataSet.liquorInfo.koreaLiquorInfoList
 import com.season.winter.common.dataSet.liquorInfo.scotchLiquorInfoList
-import com.season.winter.common.local.database.image.ImageDatabase
+import com.season.winter.common.local.database.image.ImageRoomDatabase
 import com.season.winter.liquor.liquorInfo.LiquorInfo
 import com.season.winter.storage.ImageFireStorage
 import java.lang.Exception
@@ -21,7 +21,7 @@ class CommonImageFetcherWorker(
 
     override suspend fun doWork(): Result {
         return try {
-            val database = ImageDatabase.getInstance(applicationContext)
+            val database = ImageRoomDatabase.getInstance(applicationContext)
 //            val dao = database.imageDataDao()
 //            val fetcherDao = database.imageDataFetcherDao()
             fetchLiquorThumb(database)
@@ -40,7 +40,7 @@ class CommonImageFetcherWorker(
         }.toList()
     }
 
-    private suspend fun fetchLiquorThumb(imageDatabase: ImageDatabase) {
+    private suspend fun fetchLiquorThumb(imageDatabase: ImageRoomDatabase) {
 
         val imageFireStorage = ImageFireStorage()
 

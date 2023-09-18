@@ -1,6 +1,6 @@
 package com.season.winter.screen.fragment.navigationMain.home.local
 
-import com.season.winter.common.dummy.LiquorInfoDummyGenerator
+import com.season.winter.common.dummy.MakeLiquorInfoDummyUseCase
 import com.season.winter.liquor.brand.BrandInfo
 import com.season.winter.liquor.brand.CountryCode
 import com.season.winter.liquor.dummy.filter.LiquorFilterOption
@@ -21,7 +21,7 @@ import javax.inject.Inject
 
 class HomeNavigationDummyDao @Inject constructor(
     private val remoteConfigLocalRepositoryImpl: RemoteConfigLocalRepositoryImpl,
-    private val liquorInfoDummyGenerator: LiquorInfoDummyGenerator
+    private val liquorInfoDummyGenerator: MakeLiquorInfoDummyUseCase
 ) {
 
     private var setBanner = false

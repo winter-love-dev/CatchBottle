@@ -5,7 +5,7 @@ import javax.inject.Inject
 
 class FirebaseStorageImpl @Inject constructor(
     private val imageFireStorage: ImageFireStorage
-): FirebaseStorageService {
+): FirebaseStorageRepository {
 
     override suspend fun getImageUrlFromFileName(fileName: String): String? {
         return imageFireStorage.getImageUrlFromFileName(fileName)

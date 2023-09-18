@@ -3,7 +3,7 @@ package com.season.winter.common.dummy
 import com.season.winter.common.dataSet.liquorInfo.americanLiquorInfoList
 import com.season.winter.common.dataSet.liquorInfo.koreaLiquorInfoList
 import com.season.winter.common.dataSet.liquorInfo.scotchLiquorInfoList
-import com.season.winter.common.repository.ImageDatabaseRepositoryImpl
+import com.season.winter.common.di.database.CachedImageRepository
 import com.season.winter.liquor.liquorInfo.LiquorInfo
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -14,8 +14,8 @@ import kotlinx.coroutines.flow.asSharedFlow
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
-class LiquorInfoDummyGenerator @Inject constructor(
-    private val imageDatabaseRepository: ImageDatabaseRepositoryImpl
+class MakeLiquorInfoDummyUseCase @Inject constructor(
+    private val imageDatabaseRepository: CachedImageRepository
 ) {
 
     private var isInitThumb = false
@@ -60,7 +60,7 @@ class LiquorInfoDummyGenerator @Inject constructor(
         dummyLiquorListAll.run {
             forEach { liquorInfo ->
                 liquorInfo.thumbnailFileName?.let { thumbnailFileName ->
-                    val url = imageDatabaseRepository.getImageUrlCached(thumbnailFileName)
+                    val url = imageDatabaseRepository.getImageUrl(thumbnailFileName)
                     liquorInfo.thumbnailUrl = url ?: ""
                 }
             }
