@@ -2,7 +2,7 @@ package com.season.winter.main_navigation_contents.viewmodels
 
 import androidx.lifecycle.ViewModel
 import com.season.winter.liquor.dummy.model.HomeItem
-import com.season.winter.screen.fragment.navigationMain.home.di.HomeNavigationRepositoryImpl
+import com.season.winter.screen.fragment.navigationMain.home.domain.GetHomeScreenDataUseCase
 import com.season.winter.user.di.Credentials
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.channels.BufferOverflow
@@ -15,7 +15,7 @@ import javax.inject.Inject
 @HiltViewModel
 class MainNavigationViewModel @Inject constructor(
     private val credentials: Credentials,
-    private val dummyRepository: HomeNavigationRepositoryImpl,
+    private val homeScreenData: GetHomeScreenDataUseCase,
 ): ViewModel() {
 
     val userName = MutableStateFlow(credentials.userName)
@@ -34,10 +34,19 @@ class MainNavigationViewModel @Inject constructor(
     val onClickSearchListener: SharedFlow<Boolean>
         get() = _onClickSearchListener.asSharedFlow()
 
-    val mainListFlow = dummyRepository.mainListFlow
 
-    fun getMainList() {
-        dummyRepository.getMainListFlow()
+    private val _homeScreenDataFlow = MutableSharedFlow<List<HomeItem>>(
+        extraBufferCapacity = 1,
+        onBufferOverflow = BufferOverflow.DROP_OLDEST,
+    )
+    val homeScreenDataFlow: SharedFlow<List<HomeItem>>
+        get() = _homeScreenDataFlow.asSharedFlow()
+
+
+    suspend fun getMainList() {
+        _homeScreenDataFlow.tryEmit(
+            homeScreenData.invoke()
+        )
     }
 
     fun onLogout() {
