@@ -1,7 +1,6 @@
 package com.season.winter.remoteconfig.di
 
 import android.content.Context
-import com.season.winter.remoteconfig.local.RemoteConfigLocalRepositoryImpl
 import com.season.winter.remoteconfig.local.dao.RemoteConfigDao
 import com.season.winter.remoteconfig.local.database.RemoteConfigDatabase
 import com.season.winter.remoteconfig.remote.RemoteConfigFetcherRepository
@@ -16,17 +15,6 @@ import javax.inject.Singleton
 @Module
 @InstallIn(SingletonComponent::class)
 object RemoteConfigRepositoryModule {
-
-    @Provides
-    @Singleton
-    fun provideRemoteConfigLocalRepositoryImpl(
-        remoteConfigLocalDao: RemoteConfigDao,
-    ): RemoteConfigLocalRepositoryImpl {
-
-        return RemoteConfigLocalRepositoryImpl(
-            remoteConfigLocalDao
-        )
-    }
 
     @Provides
     @Singleton

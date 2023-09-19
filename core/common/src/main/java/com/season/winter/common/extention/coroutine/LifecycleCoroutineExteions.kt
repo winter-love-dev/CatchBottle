@@ -20,10 +20,11 @@ suspend fun LifecycleOwner.cbWhenStarted(
 
 fun <T> LifecycleOwner.repeatOnLifecycle(
     flow: Flow<T>,
+    repeatWhen: Lifecycle.State = Lifecycle.State.STARTED,
     callback: (item: T) -> Unit,
 ) {
     lifecycleScope.launch {
-        repeatOnLifecycle(Lifecycle.State.STARTED) {
+        repeatOnLifecycle(repeatWhen) {
             flow.collect {
                 callback(it)
             }

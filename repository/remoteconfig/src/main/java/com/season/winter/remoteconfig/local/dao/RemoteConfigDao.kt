@@ -15,6 +15,9 @@ interface RemoteConfigDao {
     suspend fun updateBannerAll(bannerList: List<BannerData>)
 
     @Query("SELECT * FROM remote_config_banner ORDER BY config_id")
-    fun getBannerAll(): Flow<List<BannerData>>
+    fun getBannerAllFlow(): Flow<List<BannerData>>
+
+    @Query("SELECT * FROM remote_config_banner ORDER BY config_id")
+    suspend fun getBannerAll(): List<BannerData>
 
 }

@@ -3,11 +3,11 @@ package com.season.winter.common.repository
 import com.season.winter.common.ImageNameUrlPairEntity
 import com.season.winter.common.di.database.CachedImageRepository
 import com.season.winter.common.local.database.image.ImageDatabaseRoomDao
-import com.season.winter.storage.impl.FirebaseStorageImpl
+import com.season.winter.storage.impl.FirebaseStorageRepository
 import javax.inject.Inject
 
 class CachedImageRepositoryImpl @Inject constructor(
-    private val imageFireStorage: FirebaseStorageImpl,
+    private val imageFireStorage: FirebaseStorageRepository,
     private val imageDao: ImageDatabaseRoomDao
 ): CachedImageRepository {
 
