@@ -19,16 +19,16 @@ import com.season.winter.designsystem.typography.CBTypography
 @Composable
 fun CBText(
     modifier: Modifier = Modifier,
-    style: TextStyle = LocalTextStyle.current.copy(
-        lineBreak = LineBreak.Simple
-    ),
+    style: TextStyle = LocalTextStyle.current,
     type: CBTypography = CBTypography.BodyM,
     text: String
 ) {
     Text(
         modifier = modifier,
         text = text,
-        style = style,
+        style = style.copy(
+            lineBreak = LineBreak.Simple
+        ),
         fontFamily = FontFamily(Font(type.fontFamily)),
         fontWeight = type.weightCompose,
         fontSize = type.sizeCompose ?: 16.sp,
