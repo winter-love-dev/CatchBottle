@@ -2,6 +2,7 @@ package com.season.winter.compose.text
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.padding
+import androidx.compose.material3.LocalTextStyle
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.material3.Text
@@ -18,15 +19,16 @@ import com.season.winter.designsystem.typography.CBTypography
 @Composable
 fun CBText(
     modifier: Modifier = Modifier,
+    style: TextStyle = LocalTextStyle.current.copy(
+        lineBreak = LineBreak.Simple
+    ),
     type: CBTypography = CBTypography.BodyM,
     text: String
 ) {
     Text(
         modifier = modifier,
         text = text,
-        style = TextStyle(
-            lineBreak = LineBreak.Simple
-        ),
+        style = style,
         fontFamily = FontFamily(Font(type.fontFamily)),
         fontWeight = type.weightCompose,
         fontSize = type.sizeCompose ?: 16.sp,
