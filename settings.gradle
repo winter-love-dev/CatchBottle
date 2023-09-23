@@ -40,3 +40,4 @@ include ':repository:remoteconfig'
 
 
 include ':core:data:model:common'
+include ':core:design:compose'

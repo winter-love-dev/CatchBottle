@@ -1,18 +1,17 @@
 plugins {
-    alias libs.plugins.android.library
-    alias libs.plugins.kotlin.android
-    alias libs.plugins.kotlin.kapt
+    alias(libs.plugins.android.library)
+    alias(libs.plugins.kotlin.android)
 }
 
 android {
-    namespace 'com.season.winter.designsystem'
+    namespace 'com.season.winter.compose'
     compileSdk libs.versions.compileSdk.get().toInteger()
 
     defaultConfig {
         minSdk libs.versions.minSdk.get().toInteger()
-        targetSdk libs.versions.targetSdk.get().toInteger()
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles "consumer-rules.pro"
     }
 
     buildTypes {
@@ -28,10 +27,6 @@ android {
     kotlinOptions {
         jvmTarget = JavaVersion.VERSION_17.toString()
     }
-    dataBinding {
-        enabled = true
-    }
-
     buildFeatures {
         compose = true
     }
@@ -43,14 +38,14 @@ android {
 dependencies {
 
     implementation project(":core:design:core_design_resource")
+    implementation project(":core:design:designsystem")
 
-    implementation libs.bundles.default
-    testImplementation libs.bundles.default.test.implementation
-    androidTestImplementation libs.bundles.default.test.androidTestImplementation
-
-    annotationProcessor libs.bundles.glide.compiler.annotationProcessor
-    implementation libs.bundles.glide
+    implementation libs.androidx.ktx
+    implementation libs.androidx.appcompat
+    implementation libs.android.material
+    testImplementation libs.junit
+    androidTestImplementation libs.androidx.test.ext
+    androidTestImplementation libs.androidx.test.espresso.core
 
     implementation libs.bundles.compose.all
-
 }

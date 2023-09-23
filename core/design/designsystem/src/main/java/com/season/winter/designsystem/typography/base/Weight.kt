@@ -1,6 +1,7 @@
 package com.season.winter.designsystem.typography.base
 
 import com.season.winter.designsystem.R
+import androidx.compose.ui.text.font.FontWeight
 
 enum class Weight(
     val value: Int
