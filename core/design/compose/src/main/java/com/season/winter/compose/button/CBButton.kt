@@ -16,7 +16,6 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.modifier.modifierLocalConsumer
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.season.winter.compose.text.CBText
@@ -33,7 +32,6 @@ fun CBButton(
     enabled: Boolean = true,
     onClick: (() -> Unit),
 ) {
-
     val colorFromDesignSystem = ButtonDefaults.buttonColors(
         containerColor = style.enableBackgroundColor,
         contentColor = style.enableTextColor,
@@ -43,11 +41,12 @@ fun CBButton(
     val styleChange by remember {
         mutableStateOf(colorFromDesignSystem)
     }
-
+    val enabledChange by remember {
+        mutableStateOf(enabled)
+    }
     val textChange by remember {
         mutableStateOf(text)
     }
-
     Button(
         modifier = modifier,
         colors = styleChange,
@@ -62,7 +61,7 @@ fun CBButton(
                 // trailing component ...
             }
         },
-        enabled = enabled,
+        enabled = enabledChange,
         onClick = onClick,
     )
 }
@@ -77,28 +76,51 @@ internal fun PreviewCBButton() {
     ComposeCatchBottleTheme {
         Column {
             CBButton("this component is 'CBButton'") { }
-            CBButton("abcdefghijklmnopopqrstuvwxyz") { }
-            CBButton("ABCDEFGHIJKLMNOPOPQRSTUVWXYZ") { }
             CBButton("아래처럼 텍스트가 끝에 닿으면 영역을 벗어나게 됩니다") { }
+            CBButton("abcdefghijklmnopopqrstuvwxyzABCDEFGHIJKLMNOPOPQRSTUVWXYZ") { }
             CBButton("가나다라마바사아자차카타파하가나다라마바사아자차카타파하") { }
             CBButton(
                 "this style is 'CBButtonStyleCompose.First'"
+            ) { }
+            CBButton(
+                "this is disable state 'CBButtonStyleCompose.First'",
+                enabled = false
             ) { }
             CBButton(
                 text = "this style is 'CBButtonStyleCompose.Second'",
                 style = CBButtonStyleCompose.Second
             ) { }
             CBButton(
+                "this is disable state 'CBButtonStyleCompose.Second'",
+                style = CBButtonStyleCompose.Second,
+                enabled = false
+            ) { }
+            CBButton(
                 text = "this style is 'CBButtonStyleCompose.Third'",
                 style = CBButtonStyleCompose.Third
+            ) { }
+            CBButton(
+                "this is disable state 'CBButtonStyleCompose.Third'",
+                style = CBButtonStyleCompose.Third,
+                enabled = false
             ) { }
             CBButton(
                 text = "this style is 'CBButtonStyleCompose.Ghost'",
                 style = CBButtonStyleCompose.Ghost
             ) { }
             CBButton(
+                "this is disable state 'CBButtonStyleCompose.Ghost'",
+                style = CBButtonStyleCompose.Ghost,
+                enabled = false
+            ) { }
+            CBButton(
                 text = "this style is 'CBButtonStyleCompose.Negative'",
                 style = CBButtonStyleCompose.Negative
+            ) { }
+            CBButton(
+                "this is disable state 'CBButtonStyleCompose.Negative'",
+                style = CBButtonStyleCompose.Negative,
+                enabled = false
             ) { }
             Row(
                 horizontalArrangement = Arrangement.Center,
