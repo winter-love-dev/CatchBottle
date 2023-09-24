@@ -27,20 +27,15 @@ class RemoteConfig @Inject constructor() {
         it.setDefaultsAsync(R.xml.remote_config_defaults)
         it.addOnConfigUpdateListener(object: ConfigUpdateListener {
             override fun onUpdate(configUpdate: ConfigUpdate) {
-                it.activate().addOnCompleteListener { newConfig ->
+                val updateKeys = mutableListOf<String>()
 
-                    if (newConfig.isSuccessful.not())
-                        return@addOnCompleteListener
-
-                    val updateKeys = mutableListOf<String>()
-
-                    KeyAll.forEach { key ->
-                        if (configUpdate.updatedKeys.contains(key))
-                            updateKeys.add(key)
-                    }
-
-                    announceFetched?.invoke(updateKeys)
+                KeyAll.forEach { key ->
+                    if (configUpdate.updatedKeys.contains(key))
+                        updateKeys.add(key)
                 }
+
+                if (updateKeys.isNotEmpty())
+                    announceFetched?.invoke(updateKeys)
             }
 
             override fun onError(error : FirebaseRemoteConfigException) {
