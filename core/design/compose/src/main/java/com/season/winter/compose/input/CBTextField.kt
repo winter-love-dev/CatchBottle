@@ -112,6 +112,11 @@ internal fun PreviewCBTextField() {
                 modifier = Modifier.padding(top = 16.dp),
                 placeholderValue = "this is place holder"
             )
+
+            CBTextField(
+                modifier = Modifier.padding(top = 16.dp),
+                value = "this "
+            )
         }
     }
 }
