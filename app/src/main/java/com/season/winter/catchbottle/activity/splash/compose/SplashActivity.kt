@@ -23,8 +23,5 @@ class SplashActivity : ComponentActivity() {
         repeatOnLifecycle(viewModel.onLaunchActivityFlow) { activity ->
             cbStartActivity(activity, true)
         }
-        repeatOnLifecycle(viewModel.onLaunchViewsActivityFlow) { activity ->
-            cbStartActivity(activity, true)
-        }
     }
 }

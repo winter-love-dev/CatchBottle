@@ -1,12 +1,10 @@
 package com.season.winter.catchbottle.activity.splash
 
 import androidx.activity.ComponentActivity
-import androidx.databinding.ViewDataBinding
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.season.winter.catchbottle.activity.login.compose.LoginActivity
 import com.season.winter.catchbottle.activity.main.MainActivity
-import com.season.winter.common.activity.BaseActivity
 import com.season.winter.common.di.sharedPreferences.appConfig.AppConfigRepository
 import com.season.winter.common.local.database.image.ImageDatabaseRoomDao
 import com.season.winter.remoteconfig.domain.RemoteConfigFetcherUseCase
@@ -30,14 +28,6 @@ class SplashViewModel @Inject constructor(
 
     private val fetcherDao: ImageDatabaseRoomDao,
 ): ViewModel() {
-
-    // forViews
-    private val _onLaunchViewsActivityFlow = MutableSharedFlow<Class<out BaseActivity<out ViewDataBinding>>>(
-        extraBufferCapacity = 1,
-        onBufferOverflow = BufferOverflow.DROP_OLDEST,
-    )
-    val onLaunchViewsActivityFlow: SharedFlow<Class<out BaseActivity<out ViewDataBinding>>>
-        get() = _onLaunchViewsActivityFlow.asSharedFlow()
 
     private val _onLaunchActivityFlow = MutableSharedFlow<Class<out ComponentActivity>>(
         extraBufferCapacity = 1,
@@ -67,7 +57,6 @@ class SplashViewModel @Inject constructor(
         }
         viewModelScope.launch {
             delay(500)
-//            _onLaunchViewsActivityFlow.emit(activity as Class<out BaseActivity<out ViewDataBinding>>)
             _onLaunchActivityFlow.emit(activity)
         }
     }
