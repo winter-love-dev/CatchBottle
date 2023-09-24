@@ -44,21 +44,18 @@ fun CBButton(
     val enabledChange by remember {
         mutableStateOf(enabled)
     }
-    val textChange by remember {
-        mutableStateOf(text)
-    }
     Button(
         modifier = modifier,
         colors = styleChange,
         content = @Composable {
             Row {
-                // leading component ...
+                // add leading component ...
                 CBText(
                     softWrap = false, // 줄바꿈 되지 않게
                     type = CBTypography.CaptionM,
-                    text = textChange
+                    text = text
                 )
-                // trailing component ...
+                // add trailing component ...
             }
         },
         enabled = enabledChange,
