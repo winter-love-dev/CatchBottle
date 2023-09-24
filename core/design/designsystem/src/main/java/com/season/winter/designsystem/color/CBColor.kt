@@ -5,7 +5,7 @@ import com.season.winter.designsystem.color.base.Palette
 
 enum class CBColor(
     val value: Int,
-    val composeValue: Color
+    val color: Color
 ) {
     White(Palette.White.value, Palette.White.composeColor),
     Black(Palette.Black.value, Palette.Black.composeColor),

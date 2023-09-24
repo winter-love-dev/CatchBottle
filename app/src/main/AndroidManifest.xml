@@ -24,7 +24,7 @@
             android:name=".activity.search.SearchActivity"
             android:exported="false" />
         <activity
-            android:name=".activity.splash.SplashActivity"
+            android:name=".activity.splash.compose.SplashActivity"
             android:exported="true"
             android:theme="@style/Theme.App.Splash">
             <intent-filter>
@@ -36,10 +36,11 @@
         <activity
             android:name=".activity.main.MainActivity"
             android:exported="false" />
+
         <activity
-            android:name=".activity.login.LoginActivity"
+            android:name=".activity.login.compose.LoginActivity"
             android:exported="false"
-            android:windowSoftInputMode="adjustResize" />
+            android:windowSoftInputMode="stateHidden|adjustResize" />
 
 <!--        <provider-->
 <!--            android:name="androidx.startup.InitializationProvider"-->

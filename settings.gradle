@@ -31,6 +31,7 @@ include ':core:network:firebase:firestore'
 
 include ':features:screen:'
 include ':features:screen:main_navigation_contents'
+include ':features:screen:login'
 
 include ':repository:liquor'
 include ':repository:screen'

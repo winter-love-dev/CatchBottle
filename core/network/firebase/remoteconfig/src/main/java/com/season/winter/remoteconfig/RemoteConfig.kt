@@ -8,55 +8,57 @@ import com.google.firebase.remoteconfig.FirebaseRemoteConfigException
 import com.google.firebase.remoteconfig.ktx.remoteConfig
 import com.google.firebase.remoteconfig.ktx.remoteConfigSettings
 import com.season.winter.common.constants.TimeVariable
-import com.season.winter.remoteconfig.di.RemoteConfigImpl.Companion.KeyAll
+import com.season.winter.remoteconfig.di.RemoteConfigKey.KeyAll
 import kotlinx.coroutines.tasks.await
 import javax.inject.Inject
 import kotlin.reflect.typeOf
 
 class RemoteConfig @Inject constructor() {
 
-    private val instance = Firebase.remoteConfig
+    var announceFetched: ((keys: List<String>) -> Unit)? = null
 
     private val configSettings = remoteConfigSettings {
         minimumFetchIntervalInSeconds = TimeVariable.Zero.value
     }
 
-    var announceFetched: ((keys: List<String>) -> Unit)? = null
+    // setOnLiveConfigUpdateListener
+    private val instance = Firebase.remoteConfig.also {
+        it.setConfigSettingsAsync(configSettings)
+        it.setDefaultsAsync(R.xml.remote_config_defaults)
+        it.addOnConfigUpdateListener(object: ConfigUpdateListener {
+            override fun onUpdate(configUpdate: ConfigUpdate) {
+                it.activate().addOnCompleteListener { newConfig ->
 
-    init {
-        instance.let { config ->
-            config.setConfigSettingsAsync(configSettings)
-            config.setDefaultsAsync(R.xml.remote_config_defaults)
+                    if (newConfig.isSuccessful.not())
+                        return@addOnCompleteListener
 
-            // setOnLiveConfigUpdateListener
-            config.addOnConfigUpdateListener(object: ConfigUpdateListener {
-                override fun onUpdate(configUpdate: ConfigUpdate) {
-                    config.activate().addOnCompleteListener { newConfig ->
+                    val updateKeys = mutableListOf<String>()
 
-                        if (newConfig.isSuccessful.not())
-                            return@addOnCompleteListener
-
-                        val updateKeys = mutableListOf<String>()
-
-                        KeyAll.forEach { key ->
-                            if (configUpdate.updatedKeys.contains(key))
-                                updateKeys.add(key)
-                        }
-
-                        announceFetched?.invoke(updateKeys)
+                    KeyAll.forEach { key ->
+                        if (configUpdate.updatedKeys.contains(key))
+                            updateKeys.add(key)
                     }
+
+                    announceFetched?.invoke(updateKeys)
                 }
-                override fun onError(error : FirebaseRemoteConfigException) {
-                    Log.e(TAG, "update error with code: " + error.code, error)
-                }
-            })
-        }
+            }
+
+            override fun onError(error : FirebaseRemoteConfigException) {
+                Log.e(TAG, "update error with code: " + error.code, error)
+            }
+        })
     }
 
     suspend fun fetch(): Boolean {
-        instance.fetchAndActivate().await().let { isSuccessFetch ->
-            return isSuccessFetch
-        }
+        val isSuccessFetch = instance.fetchAndActivate()
+            .addOnFailureListener { result ->
+                // FirebaseRemoteConfigClientException: The client had an error while calling the backend!
+                // UnknownHostException: Unable to resolve host "firebaseremoteconfig.googleapis.com": No address associated with hostname
+                Log.e(TAG, "fetch: addOnFailureListener: $result")
+            }
+            .await()
+
+        return isSuccessFetch
     }
 
 

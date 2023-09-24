@@ -1,5 +1,5 @@
 package com.season.winter.common.di.sharedPreferences.appConfig
 
-interface AppConfigService {
+interface AppConfigRepository {
     fun checkFirstLaunch(switchStatusNow: Boolean): Boolean
 }

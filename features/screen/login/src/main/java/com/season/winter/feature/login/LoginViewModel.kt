@@ -1,4 +1,4 @@
-package com.season.winter.catchbottle.activity.login
+package com.season.winter.feature.login
 
 import androidx.lifecycle.ViewModel
 import com.season.winter.user.di.Credentials

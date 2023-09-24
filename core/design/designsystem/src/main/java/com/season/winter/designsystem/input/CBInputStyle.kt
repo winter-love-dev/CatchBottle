@@ -1,14 +1,14 @@
 package com.season.winter.designsystem.input
 
 import com.season.winter.designsystem.R
-import com.season.winter.designsystem.spacing.Spacing
+import com.season.winter.designsystem.spacing.CBSpacing
 
-enum class CBInput(
+enum class CBInputStyle(
     val styleRes: Int,
-    val paddingLeftRes: Int = Spacing.M.value,
-    val paddingTopRes: Int = Spacing.M.value,
-    val paddingRightRes: Int = Spacing.M.value,
-    val paddingBottomRes: Int = Spacing.M.value,
+    val paddingLeftRes: Int = CBSpacing.M.value,
+    val paddingTopRes: Int = CBSpacing.M.value,
+    val paddingRightRes: Int = CBSpacing.M.value,
+    val paddingBottomRes: Int = CBSpacing.M.value,
 ) {
 
     First(
@@ -19,13 +19,13 @@ enum class CBInput(
     GhostFocused(R.drawable.cb_input_ghost_focused),
     Search(
         R.drawable.cb_input_search,
-        paddingTopRes = Spacing.S.value,
-        paddingBottomRes = Spacing.S.value,
+        paddingTopRes = CBSpacing.S.value,
+        paddingBottomRes = CBSpacing.S.value,
     ),
     SearchFocused(
         R.drawable.cb_input_search_focused,
-        paddingTopRes = Spacing.S.value,
-        paddingBottomRes = Spacing.S.value,
+        paddingTopRes = CBSpacing.S.value,
+        paddingBottomRes = CBSpacing.S.value,
     ),
     ;
 
@@ -34,7 +34,7 @@ enum class CBInput(
         private const val ghost = 1
         private const val search = 2
 
-        fun getCBInputInfo(type: Int): CBInput {
+        fun getCBInputInfo(type: Int): CBInputStyle {
             return when(type) {
                 first -> First
                 ghost -> Ghost

@@ -36,6 +36,7 @@ class BannerSectionViewHolder(
         isAlreadyBind = true
 
         val list: List<BannerData> = bannerItems ?: return
+        if (list.isEmpty()) return
 
         binding.adapter = HomeBannerViewPagerAdapter(list).apply {
 

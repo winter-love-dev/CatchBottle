@@ -8,6 +8,7 @@ import androidx.activity.viewModels
 import com.season.winter.catchbottle.activity.main.MainActivity
 import com.season.winter.common.extention.activity.cbStartActivity
 import com.season.winter.common.extention.coroutine.repeatOnLifecycle
+import com.season.winter.feature.login.LoginViewModel
 
 @AndroidEntryPoint
 class LoginActivity: BaseActivity<ActivityLoginBinding>(R.layout.activity_login) {

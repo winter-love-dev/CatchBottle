@@ -1,9 +1,10 @@
-package com.season.winter.remoteconfig.remote
+package com.season.winter.remoteconfig.domain
 
 import android.util.Log
 import com.season.winter.common.extention.primitive.decodeFromJsonStringSafety
-import com.season.winter.remoteconfig.di.RemoteConfigFetcherService
-import com.season.winter.remoteconfig.di.RemoteConfigImpl
+import com.season.winter.remoteconfig.di.RemoteConfigKey
+import com.season.winter.remoteconfig.di.RemoteConfigService
+import com.season.winter.remoteconfig.di.RemoteConfigServiceImpl
 import com.season.winter.remoteconfig.local.dao.RemoteConfigDao
 import com.season.winter.storage.ImageFireStorage
 import com.season.winter.ui.model.fragment.home.BannerData
@@ -15,37 +16,47 @@ import javax.inject.Inject
 /**
  * 네트워크로 받은 설정 값을 저장하는 Repository
  */
-class RemoteConfigFetcherRepository @Inject constructor(
-    private val remoteConfig: RemoteConfigImpl,
+class RemoteConfigFetcherUseCase @Inject constructor(
+    private val remoteConfig: RemoteConfigService,
     private val fetcherDao: RemoteConfigDao,
     private val imageFireStorage: ImageFireStorage,
-): RemoteConfigFetcherService {
+) {
 
+    // lifecycleScope, viewModelScope 을 따르면 saveValueFromKey() 를 실행할 수 없기 때문에,
+    // 해당 UseCase를 싱글톤으로 두어 별도의 coroutine을 선언함.
+    // 실시간 패치가 되어야 하는 remote config의 특성상
+    // 코루틴의 종료 시점은 앱이 종료될 때 함께 되는 것으로 의도하여 별도의 종료 코드를 추가하지 않음.
     private val coroutineScope = CoroutineScope(Dispatchers.IO)
 
     init {
-        coroutineScope.launch {
-            remoteConfig.fetch()
+        remoteConfig.announceFetched = { keys ->
+            saveValueFromKey(keys)
         }
-        coroutineScope.launch {
-            remoteConfig.onFetchSuccessFlow.collect { keys ->
-                keys.run {
-                    when {
-                        contains(RemoteConfigImpl.KeyBanner) -> saveBannerData(RemoteConfigImpl.KeyBanner)
-                        contains(RemoteConfigImpl.KeySomeOther) -> {
+    }
 
-                        }
-                    }
+    operator fun invoke() {
+        coroutineScope.launch {
+            fetch()
+        }
+    }
+
+    suspend fun fetch() {
+        remoteConfig.fetch()
+    }
+
+    private fun saveValueFromKey(keys: List<String>) {
+        coroutineScope.launch {
+            when {
+                keys.contains(RemoteConfigKey.KeyBanner) ->
+                    saveBannerData(RemoteConfigKey.KeyBanner)
+                keys.contains(RemoteConfigKey.KeySomeOther) -> {
+
                 }
             }
         }
     }
 
-    override suspend fun fetch() {
-        remoteConfig.fetch()
-    }
-
-    override suspend fun saveBannerData(key: String) {
+    private suspend fun saveBannerData(key: String) {
         val bannerJsonString = remoteConfig.getString(key)
 
         val bannerDataList = bannerJsonString

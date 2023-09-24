@@ -5,12 +5,8 @@ import android.util.Log
 import androidx.hilt.work.HiltWorker
 import androidx.work.CoroutineWorker
 import androidx.work.WorkerParameters
-import com.season.winter.common.extention.primitive.decodeFromJsonStringSafety
-import com.season.winter.remoteconfig.di.RemoteConfigImpl
-import com.season.winter.remoteconfig.di.RemoteConfigImpl.Companion.KeyAll
-import com.season.winter.remoteconfig.di.RemoteConfigImpl.Companion.KeyBanner
-import com.season.winter.storage.ImageFireStorage
-import com.season.winter.ui.model.fragment.home.BannerData
+import com.season.winter.remoteconfig.di.RemoteConfigKey.KeyBanner
+import com.season.winter.remoteconfig.di.RemoteConfigServiceImpl
 import dagger.assisted.Assisted
 import dagger.assisted.AssistedInject
 import kotlinx.coroutines.Dispatchers
@@ -20,7 +16,7 @@ import kotlinx.coroutines.withContext
 class RemoteConfigFetcherWorker @AssistedInject constructor(
     @Assisted context: Context,
     @Assisted workerParams: WorkerParameters,
-    private val remoteConfig: RemoteConfigImpl
+    private val remoteConfig: RemoteConfigServiceImpl
 ): CoroutineWorker(context, workerParams)  {
 
     override suspend fun doWork(): Result {

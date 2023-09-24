@@ -33,17 +33,18 @@ class GetHomeScreenDataUseCase @Inject constructor(
             LiquorFilterOption.initFilter(liquorListAll)
         }
 
-        if (mainList.isEmpty()) {
+        if (mainList.isEmpty())
             mainList = getMainListDataSet()
-        }
 
         val setBanner: Boolean = mainList.find {
             it.type == HomeItemType.Banner
         }?.bannerItems?.isNotEmpty() == true
 
         if (setBanner.not()) {
-            mainList.find { it.type == HomeItemType.Banner }
-                ?.bannerItems = remoteConfigDao.getBannerAll()
+            val bannerList = remoteConfigDao.getBannerAll()
+            mainList.find {
+                it.type == HomeItemType.Banner
+            }?.bannerItems = bannerList
         }
 
         return mainList

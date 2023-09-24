@@ -10,6 +10,7 @@ import androidx.compose.material.icons.filled.Clear
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.OutlinedTextField
+import androidx.compose.material3.OutlinedTextFieldDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.derivedStateOf
 import androidx.compose.runtime.getValue
@@ -26,12 +27,13 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.season.winter.compose.text.CBText
 import com.season.winter.compose.theme.ComposeCatchBottleTheme
+import com.season.winter.designsystem.color.CBColor
 import com.season.winter.designsystem.typography.CBTypography
 
 @Composable
 fun CBTextField(
     modifier: Modifier = Modifier,
-    cbTextStyle: CBTypography = CBTypography.BodyM,
+    cbTextStyle: CBTypography = CBTypography.CaptionM,
     readOnly: Boolean = false,
     keyboardOptions: KeyboardOptions = KeyboardOptions.Default,
     keyboardActions: KeyboardActions = KeyboardActions.Default,
@@ -56,6 +58,9 @@ fun CBTextField(
         fontWeight = cbTextStyle.weightCompose,
         fontSize = cbTextStyle.sizeCompose ?: 16.sp,
     )
+    val textFieldStyle = OutlinedTextFieldDefaults.colors(
+        focusedBorderColor = CBColor.BrandFirst.color
+    )
 
     OutlinedTextField(
         modifier = modifier
@@ -70,14 +75,14 @@ fun CBTextField(
         placeholder = @Composable {
             CBText(
                 text = placeholderValue,
-                type = cbTextStyle,
-                style = TextStyle(
+                style = cbTextStyle,
+                extraStyle = TextStyle(
                     color = Color.LightGray,
                 )
             )
         },
-//        placeholder = placeholder,
         onValueChange = {
+            valueChange = it
             onValueChange?.invoke(it)
         },
         leadingIcon = leadingIcon,
@@ -94,6 +99,7 @@ fun CBTextField(
                 }
             }
         },
+        colors = textFieldStyle,
     )
 }
 @Preview(

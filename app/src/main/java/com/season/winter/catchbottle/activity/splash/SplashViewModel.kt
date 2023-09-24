@@ -1,14 +1,15 @@
 package com.season.winter.catchbottle.activity.splash
 
+import androidx.activity.ComponentActivity
 import androidx.databinding.ViewDataBinding
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.season.winter.catchbottle.activity.login.LoginActivity
+import com.season.winter.catchbottle.activity.login.compose.LoginActivity
 import com.season.winter.catchbottle.activity.main.MainActivity
 import com.season.winter.common.activity.BaseActivity
-import com.season.winter.common.di.sharedPreferences.appConfig.AppConfigRepositoryImpl
-import com.season.winter.common.repository.ImageDatabaseRepositoryFetcherImpl
-import com.season.winter.remoteconfig.remote.RemoteConfigFetcherRepository
+import com.season.winter.common.di.sharedPreferences.appConfig.AppConfigRepository
+import com.season.winter.common.local.database.image.ImageDatabaseRoomDao
+import com.season.winter.remoteconfig.domain.RemoteConfigFetcherUseCase
 import com.season.winter.user.di.Credentials
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.channels.BufferOverflow
@@ -22,28 +23,36 @@ import javax.inject.Inject
 @HiltViewModel
 class SplashViewModel @Inject constructor(
     private val credentials: Credentials,
-    private val appConfigRepository: AppConfigRepositoryImpl,
+    private val appConfigRepository: AppConfigRepository,
 
-    // for initialize
-    private val remoteConfigFetcherRepository: RemoteConfigFetcherRepository,
+    // call for initialize
+    private val remoteConfigFetcherUseCase: RemoteConfigFetcherUseCase,
 
-    private val imageFetcherRepository: ImageDatabaseRepositoryFetcherImpl,
+    private val fetcherDao: ImageDatabaseRoomDao,
 ): ViewModel() {
 
-    private val _onLaunchActivityFlow = MutableSharedFlow<Class<out BaseActivity<out ViewDataBinding>>>(
+    // forViews
+    private val _onLaunchViewsActivityFlow = MutableSharedFlow<Class<out BaseActivity<out ViewDataBinding>>>(
         extraBufferCapacity = 1,
         onBufferOverflow = BufferOverflow.DROP_OLDEST,
     )
-    val onLaunchActivityFlow: SharedFlow<Class<out BaseActivity<out ViewDataBinding>>>
+    val onLaunchViewsActivityFlow: SharedFlow<Class<out BaseActivity<out ViewDataBinding>>>
+        get() = _onLaunchViewsActivityFlow.asSharedFlow()
+
+    private val _onLaunchActivityFlow = MutableSharedFlow<Class<out ComponentActivity>>(
+        extraBufferCapacity = 1,
+        onBufferOverflow = BufferOverflow.DROP_OLDEST,
+    )
+    val onLaunchActivityFlow: SharedFlow<Class<out ComponentActivity>>
         get() = _onLaunchActivityFlow.asSharedFlow()
 
     init {
-        fetchAppData()
-    }
-
-    fun fetchAppData() {
         viewModelScope.launch {
-            imageFetcherRepository.wakeDB()
+            // launch for booting DB
+            fetcherDao.checkForSearchImageData("")
+        }
+        viewModelScope.launch {
+            remoteConfigFetcherUseCase.invoke()
         }
     }
 
@@ -58,6 +67,7 @@ class SplashViewModel @Inject constructor(
         }
         viewModelScope.launch {
             delay(500)
+//            _onLaunchViewsActivityFlow.emit(activity as Class<out BaseActivity<out ViewDataBinding>>)
             _onLaunchActivityFlow.emit(activity)
         }
     }

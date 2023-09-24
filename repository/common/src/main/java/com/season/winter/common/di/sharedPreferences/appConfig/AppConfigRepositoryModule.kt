@@ -13,7 +13,7 @@ object AppConfigRepositoryModule {
 
     @Provides
     @Singleton
-    fun provideDummyRepository(dao: AppConfigDao): AppConfigRepositoryImpl {
+    fun provideDummyRepository(dao: AppConfigDao): AppConfigRepository {
         return AppConfigRepositoryImpl(dao)
     }
 }

@@ -52,7 +52,7 @@ fun CBButton(
                 // add leading component ...
                 CBText(
                     softWrap = false, // 줄바꿈 되지 않게
-                    type = CBTypography.CaptionM,
+                    style = CBTypography.CaptionM,
                     text = text
                 )
                 // add trailing component ...
