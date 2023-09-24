@@ -4,12 +4,12 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.ExperimentalComposeUiApi
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.rotate
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.lifecycle.viewmodel.compose.viewModel
-import com.season.winter.compose.box.CBBox
 import com.season.winter.compose.button.CBButton
 import com.season.winter.compose.image.CBImage
 import com.season.winter.compose.input.CBTextField
@@ -43,7 +43,7 @@ internal fun LoginActivityScreen(
     Column(
         modifier = Modifier
             .fillMaxSize()
-            .padding(bottom = CBSpacing.S.dp)
+            .padding(CBSpacing.M.dp)
     ) {
         CBSpacerHeight(CBSpacing.Xxxl)
         CBImage(
@@ -53,33 +53,30 @@ internal fun LoginActivityScreen(
                 .rotate(45f)
         )
         CBSpacerHeight(CBSpacing.L)
-        CBBox(horizontal = true) {
-            CBText(
-                style = CBTypography.HeadM,
-                text = "Good to see you"
-            )
-        }
-        CBBox(start = true) {
-            CBText(
-                style = CBTypography.BodyM,
-                text = "Discovering exquisite bottle with"
-            )
-        }
+        CBText(
+            style = CBTypography.HeadM,
+            text = "Good to see you"
+        )
+        CBText(
+            style = CBTypography.BodyM,
+            text = "Discovering exquisite bottle with"
+        )
+        CBImage(
+            modifier = Modifier.align(Alignment.End),
+            painter = CBGraphic.LogoText.painter,
+            width = CBSize.X4l.dp,
+            height = CBSize.X2l.dp
+        )
         CBSpacerHeight(CBSpacing.L)
-        CBBox(horizontal = true) {
-            CBTextField {
-                userName = it
-            }
+        CBTextField(
+            placeholderValue = "input your name"
+        ) {
+            userName = it
         }
         CBColumnWeight()
-        CBBox(
-            vertical = true,
-            horizontal = true,
-        ) {
-            CBButton("Login",) {
-                if (userName.isNotEmpty())
-                    onClickLogin(userName)
-            }
+        CBButton("Login",) {
+            if (userName.isNotEmpty())
+                onClickLogin(userName)
         }
     }
 }
