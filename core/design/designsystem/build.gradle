@@ -31,6 +31,13 @@ android {
     dataBinding {
         enabled = true
     }
+
+    buildFeatures {
+        compose = true
+    }
+    composeOptions {
+        kotlinCompilerExtensionVersion = libs.versions.kotlinCompilerExtensionVersion.get()
+    }
 }
 
 dependencies {
@@ -43,4 +50,7 @@ dependencies {
 
     annotationProcessor libs.bundles.glide.compiler.annotationProcessor
     implementation libs.bundles.glide
+
+    implementation libs.bundles.compose.all
+
 }

@@ -16,7 +16,7 @@ import androidx.core.graphics.drawable.DrawableCompat
 import com.season.winter.common.extention.context.getDimension
 import com.season.winter.common.extention.view.getAttr
 import com.season.winter.common.extention.view.onTextChangedListener
-import com.season.winter.designsystem.input.CBInput
+import com.season.winter.designsystem.input.CBInputStyle
 import com.season.winter.designsystem.typography.base.FontFamily
 import com.season.winter.ui.textView.CBTextView
 import com.season.winter.core_design_resource.R as ResourceModuleR
@@ -38,8 +38,8 @@ class CBEditText @JvmOverloads constructor(
     private var onTouchListener: OnTouchListener? = null
 
     private var useDeleteButton = true
-    private var viewType = CBInput.first
-    private var cbInput = CBInput.First
+    private var viewType = CBInputStyle.first
+    private var cbInput = CBInputStyle.First
 
     private var onCBTextChangedListener: ((text: String) -> Unit)? = null
 
@@ -82,13 +82,13 @@ class CBEditText @JvmOverloads constructor(
 
     private fun setViewType() {
         setBackgroundResource(
-            CBInput.getType(viewType, false)
+            CBInputStyle.getType(viewType, false)
         )
     }
 
     private fun setViewFocusedType() {
         setBackgroundResource(
-            CBInput.getType(viewType, true)
+            CBInputStyle.getType(viewType, true)
         )
     }
 
@@ -118,7 +118,7 @@ class CBEditText @JvmOverloads constructor(
     }
 
     private fun setDefaultStyle() {
-        cbInput = CBInput.getCBInputInfo(viewType).apply {
+        cbInput = CBInputStyle.getCBInputInfo(viewType).apply {
             setPadding(
                 getPadding(paddingLeftRes),
                 getPadding(paddingTopRes),

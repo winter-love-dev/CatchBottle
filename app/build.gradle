@@ -37,6 +37,12 @@ android {
     dataBinding {
         enabled = true
     }
+    buildFeatures {
+        compose = true
+    }
+    composeOptions {
+        kotlinCompilerExtensionVersion = libs.versions.kotlinCompilerExtensionVersion.get()
+    }
 }
 
 
@@ -47,6 +53,7 @@ dependencies {
 
     implementation project(":core:design:core_design_resource")
     implementation project(":core:design:designsystem")
+    implementation project(":core:design:compose")
     implementation project(":core:design:ui")
 
     implementation project(":core:data:model:common")
@@ -58,6 +65,8 @@ dependencies {
     implementation project(":core:network:firebase:remoteconfig")
 
     implementation project(":features:screen:main_navigation_contents")
+    implementation project(":features:screen:login")
+    implementation project(":features:screen:main")
 
     implementation project(":repository:common")
     implementation project(":repository:liquor")
@@ -89,6 +98,8 @@ dependencies {
     implementation libs.bundles.glide
 
     implementation libs.bundles.workmanager.all
+
+    implementation libs.bundles.compose.all
 
 //    implementation 'androidx.hilt:hilt-work:1.1.0-alpha01'
 }

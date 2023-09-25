@@ -1,0 +1,70 @@
+plugins {
+    alias libs.plugins.android.library
+    alias libs.plugins.kotlin.android
+    alias libs.plugins.dagger.hilt
+    alias libs.plugins.kotlin.kapt
+    alias libs.plugins.devtools.ksp
+}
+
+android {
+    namespace 'com.season.winter.feature.main'
+    compileSdk libs.versions.compileSdk.get().toInteger()
+
+    defaultConfig {
+        minSdk libs.versions.minSdk.get().toInteger()
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles "consumer-rules.pro"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
+    }
+    kotlinOptions {
+        jvmTarget = JavaVersion.VERSION_17.toString()
+    }
+
+    buildFeatures {
+        compose = true
+    }
+    composeOptions {
+        kotlinCompilerExtensionVersion = libs.versions.kotlinCompilerExtensionVersion.get()
+    }
+}
+
+dependencies {
+
+    implementation project(":core:common")
+    implementation project(":core:config")
+
+    implementation project(":core:design:core_design_resource")
+    implementation project(":core:design:designsystem")
+    implementation project(":core:design:compose")
+
+    implementation project(":core:data:model:liquor")
+
+    implementation project(":core:network:firebase:storage")
+
+    implementation project(":repository:common")
+    implementation project(":repository:liquor")
+    implementation project(":repository:screen")
+    implementation project(":repository:user")
+    implementation project(":repository:remoteconfig")
+
+    implementation libs.bundles.default
+    implementation libs.bundles.default.screen
+    testImplementation libs.bundles.default.test.implementation
+    androidTestImplementation libs.bundles.default.test.androidTestImplementation
+
+    implementation libs.bundles.compose.all
+
+    implementation libs.bundles.hilt
+    kapt libs.bundles.hilt.compiler.kapt
+}

@@ -15,8 +15,8 @@ object RemoteConfigModule {
     @Singleton
     fun provideRemoteConfigImpl(
         remoteConfig: RemoteConfig
-    ): RemoteConfigImpl {
-        return RemoteConfigImpl(remoteConfig)
+    ): RemoteConfigService {
+        return RemoteConfigServiceImpl(remoteConfig)
     }
 
 

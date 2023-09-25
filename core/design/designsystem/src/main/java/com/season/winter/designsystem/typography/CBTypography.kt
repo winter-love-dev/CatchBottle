@@ -8,56 +8,80 @@ import com.season.winter.designsystem.R
 import com.season.winter.designsystem.typography.base.FontFamily
 import com.season.winter.designsystem.typography.base.FontSize
 import com.season.winter.designsystem.typography.base.Weight
+import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.unit.TextUnit
+import androidx.compose.ui.unit.sp
 
 enum class CBTypography(
     val fontFamily: Int,
     val weight: Int,
     val size: Int,
+    val weightCompose: FontWeight? = null,
+    val sizeCompose: TextUnit? = null,
 ) {
     HeadXs(
         FontFamily.BoldResource,
         Weight.W600.value,
-        FontSize.Xs.headSize
+        FontSize.Xs.headSize,
+        FontWeight.W600,
+        16.sp
     ),
     HeadS(
         FontFamily.BoldResource,
         Weight.W700.value,
-        FontSize.S.headSize
+        FontSize.S.headSize,
+        FontWeight.W700,
+        20.sp
     ),
     HeadM(
         FontFamily.BoldResource,
         Weight.W700.value,
-        FontSize.M.headSize
+        FontSize.M.headSize,
+        FontWeight.W700,
+        24.sp
     ),
     HeadL(
         FontFamily.BoldResource,
         Weight.W700.value,
-        FontSize.L.headSize
+        FontSize.L.headSize,
+        FontWeight.W700,
+        28.sp
     ),
     BodyS(
         FontFamily.MediumResource,
         Weight.W500.value,
-        FontSize.S.bodySize
+        FontSize.S.bodySize,
+        FontWeight.W500,
+        14.sp
     ),
     BodyM(
         FontFamily.MediumResource,
         Weight.W500.value,
-        FontSize.M.bodySize
+        FontSize.M.bodySize,
+        FontWeight.W500,
+        16.sp
     ),
     BodyL(
         FontFamily.MediumResource,
         Weight.W500.value,
-        FontSize.L.bodySize
+        FontSize.L.bodySize,
+        FontWeight.W500,
+        24.sp
     ),
     CaptionS(
         FontFamily.RegularResource,
         Weight.W500.value,
-        FontSize.S.captionSize
+        FontSize.S.captionSize,
+        FontWeight.W500,
+        12.sp
     ),
     CaptionM(
         FontFamily.RegularResource,
         Weight.W500.value,
-        FontSize.M.captionSize
+        FontSize.M.captionSize,
+        FontWeight.W500,
+        14.sp
+
     ),
     ButtonFirst(
         FontFamily.RegularResource,

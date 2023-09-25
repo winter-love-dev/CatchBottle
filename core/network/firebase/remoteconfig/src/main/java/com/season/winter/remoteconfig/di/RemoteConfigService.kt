@@ -1,14 +1,13 @@
 package com.season.winter.remoteconfig.di
 
-import kotlinx.coroutines.flow.SharedFlow
 
 interface RemoteConfigService {
 
-    val onFetchSuccessFlow: SharedFlow<List<String>>
-
     suspend fun fetch(): Boolean
 
-    fun announceFetched(keys: List<String>)
+    var announceFetched: ((keys: List<String>) -> Unit)?
+
+    fun onFetchSuccess(keys: List<String>)
 
     fun getString(key: String): String?
 

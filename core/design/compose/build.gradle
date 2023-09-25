@@ -1,0 +1,51 @@
+plugins {
+    alias(libs.plugins.android.library)
+    alias(libs.plugins.kotlin.android)
+}
+
+android {
+    namespace 'com.season.winter.compose'
+    compileSdk libs.versions.compileSdk.get().toInteger()
+
+    defaultConfig {
+        minSdk libs.versions.minSdk.get().toInteger()
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles "consumer-rules.pro"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
+    }
+    kotlinOptions {
+        jvmTarget = JavaVersion.VERSION_17.toString()
+    }
+    buildFeatures {
+        compose = true
+    }
+    composeOptions {
+        kotlinCompilerExtensionVersion = libs.versions.kotlinCompilerExtensionVersion.get()
+    }
+}
+
+dependencies {
+
+    implementation project(":core:design:core_design_resource")
+    implementation project(":core:design:designsystem")
+
+    implementation libs.androidx.ktx
+    implementation libs.androidx.appcompat
+    implementation libs.android.material
+    testImplementation libs.junit
+    androidTestImplementation libs.androidx.test.ext
+    androidTestImplementation libs.androidx.test.espresso.core
+
+    implementation libs.bundles.compose.all
+}

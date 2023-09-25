@@ -27,6 +27,13 @@ android {
     kotlinOptions {
         jvmTarget = JavaVersion.VERSION_17.toString()
     }
+
+    buildFeatures {
+        compose = true
+    }
+    composeOptions {
+        kotlinCompilerExtensionVersion = libs.versions.kotlinCompilerExtensionVersion.get()
+    }
 }
 
 dependencies {
@@ -34,4 +41,6 @@ dependencies {
     implementation libs.bundles.default
     testImplementation libs.bundles.default.test.implementation
     androidTestImplementation libs.bundles.default.test.androidTestImplementation
+
+    implementation libs.bundles.compose.all
 }

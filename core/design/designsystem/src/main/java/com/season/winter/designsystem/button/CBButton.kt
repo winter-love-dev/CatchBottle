@@ -1,6 +1,46 @@
 package com.season.winter.designsystem.button
 
+import androidx.compose.ui.graphics.Color
 import com.season.winter.designsystem.color.CBColor
+
+enum class CBButtonStyleCompose(
+    val enableBackgroundColor: Color,
+    val disableBackgroundColor: Color,
+    val enableTextColor: Color,
+    val disableTextColor: Color,
+) {
+    First( // 브랜드 컬러
+        enableBackgroundColor = CBColor.BrandFirst.color,
+        disableBackgroundColor = CBColor.ButtonDisable.color,
+        enableTextColor = CBColor.ButtonDisable.color,
+        disableTextColor = CBColor.ButtonTextDisable.color,
+    ),
+    Second( // 짙은 그레이 컬러
+        enableBackgroundColor = CBColor.ButtonSecondEnable.color,
+        disableBackgroundColor = CBColor.ButtonDisable.color,
+        enableTextColor = CBColor.ButtonDisable.color,
+        disableTextColor = CBColor.ButtonTextDisable.color,
+    ),
+    Third(// 옅은 그레이 컬러
+        enableBackgroundColor = CBColor.ButtonThirdEnable.color,
+        disableBackgroundColor = CBColor.ButtonDisable.color,
+        enableTextColor = CBColor.ButtonDisable.color,
+        disableTextColor = CBColor.ButtonTextDisable.color,
+    ),
+    Ghost( // 배경이 안 보이는 버튼
+        enableBackgroundColor = CBColor.Transparent.color,
+        disableBackgroundColor = CBColor.ButtonDisable.color,
+        enableTextColor = CBColor.ButtonTextEnable.color,
+        disableTextColor = CBColor.ButtonTextDisable.color,
+    ),
+    Negative( // 거부 버튼
+        enableBackgroundColor = CBColor.ButtonNegativeEnable.color,
+        disableBackgroundColor = CBColor.ButtonDisable.color,
+        enableTextColor = CBColor.ButtonTextNegative.color,
+        disableTextColor = CBColor.ButtonTextDisable.color,
+    ),
+    ;
+}
 
 enum class CBButton {
     First, // 브랜드 컬러

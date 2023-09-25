@@ -31,6 +31,7 @@ include ':core:network:firebase:firestore'
 
 include ':features:screen:'
 include ':features:screen:main_navigation_contents'
+include ':features:screen:login'
 
 include ':repository:liquor'
 include ':repository:screen'
@@ -40,3 +41,5 @@ include ':repository:remoteconfig'
 
 
 include ':core:data:model:common'
+include ':core:design:compose'
+include ':features:screen:main'
