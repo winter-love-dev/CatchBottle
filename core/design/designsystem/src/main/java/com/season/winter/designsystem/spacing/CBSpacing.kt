@@ -8,6 +8,7 @@ enum class CBSpacing(
     val value: Int,
     val dp: Dp,
 ) {
+    Zero(R.dimen.spacing_zero, 0.dp),
     Xxs(R.dimen.spacing_xxs, 4.dp),
     Xs(R.dimen.spacing_xs, 8.dp),
     S(R.dimen.spacing_s, 12.dp),

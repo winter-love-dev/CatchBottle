@@ -16,6 +16,16 @@ enum class CBGraphic(
     LogoText,
     LogoTextWhite,
     ;
+    
+    val res: Int get() = when(this) {
+        LogoFull -> R.drawable.logo_full
+        LogoFullWhite -> R.drawable.logo_full_white
+        LogoIcon -> R.drawable.logo_icon
+        LogoIconSmall -> R.drawable.logo_icon_small
+        LogoIconWhite -> R.drawable.logo_icon_white
+        LogoText -> R.drawable.logo_text
+        LogoTextWhite -> R.drawable.logo_text_white
+    }
 
     val painter: Painter @Composable get() = when(this) {
         LogoFull -> painterResource(R.drawable.logo_full)

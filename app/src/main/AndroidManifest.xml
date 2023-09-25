@@ -33,8 +33,14 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+<!--
         <activity
             android:name=".activity.main.MainActivity"
+            android:exported="false" />
+-->
+
+        <activity
+            android:name=".activity.main.compose.MainActivity"
             android:exported="false" />
 
         <activity

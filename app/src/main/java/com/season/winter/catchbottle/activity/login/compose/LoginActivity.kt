@@ -9,9 +9,8 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.unit.dp
 import com.season.winter.feature.login.LoginViewModel
-import com.season.winter.catchbottle.activity.main.MainActivity
+import com.season.winter.catchbottle.activity.main.compose.MainActivity
 import com.season.winter.common.extention.activity.cbStartActivity
 import com.season.winter.common.extention.coroutine.repeatOnLifecycle
 import com.season.winter.feature.login.LoginActivityScreen

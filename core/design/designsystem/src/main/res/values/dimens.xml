@@ -52,6 +52,7 @@
     <dimen name="border_width_xl">2.5dp</dimen>
 
     <!-- spacing -->
+    <dimen name="spacing_zero">0dp</dimen>
     <dimen name="spacing_xxs">4dp</dimen>
     <dimen name="spacing_xs">8dp</dimen>
     <dimen name="spacing_s">12dp</dimen>

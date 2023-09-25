@@ -1,24 +1,20 @@
 plugins {
-    alias libs.plugins.android.application
+    alias libs.plugins.android.library
     alias libs.plugins.kotlin.android
+    alias libs.plugins.dagger.hilt
     alias libs.plugins.kotlin.kapt
     alias libs.plugins.devtools.ksp
-    alias libs.plugins.dagger.hilt
-    alias libs.plugins.kotlin.plugin.serialization
 }
 
 android {
-    namespace 'com.season.winter.catchbottle'
+    namespace 'com.season.winter.feature.main'
     compileSdk libs.versions.compileSdk.get().toInteger()
 
     defaultConfig {
-        applicationId "com.season.winter.catchbottle"
         minSdk libs.versions.minSdk.get().toInteger()
-        targetSdk libs.versions.targetSdk.get().toInteger()
-        versionCode libs.versions.versionCode.get().toInteger()
-        versionName libs.versions.versionName.get()
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles "consumer-rules.pro"
     }
 
     buildTypes {
@@ -34,9 +30,7 @@ android {
     kotlinOptions {
         jvmTarget = JavaVersion.VERSION_17.toString()
     }
-    dataBinding {
-        enabled = true
-    }
+
     buildFeatures {
         compose = true
     }
@@ -44,7 +38,6 @@ android {
         kotlinCompilerExtensionVersion = libs.versions.kotlinCompilerExtensionVersion.get()
     }
 }
-
 
 dependencies {
 
@@ -54,19 +47,10 @@ dependencies {
     implementation project(":core:design:core_design_resource")
     implementation project(":core:design:designsystem")
     implementation project(":core:design:compose")
-    implementation project(":core:design:ui")
 
-    implementation project(":core:data:model:common")
-    implementation project(":core:data:model:user")
     implementation project(":core:data:model:liquor")
 
-    implementation project(":core:network:firebase:firestore")
     implementation project(":core:network:firebase:storage")
-    implementation project(":core:network:firebase:remoteconfig")
-
-    implementation project(":features:screen:main_navigation_contents")
-    implementation project(":features:screen:login")
-    implementation project(":features:screen:main")
 
     implementation project(":repository:common")
     implementation project(":repository:liquor")
@@ -79,31 +63,8 @@ dependencies {
     testImplementation libs.bundles.default.test.implementation
     androidTestImplementation libs.bundles.default.test.androidTestImplementation
 
-    implementation libs.bundles.kotlinx.serialization
-
-    implementation libs.bundles.navigation
-
-    implementation platform(libs.com.google.firebase.bom)
-    implementation libs.bundles.firebase
+    implementation libs.bundles.compose.all
 
     implementation libs.bundles.hilt
     kapt libs.bundles.hilt.compiler.kapt
-
-    ksp libs.bundles.room.compiler.ksp
-    annotationProcessor libs.bundles.room.compiler.annotationProcessor
-    testImplementation libs.bundles.room.testing.testImplementation
-    implementation libs.bundles.room
-
-    annotationProcessor libs.bundles.glide.compiler.annotationProcessor
-    implementation libs.bundles.glide
-
-    implementation libs.bundles.workmanager.all
-
-    implementation libs.bundles.compose.all
-
-//    implementation 'androidx.hilt:hilt-work:1.1.0-alpha01'
-}
-
-kapt {
-    correctErrorTypes true
 }

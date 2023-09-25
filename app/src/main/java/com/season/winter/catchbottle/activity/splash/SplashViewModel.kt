@@ -4,7 +4,7 @@ import androidx.activity.ComponentActivity
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.season.winter.catchbottle.activity.login.compose.LoginActivity
-import com.season.winter.catchbottle.activity.main.MainActivity
+import com.season.winter.catchbottle.activity.main.compose.MainActivity
 import com.season.winter.common.di.sharedPreferences.appConfig.AppConfigRepository
 import com.season.winter.common.local.database.image.ImageDatabaseRoomDao
 import com.season.winter.remoteconfig.domain.RemoteConfigFetcherUseCase

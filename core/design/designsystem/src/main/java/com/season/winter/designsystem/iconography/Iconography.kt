@@ -25,6 +25,7 @@ enum class CBIconography {
     Menu,
     Minus,
     Plus,
+    Project,
     More,
     Refresh,
     Search,
@@ -54,6 +55,7 @@ enum class CBIconography {
         Menu           -> painterResource(R.drawable.menu)
         Minus          -> painterResource(R.drawable.minus)
         Plus           -> painterResource(R.drawable.plus)
+        Project        -> painterResource(R.drawable.project)
         More           -> painterResource(R.drawable.more)
         Refresh        -> painterResource(R.drawable.refresh)
         Search         -> painterResource(R.drawable.search)
@@ -81,6 +83,7 @@ enum class CBIconography {
         Menu           -> R.drawable.menu
         Minus          -> R.drawable.minus
         Plus           -> R.drawable.plus
+        Project        -> R.drawable.project
         More           -> R.drawable.more
         Refresh        -> R.drawable.refresh
         Search         -> R.drawable.search
