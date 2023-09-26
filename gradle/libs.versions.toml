@@ -12,7 +12,7 @@ androidx-appcompat = "1.6.1"
 androidx-activity-ktx = "1.7.2"
 androidx-fragment-ktx = "1.6.1"
 androidx-constraintlayout = "2.1.4"
-androidx-core-ktx = "1.10.1"
+androidx-core-ktx = "1.12.0"
 androidx-core-splashscreen = "1.0.1"
 androidx-test-ext = "1.1.5" # testImplementation
 androidx-test-espresso-core = "3.5.1" # testImplementation
@@ -22,8 +22,8 @@ androidx-work-runtime-ktx = "2.8.1" # Kotlin + coroutines
 
 androidx-room = "2.5.2"
 
-androidx-navigation-fragment-ktx = "2.7.2"
-androidx-navigation-ui-ktx = "2.7.2"
+androidx-navigation-fragment-ktx = "2.7.3"
+androidx-navigation-ui-ktx = "2.7.3"
 
 com-google-devtools-ksp = "1.8.10-1.0.9"
 com-google-gms-google-services = "4.3.15"
