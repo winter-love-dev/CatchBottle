@@ -1,6 +1,6 @@
 # CatchBottle
 
-<img width="1691" alt="스크린샷 2023-07-17 오전 8 18 10" src="https://github.com/winter-love-dev/CatchBottle/assets/26156815/6e0d3f8a-235d-415d-b3da-d05d93b9d5eb">
+<img width="1691" alt="thumb" src="https://github.com/winter-love-dev/CatchBottle/assets/26156815/6e0d3f8a-235d-415d-b3da-d05d93b9d5eb">
 
 </br>
 
