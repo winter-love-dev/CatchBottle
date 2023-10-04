@@ -13,7 +13,7 @@
 
 <div align="left">
 
-| Enter your nickname to enter the Catch Bottle world | You can explore banner events and alcohol information |
+| Enter your nickname to enter the 'Catch Bottle' world | You can explore banner events and alcohol information |
 | :---------------: | :---------------: |
 | <img src="https://github.com/winter-love-dev/CatchBottle/assets/26156815/4fb48691-98a2-45bc-b28e-3609b04e60ad" align="center" width="300px"/> | <img src="https://github.com/winter-love-dev/CatchBottle/assets/26156815/c17a8792-c258-4f51-a9cf-f121c7c23cec" align="center" width="300px"/> |
 
