@@ -57,9 +57,12 @@ All library info : [libs.versions.toml](gradle/libs.versions.toml)
 
 # Architecture
 
-## MVVM Design pattern with Dependency Injection, Reference by [App Arhitecture Guide](https://developer.android.com/jetpack/guide?hl=ko#mobile-app-ux)
+## MVVM Design pattern with Dependency Injection, Reference by [App Arhitecture Guide](https://developer.android.com/topic/architecture)
   
-![mvvm_example](https://github.com/winter-love-dev/CatchBottle/assets/26156815/f61d9746-f375-4cfa-80ea-20a3cb0ceafb)
+| View Reference | Compose Reference |
+| :---------------: | :---------------: |
+| <img src="https://github.com/winter-love-dev/CatchBottle/assets/26156815/f61d9746-f375-4cfa-80ea-20a3cb0ceafb" align="center" width="450px"/> | <img src="https://github.com/winter-love-dev/ComposeNoteApp/assets/26156815/b9c996b3-be27-438e-a952-289990574a5c" align="center" width="450px"/> |
+
 
 </br>
 
