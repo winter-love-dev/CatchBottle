@@ -52,7 +52,8 @@ Design reference, Banner image asset from [DailyShot](https://dailyshot.co/) Ser
 - <b>Glide</b> Image loading library
 - <b>Firebase</b>
   - Use <b>RemoteConfig</b>, Implementing Banner Image Event
-
+  - Banckend Storage Managning by <b>FireStorage</b> 
+  
 All library info : [libs.versions.toml](gradle/libs.versions.toml)
 
 ---
