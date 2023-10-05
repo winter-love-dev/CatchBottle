@@ -20,7 +20,7 @@ Concept: Alcohol sales commerce
 
 </div>
 
-Design, Banner image from [DailyShot](https://dailyshot.co/) Service
+Design beference, Banner image from [DailyShot](https://dailyshot.co/) Service
 
 ---
 </br>
