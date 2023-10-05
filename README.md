@@ -6,6 +6,8 @@
 
 ### <b>'Catch Bottle'</b> project is a great way to enjoy my favorite whiskey and programming together.
 Concept: Alcohol sales commerce
+Concept, Design reference, Banner image asset from [DailyShot](https://dailyshot.co/) Service
+
 
 ---
 </br>
@@ -19,8 +21,6 @@ Concept: Alcohol sales commerce
 | <img src="https://github.com/winter-love-dev/CatchBottle/assets/26156815/4fb48691-98a2-45bc-b28e-3609b04e60ad" align="center" width="300px"/> | <img src="https://github.com/winter-love-dev/CatchBottle/assets/26156815/c17a8792-c258-4f51-a9cf-f121c7c23cec" align="center" width="300px"/> |
 
 </div>
-
-Design reference, Banner image from [DailyShot](https://dailyshot.co/) Service
 
 ---
 </br>
