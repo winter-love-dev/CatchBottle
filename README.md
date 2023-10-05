@@ -48,7 +48,7 @@ Design reference, Banner image asset from [DailyShot](https://dailyshot.co/) Ser
     - ‘Custom UI component’ that emits events based on higher-order functions
     - Implement a UI testable screen by separating @Composable functions
 
-  - <b>Navigation</b> - Navigate multiple screens with tab navigation
+  - <b>Navigation</b> is Navigate multiple screens with tab navigation
 - <b>Glide</b> Image loading library
 - <b>Firebase</b>
   - Use <b>RemoteConfig</b>, Implementing Banner Image Event
