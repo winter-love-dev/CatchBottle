@@ -48,7 +48,7 @@ Concept: Alcohol sales commerce
   - <b>Navigation</b> - Navigate multiple screens with tab navigation
 - <b>Glide</b> Image loading library
 - <b>Firebase</b>
-  - Use <b>RemoteConfig</b>, Implementing Banner Image Event
+  - Use <b>RemoteConfig</b>, Implementing Banner Image Event (Banner image from [DailyShot](https://dailyshot.co/) Service)
 
 All library info : [libs.versions.toml](gradle/libs.versions.toml)
 
