@@ -6,7 +6,8 @@
 
 ### <b>'Catch Bottle'</b> project is a great way to enjoy my favorite whiskey and programming together.
 Concept: Alcohol sales commerce
-Concept, Design reference, Banner image asset from [DailyShot](https://dailyshot.co/) Service
+</br>
+Design reference, Banner image asset from [DailyShot](https://dailyshot.co/) Service
 
 
 ---
