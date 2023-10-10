@@ -61,18 +61,11 @@ All library info : [libs.versions.toml](gradle/libs.versions.toml)
 
 # Architecture
 
-## MVVM Design pattern with Dependency Injection, Reference by [App Arhitecture Guide](https://developer.android.com/topic/architecture)
-  
-|   |   |
-| :---------------: | :---------------: |
-| <img src="https://github.com/winter-love-dev/CatchBottle/assets/26156815/f61d9746-f375-4cfa-80ea-20a3cb0ceafb" align="center" width="550px"/> | <img src="https://github.com/winter-love-dev/ComposeNoteApp/assets/26156815/b9c996b3-be27-438e-a952-289990574a5c" align="center" width="350px"/> |
+## Compose UI Programming, Reference by [Unidirectional data flow document Pattern](https://developer.android.com/jetpack/compose/architecture#udf).
 
+<!-- ![state-unidirectional-flow](https://github.com/winter-love-dev/ComposeNoteApp/assets/26156815/9c96df0f-14db-4c53-a5ff-0d7337259dae) -->
 
-</br>
-
-## Multi Module Architecture, Reference by [android/nowinandroid](https://github.com/android/nowinandroid)
-
-![dep_graph_app](https://github.com/winter-love-dev/CatchBottle/assets/26156815/22cdd95a-29ee-4ea6-be8e-fe42ffeae5a2)
+I have already completed the ['DevFest 2021 Android Jetpack Compose'](https://github.com/winter-love-dev/ComposeFest2021) training course. Also, because I have experience developing declarative UI with iOS and Flutter, I was able to remember and learn this Compose study quickly and easily.
 
 </br>
 
@@ -83,16 +76,22 @@ Work Focused
 - Programming on the repository layer or feature layer, By domain layer specification.
 - Programming in ‘UseCase’ units
 - And code abstraction
-
-![mad-arch-domain-overview](https://github.com/winter-love-dev/CatchBottle/assets/26156815/5997a25a-3d89-4314-8bb8-d7f5253c6faf)
+<!-- ![mad-arch-domain-overview](https://github.com/winter-love-dev/CatchBottle/assets/26156815/5997a25a-3d89-4314-8bb8-d7f5253c6faf) -->
 
 </br>
 
-## Compose UI Programming, Reference by [Unidirectional data flow document Pattern](https://developer.android.com/jetpack/compose/architecture#udf).
+## Multi Module Architecture, Reference by [android/nowinandroid](https://github.com/android/nowinandroid)
+<!-- ![dep_graph_app](https://github.com/winter-love-dev/CatchBottle/assets/26156815/22cdd95a-29ee-4ea6-be8e-fe42ffeae5a2) -->
 
-![state-unidirectional-flow](https://github.com/winter-love-dev/ComposeNoteApp/assets/26156815/9c96df0f-14db-4c53-a5ff-0d7337259dae)
+</br>
 
-I have already completed the ['DevFest 2021 Android Jetpack Compose'](https://github.com/winter-love-dev/ComposeFest2021) training course. Also, because I have experience developing declarative UI with iOS and Flutter, I was able to remember and learn this Compose study quickly and easily.
+## MVVM Design pattern with Dependency Injection, Reference by [App Arhitecture Guide](https://developer.android.com/topic/architecture)
+  
+|   |   |
+| :---------------: | :---------------: |
+| <img src="https://github.com/winter-love-dev/CatchBottle/assets/26156815/f61d9746-f375-4cfa-80ea-20a3cb0ceafb" align="center" width="550px"/> | <img src="https://github.com/winter-love-dev/ComposeNoteApp/assets/26156815/b9c996b3-be27-438e-a952-289990574a5c" align="center" width="350px"/> |
+
+</br>
 
 ---
 </br>
