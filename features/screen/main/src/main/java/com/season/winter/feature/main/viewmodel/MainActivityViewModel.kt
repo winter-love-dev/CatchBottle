@@ -1,9 +1,9 @@
 package com.season.winter.feature.main.viewmodel
 
 import androidx.lifecycle.ViewModel
-import com.season.winter.liquor.dummy.model.HomeItem
-import com.season.winter.screen.fragment.navigationMain.home.domain.GetHomeScreenDataUseCase
-import com.season.winter.user.di.Credentials
+import com.season.winter.core.domain.entity.HomeItem
+import com.season.winter.core.domain.repository.CredentialsRepository
+import com.season.winter.core.domain.usecase.GetHomeScreenDataUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.channels.BufferOverflow
 import kotlinx.coroutines.flow.MutableSharedFlow
@@ -14,7 +14,7 @@ import javax.inject.Inject
 
 @HiltViewModel
 class MainActivityViewModel @Inject constructor(
-    private val credentials: Credentials,
+    private val credentials: CredentialsRepository,
     private val homeScreenData: GetHomeScreenDataUseCase,
 ): ViewModel() {
 

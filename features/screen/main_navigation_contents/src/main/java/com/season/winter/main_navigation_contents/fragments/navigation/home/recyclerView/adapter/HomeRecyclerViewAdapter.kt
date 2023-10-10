@@ -5,10 +5,9 @@ import android.view.ViewGroup
 import androidx.lifecycle.LifecycleOwner
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView.ViewHolder
-import com.season.winter.liquor.dummy.filter.LiquorFilter
+import com.season.winter.core.domain.entity.HomeItem
+import com.season.winter.core.domain.entity.HomeItemType
 import com.season.winter.main_navigation_contents.fragments.navigation.home.recyclerView.viewHolder.LiquorViewHolder
-import com.season.winter.liquor.dummy.model.HomeItem
-import com.season.winter.liquor.dummy.model.HomeItemType
 import com.season.winter.main_navigation_contents.fragments.navigation.home.recyclerView.viewHolder.BannerSectionViewHolder
 import com.season.winter.main_navigation_contents.fragments.navigation.home.recyclerView.viewHolder.EmptyViewHolder
 import com.season.winter.main_navigation_contents.fragments.navigation.home.recyclerView.viewHolder.SearchBarViewHolder

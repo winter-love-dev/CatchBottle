@@ -41,7 +41,6 @@ dependencies {
     implementation project(":core:design:designsystem")
 
     implementation project(":core:data:model:liquor")
-//    implementation project(":repository:liquor")
 
     implementation libs.bundles.default
     testImplementation libs.bundles.default.test.implementation

@@ -1,7 +1,7 @@
 package com.season.winter.main_navigation_contents.fragments.navigation.home.recyclerView.adapter
 
 import androidx.recyclerview.widget.DiffUtil
-import com.season.winter.liquor.dummy.model.HomeItem
+import com.season.winter.core.domain.entity.HomeItem
 
 class HomeDiffCallback: DiffUtil.ItemCallback<HomeItem>() {
 

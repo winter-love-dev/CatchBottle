@@ -5,10 +5,9 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.season.winter.catchbottle.activity.login.compose.LoginActivity
 import com.season.winter.catchbottle.activity.main.compose.MainActivity
-import com.season.winter.common.di.sharedPreferences.appConfig.AppConfigRepository
-import com.season.winter.common.local.database.image.ImageDatabaseRoomDao
-import com.season.winter.remoteconfig.domain.RemoteConfigFetcherUseCase
-import com.season.winter.user.di.Credentials
+import com.season.winter.core.domain.database.ImageDatabaseRoomDao
+import com.season.winter.core.domain.repository.AppPreferencesRepository
+import com.season.winter.core.domain.repository.CredentialsRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.channels.BufferOverflow
 import kotlinx.coroutines.delay
@@ -20,11 +19,11 @@ import javax.inject.Inject
 
 @HiltViewModel
 class SplashViewModel @Inject constructor(
-    private val credentials: Credentials,
-    private val appConfigRepository: AppConfigRepository,
+    private val credentials: CredentialsRepository,
+    private val appPreferencesRepository: AppPreferencesRepository,
 
     // call for initialize
-    private val remoteConfigFetcherUseCase: RemoteConfigFetcherUseCase,
+    private val remoteConfigFetcherUseCase: com.season.winter.core.domain.usecase.RemoteConfigFetcherUseCase,
 
     private val fetcherDao: ImageDatabaseRoomDao,
 ): ViewModel() {
@@ -47,7 +46,7 @@ class SplashViewModel @Inject constructor(
     }
 
     fun checkLaunchTargetActivity() {
-        val isFirstLaunch = appConfigRepository.checkFirstLaunch(true)
+        val isFirstLaunch = appPreferencesRepository.checkFirstLaunch(true)
         val activity = when {
             isFirstLaunch || !credentials.isLogin ->
                 LoginActivity::class.java

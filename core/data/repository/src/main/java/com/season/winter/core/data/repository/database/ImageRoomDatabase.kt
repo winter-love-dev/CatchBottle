@@ -1,0 +1,54 @@
+package com.season.winter.core.data.repository.database
+
+import android.content.Context
+import androidx.room.Database
+import androidx.room.Room
+import androidx.room.RoomDatabase
+import androidx.room.TypeConverters
+import androidx.sqlite.db.SupportSQLiteDatabase
+import com.season.winter.core.data.repository.worker.launchCommonImagerFetcherWorker
+import com.season.winter.core.data.repository.converter.ImageDatabaseConverter
+import com.season.winter.core.domain.database.ImageDatabaseRoomDao
+import com.season.winter.core.domain.entity.ImageNameUrlPairEntity
+
+@Database(
+    entities = [
+        ImageNameUrlPairEntity::class,
+    ],
+    version = 1,
+    exportSchema = false
+)
+@TypeConverters(ImageDatabaseConverter::class)
+abstract class
+ImageRoomDatabase: RoomDatabase() {
+
+    abstract fun imageDataDao(): ImageDatabaseRoomDao
+
+    companion object {
+
+        @Volatile
+        private var instance: ImageRoomDatabase? = null
+
+        fun getInstance(context: Context): ImageRoomDatabase {
+            return instance ?: synchronized(this) {
+                instance ?: buildDatabase(context).also { instance = it }
+            }
+        }
+
+        private fun buildDatabase(context: Context): ImageRoomDatabase {
+            return Room.databaseBuilder(
+                context,
+                ImageRoomDatabase::class.java,
+                com.season.winter.core.data.repository.constants.DatabaseName_ImageDatabase
+            )
+                .addCallback(
+                    object : RoomDatabase.Callback() {
+                        override fun onCreate(db: SupportSQLiteDatabase) {
+                            super.onCreate(db)
+                            launchCommonImagerFetcherWorker(context)
+                        }
+                    }
+                ).build()
+        }
+    }
+}

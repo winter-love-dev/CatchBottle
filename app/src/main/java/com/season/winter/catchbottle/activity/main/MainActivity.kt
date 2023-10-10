@@ -1,6 +1,5 @@
 package com.season.winter.catchbottle.activity.main
 
-import android.util.Log
 import androidx.activity.viewModels
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.fragment.findNavController

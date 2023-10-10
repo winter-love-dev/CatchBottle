@@ -56,9 +56,11 @@ dependencies {
     implementation project(":core:design:compose")
     implementation project(":core:design:ui")
 
-    implementation project(":core:data:model:common")
     implementation project(":core:data:model:user")
     implementation project(":core:data:model:liquor")
+    implementation project(":core:data:repository")
+
+    implementation project(":core:domain")
 
     implementation project(":core:network:firebase:firestore")
     implementation project(":core:network:firebase:storage")
@@ -67,12 +69,6 @@ dependencies {
     implementation project(":features:screen:main_navigation_contents")
     implementation project(":features:screen:login")
     implementation project(":features:screen:main")
-
-    implementation project(":repository:common")
-    implementation project(":repository:liquor")
-    implementation project(":repository:screen")
-    implementation project(":repository:user")
-    implementation project(":repository:remoteconfig")
 
     implementation libs.bundles.default
     implementation libs.bundles.default.screen
@@ -101,7 +97,6 @@ dependencies {
 
     implementation libs.bundles.compose.all
 
-//    implementation 'androidx.hilt:hilt-work:1.1.0-alpha01'
 }
 
 kapt {
