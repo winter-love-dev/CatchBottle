@@ -24,26 +24,6 @@ fun ImageView.setImageFromUrl(imageUrl: String?) {
         .into(this)
 }
 
-fun ImageView.setImageFromUrlOnResourceReadyCallback(
-    imageUrl: String?,
-    callback: (width: Int, height: Int) -> Unit
-) {
-
-    if (imageUrl.isNullOrEmpty())
-        return
-
-    Glide.with(context).load(imageUrl)
-        .placeholder(ResourceModuleR.drawable.logo_icon_small)
-        .into(this)
-        .getSize { width, height ->
-            callback(width, height)
-//            val lp = layoutParams
-//            lp.height = WRAP_CONTENT
-//            layoutParams = lp
-        }
-}
-
-
 fun ImageView.setImageFromUrlWrapHeight(imageUrl: String?) {
 
     if (imageUrl.isNullOrEmpty())

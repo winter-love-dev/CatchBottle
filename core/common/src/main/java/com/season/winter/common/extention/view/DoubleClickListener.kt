@@ -1,4 +1,4 @@
-package com.season.winter.common.util.views
+package com.season.winter.common.extention.view
 
 import android.os.SystemClock.elapsedRealtime
 import android.view.View

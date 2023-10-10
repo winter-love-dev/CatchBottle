@@ -3,6 +3,8 @@ package com.season.winter.common.util.device
 import android.content.Context
 import kotlin.math.roundToInt
 
+// 폴드 모델처럼 해상도 변하는 상황에는 아직 대비되지 않음
+
 @Volatile
 private var _customDisplaySize: CustomDisplaySize? = null
 
