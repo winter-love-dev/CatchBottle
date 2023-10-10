@@ -7,7 +7,6 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.lifecycleScope
 
 abstract class BaseFragment<T: ViewDataBinding>(private val layoutResourceId: Int): Fragment() {
 
@@ -15,20 +14,17 @@ abstract class BaseFragment<T: ViewDataBinding>(private val layoutResourceId: In
     val binding
         get() = viewDataBinding!!
 
-    protected val coroutine = lifecycleScope
 
-    protected abstract fun initStartView()
-    protected abstract fun T.initAfterView()
+    protected abstract fun T.initView()
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View =
         DataBindingUtil.inflate<T>(inflater, layoutResourceId, container,false).apply {
             viewDataBinding = this
-            initStartView()
         }.root
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding.initAfterView()
+        binding.initView()
     }
 
     override fun onDestroyView() {

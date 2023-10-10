@@ -16,8 +16,6 @@ abstract class BaseActivity<T : ViewDataBinding>(
 
     protected abstract fun T.initView()
 
-    protected val coroutine = lifecycleScope
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, layoutResourceId)
