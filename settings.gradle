@@ -16,7 +16,6 @@ rootProject.name = "catchbottle"
 
 include ':app'
 include ':core:common'
-include ':core:config'
 
 include ':core:design:core_design_resource'
 include ':core:design:designsystem'

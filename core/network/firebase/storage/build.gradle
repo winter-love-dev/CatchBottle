@@ -28,20 +28,17 @@ android {
     kotlinOptions {
         jvmTarget = JavaVersion.VERSION_17.toString()
     }
-    dataBinding {
-        enabled = true
-    }
 }
 
 dependencies {
 
     implementation project(":core:common")
-    implementation project(":core:config")
 
     implementation libs.bundles.default
     testImplementation libs.bundles.default.test.implementation
     androidTestImplementation libs.bundles.default.test.androidTestImplementation
 
+    implementation platform(libs.com.google.firebase.bom)
     implementation libs.com.google.firebase.storage.ktx
 
     annotationProcessor libs.bundles.glide.compiler.annotationProcessor

@@ -24,7 +24,6 @@ class RemoteConfig @Inject constructor() {
     // setOnLiveConfigUpdateListener
     private val instance = Firebase.remoteConfig.also {
         it.setConfigSettingsAsync(configSettings)
-        it.setDefaultsAsync(R.xml.remote_config_defaults)
         it.addOnConfigUpdateListener(object: ConfigUpdateListener {
             override fun onUpdate(configUpdate: ConfigUpdate) {
                 val updateKeys = mutableListOf<String>()

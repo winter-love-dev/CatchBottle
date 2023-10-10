@@ -42,7 +42,6 @@ android {
 dependencies {
 
     implementation project(":core:common")
-    implementation project(":core:config")
 
     implementation project(":core:design:core_design_resource")
     implementation project(":core:design:designsystem")

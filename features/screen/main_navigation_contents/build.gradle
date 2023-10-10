@@ -2,6 +2,7 @@ plugins {
     alias libs.plugins.android.library
     alias libs.plugins.kotlin.android
     alias libs.plugins.kotlin.kapt
+    alias libs.plugins.devtools.ksp
     alias libs.plugins.dagger.hilt
 }
 
@@ -37,7 +38,6 @@ android {
 dependencies {
 
     implementation project(":core:common")
-    implementation project(":core:config")
 
     implementation project(":core:design:core_design_resource")
     implementation project(":core:design:designsystem")
@@ -62,10 +62,6 @@ dependencies {
     implementation libs.bundles.hilt
     kapt libs.bundles.hilt.compiler.kapt
 
-    annotationProcessor libs.bundles.glide.compiler.annotationProcessor
+    kapt libs.bundles.glide.compiler.annotationProcessor
     implementation libs.bundles.glide
-}
-
-kapt {
-    correctErrorTypes true
 }

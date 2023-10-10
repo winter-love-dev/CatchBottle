@@ -33,12 +33,12 @@ android {
 dependencies {
 
     implementation project(":core:common")
-    implementation project(":core:config")
 
     implementation libs.bundles.default
     testImplementation libs.bundles.default.test.implementation
     androidTestImplementation libs.bundles.default.test.androidTestImplementation
 
+    implementation platform(libs.com.google.firebase.bom)
     implementation libs.com.google.firebase.remote.config.ktx
 
     implementation libs.bundles.hilt

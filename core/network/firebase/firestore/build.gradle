@@ -1,6 +1,7 @@
 plugins {
     alias libs.plugins.android.library
     alias libs.plugins.kotlin.android
+//    alias libs.plugins.gms.google.services
 }
 
 android {
@@ -32,7 +33,6 @@ android {
 dependencies {
 
     implementation project(":core:common")
-    implementation project(":core:config")
 
     implementation libs.bundles.default
     testImplementation libs.bundles.default.test.implementation
