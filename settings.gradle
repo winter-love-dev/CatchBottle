@@ -16,7 +16,6 @@ rootProject.name = "catchbottle"
 
 include ':app'
 include ':core:common'
-include ':core:config'
 
 include ':core:design:core_design_resource'
 include ':core:design:designsystem'
@@ -33,13 +32,7 @@ include ':features:screen:'
 include ':features:screen:main_navigation_contents'
 include ':features:screen:login'
 
-include ':repository:liquor'
-include ':repository:screen'
-include ':repository:user'
-include ':repository:common'
-include ':repository:remoteconfig'
-
-
-include ':core:data:model:common'
 include ':core:design:compose'
 include ':features:screen:main'
+include ':core:domain'
+include ':core:data:repository'

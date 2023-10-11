@@ -5,8 +5,7 @@
 
     <data>
 
-<!--        <import type="com.season.winter.liquor.liquorInfo.LiquorInfo" />-->
-        <import type="com.season.winter.liquor.dummy.model.HomeItem" />
+        <import type="com.season.winter.core.domain.entity.HomeItem" />
         <import type="com.season.winter.main_navigation_contents.fragments.navigation.home.recyclerView.adapter.HomeRecyclerViewAdapter" />
         <import type="com.season.winter.main_navigation_contents.fragments.navigation.home.recyclerView.viewHolder.LiquorViewHolder" />
         <import type="com.season.winter.main_navigation_contents.ui.recyclerView.adapter.MiniLiquorAdapter" />
@@ -17,7 +16,7 @@
 
         <variable
             name="home_item"
-            type="com.season.winter.liquor.dummy.model.HomeItem"/>
+            type="HomeItem"/>
 
         <variable
             name="adapter"
@@ -96,7 +95,7 @@
             app:adapter="@{mini_adapter}"
             tools:listitem="@layout/item_liquor_mini"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            android:layout_height="0dp"/>
 
     </LinearLayout>
 </layout>

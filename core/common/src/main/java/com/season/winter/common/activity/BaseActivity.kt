@@ -4,7 +4,6 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
-import androidx.lifecycle.lifecycleScope
 
 abstract class BaseActivity<T : ViewDataBinding>(
     private val layoutResourceId: Int
@@ -15,8 +14,6 @@ abstract class BaseActivity<T : ViewDataBinding>(
     lateinit var binding: T
 
     protected abstract fun T.initView()
-
-    protected val coroutine = lifecycleScope
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

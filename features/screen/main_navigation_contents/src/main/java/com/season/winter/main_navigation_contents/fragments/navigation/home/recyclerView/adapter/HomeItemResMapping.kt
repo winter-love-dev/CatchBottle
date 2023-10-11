@@ -1,7 +1,7 @@
 package com.season.winter.main_navigation_contents.fragments.navigation.home.recyclerView.adapter
 
+import com.season.winter.core.domain.entity.HomeItemType
 import com.season.winter.main_navigation_contents.R
-import com.season.winter.liquor.dummy.model.HomeItemType
 
 val HomeItemType.res: Int get() = when (this) {
     HomeItemType.SearchBar -> R.layout.item_search_ber

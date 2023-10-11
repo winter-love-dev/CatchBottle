@@ -8,10 +8,17 @@ import com.google.firebase.remoteconfig.FirebaseRemoteConfigException
 import com.google.firebase.remoteconfig.ktx.remoteConfig
 import com.google.firebase.remoteconfig.ktx.remoteConfigSettings
 import com.season.winter.common.constants.TimeVariable
-import com.season.winter.remoteconfig.di.RemoteConfigKey.KeyAll
+import com.season.winter.remoteconfig.RemoteConfigKey.KeyAll
 import kotlinx.coroutines.tasks.await
 import javax.inject.Inject
 import kotlin.reflect.typeOf
+
+object RemoteConfigKey {
+    const val KeyBanner = "Banner"
+    const val KeySomeOther = "SomeOtherConfig"
+
+    val KeyAll = listOf(KeyBanner, KeySomeOther)
+}
 
 class RemoteConfig @Inject constructor() {
 
@@ -24,7 +31,6 @@ class RemoteConfig @Inject constructor() {
     // setOnLiveConfigUpdateListener
     private val instance = Firebase.remoteConfig.also {
         it.setConfigSettingsAsync(configSettings)
-        it.setDefaultsAsync(R.xml.remote_config_defaults)
         it.addOnConfigUpdateListener(object: ConfigUpdateListener {
             override fun onUpdate(configUpdate: ConfigUpdate) {
                 val updateKeys = mutableListOf<String>()

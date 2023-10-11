@@ -1,9 +1,7 @@
 package com.season.winter.common.extention.view.glide
 
 import android.graphics.Bitmap
-import android.graphics.drawable.BitmapDrawable
 import android.graphics.drawable.Drawable
-import android.util.Log
 import android.widget.ImageView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.target.CustomTarget
@@ -23,26 +21,6 @@ fun ImageView.setImageFromUrl(imageUrl: String?) {
         .placeholder(ResourceModuleR.drawable.logo_icon_small)
         .into(this)
 }
-
-fun ImageView.setImageFromUrlOnResourceReadyCallback(
-    imageUrl: String?,
-    callback: (width: Int, height: Int) -> Unit
-) {
-
-    if (imageUrl.isNullOrEmpty())
-        return
-
-    Glide.with(context).load(imageUrl)
-        .placeholder(ResourceModuleR.drawable.logo_icon_small)
-        .into(this)
-        .getSize { width, height ->
-            callback(width, height)
-//            val lp = layoutParams
-//            lp.height = WRAP_CONTENT
-//            layoutParams = lp
-        }
-}
-
 
 fun ImageView.setImageFromUrlWrapHeight(imageUrl: String?) {
 
