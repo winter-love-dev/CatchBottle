@@ -11,7 +11,7 @@ class AppPreferencesRepositoryImpl @Inject constructor(
     private val preferences: Rsa2048PreferencesDao
 ): AppPreferencesRepository {
 
-    private val isFirstLaunch: Boolean
+    override val isFirstLaunch: Boolean
         get() = preferences.run {
             val isFirst = get(CommonKeyStore.isFirstLaunch, true)
             if (isFirst)

@@ -5,6 +5,7 @@ import com.season.winter.core.domain.repository.CredentialsRepository
 import javax.inject.Inject
 
 class CredentialsImpl @Inject constructor(
+    // dummy 와 release 구분하기 위한 주입 처리. 현재는 더미 주입.
     private val credentials: CredentialsDummyRepository
 ): CredentialsRepository {
 
