@@ -1,8 +1,10 @@
 package com.season.winter.feature.main.screen.home
 
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.ExperimentalComposeUiApi
+import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavHostController
@@ -34,7 +36,10 @@ fun HomeScreen(
 internal fun HomeScreen(
     onClickSearchBar: () -> Unit = { }
 ) {
-    Column {
+    Column(
+        modifier = Modifier
+            .fillMaxSize()
+    ) {
         CBText(text = NavGraph.Home.route)
     }
 }

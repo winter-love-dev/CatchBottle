@@ -1,7 +1,10 @@
 package com.season.winter.feature.main.screen.map
 
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.ExperimentalComposeUiApi
+import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavHostController
@@ -27,7 +30,12 @@ fun MapScreen(
 internal fun MapScreen(
     onClickSearchBar: () -> Unit = { }
 ) {
-    CBText(text = NavGraph.Map.route)
+    Column(
+        modifier = Modifier
+            .fillMaxSize()
+    ) {
+        CBText(text = NavGraph.Map.route)
+    }
 }
 
 @Preview(

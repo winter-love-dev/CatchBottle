@@ -1,6 +1,7 @@
 package com.season.winter.feature.main.screen.more
 
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.ExperimentalComposeUiApi
@@ -34,7 +35,9 @@ internal fun MoreScreen(
     onClickLogout: () -> Unit
 ) {
     Column(
-        modifier = Modifier.padding(CBSpacing.M.dp)
+        modifier = Modifier
+            .fillMaxSize()
+            .padding(CBSpacing.M.dp)
     ) {
         CBText(text = NavGraph.More.route)
         CBColumnWeight()

@@ -1,5 +1,7 @@
 package com.season.winter.feature.main.navigation
 
+import androidx.compose.animation.EnterTransition
+import androidx.compose.animation.ExitTransition
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.hilt.navigation.compose.hiltViewModel
@@ -22,21 +24,29 @@ fun MainNavHost(
         navController,
         startDestination = NavGraph.Home.route,
         modifier = modifier,
-//        enterTransition = { fadeIn(animationSpec = tween(0)) },
-//        exitTransition = { fadeOut(animationSpec = tween(0)) },
+        enterTransition = { EnterTransition.None },
+        exitTransition = { ExitTransition.None },
     ) {
-        composable(NavGraph.Home.route) {
+        composable(
+            route = NavGraph.Home.route
+        ) {
             HomeScreen(
 
             )
         }
-        composable(NavGraph.Map.route) {
+        composable(
+            route = NavGraph.Map.route
+        ) {
             MapScreen()
         }
-        composable(NavGraph.WishList.route) {
+        composable(
+            route = NavGraph.WishList.route
+        ) {
             WishListScreen()
         }
-        composable(NavGraph.More.route) {
+        composable(
+            route = NavGraph.More.route
+        ) {
             MoreScreen(
                 onClickLogout = {
                     activityViewModel.onClickLogout()
