@@ -33,12 +33,14 @@ android {
 
 dependencies {
 
+    // liquor.content.Feature 에서 designsystem 에서 정의한 스타일을 사용합니다.
     implementation project(":core:design:designsystem")
 
     implementation libs.bundles.default
     testImplementation libs.bundles.default.test.implementation
     androidTestImplementation libs.bundles.default.test.androidTestImplementation
 
+    // liquor.content.Feature 에서 entity와 serialization을 사용합니다
     implementation libs.bundles.kotlinx.serialization
 
     ksp libs.bundles.room.compiler.ksp
