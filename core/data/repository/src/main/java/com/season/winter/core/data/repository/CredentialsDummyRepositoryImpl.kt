@@ -1,14 +1,14 @@
 package com.season.winter.core.data.repository
 
-import com.season.winter.common.util.sharedPrefrences.securePreferences.Rsa2048PreferencesDao
+import com.season.winter.common.util.sharedPrefrences.CatchBottleSharedPreferences
 import com.season.winter.core.data.repository.constants.UserKeyStore
-import com.season.winter.core.data.repository.di.preferences.UserPreferencesModule
+import com.season.winter.core.data.repository.di.preferences.SharedPreferencesModule
 import com.season.winter.core.domain.repository.CredentialsDummyRepository
 import javax.inject.Inject
 
 class CredentialsDummyRepositoryImpl @Inject constructor(
-    @UserPreferencesModule.UserPreferences
-    private val preferences: Rsa2048PreferencesDao
+    @SharedPreferencesModule.UserPreferences
+    private val preferences: CatchBottleSharedPreferences
 ): CredentialsDummyRepository {
 
     override val isLogin: Boolean

@@ -1,12 +1,12 @@
-package com.season.winter.common.util.sharedPrefrences.securePreferences
+package com.season.winter.common.util.sharedPrefrences
 
 import android.content.Context
 import android.util.Log
-import com.season.winter.common.util.sharedPrefrences.di.CatchBottlePreferenceService
+import com.season.winter.common.util.sharedPrefrences.cipher.Rsa2048CipherHelper
 import javax.inject.Inject
 
 
-class Rsa2048PreferencesDao @Inject constructor(
+class CatchBottleSharedPreferences @Inject constructor(
     context: Context,
     private val name: String,
     private val cipherHelper: Rsa2048CipherHelper,

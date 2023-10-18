@@ -1,4 +1,4 @@
-package com.season.winter.common.util.sharedPrefrences.di
+package com.season.winter.common.util.sharedPrefrences
 
 
 interface CatchBottlePreferenceService {

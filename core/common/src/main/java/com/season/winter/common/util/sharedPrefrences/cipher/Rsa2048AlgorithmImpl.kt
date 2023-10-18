@@ -1,4 +1,4 @@
-package com.season.winter.common.util.security
+package com.season.winter.common.util.sharedPrefrences.cipher
 
 import android.security.keystore.KeyGenParameterSpec
 import android.security.keystore.KeyProperties
@@ -11,7 +11,9 @@ import java.security.spec.RSAKeyGenParameterSpec
 import javax.crypto.Cipher
 import javax.inject.Inject
 
-class Rsa2048AlgorithmManager @Inject constructor(): RSA2048AlgorithmService {
+class Rsa2048AlgorithmImpl @Inject constructor(
+
+): CipherService {
 
     private val rsaKeyAlgorithm = KeyProperties.KEY_ALGORITHM_RSA
     private val ecbBlock = KeyProperties.BLOCK_MODE_ECB

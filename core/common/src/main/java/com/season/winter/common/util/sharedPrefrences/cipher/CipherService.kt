@@ -1,6 +1,6 @@
-package com.season.winter.common.util.security
+package com.season.winter.common.util.sharedPrefrences.cipher
 
-interface RSA2048AlgorithmService {
+interface CipherService {
     fun create(alias: String): Boolean
 
     fun encrypt(plainText: String): String

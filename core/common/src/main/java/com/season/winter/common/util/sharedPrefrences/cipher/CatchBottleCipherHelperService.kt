@@ -1,4 +1,4 @@
-package com.season.winter.common.util.security
+package com.season.winter.common.util.sharedPrefrences.cipher
 
 interface CatchBottleCipherHelperService {
 

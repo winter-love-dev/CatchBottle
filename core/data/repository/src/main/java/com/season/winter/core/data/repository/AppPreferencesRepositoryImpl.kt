@@ -1,14 +1,14 @@
 package com.season.winter.core.data.repository
 
-import com.season.winter.common.util.sharedPrefrences.securePreferences.Rsa2048PreferencesDao
+import com.season.winter.common.util.sharedPrefrences.CatchBottleSharedPreferences
 import com.season.winter.core.data.repository.constants.CommonKeyStore
-import com.season.winter.core.data.repository.di.preferences.AppPreferencesModule
+import com.season.winter.core.data.repository.di.preferences.SharedPreferencesModule
 import com.season.winter.core.domain.repository.AppPreferencesRepository
 import javax.inject.Inject
 
 class AppPreferencesRepositoryImpl @Inject constructor(
-    @AppPreferencesModule.AppConfigPreferences
-    private val preferences: Rsa2048PreferencesDao
+    @SharedPreferencesModule.AppConfigPreferences
+    private val preferences: CatchBottleSharedPreferences
 ): AppPreferencesRepository {
 
     override val isFirstLaunch: Boolean

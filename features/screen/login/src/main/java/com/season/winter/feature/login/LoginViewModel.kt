@@ -1,7 +1,7 @@
 package com.season.winter.feature.login
 
 import androidx.lifecycle.ViewModel
-import com.season.winter.core.domain.repository.CredentialsRepository
+import com.season.winter.core.domain.repository.CredentialsDummyRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.channels.BufferOverflow
 import kotlinx.coroutines.flow.MutableSharedFlow
@@ -10,14 +10,14 @@ import javax.inject.Inject
 
 @HiltViewModel
 class LoginViewModel @Inject constructor(
-    private val credentials: CredentialsRepository
+    private val credentials: CredentialsDummyRepository
 ): ViewModel() {
 
     /*
     * SUSPEND
     * 버퍼 오버플로 시에 일시 중단합니다.
     *
-    * DROP_LATEST
+    * DROP_OLDEST
     * 오버플로 시에 버퍼에서 **가장 오래된** 값을 삭제하고, 버퍼에 새 값을 추가하고, 일시 중단하지 않습니다.
     *
     * DROP_LATEST
