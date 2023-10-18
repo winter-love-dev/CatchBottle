@@ -3,13 +3,13 @@ package com.season.winter.core.data.repository
 import com.season.winter.common.util.sharedPrefrences.CatchBottleSharedPreferences
 import com.season.winter.core.data.repository.constants.UserKeyStore
 import com.season.winter.core.data.repository.di.preferences.SharedPreferencesModule
-import com.season.winter.core.domain.repository.CredentialsDummyRepository
+import com.season.winter.core.domain.repository.CredentialsRepository
 import javax.inject.Inject
 
-class CredentialsDummyRepositoryImpl @Inject constructor(
-    @SharedPreferencesModule.UserPreferences
+class CredentialsRepositoryImpl @Inject constructor(
+    @SharedPreferencesModule.CredentialsPreferencesInstance
     private val preferences: CatchBottleSharedPreferences
-): CredentialsDummyRepository {
+): CredentialsRepository {
 
     override val isLogin: Boolean
         get() = preferences.get(UserKeyStore.isLogin, false)

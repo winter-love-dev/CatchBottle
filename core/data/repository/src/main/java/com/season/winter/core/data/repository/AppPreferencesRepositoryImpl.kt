@@ -7,7 +7,7 @@ import com.season.winter.core.domain.repository.AppPreferencesRepository
 import javax.inject.Inject
 
 class AppPreferencesRepositoryImpl @Inject constructor(
-    @SharedPreferencesModule.AppConfigPreferences
+    @SharedPreferencesModule.AppConfigPreferencesInstance
     private val preferences: CatchBottleSharedPreferences
 ): AppPreferencesRepository {
 

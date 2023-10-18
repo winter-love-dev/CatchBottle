@@ -7,7 +7,7 @@ import com.season.winter.catchbottle.activity.login.compose.LoginActivity
 import com.season.winter.catchbottle.activity.main.compose.MainActivity
 import com.season.winter.core.domain.database.ImageDatabaseRoomDao
 import com.season.winter.core.domain.repository.AppPreferencesRepository
-import com.season.winter.core.domain.repository.CredentialsDummyRepository
+import com.season.winter.core.domain.repository.CredentialsRepository
 import com.season.winter.core.domain.usecase.RemoteConfigFetcherUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.channels.BufferOverflow
@@ -20,7 +20,7 @@ import javax.inject.Inject
 
 @HiltViewModel
 class SplashViewModel @Inject constructor(
-    private val credentials: CredentialsDummyRepository,
+    private val credentials: CredentialsRepository,
     private val appPreferencesRepository: AppPreferencesRepository,
 
     // call for initialize

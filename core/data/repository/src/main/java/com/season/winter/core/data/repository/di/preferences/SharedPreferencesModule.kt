@@ -4,9 +4,9 @@ import android.content.Context
 import com.season.winter.common.util.sharedPrefrences.cipher.Rsa2048CipherHelper
 import com.season.winter.common.util.sharedPrefrences.CatchBottleSharedPreferences
 import com.season.winter.core.data.repository.AppPreferencesRepositoryImpl
-import com.season.winter.core.data.repository.CredentialsDummyRepositoryImpl
+import com.season.winter.core.data.repository.CredentialsRepositoryImpl
 import com.season.winter.core.domain.repository.AppPreferencesRepository
-import com.season.winter.core.domain.repository.CredentialsDummyRepository
+import com.season.winter.core.domain.repository.CredentialsRepository
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -23,16 +23,18 @@ object SharedPreferencesModule {
     private const val name = "UserSharedPreferences"
 
 
-    /** provide app config preferences  */
+    /**
+     * provide app config preferences
+     */
 
     @Qualifier
     @Retention(AnnotationRetention.BINARY)
-    annotation class AppConfigPreferences
+    annotation class AppConfigPreferencesInstance
 
     @Provides
     @Singleton
-    @AppConfigPreferences
-    fun provideAppPreferences(
+    @AppConfigPreferencesInstance
+    fun provideAppPreferencesInstance(
         @ApplicationContext context: Context,
         cipherHelper: Rsa2048CipherHelper,
     ): CatchBottleSharedPreferences {
@@ -46,26 +48,26 @@ object SharedPreferencesModule {
 
     @Provides
     @Singleton
-    fun provideAppConfigPreferences(
-        @AppConfigPreferences
+    fun provideAppConfigRepository(
+        @AppConfigPreferencesInstance
         preferences: CatchBottleSharedPreferences
     ): AppPreferencesRepository {
         return AppPreferencesRepositoryImpl(preferences)
     }
 
 
-
-
-    /** provide user config preferences  */
+    /**
+     * provide user config preferences
+     */
 
     @Qualifier
     @Retention(AnnotationRetention.BINARY)
-    annotation class UserPreferences
+    annotation class CredentialsPreferencesInstance
     
     @Provides
     @Singleton
-    @UserPreferences
-    fun provideUserPreferences(
+    @CredentialsPreferencesInstance
+    fun provideCredentialsPreferencesInstance(
         @ApplicationContext context: Context,
         cipherHelper: Rsa2048CipherHelper,
     ): CatchBottleSharedPreferences {
@@ -79,10 +81,10 @@ object SharedPreferencesModule {
 
     @Provides
     @Singleton
-    fun provideUserPreferencesRepository(
-        @UserPreferences
+    fun provideCredentialsDummyRepository(
+        @CredentialsPreferencesInstance
         dao: CatchBottleSharedPreferences,
-    ): CredentialsDummyRepository {
-        return CredentialsDummyRepositoryImpl(dao)
+    ): CredentialsRepository {
+        return CredentialsRepositoryImpl(dao)
     }
 }

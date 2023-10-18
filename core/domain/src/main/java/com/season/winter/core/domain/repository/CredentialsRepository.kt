@@ -1,6 +1,6 @@
 package com.season.winter.core.domain.repository
 
-interface CredentialsDummyRepository {
+interface CredentialsRepository {
 
     val isLogin: Boolean
     val userName: String?
