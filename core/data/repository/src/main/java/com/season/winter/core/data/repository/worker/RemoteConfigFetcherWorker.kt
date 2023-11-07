@@ -2,7 +2,7 @@ package com.season.winter.core.data.repository.worker
 
 import android.content.Context
 import android.util.Log
-import androidx.hilt.work.HiltWorker
+//import androidx.hilt.work.HiltWorker
 import androidx.work.CoroutineWorker
 import androidx.work.WorkerParameters
 import com.season.winter.core.data.repository.RemoteConfigServiceImpl
@@ -12,7 +12,7 @@ import dagger.assisted.AssistedInject
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 
-@HiltWorker
+//@HiltWorker
 class RemoteConfigFetcherWorker @AssistedInject constructor(
     @Assisted context: Context,
     @Assisted workerParams: WorkerParameters,
@@ -29,7 +29,7 @@ class RemoteConfigFetcherWorker @AssistedInject constructor(
                 if(fetchSuccess.not())
                     return@withContext Result.failure()
 
-                val bannerJsonString = remoteConfig.getString(KeyBanner)
+//                val bannerJsonString = remoteConfig.getString(KeyBanner)
 
 //                val bannerDataList = bannerJsonString
 //                    ?.decodeFromJsonStringSafety<List<BannerData>>()
@@ -45,7 +45,7 @@ class RemoteConfigFetcherWorker @AssistedInject constructor(
 
                 Result.success()
             } catch (ex: Exception) {
-                Log.e(TAG, "doWork: error: ${ex.message}")
+//                Log.e(TAG, "doWork: error: ${ex.message}")
                 Result.failure()
             }
         }
