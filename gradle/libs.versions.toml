@@ -11,7 +11,7 @@ hotfix = "0"
 versionCode = "1"
 
 ## GradlePlugins
-androidGradlePlugin = "8.1.2"
+androidGradlePlugin = "8.1.4"
 #https://github.com/google/secrets-gradle-plugin#secrets-gradle-plugin-for-android
 secretsGradlePlugin = "2.0.1"
 
