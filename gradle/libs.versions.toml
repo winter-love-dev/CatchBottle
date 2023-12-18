@@ -11,7 +11,7 @@ hotfix = "0"
 versionCode = "1"
 
 ## GradlePlugins
-androidGradlePlugin = "8.1.2"
+androidGradlePlugin = "8.1.4"
 #https://github.com/google/secrets-gradle-plugin#secrets-gradle-plugin-for-android
 secretsGradlePlugin = "2.0.1"
 
@@ -43,9 +43,9 @@ androidx-core = "1.12.0"
 # https://developer.android.com/jetpack/androidx/releases/appcompat
 androidx-appCompat = "1.6.1"
 # https://developer.android.com/jetpack/androidx/releases/activity
-androidx-activity = "1.8.0"
+androidx-activity = "1.8.1"
 # https://developer.android.com/jetpack/androidx/releases/fragment
-androidx-fragment = "1.7.0-alpha06"
+androidx-fragment = "1.7.0-alpha07"
 # https://developer.android.com/jetpack/androidx/releases/lifecycle
 androidx-lifecycle = "2.6.2"
 # https://developer.android.com/jetpack/androidx/releases/recyclerview
@@ -57,17 +57,17 @@ androidx-hilt = "2.48"
 # https://developer.android.com/jetpack/androidx/releases/hilt
 androidx-hilt-compose = "1.1.0"
 # https://developer.android.com/jetpack/androidx/releases/room
-androidx-room = "2.6.0"
+androidx-room = "2.6.1"
 # https://developer.android.com/jetpack/androidx/releases/navigation
-androidx-viewsNavigation = "2.7.5"
+androidx-viewsNavigation = "2.7.6"
 # https://developer.android.com/develop/ui/views/launch/splash-screen
 androidx-splashScreen = "1.0.1"
 # https://developer.android.com/jetpack/androidx/releases/work
-androidx-workerManager = "2.8.1" # Kotlin + coroutines
+androidx-workerManager = "2.9.0" # Kotlin + coroutines
 
 ## Compose
 # https://developer.android.com/jetpack/androidx/releases/compose
-compose = "1.6.0-alpha08"
+compose = "1.6.0-beta03"
 # https://developer.android.com/jetpack/androidx/releases/compose-kotlin
 compose-compilerVersion = "1.5.3"
 # https://developer.android.com/jetpack/androidx/releases/compose-material
@@ -75,7 +75,7 @@ compose-material = "1.5.4"
 # https://developer.android.com/jetpack/androidx/releases/compose-material3
 compose-material3 = "1.1.2"
 # https://developer.android.com/jetpack/androidx/releases/navigation
-compose-navigation = "2.7.3"
+compose-navigation = "2.7.6"
 
 ## Compose & Google
 # https://github.com/googlemaps/android-maps-compose#maps-compose-
@@ -95,9 +95,9 @@ network-retrofit-kotlinxSerializationConvert = "1.0.0"
 
 ## Test
 # https://developer.android.com/jetpack/androidx/releases/test
-test-androidx-core = "1.6.0-alpha02"
-test-androidx-runner = "1.6.0-alpha04"
-test-androidx-junit = "1.2.0-alpha01"
+test-androidx-core = "1.6.0-alpha04"
+test-androidx-runner = "1.6.0-alpha05"
+test-androidx-junit = "1.2.0-alpha02"
 # https://github.com/square/okhttp/tree/master/mockwebserver
 test-mock-webserver = "4.12.0"
 # https://github.com/mockito/mockito
@@ -109,7 +109,7 @@ junit = "4.13.2"
 espresso-core = "3.5.1"
 
 ## Firebase
-firebaseBom = "32.5.0"
+firebaseBom = "32.7.0"
 
 ## Third party
 # https://github.com/taehwandev/ComposeKeyboardState

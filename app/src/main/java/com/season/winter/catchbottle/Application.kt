@@ -8,9 +8,8 @@ import dagger.hilt.android.HiltAndroidApp
 @HiltAndroidApp
 class Application: Application(), Configuration.Provider {
 
-
-    override fun getWorkManagerConfiguration(): Configuration =
-        Configuration
+    override val workManagerConfiguration: Configuration
+        get() = Configuration
             .Builder()
             .build()
 
